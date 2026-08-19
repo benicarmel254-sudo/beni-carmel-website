@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,64 +11,923 @@
     content="Béni Carmel Collectives — faith-inspired fashion designed to be lived in and worn boldly."
   >
 
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       ANNOUNCEMENT
+    ========================= */
+
+    .announcement {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 11px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      height: 90px;
+      border-bottom: 1px solid #ddd;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 35px;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 1000;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-left a,
+    .header-right button {
+      background: none;
+      border: none;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+    }
+
+    .logo img {
+      width: 105px;
+      max-height: 65px;
+      object-fit: contain;
+    }
+
+    .header-right {
+      display: flex;
+      justify-content: flex-end;
+      gap: 25px;
+    }
+
+    .mobile-menu-button {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 25px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 680px;
+      background:
+        linear-gradient(
+          rgba(0,0,0,.35),
+          rgba(0,0,0,.35)
+        ),
+        url("images/hoodie-1.jpg") center/cover no-repeat;
+
+      display: flex;
+      align-items: center;
+      padding: 70px;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 9vw, 110px);
+      line-height: .85;
+      letter-spacing: -5px;
+      margin-bottom: 30px;
+    }
+
+    .hero p:not(.eyebrow) {
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 450px;
+      margin-bottom: 30px;
+    }
+
+    .primary-button {
+      display: inline-block;
+      background: white;
+      color: #111;
+      padding: 16px 27px;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+      text-align: center;
+      padding: 100px 20px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .intro h2,
+    .section-heading h2,
+    .story h2,
+    .newsletter h2 {
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: .95;
+      letter-spacing: -3px;
+    }
+
+    .intro-text {
+      max-width: 650px;
+      margin: 30px auto 0;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    .categories {
+      padding: 40px;
+    }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .category-card {
+      display: block;
+    }
+
+    .category-image {
+      height: 400px;
+      overflow: hidden;
+      background: #eee;
+    }
+
+    .category-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+
+    .category-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .category-card h3 {
+      font-size: 13px;
+      margin-top: 15px;
+      letter-spacing: 1px;
+    }
+
+    .category-card span {
+      display: block;
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #666;
+    }
+
+    /* =========================
+       SHOP
+    ========================= */
+
+    .shop {
+      padding: 100px 40px;
+    }
+
+    .shop-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 40px;
+    }
+
+    .shop-top h2 {
+      font-size: clamp(40px, 6vw, 70px);
+      letter-spacing: -3px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+      margin-bottom: 35px;
+    }
+
+    .filter {
+      border: 1px solid #ccc;
+      background: white;
+      padding: 10px 15px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .filter.active {
+      background: #111;
+      color: white;
+      border-color: #111;
+    }
+
+    .sort {
+      border: 1px solid #ccc;
+      padding: 11px;
+      background: white;
+      font-size: 11px;
+    }
+
+    /* =========================
+       PRODUCTS
+    ========================= */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px 15px;
+    }
+
+    .product {
+      position: relative;
+    }
+
+    .product-image {
+      position: relative;
+      background: #f4f4f4;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+    }
+
+    .product-image > img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .product:hover .product-image > img {
+      transform: scale(1.03);
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      background: white;
+      padding: 7px 9px;
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .wishlist {
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      z-index: 5;
+      border: none;
+      background: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    .quick-add {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+      background: #111;
+      color: white;
+      border: none;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      transform: translateY(100%);
+      transition: transform .3s;
+    }
+
+    .product:hover .quick-add {
+      transform: translateY(0);
+    }
+
+    .product-info {
+      padding-top: 13px;
+    }
+
+    .product-info h3 {
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 7px;
+    }
+
+    .product-info p {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       SCRIPTURE
+    ========================= */
+
+    .scripture {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 130px 20px;
+    }
+
+    .scripture blockquote {
+      font-size: clamp(30px, 5vw, 65px);
+      font-weight: bold;
+      line-height: 1;
+      letter-spacing: -2px;
+      margin: 30px auto;
+    }
+
+    .scripture p:last-child {
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* =========================
+       STORY
+    ========================= */
+
+    .story {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      padding: 80px;
+      background: #eee;
+    }
+
+    .story-content {
+      max-width: 600px;
+    }
+
+    .story h2 {
+      margin-bottom: 30px;
+    }
+
+    .story p:last-child {
+      line-height: 1.8;
+      color: #555;
+      max-width: 520px;
+    }
+
+    /* =========================
+       NEWSLETTER
+    ========================= */
+
+    .newsletter {
+      padding: 110px 20px;
+      text-align: center;
+    }
+
+    .newsletter p {
+      color: #555;
+      margin: 20px auto;
+    }
+
+    .newsletter form {
+      display: flex;
+      max-width: 500px;
+      margin: 30px auto 0;
+    }
+
+    .newsletter input {
+      flex: 1;
+      padding: 16px;
+      border: 1px solid #ccc;
+    }
+
+    .newsletter button {
+      padding: 16px 25px;
+      background: #111;
+      color: white;
+      border: none;
+      font-weight: bold;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .footer-links a {
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    footer p {
+      font-size: 9px;
+      color: #999;
+    }
+
+    /* =========================
+       OVERLAYS
+    ========================= */
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 2000;
+      display: none;
+    }
+
+    .overlay.open {
+      display: block;
+    }
+
+    /* =========================
+       BAG
+    ========================= */
+
+    .bag-panel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: min(450px, 100%);
+      background: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bag-header {
+      padding: 25px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .close {
+      border: none;
+      background: none;
+      font-size: 30px;
+    }
+
+    .bag-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .empty {
+      text-align: center;
+      padding-top: 100px;
+      color: #777;
+    }
+
+    .bag-item {
+      display: grid;
+      grid-template-columns: 85px 1fr auto;
+      gap: 12px;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+    }
+
+    .bag-item img {
+      height: 105px;
+      object-fit: cover;
+    }
+
+    .bag-item h4 {
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+
+    .bag-item p {
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+
+    .remove {
+      border: none;
+      background: none;
+      font-size: 10px;
+      text-decoration: underline;
+    }
+
+    .bag-footer {
+      border-top: 1px solid #ddd;
+      padding: 20px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
+
+    .total {
+      font-weight: bold;
+      font-size: 15px;
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+    }
+
+    .checkout {
+      width: 100%;
+      padding: 17px;
+      border: none;
+      background: #111;
+      color: white;
+      margin-top: 15px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* =========================
+       PRODUCT DETAIL
+    ========================= */
+
+    .detail-panel {
+      position: absolute;
+      inset: 5%;
+      background: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow-y: auto;
+    }
+
+    .detail-image {
+      background: #eee;
+      min-height: 600px;
+    }
+
+    .detail-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .detail-info {
+      padding: 60px;
+      position: relative;
+    }
+
+    .detail-info h2 {
+      font-size: 42px;
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .detail-price {
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .detail-description {
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .detail-close {
+      position: absolute;
+      right: 25px;
+      top: 20px;
+      border: none;
+      background: none;
+      font-size: 30px;
+      z-index: 5;
+    }
+
+    .option-title {
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .options {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .option {
+      background: white;
+      border: 1px solid #bbb;
+      padding: 11px 16px;
+      font-size: 10px;
+    }
+
+    .option.selected {
+      background: #111;
+      color: white;
+      border-color: #111;
+    }
+
+    .quantity {
+      display: flex;
+      width: 130px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    .quantity button,
+    .quantity span {
+      width: 43px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background: white;
+    }
+
+    .detail-add {
+      width: 100%;
+      padding: 18px;
+      border: none;
+      background: #111;
+      color: white;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    .search-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 50px;
+    }
+
+    .search-panel input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #111;
+      padding: 15px 0;
+      font-size: 25px;
+      outline: none;
+    }
+
+    #searchResults {
+      margin-top: 20px;
+    }
+
+    .search-result {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      header {
+        grid-template-columns: auto 1fr auto;
+        padding: 0 18px;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .nav-left nav {
+        display: none;
+      }
+
+      .logo {
+        justify-self: center;
+      }
+
+      .header-right {
+        gap: 10px;
+      }
+
+      .header-right button:first-child {
+        display: none;
+      }
+
+      .hero {
+        min-height: 600px;
+        padding: 35px;
+      }
+
+      .category-grid,
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .categories,
+      .shop {
+        padding: 60px 18px;
+      }
+
+      .category-image {
+        height: 300px;
+      }
+
+      .story {
+        padding: 60px 30px;
+      }
+
+      .detail-panel {
+        inset: 0;
+        grid-template-columns: 1fr;
+      }
+
+      .detail-image {
+        min-height: 400px;
+      }
+
+      .detail-info {
+        padding: 35px 25px;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .products {
+        gap: 20px 8px;
+      }
+
+      .product-info h3 {
+        font-size: 10px;
+      }
+
+      .quick-add {
+        transform: translateY(0);
+        font-size: 8px;
+        padding: 12px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .category-image {
+        height: 230px;
+      }
+
+      .newsletter form {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .newsletter input,
+      .newsletter button {
+        width: 100%;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- =====================================================
+<!-- =========================
      ANNOUNCEMENT
-===================================================== -->
+========================= -->
 
-<div class="announcement-bar">
-  <p>FREE SHIPPING ON ORDERS OVER KES 10,000</p>
+<div class="announcement">
+  FREE SHIPPING ON ORDERS OVER KES 10,000
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      HEADER
-===================================================== -->
+========================= -->
 
-<header class="header">
+<header>
 
-  <div class="header-left">
+  <div class="nav-left">
 
     <button
-      class="menu-button"
-      id="menuButton"
-      aria-label="Open menu"
+      class="mobile-menu-button"
+      onclick="toggleMobileMenu()"
     >
       ☰
     </button>
 
-    <nav class="desktop-nav">
-
+    <nav>
       <a href="#shop">SHOP</a>
+      &nbsp;&nbsp;&nbsp;
       <a href="#categories">COLLECTIONS</a>
+      &nbsp;&nbsp;&nbsp;
       <a href="#story">OUR STORY</a>
-
     </nav>
 
   </div>
 
 
   <a href="#" class="logo">
-
     <img
       src="images/logo.png"
       alt="Béni Carmel Collectives"
     >
-
   </a>
 
 
-  <div class="header-actions">
+  <div class="header-right">
 
-    <button id="searchButton">
+    <button onclick="openSearch()">
       SEARCH
     </button>
 
-    <button id="bagButton">
+    <button onclick="openBag()">
       BAG (<span id="bagCount">0</span>)
     </button>
 
@@ -78,35 +936,61 @@
 </header>
 
 
-<!-- =====================================================
+<!-- =========================
      MOBILE MENU
-===================================================== -->
+========================= -->
 
-<div class="mobile-menu" id="mobileMenu">
+<div
+  id="mobileMenu"
+  class="overlay"
+  onclick="closeMobileMenu()"
+>
 
-  <button class="close-menu" id="closeMenu">×</button>
+  <div
+    style="
+      background:white;
+      width:280px;
+      height:100%;
+      padding:40px 25px;
+    "
+    onclick="event.stopPropagation()"
+  >
 
-  <a href="#shop">SHOP</a>
-  <a href="#categories">COLLECTIONS</a>
-  <a href="#story">OUR STORY</a>
+    <button
+      class="close"
+      onclick="closeMobileMenu()"
+    >
+      ×
+    </button>
+
+    <br><br>
+
+    <a href="#shop" onclick="closeMobileMenu()">
+      SHOP
+    </a>
+
+    <br><br>
+
+    <a href="#categories" onclick="closeMobileMenu()">
+      COLLECTIONS
+    </a>
+
+    <br><br>
+
+    <a href="#story" onclick="closeMobileMenu()">
+      OUR STORY
+    </a>
+
+  </div>
 
 </div>
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<main>
-
-
-<!-- =====================================================
+<!-- =========================
      HERO
-===================================================== -->
+========================= -->
 
 <section class="hero">
-
-  <div class="hero-overlay"></div>
 
   <div class="hero-content">
 
@@ -120,13 +1004,16 @@
       BOLDLY.
     </h1>
 
-    <p class="hero-description">
+    <p>
       Faith-inspired pieces created for people
       who carry their beliefs into every room
       they enter.
     </p>
 
-    <a href="#shop" class="primary-button">
+    <a
+      href="#shop"
+      class="primary-button"
+    >
       SHOP THE COLLECTION
     </a>
 
@@ -135,9 +1022,9 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      INTRO
-===================================================== -->
+========================= -->
 
 <section class="intro">
 
@@ -160,13 +1047,16 @@
 </section>
 
 
-<!-- =====================================================
-     COLLECTIONS
-===================================================== -->
+<!-- =========================
+     CATEGORIES
+========================= -->
 
-<section class="categories" id="categories">
+<section
+  class="categories"
+  id="categories"
+>
 
-  <div class="section-title">
+  <div class="section-heading">
 
     <p class="eyebrow">
       SHOP BY CATEGORY
@@ -181,124 +1071,75 @@
 
   <div class="category-grid">
 
-
-    <a href="#hoodies" class="category-card">
-
+    <a href="#shop" class="category-card">
       <div class="category-image">
-        <img
-          src="images/hoodie-1.jpg"
-          alt="Hoodies"
-        >
+        <img src="images/hoodie-1.jpg" alt="Hoodies">
       </div>
-
       <h3>HOODIES</h3>
       <span>SHOP NOW →</span>
-
     </a>
 
 
-    <a href="#shirts" class="category-card">
-
+    <a href="#shop" class="category-card">
       <div class="category-image">
-        <img
-          src="images/tee-1.jpg"
-          alt="T-shirts"
-        >
+        <img src="images/tee-1.jpg" alt="T-Shirts">
       </div>
-
       <h3>T-SHIRTS</h3>
       <span>SHOP NOW →</span>
-
     </a>
 
 
-    <a href="#jackets" class="category-card">
-
+    <a href="#shop" class="category-card">
       <div class="category-image">
-        <img
-          src="images/denim-jacket-1.jpg"
-          alt="Jackets"
-        >
+        <img src="images/denim-jacket-1.jpg" alt="Jackets">
       </div>
-
       <h3>JACKETS</h3>
       <span>SHOP NOW →</span>
-
     </a>
 
 
-    <a href="#bottoms" class="category-card">
-
+    <a href="#shop" class="category-card">
       <div class="category-image">
-        <img
-          src="images/wide-leg-jeans-blue.jpg"
-          alt="Bottoms"
-        >
+        <img src="images/jorts-sky-blue.jpg" alt="Jorts">
       </div>
-
-      <h3>BOTTOMS</h3>
+      <h3>DENIM</h3>
       <span>SHOP NOW →</span>
-
     </a>
 
 
-    <a href="#headwear" class="category-card">
-
+    <a href="#shop" class="category-card">
       <div class="category-image">
-        <img
-          src="images/beanie-black.jpg"
-          alt="Headwear"
-        >
+        <img src="images/sweatpants-grey.jpg" alt="Sweatpants">
       </div>
-
-      <h3>HEADWEAR</h3>
+      <h3>SWEATPANTS</h3>
       <span>SHOP NOW →</span>
-
     </a>
 
 
-    <a href="#bags" class="category-card">
-
+    <a href="#shop" class="category-card">
       <div class="category-image">
-        <img
-          src="images/shoulder-bag-black.jpg"
-          alt="Shoulder bags"
-        >
+        <img src="images/beanie-black.jpg" alt="Beanies">
       </div>
+      <h3>BEANIES</h3>
+      <span>SHOP NOW →</span>
+    </a>
 
+
+    <a href="#shop" class="category-card">
+      <div class="category-image">
+        <img src="images/shoulder-bag-black.jpg" alt="Shoulder Bags">
+      </div>
       <h3>BAGS</h3>
       <span>SHOP NOW →</span>
-
     </a>
 
 
-    <a href="#jewellery" class="category-card">
-
+    <a href="#shop" class="category-card">
       <div class="category-image">
-        <img
-          src="images/cross-necklace-silver.jpg"
-          alt="Jewellery"
-        >
+        <img src="images/cross-necklace-silver.jpg" alt="Jewellery">
       </div>
-
       <h3>JEWELLERY</h3>
       <span>SHOP NOW →</span>
-
-    </a>
-
-
-    <a href="#accessories" class="category-card">
-
-      <div class="category-image">
-        <img
-          src="images/socks-black.jpg"
-          alt="Accessories"
-        >
-      </div>
-
-      <h3>ACCESSORIES</h3>
-      <span>SHOP NOW →</span>
-
     </a>
 
   </div>
@@ -306,18 +1147,21 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      SHOP
-===================================================== -->
+========================= -->
 
-<section class="shop-section" id="shop">
+<section
+  class="shop"
+  id="shop"
+>
 
-  <div class="shop-header">
+  <div class="shop-top">
 
     <div>
 
       <p class="eyebrow">
-        NEW DROP
+        THE LATEST DROP
       </p>
 
       <h2>
@@ -326,1257 +1170,1517 @@
 
     </div>
 
+    <select
+      class="sort"
+      id="sortProducts"
+      onchange="sortProducts()"
+    >
+
+      <option value="featured">
+        FEATURED
+      </option>
+
+      <option value="low">
+        PRICE: LOW TO HIGH
+      </option>
+
+      <option value="high">
+        PRICE: HIGH TO LOW
+      </option>
+
+      <option value="name">
+        NAME
+      </option>
+
+    </select>
+
   </div>
 
 
-<!-- =====================================================
-     FILTERS
-===================================================== -->
+  <div class="filters">
 
-<div class="shop-controls">
-
-  <div class="filter-buttons">
-
-    <button class="filter active" data-category="all">
+    <button
+      class="filter active"
+      data-filter="all"
+      onclick="filterProducts('all', this)"
+    >
       ALL
     </button>
 
-    <button class="filter" data-category="hoodies">
+    <button
+      class="filter"
+      data-filter="hoodies"
+      onclick="filterProducts('hoodies', this)"
+    >
       HOODIES
     </button>
 
-    <button class="filter" data-category="shirts">
+    <button
+      class="filter"
+      data-filter="shirts"
+      onclick="filterProducts('shirts', this)"
+    >
       T-SHIRTS
     </button>
 
-    <button class="filter" data-category="jackets">
+    <button
+      class="filter"
+      data-filter="jackets"
+      onclick="filterProducts('jackets', this)"
+    >
       JACKETS
     </button>
 
-    <button class="filter" data-category="bottoms">
+    <button
+      class="filter"
+      data-filter="bottoms"
+      onclick="filterProducts('bottoms', this)"
+    >
       BOTTOMS
     </button>
 
-    <button class="filter" data-category="headwear">
+    <button
+      class="filter"
+      data-filter="headwear"
+      onclick="filterProducts('headwear', this)"
+    >
       HEADWEAR
     </button>
 
-    <button class="filter" data-category="bags">
+    <button
+      class="filter"
+      data-filter="bags"
+      onclick="filterProducts('bags', this)"
+    >
       BAGS
     </button>
 
-    <button class="filter" data-category="jewellery">
+    <button
+      class="filter"
+      data-filter="jewellery"
+      onclick="filterProducts('jewellery', this)"
+    >
       JEWELLERY
     </button>
 
-    <button class="filter" data-category="accessories">
+    <button
+      class="filter"
+      data-filter="accessories"
+      onclick="filterProducts('accessories', this)"
+    >
       ACCESSORIES
     </button>
 
   </div>
 
 
-  <select id="sortProducts">
-
-    <option value="featured">
-      SORT: FEATURED
-    </option>
-
-    <option value="price-low">
-      PRICE: LOW TO HIGH
-    </option>
-
-    <option value="price-high">
-      PRICE: HIGH TO LOW
-    </option>
-
-    <option value="name">
-      NAME
-    </option>
-
-  </select>
-
-</div>
+  <div
+    class="products"
+    id="products"
+  >
 
 
-<!-- =====================================================
-     PRODUCTS
-===================================================== -->
+    <!-- =========================
+         HOODIES
+    ========================= -->
 
-<div class="products" id="products">
-
-
-<!-- =====================================================
-     HOODIES
-===================================================== -->
-
-<article
-  class="product"
-  id="hoodies"
-  data-name="Faith Hoodie"
-  data-price="1200"
-  data-category="hoodies"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">NEW</span>
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/hoodie-1.jpg"
-      alt="Faith Hoodie"
+    <article
+      class="product"
+      data-name="Faith Hoodie"
+      data-price="1200"
+      data-category="hoodies"
+      data-image="images/hoodie-1.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <span class="badge">NEW</span>
 
-  <div class="product-info">
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-    <h3>FAITH HOODIE</h3>
+        <img
+          src="images/hoodie-1.jpg"
+          alt="Faith Hoodie"
+        >
 
-    <p>KES 1,200</p>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-  </div>
+      </div>
 
-</article>
+      <div class="product-info">
+
+        <h3>FAITH HOODIE</h3>
+
+        <p>KES 1,200</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Covenant Hoodie"
-  data-price="1200"
-  data-category="hoodies"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/hoodie-2.jpg"
-      alt="Covenant Hoodie"
+    <article
+      class="product"
+      data-name="Covenant Hoodie"
+      data-price="1200"
+      data-category="hoodies"
+      data-image="images/hoodie-2.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <span class="badge">NEW</span>
 
-  <div class="product-info">
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-    <h3>COVENANT HOODIE</h3>
+        <img
+          src="images/hoodie-2.jpg"
+          alt="Covenant Hoodie"
+        >
 
-    <p>KES 1,200</p>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-  </div>
+      </div>
 
-</article>
+      <div class="product-info">
+
+        <h3>COVENANT HOODIE</h3>
+
+        <p>KES 1,200</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     T-SHIRTS
-===================================================== -->
-
-<article
-  class="product"
-  id="shirts"
-  data-name="Faith T-Shirt"
-  data-price="600"
-  data-category="shirts"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">NEW</span>
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/tee-1.jpg"
-      alt="Faith T-Shirt"
+    <!-- If hoodie-3 is uploaded later it will work automatically -->
+    <article
+      class="product"
+      data-name="Glory Hoodie"
+      data-price="1200"
+      data-category="hoodies"
+      data-image="images/hoodie-3.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img
+          src="images/hoodie-3.jpg"
+          alt="Glory Hoodie"
+        >
 
-    <h3>FAITH T-SHIRT</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 600</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>GLORY HOODIE</h3>
+
+        <p>KES 1,200</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Glory T-Shirt"
-  data-price="600"
-  data-category="shirts"
->
+    <!-- =========================
+         T-SHIRTS
+    ========================= -->
 
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/tee-2.jpg"
-      alt="Glory T-Shirt"
+    <article
+      class="product"
+      data-name="Faith T-Shirt"
+      data-price="600"
+      data-category="shirts"
+      data-image="images/tee-1.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <span class="badge">NEW</span>
 
-  <div class="product-info">
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-    <h3>GLORY T-SHIRT</h3>
+        <img src="images/tee-1.jpg" alt="Faith T-Shirt">
 
-    <p>KES 600</p>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-  </div>
+      </div>
 
-</article>
+      <div class="product-info">
+
+        <h3>FAITH T-SHIRT</h3>
+
+        <p>KES 600</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Covenant T-Shirt"
-  data-price="600"
-  data-category="shirts"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/tee-3.jpg"
-      alt="Covenant T-Shirt"
+    <article
+      class="product"
+      data-name="Glory T-Shirt"
+      data-price="600"
+      data-category="shirts"
+      data-image="images/tee-2.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/tee-2.jpg" alt="Glory T-Shirt">
 
-    <h3>COVENANT T-SHIRT</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 600</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>GLORY T-SHIRT</h3>
+
+        <p>KES 600</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     JACKETS
-===================================================== -->
-
-<article
-  class="product"
-  id="jackets"
-  data-name="College Jacket"
-  data-price="1500"
-  data-category="jackets"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">NEW</span>
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/college-jacket.jpg"
-      alt="College Jacket"
+    <article
+      class="product"
+      data-name="Covenant T-Shirt"
+      data-price="600"
+      data-category="shirts"
+      data-image="images/tee-3.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/tee-3.jpg" alt="Covenant T-Shirt">
 
-    <h3>COLLEGE JACKET</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 1,500</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>COVENANT T-SHIRT</h3>
+
+        <p>KES 600</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Classic Denim Jacket"
-  data-price="1400"
-  data-category="jackets"
->
+    <!-- =========================
+         JACKETS
+    ========================= -->
 
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/denim-jacket-1.jpg"
-      alt="Classic Denim Jacket"
+    <article
+      class="product"
+      data-name="College Jacket"
+      data-price="1400"
+      data-category="jackets"
+      data-image="images/college-jacket.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <span class="badge">NEW</span>
 
-  <div class="product-info">
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-    <h3>CLASSIC DENIM JACKET</h3>
+        <img
+          src="images/college-jacket.jpg"
+          alt="College Jacket"
+        >
 
-    <p>KES 1,400</p>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-  </div>
+      </div>
 
-</article>
+      <div class="product-info">
+
+        <h3>COLLEGE JACKET</h3>
+
+        <p>KES 1,400</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Washed Denim Jacket"
-  data-price="1400"
-  data-category="jackets"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/denim-jacket-2.jpg"
-      alt="Washed Denim Jacket"
+    <article
+      class="product"
+      data-name="Classic Denim Jacket"
+      data-price="1300"
+      data-category="jackets"
+      data-image="images/denim-jacket-1.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img
+          src="images/denim-jacket-1.jpg"
+          alt="Classic Denim Jacket"
+        >
 
-    <h3>WASHED DENIM JACKET</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 1,400</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>CLASSIC DENIM JACKET</h3>
+
+        <p>KES 1,300</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     BOTTOMS — JORTS
-===================================================== -->
-
-<article
-  class="product"
-  id="bottoms"
-  data-name="Sky Blue Jorts"
-  data-price="1000"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/jorts-sky-blue.jpg"
-      alt="Sky Blue Jorts"
+    <article
+      class="product"
+      data-name="Washed Denim Jacket"
+      data-price="1300"
+      data-category="jackets"
+      data-image="images/denim-jacket-2.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img
+          src="images/denim-jacket-2.jpg"
+          alt="Washed Denim Jacket"
+        >
 
-    <h3>SKY BLUE JORTS</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 1,000</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>WASHED DENIM JACKET</h3>
+
+        <p>KES 1,300</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Dark Blue Jorts"
-  data-price="1000"
-  data-category="bottoms"
->
+    <!-- =========================
+         WIDE LEG JEANS
+    ========================= -->
 
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/jorts-dark-blue.jpg"
-      alt="Dark Blue Jorts"
+    <article
+      class="product"
+      data-name="Blue Wide Leg Jeans"
+      data-price="1300"
+      data-category="bottoms"
+      data-image="images/wide-leg-jeans-blue.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <span class="badge">NEW</span>
 
-  <div class="product-info">
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-    <h3>DARK BLUE JORTS</h3>
+        <img
+          src="images/wide-leg-jeans-blue.jpg"
+          alt="Blue Wide Leg Jeans"
+        >
 
-    <p>KES 1,000</p>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-  </div>
+      </div>
 
-</article>
+      <div class="product-info">
+
+        <h3>BLUE WIDE LEG JEANS</h3>
+
+        <p>KES 1,300</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Marble Blue Jorts"
-  data-price="1000"
-  data-category="bottoms"
->
+    <!-- =========================
+         JORTS
+    ========================= -->
 
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/jorts-marble-blue.jpg"
-      alt="Marble Blue Jorts"
+    <article
+      class="product"
+      data-name="Sky Blue Jorts"
+      data-price="1000"
+      data-category="bottoms"
+      data-image="images/jorts-sky-blue.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <span class="badge">NEW</span>
 
-  <div class="product-info">
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-    <h3>MARBLE BLUE JORTS</h3>
+        <img
+          src="images/jorts-sky-blue.jpg"
+          alt="Sky Blue Jorts"
+        >
 
-    <p>KES 1,000</p>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-  </div>
+      </div>
 
-</article>
+      <div class="product-info">
+
+        <h3>SKY BLUE JORTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     WIDE LEG JEANS
-===================================================== -->
-
-<article
-  class="product"
-  data-name="Wide Leg Jeans"
-  data-price="1300"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">NEW</span>
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/wide-leg-jeans-blue.jpg"
-      alt="Blue Wide Leg Jeans"
+    <article
+      class="product"
+      data-name="Dark Blue Jorts"
+      data-price="1000"
+      data-category="bottoms"
+      data-image="images/jorts-dark-blue.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img
+          src="images/jorts-dark-blue.jpg"
+          alt="Dark Blue Jorts"
+        >
 
-    <h3>WIDE LEG JEANS</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 1,300</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>DARK BLUE JORTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     SWEATPANTS
-===================================================== -->
+    <!-- =========================
+         SWEATPANTS
+    ========================= -->
 
-<article
-  class="product"
-  data-name="Grey Sweatpants"
-  data-price="1000"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/sweatpants-grey.jpg"
-      alt="Grey Sweatpants"
+    <article
+      class="product"
+      data-name="Grey Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-image="images/sweatpants-grey.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/sweatpants-grey.jpg" alt="Grey Sweatpants">
 
-    <h3>GREY SWEATPANTS</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 1,000</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>GREY SWEATPANTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Black Sweatpants"
-  data-price="1000"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/sweatpants-black.jpg"
-      alt="Black Sweatpants"
+    <article
+      class="product"
+      data-name="Black Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-image="images/sweatpants-black.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/sweatpants-black.jpg" alt="Black Sweatpants">
 
-    <h3>BLACK SWEATPANTS</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 1,000</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>BLACK SWEATPANTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Cream Sweatpants"
-  data-price="1000"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/sweatpants-cream.jpg"
-      alt="Cream Sweatpants"
+    <article
+      class="product"
+      data-name="Cream Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-image="images/sweatpants-cream.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/sweatpants-cream.jpg" alt="Cream Sweatpants">
 
-    <h3>CREAM SWEATPANTS</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 1,000</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>CREAM SWEATPANTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Burgundy Sweatpants"
-  data-price="1000"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/sweatpants-burgundy.jpg"
-      alt="Burgundy Sweatpants"
+    <article
+      class="product"
+      data-name="Burgundy Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-image="images/sweatpants-burgundy.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/sweatpants-burgundy.jpg" alt="Burgundy Sweatpants">
 
-    <h3>BURGUNDY SWEATPANTS</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 1,000</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>BURGUNDY SWEATPANTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     HEADWEAR — CAP
-===================================================== -->
+    <!-- =========================
+         BEANIES
+    ========================= -->
 
-<article
-  class="product"
-  id="headwear"
-  data-name="White Cap"
-  data-price="500"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/cap-white.jpg"
-      alt="White Cap"
+    <article
+      class="product"
+      data-name="Black Beanie"
+      data-price="500"
+      data-category="headwear"
+      data-image="images/beanie-black.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <span class="badge">NEW</span>
 
-  <div class="product-info">
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-    <h3>WHITE CAP</h3>
+        <img src="images/beanie-black.jpg" alt="Black Beanie">
 
-    <p>KES 500</p>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-  </div>
+      </div>
 
-</article>
+      <div class="product-info">
+
+        <h3>BLACK BEANIE</h3>
+
+        <p>KES 500</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     BEANIES
-===================================================== -->
-
-<article
-  class="product"
-  data-name="Black Beanie"
-  data-price="500"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">NEW</span>
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/beanie-black.jpg"
-      alt="Black Beanie"
+    <article
+      class="product"
+      data-name="Cream Beanie"
+      data-price="500"
+      data-category="headwear"
+      data-image="images/beanie-cream.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/beanie-cream.jpg" alt="Cream Beanie">
 
-    <h3>BLACK BEANIE</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 500</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>CREAM BEANIE</h3>
+
+        <p>KES 500</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Cream Beanie"
-  data-price="500"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/beanie-cream.jpg"
-      alt="Cream Beanie"
+    <article
+      class="product"
+      data-name="White Beanie"
+      data-price="500"
+      data-category="headwear"
+      data-image="images/beanie-white.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/beanie-white.jpg" alt="White Beanie">
 
-    <h3>CREAM BEANIE</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 500</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>WHITE BEANIE</h3>
+
+        <p>KES 500</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="White Beanie"
-  data-price="500"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/beanie-white.jpg"
-      alt="White Beanie"
+    <article
+      class="product"
+      data-name="Burgundy Beanie"
+      data-price="500"
+      data-category="headwear"
+      data-image="images/beanie-burgundy.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/beanie-burgundy.jpg" alt="Burgundy Beanie">
 
-    <h3>WHITE BEANIE</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 500</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>BURGUNDY BEANIE</h3>
+
+        <p>KES 500</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Burgundy Beanie"
-  data-price="500"
-  data-category="headwear"
->
+    <!-- =========================
+         BUCKET HATS
+    ========================= -->
 
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/beanie-burgundy.jpg"
-      alt="Burgundy Beanie"
+    <article
+      class="product"
+      data-name="Black Bucket Hat"
+      data-price="800"
+      data-category="headwear"
+      data-image="images/bucket-hat-black.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/bucket-hat-black.jpg" alt="Black Bucket Hat">
 
-    <h3>BURGUNDY BEANIE</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 500</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>BLACK BUCKET HAT</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     BUCKET HATS
-===================================================== -->
-
-<article
-  class="product"
-  data-name="Black Bucket Hat"
-  data-price="800"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/bucket-hat-black.jpg"
-      alt="Black Bucket Hat"
+    <article
+      class="product"
+      data-name="Burgundy Bucket Hat"
+      data-price="800"
+      data-category="headwear"
+      data-image="images/bucket-hat-burgundy.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/bucket-hat-burgundy.jpg" alt="Burgundy Bucket Hat">
 
-    <h3>BLACK BUCKET HAT</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 800</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>BURGUNDY BUCKET HAT</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Burgundy Bucket Hat"
-  data-price="800"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/bucket-hat-burgundy.jpg"
-      alt="Burgundy Bucket Hat"
+    <article
+      class="product"
+      data-name="White Bucket Hat"
+      data-price="800"
+      data-category="headwear"
+      data-image="images/bucket-hat-white.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/bucket-hat-white.jpg" alt="White Bucket Hat">
 
-    <h3>BURGUNDY BUCKET HAT</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 800</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>WHITE BUCKET HAT</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="White Bucket Hat"
-  data-price="800"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/bucket-hat-white.jpg"
-      alt="White Bucket Hat"
+    <article
+      class="product"
+      data-name="Beige Bucket Hat"
+      data-price="800"
+      data-category="headwear"
+      data-image="images/bucket-hat-beige.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/bucket-hat-beige.jpg" alt="Beige Bucket Hat">
 
-    <h3>WHITE BUCKET HAT</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 800</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>BEIGE BUCKET HAT</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Beige Bucket Hat"
-  data-price="800"
-  data-category="headwear"
->
+    <!-- =========================
+         CAPS
+    ========================= -->
 
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/bucket-hat-beige.jpg"
-      alt="Beige Bucket Hat"
+    <article
+      class="product"
+      data-name="White Béni Carmel Cap"
+      data-price="500"
+      data-category="headwear"
+      data-image="images/cap-white.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/cap-white.jpg" alt="White Cap">
 
-    <h3>BEIGE BUCKET HAT</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 800</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>WHITE CAP</h3>
+
+        <p>KES 500</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     SHOULDER BAGS
-===================================================== -->
+    <!-- =========================
+         SHOULDER BAGS
+    ========================= -->
 
-<article
-  class="product"
-  id="bags"
-  data-name="Black Shoulder Bag"
-  data-price="800"
-  data-category="bags"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">NEW</span>
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/shoulder-bag-black.jpg"
-      alt="Black Shoulder Bag"
+    <article
+      class="product"
+      data-name="Black Shoulder Bag"
+      data-price="800"
+      data-category="bags"
+      data-image="images/shoulder-bag-black.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <span class="badge">NEW</span>
 
-  <div class="product-info">
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-    <h3>BLACK SHOULDER BAG</h3>
+        <img src="images/shoulder-bag-black.jpg" alt="Black Shoulder Bag">
 
-    <p>KES 800</p>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-  </div>
+      </div>
 
-</article>
+      <div class="product-info">
+
+        <h3>BLACK SHOULDER BAG</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Brown Shoulder Bag"
-  data-price="800"
-  data-category="bags"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/shoulder-bag-brown.jpg"
-      alt="Brown Shoulder Bag"
+    <article
+      class="product"
+      data-name="Brown Shoulder Bag"
+      data-price="800"
+      data-category="bags"
+      data-image="images/shoulder-bag-brown.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/shoulder-bag-brown.jpg" alt="Brown Shoulder Bag">
 
-    <h3>BROWN SHOULDER BAG</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 800</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>BROWN SHOULDER BAG</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Pink Shoulder Bag"
-  data-price="800"
-  data-category="bags"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/shoulder-bag-pink.jpg"
-      alt="Pink Shoulder Bag"
+    <article
+      class="product"
+      data-name="Pink Shoulder Bag"
+      data-price="800"
+      data-category="bags"
+      data-image="images/shoulder-bag-pink.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/shoulder-bag-pink.jpg" alt="Pink Shoulder Bag">
 
-    <h3>PINK SHOULDER BAG</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 800</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>PINK SHOULDER BAG</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="Orange Shoulder Bag"
-  data-price="800"
-  data-category="bags"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/shoulder-bag-orange.jpg"
-      alt="Orange Shoulder Bag"
+    <article
+      class="product"
+      data-name="Orange Shoulder Bag"
+      data-price="800"
+      data-category="bags"
+      data-image="images/shoulder-bag-orange.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/shoulder-bag-orange.jpg" alt="Orange Shoulder Bag">
 
-    <h3>ORANGE SHOULDER BAG</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 800</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>ORANGE SHOULDER BAG</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     CROSS SHOULDER BAG
-===================================================== -->
+    <!-- =========================
+         CROSS SHOULDER BAG
+    ========================= -->
 
-<article
-  class="product"
-  data-name="Black Cross Shoulder Bag"
-  data-price="800"
-  data-category="bags"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/shoulder-bag-black-cross.jpg"
-      alt="Black Cross Shoulder Bag"
+    <article
+      class="product"
+      data-name="Black Cross Shoulder Bag"
+      data-price="800"
+      data-category="bags"
+      data-image="images/shoulder-bag-black-cross.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <span class="badge">NEW</span>
 
-  <div class="product-info">
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-    <h3>BLACK CROSS SHOULDER BAG</h3>
+        <img
+          src="images/shoulder-bag-black-cross.jpg"
+          alt="Black Cross Shoulder Bag"
+        >
 
-    <p>KES 800</p>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-  </div>
+      </div>
 
-</article>
+      <div class="product-info">
+
+        <h3>BLACK CROSS SHOULDER BAG</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     JEWELLERY
-===================================================== -->
+    <!-- =========================
+         JEWELLERY
+    ========================= -->
 
-<article
-  class="product"
-  id="jewellery"
-  data-name="Silver Cross Necklace"
-  data-price="500"
-  data-category="jewellery"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">NEW</span>
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/cross-necklace-silver.jpg"
-      alt="Silver Cross Necklace"
+    <article
+      class="product"
+      data-name="Silver Cross Necklace"
+      data-price="500"
+      data-category="jewellery"
+      data-image="images/cross-necklace-silver.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <span class="badge">NEW</span>
 
-  <div class="product-info">
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-    <h3>SILVER CROSS NECKLACE</h3>
+        <img
+          src="images/cross-necklace-silver.jpg"
+          alt="Silver Cross Necklace"
+        >
 
-    <p>KES 500</p>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-  </div>
+      </div>
 
-</article>
+      <div class="product-info">
+
+        <h3>SILVER CROSS NECKLACE</h3>
+
+        <p>KES 500</p>
+
+      </div>
+
+    </article>
 
 
-<!-- =====================================================
-     SOCKS
-===================================================== -->
+    <!-- =========================
+         SOCKS
+    ========================= -->
 
-<article
-  class="product"
-  id="accessories"
-  data-name="Black Socks"
-  data-price="150"
-  data-category="accessories"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/socks-black.jpg"
-      alt="Black Socks"
+    <article
+      class="product"
+      data-name="Black Socks"
+      data-price="150"
+      data-category="accessories"
+      data-image="images/socks-black.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
 
-  </div>
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
 
-  <div class="product-info">
+        <img src="images/socks-black.jpg" alt="Black Socks">
 
-    <h3>BLACK SOCKS</h3>
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
 
-    <p>KES 150</p>
+      </div>
 
-  </div>
+      <div class="product-info">
 
-</article>
+        <h3>BLACK SOCKS</h3>
+
+        <p>KES 150</p>
+
+      </div>
+
+    </article>
 
 
-<article
-  class="product"
-  data-name="White Socks"
-  data-price="150"
-  data-category="accessories"
->
-
-  <div class="product-image">
-
-    <button class="wishlist">♡</button>
-
-    <img
-      src="images/socks-white.jpg"
-      alt="White Socks"
+    <article
+      class="product"
+      data-name="White Socks"
+      data-price="150"
+      data-category="accessories"
+      data-image="images/socks-white.jpg"
     >
 
-    <button class="quick-add">
-      VIEW PRODUCT
-    </button>
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          onclick="event.stopPropagation(); toggleWishlist(this)"
+        >
+          ♡
+        </button>
+
+        <img src="images/socks-white.jpg" alt="White Socks">
+
+        <button
+          class="quick-add"
+          onclick="openProduct(this.closest('.product'))"
+        >
+          VIEW PRODUCT
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>WHITE SOCKS</h3>
+
+        <p>KES 150</p>
+
+      </div>
+
+    </article>
+
 
   </div>
-
-  <div class="product-info">
-
-    <h3>WHITE SOCKS</h3>
-
-    <p>KES 150</p>
-
-  </div>
-
-</article>
-
-
-</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      SCRIPTURE
-===================================================== -->
+========================= -->
 
 <section class="scripture">
 
@@ -1597,11 +2701,14 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      STORY
-===================================================== -->
+========================= -->
 
-<section class="story" id="story">
+<section
+  class="story"
+  id="story"
+>
 
   <div class="story-content">
 
@@ -1630,9 +2737,9 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      NEWSLETTER
-===================================================== -->
+========================= -->
 
 <section class="newsletter">
 
@@ -1649,7 +2756,9 @@
     and exclusive releases.
   </p>
 
-  <form id="newsletterForm">
+  <form
+    onsubmit="subscribe(event)"
+  >
 
     <input
       type="email"
@@ -1665,12 +2774,10 @@
 
 </section>
 
-</main>
 
-
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
@@ -1680,10 +2787,21 @@
 
   <div class="footer-links">
 
-    <a href="#shop">SHOP</a>
-    <a href="#categories">COLLECTIONS</a>
-    <a href="#story">OUR STORY</a>
-    <a href="#">INSTAGRAM</a>
+    <a href="#shop">
+      SHOP
+    </a>
+
+    <a href="#categories">
+      COLLECTIONS
+    </a>
+
+    <a href="#story">
+      OUR STORY
+    </a>
+
+    <a href="#">
+      INSTAGRAM
+    </a>
 
   </div>
 
@@ -1695,26 +2813,37 @@
 </footer>
 
 
-<!-- =====================================================
-     SEARCH OVERLAY
-===================================================== -->
+<!-- =========================
+     SEARCH
+========================= -->
 
-<div class="search-overlay" id="searchOverlay">
+<div
+  class="overlay"
+  id="searchOverlay"
+  onclick="closeSearch()"
+>
 
-  <button class="close-search" id="closeSearch">
-    ×
-  </button>
+  <div
+    class="search-panel"
+    onclick="event.stopPropagation()"
+  >
 
-  <div class="search-content">
+    <button
+      class="close"
+      onclick="closeSearch()"
+    >
+      ×
+    </button>
 
-    <p>
+    <p class="eyebrow">
       SEARCH BÉNI CARMEL
     </p>
 
     <input
-      type="text"
       id="searchInput"
+      type="text"
       placeholder="WHAT ARE YOU LOOKING FOR?"
+      oninput="searchProducts()"
     >
 
     <div id="searchResults"></div>
@@ -1724,13 +2853,20 @@
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      SHOPPING BAG
-===================================================== -->
+========================= -->
 
-<div class="bag-overlay" id="bagOverlay">
+<div
+  class="overlay"
+  id="bagOverlay"
+  onclick="closeBag()"
+>
 
-  <aside class="bag">
+  <aside
+    class="bag-panel"
+    onclick="event.stopPropagation()"
+  >
 
     <div class="bag-header">
 
@@ -1747,8 +2883,8 @@
       </div>
 
       <button
-        id="closeBag"
-        class="bag-close"
+        class="close"
+        onclick="closeBag()"
       >
         ×
       </button>
@@ -1757,26 +2893,12 @@
 
 
     <div
-      class="shipping-message"
-      id="shippingMessage"
+      class="bag-items"
+      id="bagItems"
     >
-      ADD KES 10,000 TO YOUR BAG
-      FOR FREE SHIPPING.
-    </div>
 
-
-    <div class="bag-items" id="bagItems">
-
-      <div class="empty-bag">
-
-        <p>
-          YOUR BAG IS EMPTY.
-        </p>
-
-        <a href="#shop" id="emptyBagShop">
-          CONTINUE SHOPPING →
-        </a>
-
+      <div class="empty">
+        YOUR BAG IS EMPTY.
       </div>
 
     </div>
@@ -1784,49 +2906,51 @@
 
     <div class="bag-footer">
 
-      <div class="bag-summary">
+      <div class="summary-row">
 
-        <div>
-          <span>SUBTOTAL</span>
+        <span>
+          SUBTOTAL
+        </span>
 
-          <strong id="bagSubtotal">
-            KES 0
-          </strong>
-        </div>
+        <strong id="bagSubtotal">
+          KES 0
+        </strong>
 
-        <div>
-          <span>SHIPPING</span>
+      </div>
 
-          <strong id="bagShipping">
-            KES 0
-          </strong>
-        </div>
 
-        <div class="bag-total">
+      <div class="summary-row">
 
-          <span>TOTAL</span>
+        <span>
+          SHIPPING
+        </span>
 
-          <strong id="bagTotal">
-            KES 0
-          </strong>
+        <strong id="bagShipping">
+          KES 0
+        </strong>
 
-        </div>
+      </div>
+
+
+      <div class="summary-row total">
+
+        <span>
+          TOTAL
+        </span>
+
+        <strong id="bagTotal">
+          KES 0
+        </strong>
 
       </div>
 
 
       <button
-        class="checkout-button"
-        id="checkoutButton"
+        class="checkout"
+        onclick="checkout()"
       >
         PROCEED TO CHECKOUT
       </button>
-
-
-      <p class="checkout-note">
-        TAXES AND SHIPPING CALCULATED
-        AT CHECKOUT
-      </p>
 
     </div>
 
@@ -1835,29 +2959,25 @@
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      PRODUCT DETAIL
-===================================================== -->
+========================= -->
 
 <div
-  class="product-detail-overlay"
-  id="productDetailOverlay"
+  class="overlay"
+  id="detailOverlay"
+  onclick="closeProduct()"
 >
 
-  <div class="product-detail">
+  <div
+    class="detail-panel"
+    onclick="event.stopPropagation()"
+  >
 
-    <button
-      class="product-detail-close"
-      id="closeProductDetail"
-    >
-      ×
-    </button>
-
-
-    <div class="product-detail-image">
+    <div class="detail-image">
 
       <img
-        id="detailProductImage"
+        id="detailImage"
         src=""
         alt=""
       >
@@ -1865,122 +2985,138 @@
     </div>
 
 
-    <div class="product-detail-info">
+    <div class="detail-info">
 
-      <p
-        class="product-detail-eyebrow"
-        id="detailProductCategory"
+      <button
+        class="detail-close"
+        onclick="closeProduct()"
       >
+        ×
+      </button>
+
+
+      <p class="eyebrow">
         BÉNI CARMEL
       </p>
 
 
-      <h2
-        class="product-detail-title"
-        id="detailProductName"
-      >
+      <h2 id="detailName">
         PRODUCT
       </h2>
 
 
       <p
-        class="product-detail-price"
-        id="detailProductPrice"
+        class="detail-price"
+        id="detailPrice"
       >
         KES 0
       </p>
 
 
-      <p
-        class="product-detail-description"
-        id="detailProductDescription"
-      >
-        A meaningful piece from the
-        Béni Carmel Collectives.
+      <p class="detail-description">
+        A meaningful, faith-inspired piece
+        designed for everyday wear.
       </p>
 
 
       <!-- COLOUR -->
 
+      <p class="option-title">
+        SELECT COLOUR
+      </p>
+
       <div
-        class="product-colour-section"
-        id="productColourSection"
+        class="options"
+        id="colourOptions"
       >
 
-        <p class="colour-heading">
-          SELECT COLOUR
-        </p>
+        <button
+          class="option selected"
+          onclick="selectOption(this, 'colour')"
+        >
+          BLACK
+        </button>
 
-        <div class="colour-options" id="colourOptions">
+        <button
+          class="option"
+          onclick="selectOption(this, 'colour')"
+        >
+          WHITE
+        </button>
 
-        </div>
+        <button
+          class="option"
+          onclick="selectOption(this, 'colour')"
+        >
+          CREAM
+        </button>
+
+        <button
+          class="option"
+          onclick="selectOption(this, 'colour')"
+        >
+          BURGUNDY
+        </button>
 
       </div>
 
 
       <!-- SIZE -->
 
-      <div
-        class="product-size-section"
-        id="productSizeSection"
-      >
+      <p class="option-title">
+        SELECT SIZE
+      </p>
 
-        <p class="size-heading">
-          SELECT SIZE
-        </p>
+      <div class="options">
 
-        <div class="size-options">
+        <button
+          class="option"
+          onclick="selectOption(this, 'size')"
+        >
+          S
+        </button>
 
-          <button
-            class="size-option"
-            data-size="S"
-          >
-            S
-          </button>
+        <button
+          class="option selected"
+          onclick="selectOption(this, 'size')"
+        >
+          M
+        </button>
 
-          <button
-            class="size-option selected"
-            data-size="M"
-          >
-            M
-          </button>
+        <button
+          class="option"
+          onclick="selectOption(this, 'size')"
+        >
+          L
+        </button>
 
-          <button
-            class="size-option"
-            data-size="L"
-          >
-            L
-          </button>
-
-          <button
-            class="size-option"
-            data-size="XL"
-          >
-            XL
-          </button>
-
-        </div>
+        <button
+          class="option"
+          onclick="selectOption(this, 'size')"
+        >
+          XL
+        </button>
 
       </div>
 
 
       <!-- QUANTITY -->
 
-      <p class="quantity-heading">
+      <p class="option-title">
         QUANTITY
       </p>
 
-      <div class="quantity-selector">
+      <div class="quantity">
 
-        <button id="quantityMinus" type="button">
+        <button onclick="changeQuantity(-1)">
           −
         </button>
 
-        <span id="detailQuantity">
+        <span id="quantity">
           1
         </span>
 
-        <button id="quantityPlus" type="button">
+        <button onclick="changeQuantity(1)">
           +
         </button>
 
@@ -1988,31 +3124,11 @@
 
 
       <button
-        class="detail-add-button"
-        id="detailAddButton"
+        class="detail-add"
+        onclick="addCurrentProduct()"
       >
         ADD TO BAG
       </button>
-
-
-      <div class="product-features">
-
-        <div class="product-feature">
-          <span>✓</span>
-          <span>FAITH-INSPIRED DESIGN</span>
-        </div>
-
-        <div class="product-feature">
-          <span>✓</span>
-          <span>PREMIUM EVERYDAY WEAR</span>
-        </div>
-
-        <div class="product-feature">
-          <span>✓</span>
-          <span>MADE TO BE WORN BOLDLY</span>
-        </div>
-
-      </div>
 
     </div>
 
@@ -2021,602 +3137,104 @@
 </div>
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
-document.addEventListener("DOMContentLoaded", function () {
-
-
-  /* =====================================================
-     VARIABLES
-  ===================================================== */
-
-  const products = document.querySelectorAll(".product");
-
-  const bagButton = document.getElementById("bagButton");
-  const bagOverlay = document.getElementById("bagOverlay");
-  const closeBag = document.getElementById("closeBag");
-
-  const bagItems = document.getElementById("bagItems");
-  const bagCount = document.getElementById("bagCount");
-
-  const bagSubtotal = document.getElementById("bagSubtotal");
-  const bagShipping = document.getElementById("bagShipping");
-  const bagTotal = document.getElementById("bagTotal");
-
-  const checkoutButton =
-    document.getElementById("checkoutButton");
-
-  const searchButton =
-    document.getElementById("searchButton");
-
-  const searchOverlay =
-    document.getElementById("searchOverlay");
-
-  const closeSearch =
-    document.getElementById("closeSearch");
-
-  const searchInput =
-    document.getElementById("searchInput");
-
-  const searchResults =
-    document.getElementById("searchResults");
-
-  const productDetailOverlay =
-    document.getElementById("productDetailOverlay");
-
-  const closeProductDetail =
-    document.getElementById("closeProductDetail");
-
-  const detailProductImage =
-    document.getElementById("detailProductImage");
-
-  const detailProductName =
-    document.getElementById("detailProductName");
-
-  const detailProductPrice =
-    document.getElementById("detailProductPrice");
-
-  const detailProductCategory =
-    document.getElementById("detailProductCategory");
-
-  const detailProductDescription =
-    document.getElementById("detailProductDescription");
-
-  const detailAddButton =
-    document.getElementById("detailAddButton");
-
-  const detailQuantity =
-    document.getElementById("detailQuantity");
-
-  const colourOptions =
-    document.getElementById("colourOptions");
-
-  const productColourSection =
-    document.getElementById("productColourSection");
-
-  const productSizeSection =
-    document.getElementById("productSizeSection");
-
-  const mobileMenu =
-    document.getElementById("mobileMenu");
-
-  const menuButton =
-    document.getElementById("menuButton");
-
-  const closeMenu =
-    document.getElementById("closeMenu");
-
-
-  let bag = [];
-
-  let currentProduct = null;
-
-  let currentQuantity = 1;
-
-  let selectedSize = "M";
-
-  let selectedColour = "";
-
-
-  /* =====================================================
-     COLOURS
-  ===================================================== */
-
-  const colourMap = {
-
-    "Black Beanie": ["BLACK"],
-    "Cream Beanie": ["CREAM"],
-    "White Beanie": ["WHITE"],
-    "Burgundy Beanie": ["BURGUNDY"],
-
-    "Black Bucket Hat": ["BLACK"],
-    "Burgundy Bucket Hat": ["BURGUNDY"],
-    "White Bucket Hat": ["WHITE"],
-    "Beige Bucket Hat": ["BEIGE"],
-
-    "Black Shoulder Bag": ["BLACK"],
-    "Brown Shoulder Bag": ["BROWN"],
-    "Pink Shoulder Bag": ["PINK"],
-    "Orange Shoulder Bag": ["ORANGE"],
-
-    "Black Cross Shoulder Bag": ["BLACK"],
-
-    "Grey Sweatpants": ["GREY"],
-    "Black Sweatpants": ["BLACK"],
-    "Cream Sweatpants": ["CREAM"],
-    "Burgundy Sweatpants": ["BURGUNDY"],
-
-    "Sky Blue Jorts": ["SKY BLUE"],
-    "Dark Blue Jorts": ["DARK BLUE"],
-    "Marble Blue Jorts": ["MARBLE BLUE"],
-
-    "Wide Leg Jeans": ["BLUE"],
-
-    "College Jacket": ["MULTI"],
-    "Classic Denim Jacket": ["BLUE"],
-    "Washed Denim Jacket": ["BLUE"],
-
-    "Faith Hoodie": ["BLACK"],
-    "Covenant Hoodie": ["BLACK"],
-
-    "Faith T-Shirt": ["WHITE"],
-    "Glory T-Shirt": ["WHITE"],
-    "Covenant T-Shirt": ["WHITE"],
-
-    "White Cap": ["WHITE"],
-
-    "Silver Cross Necklace": ["SILVER"],
-
-    "Black Socks": ["BLACK"],
-    "White Socks": ["WHITE"]
-
-  };
-
-
-  /* =====================================================
-     SIZE ELIGIBILITY
-  ===================================================== */
-
-  function productUsesSizes(name) {
-
-    const noSizeProducts = [
-
-      "Black Beanie",
-      "Cream Beanie",
-      "White Beanie",
-      "Burgundy Beanie",
-
-      "Black Bucket Hat",
-      "Burgundy Bucket Hat",
-      "White Bucket Hat",
-      "Beige Bucket Hat",
-
-      "Black Shoulder Bag",
-      "Brown Shoulder Bag",
-      "Pink Shoulder Bag",
-      "Orange Shoulder Bag",
-      "Black Cross Shoulder Bag",
-
-      "White Cap",
-
-      "Silver Cross Necklace",
-
-      "Black Socks",
-      "White Socks"
-
-    ];
-
-    return !noSizeProducts.includes(name);
-
-  }
-
-
-  /* =====================================================
-     FORMAT PRICE
-  ===================================================== */
-
-  function formatPrice(price) {
-
-    return "KES " +
-      Number(price).toLocaleString();
-
-  }
-
-
-  /* =====================================================
-     OPEN PRODUCT
-  ===================================================== */
-
-  function openProduct(product) {
-
-    currentProduct = product;
-
-    currentQuantity = 1;
-
-    selectedSize = "M";
-
-    const name =
-      product.dataset.name;
-
-    const price =
-      product.dataset.price;
-
-    const category =
-      product.dataset.category;
-
-    const image =
-      product.querySelector("img").src;
-
-
-    detailProductName.textContent =
-      name.toUpperCase();
-
-    detailProductPrice.textContent =
-      formatPrice(price);
-
-    detailProductCategory.textContent =
-      category.toUpperCase();
-
-    detailProductImage.src =
-      image;
-
-    detailProductImage.alt =
-      name;
-
-    detailQuantity.textContent =
-      "1";
-
-
-    detailProductDescription.textContent =
-      "A meaningful " +
-      category.slice(0, -1) +
-      " from the Béni Carmel Collectives, designed to be worn boldly.";
-
-
-    /* COLOURS */
-
-    colourOptions.innerHTML = "";
-
-    const colours =
-      colourMap[name];
-
-
-    if (colours && colours.length > 0) {
-
-      productColourSection.style.display =
-        "block";
-
-      selectedColour =
-        colours[0];
-
-      colours.forEach(function (colour, index) {
-
-        const button =
-          document.createElement("button");
-
-        button.className =
-          "colour-option";
-
-        button.textContent =
-          colour;
-
-        button.dataset.colour =
-          colour;
-
-        if (index === 0) {
-          button.classList.add("selected");
-        }
-
-        button.addEventListener(
-          "click",
-          function () {
-
-            document
-              .querySelectorAll(".colour-option")
-              .forEach(function (btn) {
-
-                btn.classList.remove("selected");
-
-              });
-
-            button.classList.add("selected");
-
-            selectedColour =
-              colour;
-
-          }
-        );
-
-        colourOptions.appendChild(button);
-
-      });
-
-    } else {
-
-      productColourSection.style.display =
-        "none";
-
-      selectedColour = "";
-
-    }
-
-
-    /* SIZES */
-
-    if (productUsesSizes(name)) {
-
-      productSizeSection.style.display =
-        "block";
-
-      document
-        .querySelectorAll(".size-option")
-        .forEach(function (button) {
-
-          button.classList.remove("selected");
-
-          if (button.dataset.size === "M") {
-
-            button.classList.add("selected");
-
-          }
-
-        });
-
-    } else {
-
-      productSizeSection.style.display =
-        "none";
-
-      selectedSize = "";
-
-    }
-
-
-    productDetailOverlay.classList.add(
-      "active"
-    );
-
-  }
-
-
-  /* =====================================================
-     PRODUCT CLICK
-  ===================================================== */
-
-  products.forEach(function (product) {
-
-    const image =
-      product.querySelector(".product-image");
-
-    const quickAdd =
-      product.querySelector(".quick-add");
-
-    if (quickAdd) {
-
-      quickAdd.addEventListener(
-        "click",
-        function (event) {
-
-          event.stopPropagation();
-
-          openProduct(product);
-
-        }
-      );
-
-    }
-
-
-    if (image) {
-
-      image.addEventListener(
-        "click",
-        function (event) {
-
-          if (
-            event.target.closest(".wishlist") ||
-            event.target.closest(".quick-add")
-          ) {
-            return;
-          }
-
-          openProduct(product);
-
-        }
-      );
-
-    }
-
-  });
-
-
-  /* =====================================================
-     SIZE BUTTONS
-  ===================================================== */
-
-  document
-    .querySelectorAll(".size-option")
-    .forEach(function (button) {
-
-      button.addEventListener(
-        "click",
-        function () {
-
-          document
-            .querySelectorAll(".size-option")
-            .forEach(function (btn) {
-
-              btn.classList.remove("selected");
-
-            });
-
-          button.classList.add("selected");
-
-          selectedSize =
-            button.dataset.size;
-
-        }
-      );
-
-    });
-
-
-  /* =====================================================
-     QUANTITY
-  ===================================================== */
-
-  document
-    .getElementById("quantityMinus")
-    .addEventListener(
-      "click",
-      function () {
-
-        if (currentQuantity > 1) {
-
-          currentQuantity--;
-
-          detailQuantity.textContent =
-            currentQuantity;
-
-        }
-
-      }
-    );
-
-
-  document
-    .getElementById("quantityPlus")
-    .addEventListener(
-      "click",
-      function () {
-
-        currentQuantity++;
-
-        detailQuantity.textContent =
-          currentQuantity;
-
-      }
-    );
-
-
-  /* =====================================================
-     ADD TO BAG
-  ===================================================== */
-
-  detailAddButton.addEventListener(
-    "click",
-    function () {
-
-      if (!currentProduct) {
-        return;
-      }
-
-
-      const name =
-        currentProduct.dataset.name;
-
-      const price =
-        Number(
-          currentProduct.dataset.price
-        );
-
-      const image =
-        currentProduct.querySelector("img").src;
-
-
-      const existing =
-        bag.find(function (item) {
-
-          return (
-            item.name === name &&
-            item.size === selectedSize &&
-            item.colour === selectedColour
-          );
-
-        });
-
-
-      if (existing) {
-
-        existing.quantity +=
-          currentQuantity;
-
-      } else {
-
-        bag.push({
-
-          name: name,
-
-          price: price,
-
-          image: image,
-
-          size: selectedSize,
-
-          colour: selectedColour,
-
-          quantity: currentQuantity
-
-        });
-
-      }
-
-
-      updateBag();
-
-      productDetailOverlay.classList.remove(
-        "active"
-      );
-
-      bagOverlay.classList.add(
-        "active"
-      );
-
-    }
+  /* =========================================
+     BAG
+  ========================================= */
+
+  let bag = JSON.parse(
+    localStorage.getItem("beniCarmelBag") || "[]"
   );
 
+  let currentProduct = null;
+  let currentQuantity = 1;
 
-  /* =====================================================
-     UPDATE BAG
-  ===================================================== */
 
-  function updateBag() {
+  function saveBag() {
 
-    bagItems.innerHTML = "";
+    localStorage.setItem(
+      "beniCarmelBag",
+      JSON.stringify(bag)
+    );
 
+  }
+
+
+  function updateBagCount() {
+
+    const count = bag.reduce(
+      (total, item) => total + item.quantity,
+      0
+    );
+
+    document.getElementById("bagCount").textContent = count;
+
+  }
+
+
+  function addToBag(
+    name,
+    price,
+    image,
+    size = "M",
+    colour = "DEFAULT"
+  ) {
+
+    const existing = bag.find(item =>
+      item.name === name &&
+      item.size === size &&
+      item.colour === colour
+    );
+
+
+    if (existing) {
+
+      existing.quantity += 1;
+
+    } else {
+
+      bag.push({
+        name,
+        price,
+        image,
+        size,
+        colour,
+        quantity: 1
+      });
+
+    }
+
+
+    saveBag();
+    updateBagCount();
+    renderBag();
+
+    openBag();
+
+  }
+
+
+  function renderBag() {
+
+    const container =
+      document.getElementById("bagItems");
 
     if (bag.length === 0) {
 
-      bagItems.innerHTML = `
-
-        <div class="empty-bag">
-
-          <p>
-            YOUR BAG IS EMPTY.
-          </p>
-
-          <a href="#shop">
-            CONTINUE SHOPPING →
-          </a>
-
+      container.innerHTML = `
+        <div class="empty">
+          YOUR BAG IS EMPTY.
         </div>
-
       `;
 
-      bagCount.textContent =
-        "0";
-
-      bagSubtotal.textContent =
+      document.getElementById("bagSubtotal").textContent =
         "KES 0";
 
-      bagShipping.textContent =
+      document.getElementById("bagShipping").textContent =
         "KES 0";
 
-      bagTotal.textContent =
+      document.getElementById("bagTotal").textContent =
         "KES 0";
 
       return;
@@ -2626,695 +3244,596 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let subtotal = 0;
 
-    let count = 0;
+
+    container.innerHTML = bag.map(
+      (item, index) => {
+
+        subtotal +=
+          item.price * item.quantity;
 
 
-    bag.forEach(function (item, index) {
+        return `
 
-      subtotal +=
-        item.price *
-        item.quantity;
+          <div class="bag-item">
 
-      count +=
-        item.quantity;
-
-
-      const itemElement =
-        document.createElement("div");
-
-      itemElement.className =
-        "bag-item";
-
-
-      itemElement.innerHTML = `
-
-        <img
-          src="${item.image}"
-          alt="${item.name}"
-        >
-
-        <div class="bag-item-info">
-
-          <h4>
-            ${item.name.toUpperCase()}
-          </h4>
-
-          ${
-            item.colour
-              ? `<p>COLOUR: ${item.colour}</p>`
-              : ""
-          }
-
-          ${
-            item.size
-              ? `<p>SIZE: ${item.size}</p>`
-              : ""
-          }
-
-          <p>
-            ${formatPrice(item.price)}
-          </p>
-
-          <div class="bag-item-controls">
-
-            <button
-              class="bag-minus"
-              data-index="${index}"
+            <img
+              src="${item.image}"
+              alt="${item.name}"
             >
-              −
-            </button>
 
-            <span>
-              ${item.quantity}
-            </span>
+            <div>
 
-            <button
-              class="bag-plus"
-              data-index="${index}"
-            >
-              +
-            </button>
+              <h4>
+                ${item.name}
+              </h4>
 
-            <button
-              class="bag-remove"
-              data-index="${index}"
-            >
-              REMOVE
-            </button>
+              <p>
+                KES ${item.price.toLocaleString()}
+              </p>
+
+              <p>
+                SIZE: ${item.size}
+              </p>
+
+              ${
+                item.colour !== "DEFAULT"
+                ? `<p>COLOUR: ${item.colour}</p>`
+                : ""
+              }
+
+              <p>
+                QTY: ${item.quantity}
+              </p>
+
+              <button
+                class="remove"
+                onclick="removeFromBag(${index})"
+              >
+                REMOVE
+              </button>
+
+            </div>
 
           </div>
 
-        </div>
+        `;
 
-      `;
-
-
-      bagItems.appendChild(
-        itemElement
-      );
-
-    });
+      }
+    ).join("");
 
 
     const shipping =
       subtotal >= 10000
-        ? 0
-        : 300;
+      ? 0
+      : 300;
 
 
-    const total =
-      subtotal + shipping;
+    document.getElementById(
+      "bagSubtotal"
+    ).textContent =
+      `KES ${subtotal.toLocaleString()}`;
 
 
-    bagCount.textContent =
-      count;
-
-    bagSubtotal.textContent =
-      formatPrice(subtotal);
-
-    bagShipping.textContent =
+    document.getElementById(
+      "bagShipping"
+    ).textContent =
       shipping === 0
-        ? "FREE"
-        : formatPrice(shipping);
-
-    bagTotal.textContent =
-      formatPrice(total);
+      ? "FREE"
+      : `KES ${shipping.toLocaleString()}`;
 
 
-    if (subtotal >= 10000) {
+    document.getElementById(
+      "bagTotal"
+    ).textContent =
+      `KES ${(subtotal + shipping).toLocaleString()}`;
 
-      document.getElementById(
-        "shippingMessage"
-      ).textContent =
-        "YOU QUALIFY FOR FREE SHIPPING!";
+  }
 
-    } else {
 
-      document.getElementById(
-        "shippingMessage"
-      ).textContent =
-        "ADD " +
-        formatPrice(10000 - subtotal) +
-        " TO YOUR BAG FOR FREE SHIPPING.";
+  function removeFromBag(index) {
+
+    bag.splice(index, 1);
+
+    saveBag();
+    updateBagCount();
+    renderBag();
+
+  }
+
+
+  function openBag() {
+
+    document
+      .getElementById("bagOverlay")
+      .classList.add("open");
+
+    renderBag();
+
+  }
+
+
+  function closeBag() {
+
+    document
+      .getElementById("bagOverlay")
+      .classList.remove("open");
+
+  }
+
+
+  /* =========================================
+     PRODUCT DETAIL
+  ========================================= */
+
+  function openProduct(product) {
+
+    currentProduct = {
+
+      name:
+        product.dataset.name,
+
+      price:
+        Number(product.dataset.price),
+
+      image:
+        product.dataset.image,
+
+      category:
+        product.dataset.category
+
+    };
+
+
+    currentQuantity = 1;
+
+    document.getElementById(
+      "quantity"
+    ).textContent = 1;
+
+
+    document.getElementById(
+      "detailImage"
+    ).src = currentProduct.image;
+
+
+    document.getElementById(
+      "detailName"
+    ).textContent =
+      currentProduct.name;
+
+
+    document.getElementById(
+      "detailPrice"
+    ).textContent =
+      `KES ${currentProduct.price.toLocaleString()}`;
+
+
+    document
+      .getElementById("detailOverlay")
+      .classList.add("open");
+
+  }
+
+
+  function closeProduct() {
+
+    document
+      .getElementById("detailOverlay")
+      .classList.remove("open");
+
+  }
+
+
+  function changeQuantity(amount) {
+
+    currentQuantity += amount;
+
+    if (currentQuantity < 1) {
+      currentQuantity = 1;
+    }
+
+    document.getElementById(
+      "quantity"
+    ).textContent =
+      currentQuantity;
+
+  }
+
+
+  function selectOption(button, type) {
+
+    const parent =
+      button.parentElement;
+
+    parent
+      .querySelectorAll(".option")
+      .forEach(btn => {
+
+        btn.classList.remove("selected");
+
+      });
+
+
+    button.classList.add("selected");
+
+  }
+
+
+  function getSelectedOption(type) {
+
+    const options =
+      document.querySelectorAll(
+        type === "size"
+        ? ".options .option"
+        : "#colourOptions .option"
+      );
+
+
+    for (const option of options) {
+
+      if (option.classList.contains("selected")) {
+        return option.textContent.trim();
+      }
 
     }
 
 
-    /* MINUS */
+    return type === "size"
+      ? "M"
+      : "DEFAULT";
+
+  }
+
+
+  function addCurrentProduct() {
+
+    if (!currentProduct) return;
+
+
+    const size =
+      getSelectedOption("size");
+
+    const colour =
+      getSelectedOption("colour");
+
+
+    for (
+      let i = 0;
+      i < currentQuantity;
+      i++
+    ) {
+
+      const existing = bag.find(item =>
+        item.name === currentProduct.name &&
+        item.size === size &&
+        item.colour === colour
+      );
+
+
+      if (existing) {
+
+        existing.quantity++;
+
+      } else {
+
+        bag.push({
+
+          name:
+            currentProduct.name,
+
+          price:
+            currentProduct.price,
+
+          image:
+            currentProduct.image,
+
+          size,
+          colour,
+
+          quantity: 1
+
+        });
+
+      }
+
+    }
+
+
+    saveBag();
+    updateBagCount();
+    renderBag();
+    closeProduct();
+    openBag();
+
+  }
+
+
+  /* =========================================
+     FILTERS
+  ========================================= */
+
+  function filterProducts(
+    category,
+    button
+  ) {
 
     document
-      .querySelectorAll(".bag-minus")
-      .forEach(function (button) {
-
-        button.addEventListener(
-          "click",
-          function () {
-
-            const index =
-              Number(
-                button.dataset.index
-              );
-
-            if (
-              bag[index].quantity > 1
-            ) {
-
-              bag[index].quantity--;
-
-            } else {
-
-              bag.splice(index, 1);
-
-            }
-
-            updateBag();
-
-          }
-        );
-
-      });
+      .querySelectorAll(".filter")
+      .forEach(btn =>
+        btn.classList.remove("active")
+      );
 
 
-    /* PLUS */
+    button.classList.add("active");
+
 
     document
-      .querySelectorAll(".bag-plus")
-      .forEach(function (button) {
+      .querySelectorAll(".product")
+      .forEach(product => {
 
-        button.addEventListener(
-          "click",
-          function () {
+        if (
+          category === "all" ||
+          product.dataset.category === category
+        ) {
 
-            const index =
-              Number(
-                button.dataset.index
-              );
+          product.style.display = "";
 
-            bag[index].quantity++;
+        } else {
 
-            updateBag();
+          product.style.display = "none";
 
-          }
-        );
-
-      });
-
-
-    /* REMOVE */
-
-    document
-      .querySelectorAll(".bag-remove")
-      .forEach(function (button) {
-
-        button.addEventListener(
-          "click",
-          function () {
-
-            const index =
-              Number(
-                button.dataset.index
-              );
-
-            bag.splice(index, 1);
-
-            updateBag();
-
-          }
-        );
+        }
 
       });
 
   }
 
 
-  /* =====================================================
-     BAG OPEN / CLOSE
-  ===================================================== */
+  /* =========================================
+     SORTING
+  ========================================= */
 
-  bagButton.addEventListener(
-    "click",
-    function () {
+  function sortProducts() {
 
-      bagOverlay.classList.add(
-        "active"
+    const value =
+      document.getElementById(
+        "sortProducts"
+      ).value;
+
+
+    const container =
+      document.getElementById("products");
+
+
+    const products =
+      [...container.querySelectorAll(".product")];
+
+
+    if (value === "low") {
+
+      products.sort(
+        (a, b) =>
+          Number(a.dataset.price) -
+          Number(b.dataset.price)
       );
 
     }
-  );
 
 
-  closeBag.addEventListener(
-    "click",
-    function () {
+    if (value === "high") {
 
-      bagOverlay.classList.remove(
-        "active"
+      products.sort(
+        (a, b) =>
+          Number(b.dataset.price) -
+          Number(a.dataset.price)
       );
 
     }
-  );
 
 
-  bagOverlay.addEventListener(
-    "click",
-    function (event) {
+    if (value === "name") {
 
-      if (
-        event.target === bagOverlay
-      ) {
-
-        bagOverlay.classList.remove(
-          "active"
-        );
-
-      }
-
-    }
-  );
-
-
-  /* =====================================================
-     PRODUCT DETAIL CLOSE
-  ===================================================== */
-
-  closeProductDetail.addEventListener(
-    "click",
-    function () {
-
-      productDetailOverlay.classList.remove(
-        "active"
+      products.sort(
+        (a, b) =>
+          a.dataset.name.localeCompare(
+            b.dataset.name
+          )
       );
 
     }
-  );
 
 
-  productDetailOverlay.addEventListener(
-    "click",
-    function (event) {
+    products.forEach(product =>
+      container.appendChild(product)
+    );
 
-      if (
-        event.target ===
-        productDetailOverlay
-      ) {
-
-        productDetailOverlay.classList.remove(
-          "active"
-        );
-
-      }
-
-    }
-  );
+  }
 
 
-  /* =====================================================
+  /* =========================================
      SEARCH
-  ===================================================== */
+  ========================================= */
 
-  searchButton.addEventListener(
-    "click",
-    function () {
+  function openSearch() {
 
-      searchOverlay.classList.add(
-        "active"
+    document
+      .getElementById("searchOverlay")
+      .classList.add("open");
+
+    document
+      .getElementById("searchInput")
+      .focus();
+
+  }
+
+
+  function closeSearch() {
+
+    document
+      .getElementById("searchOverlay")
+      .classList.remove("open");
+
+  }
+
+
+  function searchProducts() {
+
+    const search =
+      document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+
+    const results =
+      document.getElementById(
+        "searchResults"
       );
 
-      searchInput.focus();
 
-    }
-  );
-
-
-  closeSearch.addEventListener(
-    "click",
-    function () {
-
-      searchOverlay.classList.remove(
-        "active"
-      );
-
-    }
-  );
+    const products =
+      [...document.querySelectorAll(".product")];
 
 
-  searchInput.addEventListener(
-    "input",
-    function () {
-
-      const search =
-        searchInput.value
+    const matches =
+      products.filter(product =>
+        product.dataset.name
           .toLowerCase()
-          .trim();
-
-
-      searchResults.innerHTML = "";
-
-
-      if (!search) {
-        return;
-      }
-
-
-      products.forEach(
-        function (product) {
-
-          const name =
-            product.dataset.name
-              .toLowerCase();
-
-          const category =
-            product.dataset.category
-              .toLowerCase();
-
-
-          if (
-            name.includes(search) ||
-            category.includes(search)
-          ) {
-
-            const result =
-              document.createElement("button");
-
-            result.textContent =
-              product.dataset.name;
-
-            result.addEventListener(
-              "click",
-              function () {
-
-                searchOverlay.classList.remove(
-                  "active"
-                );
-
-                openProduct(product);
-
-              }
-            );
-
-            searchResults.appendChild(
-              result
-            );
-
-          }
-
-        }
+          .includes(search)
       );
 
-    });
+
+    if (!search) {
+
+      results.innerHTML = "";
+
+      return;
+
+    }
 
 
-  /* =====================================================
-     FILTERS
-  ===================================================== */
+    results.innerHTML =
+      matches.map(product => `
 
-  document
-    .querySelectorAll(".filter")
-    .forEach(function (filter) {
+        <div
+          class="search-result"
+          onclick="closeSearch(); openProduct(document.querySelector('[data-name=&quot;${product.dataset.name}&quot;]'))"
+        >
 
-      filter.addEventListener(
-        "click",
-        function () {
+          ${product.dataset.name}
 
-          document
-            .querySelectorAll(".filter")
-            .forEach(function (btn) {
+          —
+          KES ${Number(
+            product.dataset.price
+          ).toLocaleString()}
 
-              btn.classList.remove(
-                "active"
-              );
+        </div>
 
-            });
-
-          filter.classList.add(
-            "active"
-          );
+      `).join("");
 
 
-          const category =
-            filter.dataset.category;
+    if (matches.length === 0) {
+
+      results.innerHTML =
+        "<p>NO PRODUCTS FOUND.</p>";
+
+    }
+
+  }
 
 
-          products.forEach(
-            function (product) {
-
-              if (
-                category === "all" ||
-                product.dataset.category ===
-                  category
-              ) {
-
-                product.style.display =
-                  "";
-
-              } else {
-
-                product.style.display =
-                  "none";
-
-              }
-
-            }
-          );
-
-        }
-      );
-
-    });
-
-
-  /* =====================================================
-     SORT
-  ===================================================== */
-
-  document
-    .getElementById("sortProducts")
-    .addEventListener(
-      "change",
-      function () {
-
-        const value =
-          this.value;
-
-        const container =
-          document.getElementById(
-            "products"
-          );
-
-
-        const productArray =
-          Array.from(products);
-
-
-        if (value === "price-low") {
-
-          productArray.sort(
-            function (a, b) {
-
-              return (
-                Number(a.dataset.price) -
-                Number(b.dataset.price)
-              );
-
-            }
-          );
-
-        }
-
-
-        if (value === "price-high") {
-
-          productArray.sort(
-            function (a, b) {
-
-              return (
-                Number(b.dataset.price) -
-                Number(a.dataset.price)
-              );
-
-            }
-          );
-
-        }
-
-
-        if (value === "name") {
-
-          productArray.sort(
-            function (a, b) {
-
-              return a.dataset.name
-                .localeCompare(
-                  b.dataset.name
-                );
-
-            }
-          );
-
-        }
-
-
-        productArray.forEach(
-          function (product) {
-
-            container.appendChild(
-              product
-            );
-
-          }
-        );
-
-      }
-    );
-
-
-  /* =====================================================
+  /* =========================================
      WISHLIST
-  ===================================================== */
+  ========================================= */
 
-  document
-    .querySelectorAll(".wishlist")
-    .forEach(function (button) {
+  function toggleWishlist(button) {
 
-      button.addEventListener(
-        "click",
-        function (event) {
+    if (button.textContent.trim() === "♡") {
 
-          event.stopPropagation();
+      button.textContent = "♥";
 
-          if (
-            button.textContent.trim() ===
-            "♡"
-          ) {
+    } else {
 
-            button.textContent =
-              "♥";
+      button.textContent = "♡";
 
-          } else {
+    }
 
-            button.textContent =
-              "♡";
-
-          }
-
-        }
-      );
-
-    });
+  }
 
 
-  /* =====================================================
+  /* =========================================
      MOBILE MENU
-  ===================================================== */
+  ========================================= */
 
-  menuButton.addEventListener(
-    "click",
-    function () {
+  function toggleMobileMenu() {
 
-      mobileMenu.classList.add(
-        "active"
-      );
+    document
+      .getElementById("mobileMenu")
+      .classList.add("open");
 
-    }
-  );
+  }
 
 
-  closeMenu.addEventListener(
-    "click",
-    function () {
+  function closeMobileMenu() {
 
-      mobileMenu.classList.remove(
-        "active"
-      );
+    document
+      .getElementById("mobileMenu")
+      .classList.remove("open");
 
-    }
-  );
+  }
 
 
-  mobileMenu
-    .querySelectorAll("a")
-    .forEach(function (link) {
-
-      link.addEventListener(
-        "click",
-        function () {
-
-          mobileMenu.classList.remove(
-            "active"
-          );
-
-        }
-      );
-
-    });
-
-
-  /* =====================================================
+  /* =========================================
      NEWSLETTER
-  ===================================================== */
+  ========================================= */
 
-  document
-    .getElementById("newsletterForm")
-    .addEventListener(
-      "submit",
-      function (event) {
+  function subscribe(event) {
 
-        event.preventDefault();
+    event.preventDefault();
 
-        alert(
-          "Thank you for joining the Béni Carmel Collective!"
-        );
-
-        this.reset();
-
-      }
+    alert(
+      "Thank you for joining the Béni Carmel Collective!"
     );
 
+    event.target.reset();
 
-  /* =====================================================
+  }
+
+
+  /* =========================================
      CHECKOUT
-  ===================================================== */
+  ========================================= */
 
-  checkoutButton.addEventListener(
-    "click",
-    function () {
+  function checkout() {
 
-      if (bag.length === 0) {
+    if (bag.length === 0) {
 
-        alert(
-          "Your bag is empty."
-        );
-
-        return;
-
-      }
-
-
-      /*
-        This will later connect to your
-        M-PESA checkout page / STK Push.
-      */
-
-      localStorage.setItem(
-        "beniCarmelBag",
-        JSON.stringify(bag)
+      alert(
+        "Your bag is empty."
       );
 
-
-      window.location.href =
-        "checkout.html";
+      return;
 
     }
-  );
 
 
-  /* =====================================================
-     INITIAL BAG
-  ===================================================== */
+    /*
+      THIS BUTTON CAN LATER CONNECT
+      TO YOUR CHECKOUT / M-PESA SYSTEM.
+    */
 
-  updateBag();
+    window.location.href =
+      "checkout.html";
 
-});
+  }
+
+
+  /* =========================================
+     INITIALISE
+  ========================================= */
+
+  updateBagCount();
+  renderBag();
 
 </script>
 
