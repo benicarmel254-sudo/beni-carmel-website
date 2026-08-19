@@ -17,7 +17,7 @@
 <body>
 
 <!-- =====================================================
-     ANNOUNCEMENT
+     ANNOUNCEMENT BAR
 ===================================================== -->
 
 <div class="announcement-bar">
@@ -213,7 +213,7 @@
       <div class="category-image">
         <img
           src="images/wide-leg-jeans-blue.jpg"
-          alt="Béni Carmel denim"
+          alt="Béni Carmel wide leg jeans"
         >
       </div>
 
@@ -233,7 +233,7 @@
       </div>
 
       <h3>ACCESSORIES</h3>
-      <span>FROM KES 200</span>
+      <span>FROM KES 300</span>
 
     </a>
 
@@ -262,18 +262,16 @@
 
     </div>
 
-    <!-- PRODUCT COUNT NOW UPDATES AUTOMATICALLY -->
-
     <span class="view-all">
-      <span id="productCount">0</span> PRODUCTS
+      <span id="productCount">32</span> PRODUCTS
     </span>
 
   </div>
 
 
-  <!-- =================================================
-       SHOP CONTROLS
-  ================================================= -->
+<!-- =====================================================
+     SHOP CONTROLS
+===================================================== -->
 
   <div class="shop-controls">
 
@@ -353,22 +351,23 @@
   </div>
 
 
-  <!-- =================================================
-       PRODUCT GRID
-  ================================================= -->
+<!-- =====================================================
+     PRODUCT GRID
+===================================================== -->
 
   <div class="products" id="products">
 
 
-    <!-- =================================================
-         HOODIES
-    ================================================= -->
+<!-- =====================================================
+     HOODIES
+===================================================== -->
 
     <article
       class="product"
       data-name="Faith Hoodie"
       data-price="1200"
       data-category="hoodies"
+      data-colors="Black,Cream"
     >
 
       <div class="product-image">
@@ -412,6 +411,7 @@
       data-name="Covenant Hoodie"
       data-price="1200"
       data-category="hoodies"
+      data-colors="Black,Cream"
     >
 
       <div class="product-image">
@@ -446,20 +446,27 @@
     </article>
 
 
-    <!-- =================================================
-         T-SHIRTS
-    ================================================= -->
+<!-- =====================================================
+     T-SHIRTS
+===================================================== -->
 
     <article
       class="product"
       data-name="Faith Tee"
       data-price="600"
       data-category="t-shirts"
+      data-colors="White,Black"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Faith Tee to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/tee-1.jpg"
@@ -488,11 +495,18 @@
       data-name="Glory Tee"
       data-price="600"
       data-category="t-shirts"
+      data-colors="White,Black"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Glory Tee to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/tee-2.jpg"
@@ -521,11 +535,18 @@
       data-name="Covenant Tee"
       data-price="600"
       data-category="t-shirts"
+      data-colors="White,Black"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Covenant Tee to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/tee-3.jpg"
@@ -549,15 +570,16 @@
     </article>
 
 
-    <!-- =================================================
-         JACKETS
-    ================================================= -->
+<!-- =====================================================
+     JACKETS
+===================================================== -->
 
     <article
       class="product"
       data-name="College Jacket"
       data-price="1400"
       data-category="jackets"
+      data-colors="Black,White"
     >
 
       <div class="product-image">
@@ -566,7 +588,13 @@
           NEW
         </span>
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add College Jacket to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/college-jacket.jpg"
@@ -595,11 +623,18 @@
       data-name="Classic Denim Jacket"
       data-price="1300"
       data-category="jackets"
+      data-colors="Blue"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Classic Denim Jacket to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/denim-jacket-1.jpg"
@@ -628,11 +663,18 @@
       data-name="Washed Denim Jacket"
       data-price="1300"
       data-category="jackets"
+      data-colors="Blue"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Washed Denim Jacket to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/denim-jacket-2.jpg"
@@ -656,15 +698,16 @@
     </article>
 
 
-    <!-- =================================================
-         WIDE LEG JEANS
-    ================================================= -->
+<!-- =====================================================
+     WIDE LEG JEANS
+===================================================== -->
 
     <article
       class="product"
       data-name="Wide Leg Jeans"
       data-price="1300"
       data-category="bottoms"
+      data-colors="Blue"
     >
 
       <div class="product-image">
@@ -673,7 +716,13 @@
           NEW
         </span>
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Wide Leg Jeans to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/wide-leg-jeans-blue.jpg"
@@ -697,27 +746,37 @@
     </article>
 
 
-    <!-- =================================================
-         JORTS
-    ================================================= -->
+<!-- =====================================================
+     JORTS
+===================================================== -->
 
     <article
       class="product"
       data-name="Classic Blue Jorts"
       data-price="1000"
       data-category="bottoms"
+      data-colors="Classic Blue"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Classic Blue Jorts to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/jorts-1.jpg"
           alt="Classic Blue Jorts"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 1,000
         </button>
 
@@ -736,18 +795,28 @@
       data-name="Dark Blue Jorts"
       data-price="1000"
       data-category="bottoms"
+      data-colors="Dark Blue"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Dark Blue Jorts to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/jorts-dark-blue.jpg"
           alt="Dark Blue Jorts"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 1,000
         </button>
 
@@ -766,18 +835,28 @@
       data-name="Marble Blue Jorts"
       data-price="1000"
       data-category="bottoms"
+      data-colors="Marble Blue"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Marble Blue Jorts to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/jorts-marble-blue.jpg"
           alt="Marble Blue Jorts"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 1,000
         </button>
 
@@ -796,18 +875,28 @@
       data-name="Sky Blue Jorts"
       data-price="1000"
       data-category="bottoms"
+      data-colors="Sky Blue"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Sky Blue Jorts to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/jorts-sky-blue.jpg"
           alt="Sky Blue Jorts"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 1,000
         </button>
 
@@ -821,27 +910,37 @@
     </article>
 
 
-    <!-- =================================================
-         SWEATPANTS
-    ================================================= -->
+<!-- =====================================================
+     SWEATPANTS
+===================================================== -->
 
     <article
       class="product"
       data-name="Black Sweatpants"
       data-price="200"
       data-category="bottoms"
+      data-colors="Black"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Sweatpants to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/sweatpants-black.jpg"
           alt="Black Sweatpants"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 200
         </button>
 
@@ -860,18 +959,28 @@
       data-name="Burgundy Sweatpants"
       data-price="200"
       data-category="bottoms"
+      data-colors="Burgundy"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Burgundy Sweatpants to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/sweatpants-burgundy.jpg"
           alt="Burgundy Sweatpants"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 200
         </button>
 
@@ -890,18 +999,28 @@
       data-name="Cream Sweatpants"
       data-price="200"
       data-category="bottoms"
+      data-colors="Cream"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Cream Sweatpants to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/sweatpants-cream.jpg"
           alt="Cream Sweatpants"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 200
         </button>
 
@@ -920,18 +1039,28 @@
       data-name="Grey Sweatpants"
       data-price="200"
       data-category="bottoms"
+      data-colors="Grey"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Grey Sweatpants to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/sweatpants-grey.jpg"
           alt="Grey Sweatpants"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 200
         </button>
 
@@ -945,27 +1074,37 @@
     </article>
 
 
-    <!-- =================================================
-         BEANIES
-    ================================================= -->
+<!-- =====================================================
+     BEANIES
+===================================================== -->
 
     <article
       class="product"
       data-name="Black Beanie"
       data-price="1000"
       data-category="accessories"
+      data-colors="Black"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Beanie to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/beanie-black.jpg"
           alt="Black Beanie"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 1,000
         </button>
 
@@ -984,18 +1123,28 @@
       data-name="Brown Beanie"
       data-price="1000"
       data-category="accessories"
+      data-colors="Brown"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Brown Beanie to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/beanie-brown.jpg"
           alt="Brown Beanie"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 1,000
         </button>
 
@@ -1014,18 +1163,28 @@
       data-name="Burgundy Beanie"
       data-price="1000"
       data-category="accessories"
+      data-colors="Burgundy"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Burgundy Beanie to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/beanie-burgundy.jpg"
           alt="Burgundy Beanie"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 1,000
         </button>
 
@@ -1044,18 +1203,28 @@
       data-name="Cream Beanie"
       data-price="1000"
       data-category="accessories"
+      data-colors="Cream"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Cream Beanie to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/beanie-cream.jpg"
           alt="Cream Beanie"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 1,000
         </button>
 
@@ -1069,27 +1238,37 @@
     </article>
 
 
-    <!-- =================================================
-         BUCKET HATS
-    ================================================= -->
+<!-- =====================================================
+     BUCKET HATS
+===================================================== -->
 
     <article
       class="product"
       data-name="Beige Bucket Hat"
       data-price="500"
       data-category="accessories"
+      data-colors="Beige"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Beige Bucket Hat to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/bucket-hat-beige.jpg"
           alt="Beige Bucket Hat"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 500
         </button>
 
@@ -1108,18 +1287,28 @@
       data-name="Black Bucket Hat"
       data-price="500"
       data-category="accessories"
+      data-colors="Black"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Bucket Hat to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/bucket-hat-black.jpg"
           alt="Black Bucket Hat"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 500
         </button>
 
@@ -1138,18 +1327,28 @@
       data-name="Burgundy Bucket Hat"
       data-price="500"
       data-category="accessories"
+      data-colors="Burgundy"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Burgundy Bucket Hat to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/bucket-hat-burgundy.jpg"
           alt="Burgundy Bucket Hat"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 500
         </button>
 
@@ -1168,18 +1367,28 @@
       data-name="White Bucket Hat"
       data-price="500"
       data-category="accessories"
+      data-colors="White"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add White Bucket Hat to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/bucket-hat-white.jpg"
           alt="White Bucket Hat"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 500
         </button>
 
@@ -1193,15 +1402,16 @@
     </article>
 
 
-    <!-- =================================================
-         CAP
-    ================================================= -->
+<!-- =====================================================
+     CAP
+===================================================== -->
 
     <article
       class="product"
       data-name="Béni Carmel White Cap"
       data-price="700"
       data-category="accessories"
+      data-colors="White"
     >
 
       <div class="product-image">
@@ -1210,14 +1420,23 @@
           ESSENTIAL
         </span>
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Béni Carmel White Cap to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/cap-white.jpg"
           alt="Béni Carmel White Cap"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 700
         </button>
 
@@ -1231,27 +1450,37 @@
     </article>
 
 
-    <!-- =================================================
-         SHOULDER BAGS
-    ================================================= -->
+<!-- =====================================================
+     SHOULDER BAGS
+===================================================== -->
 
     <article
       class="product"
       data-name="Black Shoulder Bag"
       data-price="300"
       data-category="accessories"
+      data-colors="Black"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Shoulder Bag to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/shoulder-bag-black.jpg"
           alt="Black Shoulder Bag"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 300
         </button>
 
@@ -1270,18 +1499,28 @@
       data-name="Black Cross Shoulder Bag"
       data-price="300"
       data-category="accessories"
+      data-colors="Black"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Cross Shoulder Bag to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/shoulder-bag-black-cross.jpg"
           alt="Black Cross Shoulder Bag"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 300
         </button>
 
@@ -1300,18 +1539,28 @@
       data-name="Brown Shoulder Bag"
       data-price="300"
       data-category="accessories"
+      data-colors="Brown"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Brown Shoulder Bag to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/shoulder-bag-brown.jpg"
           alt="Brown Shoulder Bag"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 300
         </button>
 
@@ -1330,18 +1579,28 @@
       data-name="Orange Shoulder Bag"
       data-price="300"
       data-category="accessories"
+      data-colors="Orange"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Orange Shoulder Bag to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/shoulder-bag-orange.jpg"
           alt="Orange Shoulder Bag"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 300
         </button>
 
@@ -1360,18 +1619,28 @@
       data-name="Pink Shoulder Bag"
       data-price="300"
       data-category="accessories"
+      data-colors="Pink"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Pink Shoulder Bag to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/shoulder-bag-pink.jpg"
           alt="Pink Shoulder Bag"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 300
         </button>
 
@@ -1385,15 +1654,17 @@
     </article>
 
 
-    <!-- =================================================
-         CROSS NECKLACE
-    ================================================= -->
+<!-- =====================================================
+     CROSS NECKLACE
+===================================================== -->
 
     <article
       class="product"
       data-name="Silver Cross Necklace"
       data-price="700"
       data-category="accessories"
+      data-colors="Silver"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1402,14 +1673,23 @@
           FAITH
         </span>
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Silver Cross Necklace to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/cross-necklace-silver.jpg"
           alt="Silver Cross Necklace"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 700
         </button>
 
@@ -1423,27 +1703,38 @@
     </article>
 
 
-    <!-- =================================================
-         SOCKS
-    ================================================= -->
+<!-- =====================================================
+     SOCKS
+===================================================== -->
 
     <article
       class="product"
       data-name="Black Béni Carmel Socks"
       data-price="600"
       data-category="accessories"
+      data-colors="Black"
+      data-one-size="true"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Béni Carmel Socks to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/socks-black.jpg"
           alt="Black Béni Carmel Socks"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 600
         </button>
 
@@ -1462,18 +1753,29 @@
       data-name="White Béni Carmel Socks"
       data-price="600"
       data-category="accessories"
+      data-colors="White"
+      data-one-size="true"
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">♡</button>
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add White Béni Carmel Socks to wishlist"
+        >
+          ♡
+        </button>
 
         <img
           src="images/socks-white.jpg"
           alt="White Béni Carmel Socks"
         >
 
-        <button class="quick-add" type="button">
+        <button
+          class="quick-add"
+          type="button"
+        >
           QUICK ADD — KES 600
         </button>
 
@@ -1616,7 +1918,10 @@
      SEARCH OVERLAY
 ===================================================== -->
 
-<div class="search-overlay" id="searchOverlay">
+<div
+  class="search-overlay"
+  id="searchOverlay"
+>
 
   <button
     class="close-search"
@@ -1651,7 +1956,10 @@
      BAG OVERLAY
 ===================================================== -->
 
-<div class="bag-overlay" id="bagOverlay">
+<div
+  class="bag-overlay"
+  id="bagOverlay"
+>
 
   <aside class="bag">
 
@@ -1792,6 +2100,7 @@
         KES 0
       </p>
 
+
       <p
         class="product-detail-description"
         id="detailProductDescription"
@@ -1800,42 +2109,72 @@
       </p>
 
 
-      <p class="size-heading">
-        SELECT SIZE
-      </p>
+<!-- =====================================================
+     COLOUR
+===================================================== -->
 
-      <div class="size-options">
+      <div id="colorSelectorWrapper">
 
-        <button
-          class="size-option"
-          type="button"
-        >
-          S
-        </button>
+        <p class="size-heading">
+          SELECT COLOUR
+        </p>
 
-        <button
-          class="size-option selected"
-          type="button"
-        >
-          M
-        </button>
-
-        <button
-          class="size-option"
-          type="button"
-        >
-          L
-        </button>
-
-        <button
-          class="size-option"
-          type="button"
-        >
-          XL
-        </button>
+        <div
+          class="color-options"
+          id="colorOptions"
+        ></div>
 
       </div>
 
+
+<!-- =====================================================
+     SIZE
+===================================================== -->
+
+      <div id="sizeSelectorWrapper">
+
+        <p class="size-heading">
+          SELECT SIZE
+        </p>
+
+        <div class="size-options">
+
+          <button
+            class="size-option"
+            type="button"
+          >
+            S
+          </button>
+
+          <button
+            class="size-option selected"
+            type="button"
+          >
+            M
+          </button>
+
+          <button
+            class="size-option"
+            type="button"
+          >
+            L
+          </button>
+
+          <button
+            class="size-option"
+            type="button"
+          >
+            XL
+          </button>
+
+        </div>
+
+      </div>
+
+
+<!-- =====================================================
+     QUANTITY
+===================================================== -->
 
       <p class="quantity-heading">
         QUANTITY
@@ -1905,32 +2244,14 @@
 
 <script>
 
-/* =====================================================
-   PRODUCT REFERENCES
-===================================================== */
-
 const productsContainer =
   document.getElementById("products");
 
-const products = Array.from(
-  document.querySelectorAll(".product")
-);
+const products =
+  Array.from(
+    document.querySelectorAll(".product")
+  );
 
-
-/* =====================================================
-   AUTOMATIC PRODUCT COUNT
-===================================================== */
-
-const productCount =
-  document.getElementById("productCount");
-
-productCount.textContent =
-  products.length;
-
-
-/* =====================================================
-   BAG REFERENCES
-===================================================== */
 
 const bagOverlay =
   document.getElementById("bagOverlay");
@@ -1957,77 +2278,60 @@ const checkoutButton =
   document.getElementById("checkoutButton");
 
 
-/* =====================================================
-   PRODUCT DETAIL REFERENCES
-===================================================== */
-
 const productDetailOverlay =
-  document.getElementById(
-    "productDetailOverlay"
-  );
+  document.getElementById("productDetailOverlay");
 
 const detailProductImage =
-  document.getElementById(
-    "detailProductImage"
-  );
+  document.getElementById("detailProductImage");
 
 const detailProductName =
-  document.getElementById(
-    "detailProductName"
-  );
+  document.getElementById("detailProductName");
 
 const detailProductPrice =
-  document.getElementById(
-    "detailProductPrice"
-  );
+  document.getElementById("detailProductPrice");
 
 const detailProductCategory =
-  document.getElementById(
-    "detailProductCategory"
-  );
+  document.getElementById("detailProductCategory");
 
 const detailProductDescription =
-  document.getElementById(
-    "detailProductDescription"
-  );
+  document.getElementById("detailProductDescription");
+
+const colorOptions =
+  document.getElementById("colorOptions");
+
+const colorSelectorWrapper =
+  document.getElementById("colorSelectorWrapper");
+
+const sizeSelectorWrapper =
+  document.getElementById("sizeSelectorWrapper");
 
 const detailQuantity =
-  document.getElementById(
-    "detailQuantity"
+  document.getElementById("detailQuantity");
+
+
+let bag =
+  JSON.parse(
+    localStorage.getItem("beniCarmelBag") || "[]"
   );
 
-
-/* =====================================================
-   BAG STORAGE
-===================================================== */
-
-let bag = JSON.parse(
-  localStorage.getItem(
-    "beniCarmelBag"
-  ) || "[]"
-);
 
 let currentProduct = null;
 let currentQuantity = 1;
+let currentColor = "";
+let currentSize = "M";
 
 
 /* =====================================================
-   MONEY FORMAT
+   HELPERS
 ===================================================== */
 
 function money(value) {
 
-  return (
-    "KES " +
-    Number(value).toLocaleString("en-KE")
-  );
+  return "KES " +
+    Number(value).toLocaleString("en-KE");
 
 }
 
-
-/* =====================================================
-   SAVE BAG
-===================================================== */
 
 function saveBag() {
 
@@ -2040,7 +2344,7 @@ function saveBag() {
 
 
 /* =====================================================
-   UPDATE BAG
+   BAG
 ===================================================== */
 
 function updateBag() {
@@ -2053,8 +2357,7 @@ function updateBag() {
     );
 
 
-  bagCount.textContent =
-    count;
+  bagCount.textContent = count;
 
 
   if (bag.length === 0) {
@@ -2093,8 +2396,7 @@ function updateBag() {
       "ADD KES 10,000 TO YOUR BAG FOR FREE SHIPPING.";
 
 
-    checkoutButton.disabled =
-      true;
+    checkoutButton.disabled = true;
 
     checkoutButton.textContent =
       "YOUR BAG IS EMPTY";
@@ -2109,7 +2411,6 @@ function updateBag() {
 
   bagItems.innerHTML = "";
 
-
   let subtotal = 0;
 
 
@@ -2121,14 +2422,11 @@ function updateBag() {
         item.quantity;
 
 
-      subtotal +=
-        itemTotal;
+      subtotal += itemTotal;
 
 
       const productElement =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
 
       productElement.className =
@@ -2159,13 +2457,25 @@ function updateBag() {
 
               <p>
                 ${
-                  item.size
-                    ? "SIZE " + item.size
+                  item.color
+                    ? "COLOUR: " +
+                      item.color
+                    : ""
+                }
+              </p>
+
+              <p>
+                ${
+                  item.size &&
+                  item.size !== "ONE SIZE"
+                    ? "SIZE: " +
+                      item.size
                     : "ONE SIZE"
                 }
               </p>
 
             </div>
+
 
             <strong>
               ${money(itemTotal)}
@@ -2264,6 +2574,7 @@ function updateBag() {
   checkoutButton.disabled =
     false;
 
+
   checkoutButton.textContent =
     "PROCEED TO CHECKOUT →";
 
@@ -2281,7 +2592,8 @@ function addProductToBag(
   name,
   price,
   image,
-  size = "M",
+  size,
+  color,
   quantity = 1
 ) {
 
@@ -2289,23 +2601,26 @@ function addProductToBag(
     bag.find(
       item =>
         item.name === name &&
-        item.size === size
+        item.size === size &&
+        item.color === color
     );
 
 
   if (existing) {
 
-    existing.quantity +=
-      quantity;
+    existing.quantity += quantity;
 
   } else {
 
     bag.push({
+
       name,
       price,
       image,
       size,
+      color,
       quantity
+
     });
 
   }
@@ -2318,6 +2633,7 @@ function addProductToBag(
     "open"
   );
 
+
   document.body.classList.add(
     "no-scroll"
   );
@@ -2326,7 +2642,7 @@ function addProductToBag(
 
 
 /* =====================================================
-   CHANGE BAG QUANTITY
+   BAG QUANTITY
 ===================================================== */
 
 function changeBagQuantity(
@@ -2352,25 +2668,14 @@ function changeBagQuantity(
 }
 
 
-/* =====================================================
-   REMOVE FROM BAG
-===================================================== */
-
 function removeFromBag(index) {
 
-  bag.splice(
-    index,
-    1
-  );
+  bag.splice(index, 1);
 
   updateBag();
 
 }
 
-
-/* =====================================================
-   CLOSE BAG
-===================================================== */
 
 function closeBag() {
 
@@ -2386,7 +2691,7 @@ function closeBag() {
 
 
 /* =====================================================
-   OPEN PRODUCT DETAIL
+   PRODUCT DETAIL
 ===================================================== */
 
 function openProduct(product) {
@@ -2397,6 +2702,12 @@ function openProduct(product) {
   currentQuantity =
     1;
 
+  currentColor =
+    "";
+
+  currentSize =
+    "M";
+
 
   detailQuantity.textContent =
     "1";
@@ -2405,13 +2716,16 @@ function openProduct(product) {
   const name =
     product.dataset.name;
 
+
   const price =
     Number(
       product.dataset.price
     );
 
+
   const category =
     product.dataset.category;
+
 
   const image =
     product.querySelector(
@@ -2421,6 +2735,7 @@ function openProduct(product) {
 
   detailProductImage.src =
     image;
+
 
   detailProductImage.alt =
     name;
@@ -2442,30 +2757,151 @@ function openProduct(product) {
     `${name} — a faith-inspired piece from Béni Carmel Collectives, designed for everyday wear and bold expression.`;
 
 
-  document
-    .querySelectorAll(
-      ".size-option"
-    )
-    .forEach(
-      button => {
-        button.classList.remove(
-          "selected"
+  /* COLORS */
+
+  colorOptions.innerHTML =
+    "";
+
+
+  const colors =
+    product.dataset.colors
+      ? product.dataset.colors
+          .split(",")
+          .map(
+            color =>
+              color.trim()
+          )
+      : [];
+
+
+  if (colors.length > 0) {
+
+    colorSelectorWrapper.style.display =
+      "";
+
+
+    colors.forEach(
+      (color, index) => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.type =
+          "button";
+
+
+        button.className =
+          "color-option";
+
+
+        if (index === 0) {
+
+          button.classList.add(
+            "selected"
+          );
+
+          currentColor =
+            color;
+
+        }
+
+
+        button.textContent =
+          color;
+
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            document
+              .querySelectorAll(
+                ".color-option"
+              )
+              .forEach(
+                btn =>
+                  btn.classList.remove(
+                    "selected"
+                  )
+              );
+
+
+            button.classList.add(
+              "selected"
+            );
+
+
+            currentColor =
+              color;
+
+          }
         );
+
+
+        colorOptions.appendChild(
+          button
+        );
+
       }
     );
 
+  } else {
 
-  const defaultSize =
-    document.querySelector(
-      ".size-option:nth-child(2)"
-    );
+    colorSelectorWrapper.style.display =
+      "none";
+
+  }
 
 
-  if (defaultSize) {
+  /* SIZES */
 
-    defaultSize.classList.add(
-      "selected"
-    );
+  if (
+    product.dataset.oneSize ===
+    "true"
+  ) {
+
+    sizeSelectorWrapper.style.display =
+      "none";
+
+    currentSize =
+      "ONE SIZE";
+
+  } else {
+
+    sizeSelectorWrapper.style.display =
+      "";
+
+
+    document
+      .querySelectorAll(
+        ".size-option"
+      )
+      .forEach(
+        button => {
+
+          button.classList.remove(
+            "selected"
+          );
+
+          if (
+            button.textContent.trim() ===
+            "M"
+          ) {
+
+            button.classList.add(
+              "selected"
+            );
+
+          }
+
+        }
+      );
+
+    currentSize =
+      "M";
 
   }
 
@@ -2474,16 +2910,13 @@ function openProduct(product) {
     "open"
   );
 
+
   document.body.classList.add(
     "no-scroll"
   );
 
 }
 
-
-/* =====================================================
-   CLOSE PRODUCT DETAIL
-===================================================== */
 
 function closeProduct() {
 
@@ -2499,7 +2932,7 @@ function closeProduct() {
 
 
 /* =====================================================
-   PRODUCT CLICK HANDLING
+   PRODUCT CLICK
 ===================================================== */
 
 productsContainer.addEventListener(
@@ -2514,6 +2947,8 @@ productsContainer.addEventListener(
 
     if (!product) return;
 
+
+    /* WISHLIST */
 
     if (
       event.target.closest(
@@ -2548,6 +2983,8 @@ productsContainer.addEventListener(
     }
 
 
+    /* QUICK ADD */
+
     if (
       event.target.closest(
         ".quick-add"
@@ -2557,39 +2994,16 @@ productsContainer.addEventListener(
       event.stopPropagation();
 
 
-      const name =
-        product.dataset.name;
-
-
-      const price =
-        Number(
-          product.dataset.price
-        );
-
-
-      const image =
-        product.querySelector(
-          "img"
-        ).src;
-
-
-      addProductToBag(
-        name,
-        price,
-        image,
-        "M",
-        1
-      );
-
+      openProduct(product);
 
       return;
 
     }
 
 
-    openProduct(
-      product
-    );
+    /* PRODUCT DETAIL */
+
+    openProduct(product);
 
   }
 );
@@ -2600,9 +3014,7 @@ productsContainer.addEventListener(
 ===================================================== */
 
 document
-  .querySelectorAll(
-    ".filter"
-  )
+  .querySelectorAll(".filter")
   .forEach(
     button => {
 
@@ -2801,6 +3213,7 @@ document
         "open"
       );
 
+
       document.body.classList.remove(
         "no-scroll"
       );
@@ -2860,12 +3273,19 @@ searchInput.addEventListener(
 
             <p
               style="cursor:pointer"
-              data-search-product="${products.indexOf(product)}"
+              data-search-product="${
+                products.indexOf(
+                  product
+                )
+              }"
             >
+
               ${product.dataset.name.toUpperCase()}
-              — ${money(
+              —
+              ${money(
                 product.dataset.price
               )}
+
             </p>
 
           `
@@ -2964,7 +3384,7 @@ bagOverlay.addEventListener(
 
 
 /* =====================================================
-   PRODUCT DETAIL CONTROLS
+   PRODUCT DETAIL CLOSE
 ===================================================== */
 
 document
@@ -2994,6 +3414,10 @@ productDetailOverlay.addEventListener(
 );
 
 
+/* =====================================================
+   SIZE SELECTION
+===================================================== */
+
 document
   .querySelectorAll(
     ".size-option"
@@ -3021,12 +3445,20 @@ document
             "selected"
           );
 
+
+          currentSize =
+            this.textContent.trim();
+
         }
       );
 
     }
   );
 
+
+/* =====================================================
+   QUANTITY MINUS
+===================================================== */
 
 document
   .getElementById(
@@ -3037,7 +3469,8 @@ document
     function() {
 
       if (
-        currentQuantity > 1
+        currentQuantity >
+        1
       ) {
 
         currentQuantity--;
@@ -3051,6 +3484,10 @@ document
     }
   );
 
+
+/* =====================================================
+   QUANTITY PLUS
+===================================================== */
 
 document
   .getElementById(
@@ -3071,7 +3508,7 @@ document
 
 
 /* =====================================================
-   ADD FROM PRODUCT DETAIL
+   DETAIL ADD TO BAG
 ===================================================== */
 
 document
@@ -3087,14 +3524,16 @@ document
       ) return;
 
 
+      const selectedColor =
+        currentColor ||
+        "Default";
+
+
       const selectedSize =
-        document
-          .querySelector(
-            ".size-option.selected"
-          )
-          ?.textContent
-          .trim() ||
-        "M";
+        currentProduct.dataset.oneSize ===
+        "true"
+          ? "ONE SIZE"
+          : currentSize;
 
 
       addProductToBag(
@@ -3106,11 +3545,12 @@ document
         ),
 
         currentProduct
-          .querySelector(
-            "img"
-          ).src,
+          .querySelector("img")
+          .src,
 
         selectedSize,
+
+        selectedColor,
 
         currentQuantity
 
@@ -3132,7 +3572,8 @@ checkoutButton.addEventListener(
   function() {
 
     if (
-      bag.length === 0
+      bag.length ===
+      0
     ) return;
 
 
@@ -3204,9 +3645,7 @@ document
 
 
 mobileMenu
-  .querySelectorAll(
-    "a"
-  )
+  .querySelectorAll("a")
   .forEach(
     link => {
 
