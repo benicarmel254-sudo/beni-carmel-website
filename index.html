@@ -2,25 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>
-    Béni Carmel Collectives — Faith Worn Boldly
-  </title>
+  <title>Béni Carmel Collectives — Faith Worn Boldly</title>
 
   <meta
     name="description"
     content="Béni Carmel Collectives — faith-inspired fashion designed to be lived in and worn boldly."
   >
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -30,9 +21,7 @@
 ===================================================== -->
 
 <div class="announcement-bar">
-  <p>
-    FREE SHIPPING ON ORDERS OVER KES 10,000
-  </p>
+  <p>FREE SHIPPING ON ORDERS OVER KES 10,000</p>
 </div>
 
 
@@ -54,17 +43,9 @@
 
     <nav class="desktop-nav">
 
-      <a href="#shop">
-        SHOP
-      </a>
-
-      <a href="#story">
-        OUR STORY
-      </a>
-
-      <a href="#categories">
-        COLLECTIONS
-      </a>
+      <a href="#shop">SHOP</a>
+      <a href="#story">OUR STORY</a>
+      <a href="#categories">COLLECTIONS</a>
 
     </nav>
 
@@ -110,10 +91,7 @@
      MOBILE MENU
 ===================================================== -->
 
-<div
-  class="mobile-menu"
-  id="mobileMenu"
->
+<div class="mobile-menu" id="mobileMenu">
 
   <button
     class="close-menu"
@@ -123,21 +101,10 @@
     ×
   </button>
 
-  <a href="#shop">
-    SHOP
-  </a>
-
-  <a href="#categories">
-    COLLECTIONS
-  </a>
-
-  <a href="#story">
-    OUR STORY
-  </a>
-
-  <a href="#newsletter">
-    CONTACT
-  </a>
+  <a href="#shop">SHOP</a>
+  <a href="#categories">COLLECTIONS</a>
+  <a href="#story">OUR STORY</a>
+  <a href="#newsletter">CONTACT</a>
 
 </div>
 
@@ -244,13 +211,9 @@
 
       </div>
 
-      <h3>
-        HOODIES
-      </h3>
+      <h3>HOODIES</h3>
 
-      <span>
-        KES 1,200
-      </span>
+      <span>KES 1,200</span>
 
     </a>
 
@@ -258,24 +221,21 @@
     <a
       href="#shop"
       class="category-card"
+      data-category-link="t-shirts"
     >
 
       <div class="category-image">
 
         <img
-          src="images/shirt-1.jpg"
+          src="images/tee-1.jpg"
           alt="Béni Carmel t-shirts"
         >
 
       </div>
 
-      <h3>
-        T-SHIRTS
-      </h3>
+      <h3>T-SHIRTS</h3>
 
-      <span>
-        KES 600
-      </span>
+      <span>KES 600</span>
 
     </a>
 
@@ -283,24 +243,21 @@
     <a
       href="#shop"
       class="category-card"
+      data-category-link="bottoms"
     >
 
       <div class="category-image">
 
         <img
-          src="images/denim-jacket-1.jpg"
+          src="images/wide-leg-jeans-blue.jpg"
           alt="Béni Carmel denim"
         >
 
       </div>
 
-      <h3>
-        DENIM
-      </h3>
+      <h3>DENIM & BOTTOMS</h3>
 
-      <span>
-        FROM KES 1,000
-      </span>
+      <span>FROM KES 1,000</span>
 
     </a>
 
@@ -308,24 +265,21 @@
     <a
       href="#shop"
       class="category-card"
+      data-category-link="accessories"
     >
 
       <div class="category-image">
 
         <img
-          src="images/cap.jpg"
+          src="images/cap-white.jpg"
           alt="Béni Carmel accessories"
         >
 
       </div>
 
-      <h3>
-        ACCESSORIES
-      </h3>
+      <h3>ACCESSORIES</h3>
 
-      <span>
-        FROM KES 200
-      </span>
+      <span>FROM KES 200</span>
 
     </a>
 
@@ -358,13 +312,15 @@
     </div>
 
     <span class="view-all">
-      22 PRODUCTS
+      36 PRODUCTS
     </span>
 
   </div>
 
 
-  <!-- CONTROLS -->
+  <!-- =================================================
+       SHOP CONTROLS
+  ================================================= -->
 
   <div class="shop-controls">
 
@@ -457,13 +413,19 @@
   >
 
 
-    <!-- HOODIE 1 -->
+    <!-- =================================================
+         HOODIES
+    ================================================= -->
+
 
     <article
       class="product"
       data-name="Faith Hoodie"
       data-price="1200"
       data-category="hoodies"
+      data-colors="Black"
+      data-sizes="S,M,L,XL"
+      data-description="A faith-inspired everyday hoodie designed to carry your belief boldly."
     >
 
       <div class="product-image">
@@ -488,35 +450,32 @@
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Faith Hoodie',1200,'images/hoodie-1.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 1,200
+          QUICK VIEW — KES 1,200
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          FAITH HOODIE
-        </h3>
+        <h3>FAITH HOODIE</h3>
 
-        <p>
-          KES 1,200
-        </p>
+        <p>KES 1,200</p>
 
       </div>
 
     </article>
 
 
-    <!-- HOODIE 2 -->
-
     <article
       class="product"
       data-name="Covenant Hoodie"
       data-price="1200"
       data-category="hoodies"
+      data-colors="Black"
+      data-sizes="S,M,L,XL"
+      data-description="A statement hoodie inspired by covenant, faith and identity."
     >
 
       <div class="product-image">
@@ -537,83 +496,37 @@
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Covenant Hoodie',1200,'images/hoodie-2.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 1,200
+          QUICK VIEW — KES 1,200
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          COVENANT HOODIE
-        </h3>
+        <h3>COVENANT HOODIE</h3>
 
-        <p>
-          KES 1,200
-        </p>
+        <p>KES 1,200</p>
 
       </div>
 
     </article>
 
 
-    <!-- HOODIE 3 -->
+    <!-- =================================================
+         T-SHIRTS
+    ================================================= -->
+
 
     <article
       class="product"
-      data-name="Glory Hoodie"
-      data-price="1200"
-      data-category="hoodies"
-    >
-
-      <div class="product-image">
-
-        <button
-          class="wishlist"
-          type="button"
-        >
-          ♡
-        </button>
-
-        <img
-          src="images/hoodie-3.jpg"
-          alt="Glory Hoodie"
-        >
-
-        <button
-          class="quick-add"
-          type="button"
-          onclick="addToBag('Glory Hoodie',1200,'images/hoodie-3.jpg')"
-        >
-          QUICK ADD — KES 1,200
-        </button>
-
-      </div>
-
-      <div class="product-info">
-
-        <h3>
-          GLORY HOODIE
-        </h3>
-
-        <p>
-          KES 1,200
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- SHIRT 1 -->
-
-    <article
-      class="product"
-      data-name="Faith Shirt"
+      data-name="Faith Tee"
       data-price="600"
       data-category="t-shirts"
+      data-colors="White"
+      data-sizes="S,M,L,XL"
+      data-description="A clean everyday tee created to express faith with simplicity."
     >
 
       <div class="product-image">
@@ -626,42 +539,39 @@
         </button>
 
         <img
-          src="images/shirt-1.jpg"
-          alt="Faith Shirt"
+          src="images/tee-1.jpg"
+          alt="Faith Tee"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Faith Shirt',600,'images/shirt-1.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 600
+          QUICK VIEW — KES 600
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          FAITH SHIRT
-        </h3>
+        <h3>FAITH TEE</h3>
 
-        <p>
-          KES 600
-        </p>
+        <p>KES 600</p>
 
       </div>
 
     </article>
 
-
-    <!-- SHIRT 2 -->
 
     <article
       class="product"
-      data-name="Glory Shirt"
+      data-name="Glory Tee"
       data-price="600"
       data-category="t-shirts"
+      data-colors="White"
+      data-sizes="S,M,L,XL"
+      data-description="A bold faith-inspired tee designed for everyday wear."
     >
 
       <div class="product-image">
@@ -674,42 +584,39 @@
         </button>
 
         <img
-          src="images/shirt-2.jpg"
-          alt="Glory Shirt"
+          src="images/tee-2.jpg"
+          alt="Glory Tee"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Glory Shirt',600,'images/shirt-2.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 600
+          QUICK VIEW — KES 600
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          GLORY SHIRT
-        </h3>
+        <h3>GLORY TEE</h3>
 
-        <p>
-          KES 600
-        </p>
+        <p>KES 600</p>
 
       </div>
 
     </article>
 
-
-    <!-- SHIRT 3 -->
 
     <article
       class="product"
-      data-name="Covenant Shirt"
+      data-name="Covenant Tee"
       data-price="600"
       data-category="t-shirts"
+      data-colors="White"
+      data-sizes="S,M,L,XL"
+      data-description="A minimal statement tee inspired by faith and purpose."
     >
 
       <div class="product-image">
@@ -722,42 +629,44 @@
         </button>
 
         <img
-          src="images/shirt-3.jpg"
-          alt="Covenant Shirt"
+          src="images/tee-3.jpg"
+          alt="Covenant Tee"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Covenant Shirt',600,'images/shirt-3.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 600
+          QUICK VIEW — KES 600
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          COVENANT SHIRT
-        </h3>
+        <h3>COVENANT TEE</h3>
 
-        <p>
-          KES 600
-        </p>
+        <p>KES 600</p>
 
       </div>
 
     </article>
 
 
-    <!-- COLLEGE JACKET -->
+    <!-- =================================================
+         JACKETS
+    ================================================= -->
+
 
     <article
       class="product"
       data-name="College Jacket"
       data-price="1400"
       data-category="jackets"
+      data-colors="Black"
+      data-sizes="S,M,L,XL"
+      data-description="A statement college jacket created for bold everyday styling."
     >
 
       <div class="product-image">
@@ -781,35 +690,32 @@
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('College Jacket',1400,'images/college-jacket.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 1,400
+          QUICK VIEW — KES 1,400
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          COLLEGE JACKET
-        </h3>
+        <h3>COLLEGE JACKET</h3>
 
-        <p>
-          KES 1,400
-        </p>
+        <p>KES 1,400</p>
 
       </div>
 
     </article>
 
 
-    <!-- DENIM JACKET 1 -->
-
     <article
       class="product"
       data-name="Classic Denim Jacket"
       data-price="1300"
       data-category="jackets"
+      data-colors="Blue"
+      data-sizes="S,M,L,XL"
+      data-description="A timeless denim jacket designed to become an everyday essential."
     >
 
       <div class="product-image">
@@ -829,35 +735,32 @@
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Classic Denim Jacket',1300,'images/denim-jacket-1.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 1,300
+          QUICK VIEW — KES 1,300
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          CLASSIC DENIM JACKET
-        </h3>
+        <h3>CLASSIC DENIM JACKET</h3>
 
-        <p>
-          KES 1,300
-        </p>
+        <p>KES 1,300</p>
 
       </div>
 
     </article>
 
 
-    <!-- DENIM JACKET 2 -->
-
     <article
       class="product"
       data-name="Washed Denim Jacket"
       data-price="1300"
       data-category="jackets"
+      data-colors="Blue"
+      data-sizes="S,M,L,XL"
+      data-description="A washed denim layer with an effortless everyday finish."
     >
 
       <div class="product-image">
@@ -877,35 +780,37 @@
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Washed Denim Jacket',1300,'images/denim-jacket-2.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 1,300
+          QUICK VIEW — KES 1,300
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          WASHED DENIM JACKET
-        </h3>
+        <h3>WASHED DENIM JACKET</h3>
 
-        <p>
-          KES 1,300
-        </p>
+        <p>KES 1,300</p>
 
       </div>
 
     </article>
 
 
-    <!-- WIDE LEG JEANS -->
+    <!-- =================================================
+         WIDE LEG JEANS
+    ================================================= -->
+
 
     <article
       class="product"
       data-name="Wide Leg Jeans"
       data-price="1300"
       data-category="bottoms"
+      data-colors="Blue"
+      data-sizes="S,M,L,XL"
+      data-description="Relaxed wide-leg denim designed for effortless everyday movement."
     >
 
       <div class="product-image">
@@ -922,234 +827,704 @@
         </button>
 
         <img
-          src="images/denim-jacket-2.jpg"
+          src="images/wide-leg-jeans-blue.jpg"
           alt="Wide Leg Jeans"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Wide Leg Jeans',1300,'images/denim-jacket-2.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 1,300
+          QUICK VIEW — KES 1,300
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          WIDE LEG JEANS
-        </h3>
+        <h3>WIDE LEG JEANS</h3>
 
-        <p>
-          KES 1,300
-        </p>
+        <p>KES 1,300</p>
 
       </div>
 
     </article>
 
 
-    <!-- JORTS -->
+    <!-- =================================================
+         JORTS
+    ================================================= -->
+
 
     <article
       class="product"
-      data-name="Faith Jorts"
+      data-name="Classic Jorts"
       data-price="1000"
       data-category="bottoms"
+      data-colors="Blue"
+      data-sizes="S,M,L,XL"
+      data-description="Relaxed denim jorts made for effortless everyday styling."
     >
 
       <div class="product-image">
 
-        <button
-          class="wishlist"
-          type="button"
-        >
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/jorts-1.jpg"
-          alt="Faith Jorts"
+          alt="Classic Jorts"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Faith Jorts',1000,'images/jorts-1.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 1,000
+          QUICK VIEW — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          FAITH JORTS
-        </h3>
+        <h3>CLASSIC JORTS</h3>
 
-        <p>
-          KES 1,000
-        </p>
+        <p>KES 1,000</p>
 
       </div>
 
     </article>
 
 
-    <!-- SWEATPANTS -->
-
     <article
       class="product"
-      data-name="Faith Sweatpants"
+      data-name="Dark Blue Jorts"
       data-price="1000"
       data-category="bottoms"
+      data-colors="Dark Blue"
+      data-sizes="S,M,L,XL"
+      data-description="Dark blue denim jorts with a relaxed everyday silhouette."
     >
 
       <div class="product-image">
 
-        <button
-          class="wishlist"
-          type="button"
-        >
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
-          src="images/hoodie-1.jpg"
-          alt="Faith Sweatpants"
+          src="images/jorts-dark-blue.jpg"
+          alt="Dark Blue Jorts"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Faith Sweatpants',1000,'images/hoodie-1.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 1,000
+          QUICK VIEW — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          FAITH SWEATPANTS
-        </h3>
+        <h3>DARK BLUE JORTS</h3>
 
-        <p>
-          KES 1,000
-        </p>
+        <p>KES 1,000</p>
 
       </div>
 
     </article>
 
 
-    <!-- BEANIE -->
+    <article
+      class="product"
+      data-name="Marble Blue Jorts"
+      data-price="1000"
+      data-category="bottoms"
+      data-colors="Marble Blue"
+      data-sizes="S,M,L,XL"
+      data-description="Marble blue denim jorts with a distinctive washed finish."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/jorts-marble-blue.jpg"
+          alt="Marble Blue Jorts"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 1,000
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>MARBLE BLUE JORTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
+
 
     <article
       class="product"
-      data-name="Béni Carmel Beanie"
+      data-name="Sky Blue Jorts"
+      data-price="1000"
+      data-category="bottoms"
+      data-colors="Sky Blue"
+      data-sizes="S,M,L,XL"
+      data-description="Light sky blue denim jorts for relaxed everyday looks."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/jorts-sky-blue.jpg"
+          alt="Sky Blue Jorts"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 1,000
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>SKY BLUE JORTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
+
+
+    <!-- =================================================
+         SWEATPANTS
+    ================================================= -->
+
+
+    <article
+      class="product"
+      data-name="Black Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-colors="Black"
+      data-sizes="S,M,L,XL"
+      data-description="Comfortable everyday sweatpants designed with a relaxed fit."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/sweatpants-black.jpg"
+          alt="Black Sweatpants"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 1,000
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>BLACK SWEATPANTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Burgundy Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-colors="Burgundy"
+      data-sizes="S,M,L,XL"
+      data-description="Rich burgundy sweatpants designed for comfort and everyday wear."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/sweatpants-burgundy.jpg"
+          alt="Burgundy Sweatpants"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 1,000
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>BURGUNDY SWEATPANTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Cream Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-colors="Cream"
+      data-sizes="S,M,L,XL"
+      data-description="Neutral cream sweatpants designed for easy everyday styling."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/sweatpants-cream.jpg"
+          alt="Cream Sweatpants"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 1,000
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>CREAM SWEATPANTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Grey Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-colors="Grey"
+      data-sizes="S,M,L,XL"
+      data-description="Classic grey sweatpants made for comfort and everyday movement."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/sweatpants-grey.jpg"
+          alt="Grey Sweatpants"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 1,000
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>GREY SWEATPANTS</h3>
+
+        <p>KES 1,000</p>
+
+      </div>
+
+    </article>
+
+
+    <!-- =================================================
+         BEANIES
+    ================================================= -->
+
+
+    <article
+      class="product"
+      data-name="Béni Carmel Black Beanie"
       data-price="500"
       data-category="accessories"
+      data-colors="Black"
+      data-sizes="One Size"
+      data-description="A classic Béni Carmel beanie designed for everyday wear."
     >
 
       <div class="product-image">
 
-        <button
-          class="wishlist"
-          type="button"
-        >
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
-          src="images/logo.png"
-          alt="Béni Carmel Beanie"
+          src="images/beanie-black.jpg"
+          alt="Black Beanie"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Béni Carmel Beanie',500,'images/logo.png')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 500
+          QUICK VIEW — KES 500
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          BÉNI CARMEL BEANIE
-        </h3>
+        <h3>BLACK BEANIE</h3>
 
-        <p>
-          KES 500
-        </p>
+        <p>KES 500</p>
 
       </div>
 
     </article>
 
 
-    <!-- BUCKET HAT -->
+    <article
+      class="product"
+      data-name="Béni Carmel Brown Beanie"
+      data-price="500"
+      data-category="accessories"
+      data-colors="Brown"
+      data-sizes="One Size"
+      data-description="A warm brown beanie with a clean everyday silhouette."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/beanie-brown.jpg"
+          alt="Brown Beanie"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 500
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>BROWN BEANIE</h3>
+
+        <p>KES 500</p>
+
+      </div>
+
+    </article>
+
 
     <article
       class="product"
-      data-name="Béni Carmel Bucket Hat"
+      data-name="Béni Carmel Burgundy Beanie"
+      data-price="500"
+      data-category="accessories"
+      data-colors="Burgundy"
+      data-sizes="One Size"
+      data-description="A burgundy beanie designed to add a bold colour accent."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/beanie-burgundy.jpg"
+          alt="Burgundy Beanie"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 500
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>BURGUNDY BEANIE</h3>
+
+        <p>KES 500</p>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Béni Carmel Cream Beanie"
+      data-price="500"
+      data-category="accessories"
+      data-colors="Cream"
+      data-sizes="One Size"
+      data-description="A neutral cream beanie designed for versatile everyday styling."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/beanie-cream.jpg"
+          alt="Cream Beanie"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 500
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>CREAM BEANIE</h3>
+
+        <p>KES 500</p>
+
+      </div>
+
+    </article>
+
+
+    <!-- =================================================
+         BUCKET HATS
+    ================================================= -->
+
+
+    <article
+      class="product"
+      data-name="Beige Bucket Hat"
       data-price="800"
       data-category="accessories"
+      data-colors="Beige"
+      data-sizes="One Size"
+      data-description="A neutral bucket hat designed for everyday styling."
     >
 
       <div class="product-image">
 
-        <button
-          class="wishlist"
-          type="button"
-        >
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
-          src="images/cap.jpg"
-          alt="Béni Carmel Bucket Hat"
+          src="images/bucket-hat-beige.jpg"
+          alt="Beige Bucket Hat"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Béni Carmel Bucket Hat',800,'images/cap.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 800
+          QUICK VIEW — KES 800
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          BÉNI CARMEL BUCKET HAT
-        </h3>
+        <h3>BEIGE BUCKET HAT</h3>
 
-        <p>
-          KES 800
-        </p>
+        <p>KES 800</p>
 
       </div>
 
     </article>
 
 
-    <!-- WHITE CAP -->
+    <article
+      class="product"
+      data-name="Black Bucket Hat"
+      data-price="800"
+      data-category="accessories"
+      data-colors="Black"
+      data-sizes="One Size"
+      data-description="A classic black bucket hat designed for everyday wear."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/bucket-hat-black.jpg"
+          alt="Black Bucket Hat"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 800
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>BLACK BUCKET HAT</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
+
 
     <article
       class="product"
-      data-name="Béni Carmel Cap"
+      data-name="Burgundy Bucket Hat"
+      data-price="800"
+      data-category="accessories"
+      data-colors="Burgundy"
+      data-sizes="One Size"
+      data-description="A burgundy bucket hat designed to make a bold everyday statement."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/bucket-hat-burgundy.jpg"
+          alt="Burgundy Bucket Hat"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 800
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>BURGUNDY BUCKET HAT</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="White Bucket Hat"
+      data-price="800"
+      data-category="accessories"
+      data-colors="White"
+      data-sizes="One Size"
+      data-description="A clean white bucket hat for effortless everyday styling."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/bucket-hat-white.jpg"
+          alt="White Bucket Hat"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 800
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>WHITE BUCKET HAT</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
+
+
+    <!-- =================================================
+         CAP
+    ================================================= -->
+
+
+    <article
+      class="product"
+      data-name="Béni Carmel White Cap"
       data-price="500"
       data-category="accessories"
+      data-colors="White"
+      data-sizes="Adjustable"
+      data-description="A clean white cap featuring the Béni Carmel identity."
     >
 
       <div class="product-image">
@@ -1158,146 +1533,252 @@
           ESSENTIAL
         </span>
 
-        <button
-          class="wishlist"
-          type="button"
-        >
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
-          src="images/cap.jpg"
+          src="images/cap-white.jpg"
           alt="Béni Carmel White Cap"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Béni Carmel Cap',500,'images/cap.jpg')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 500
+          QUICK VIEW — KES 500
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          BÉNI CARMEL CAP
-        </h3>
+        <h3>WHITE CAP</h3>
 
-        <p>
-          KES 500
-        </p>
+        <p>KES 500</p>
 
       </div>
 
     </article>
 
 
-    <!-- SHOULDER BAG -->
+    <!-- =================================================
+         BAGS
+    ================================================= -->
+
 
     <article
       class="product"
-      data-name="Béni Carmel Shoulder Bag"
+      data-name="Black Cross Shoulder Bag"
       data-price="800"
       data-category="accessories"
+      data-colors="Black"
+      data-sizes="One Size"
+      data-description="A versatile black cross shoulder bag designed for everyday essentials."
     >
 
       <div class="product-image">
 
-        <button
-          class="wishlist"
-          type="button"
-        >
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
-          src="images/logo.png"
-          alt="Béni Carmel Shoulder Bag"
+          src="images/shoulder-bag-black-cross.jpg"
+          alt="Black Cross Shoulder Bag"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Béni Carmel Shoulder Bag',800,'images/logo.png')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 800
+          QUICK VIEW — KES 800
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          SHOULDER BAG
-        </h3>
+        <h3>BLACK CROSS SHOULDER BAG</h3>
 
-        <p>
-          KES 800
-        </p>
+        <p>KES 800</p>
 
       </div>
 
     </article>
 
 
-    <!-- CROSS SHOULDER BAG -->
-
     <article
       class="product"
-      data-name="Béni Carmel Cross Shoulder Bag"
+      data-name="Black Shoulder Bag"
       data-price="800"
       data-category="accessories"
+      data-colors="Black"
+      data-sizes="One Size"
+      data-description="A minimal black shoulder bag for everyday essentials."
     >
 
       <div class="product-image">
 
-        <button
-          class="wishlist"
-          type="button"
-        >
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
-          src="images/logo.png"
-          alt="Béni Carmel Cross Shoulder Bag"
+          src="images/shoulder-bag-black.jpg"
+          alt="Black Shoulder Bag"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Béni Carmel Cross Shoulder Bag',800,'images/logo.png')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 800
+          QUICK VIEW — KES 800
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          CROSS SHOULDER BAG
-        </h3>
+        <h3>BLACK SHOULDER BAG</h3>
 
-        <p>
-          KES 800
-        </p>
+        <p>KES 800</p>
 
       </div>
 
     </article>
 
 
-    <!-- SILVER CROSS NECKLACE -->
+    <article
+      class="product"
+      data-name="Brown Shoulder Bag"
+      data-price="800"
+      data-category="accessories"
+      data-colors="Brown"
+      data-sizes="One Size"
+      data-description="A warm brown shoulder bag designed for versatile everyday use."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/shoulder-bag-brown.jpg"
+          alt="Brown Shoulder Bag"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 800
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>BROWN SHOULDER BAG</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Orange Shoulder Bag"
+      data-price="800"
+      data-category="accessories"
+      data-colors="Orange"
+      data-sizes="One Size"
+      data-description="A bold orange shoulder bag designed to bring colour to everyday looks."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/shoulder-bag-orange.jpg"
+          alt="Orange Shoulder Bag"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 800
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>ORANGE SHOULDER BAG</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Pink Shoulder Bag"
+      data-price="800"
+      data-category="accessories"
+      data-colors="Pink"
+      data-sizes="One Size"
+      data-description="A pink shoulder bag designed for a playful everyday statement."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/shoulder-bag-pink.jpg"
+          alt="Pink Shoulder Bag"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 800
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>PINK SHOULDER BAG</h3>
+
+        <p>KES 800</p>
+
+      </div>
+
+    </article>
+
+
+    <!-- =================================================
+         CROSS NECKLACE
+    ================================================= -->
+
 
     <article
       class="product"
       data-name="Silver Cross Necklace"
       data-price="500"
       data-category="accessories"
+      data-colors="Silver"
+      data-sizes="One Size"
+      data-description="A simple silver cross necklace inspired by faith and identity."
     >
 
       <div class="product-image">
@@ -1306,90 +1787,117 @@
           FAITH
         </span>
 
-        <button
-          class="wishlist"
-          type="button"
-        >
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
-          src="images/logo.png"
+          src="images/cross-necklace-silver.jpg"
           alt="Silver Cross Necklace"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Silver Cross Necklace',500,'images/logo.png')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 500
+          QUICK VIEW — KES 500
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          SILVER CROSS NECKLACE
-        </h3>
+        <h3>SILVER CROSS NECKLACE</h3>
 
-        <p>
-          KES 500
-        </p>
+        <p>KES 500</p>
 
       </div>
 
     </article>
 
 
-    <!-- SOCKS -->
+    <!-- =================================================
+         SOCKS
+    ================================================= -->
+
 
     <article
       class="product"
-      data-name="Béni Carmel Socks"
+      data-name="Béni Carmel Black Socks"
       data-price="200"
       data-category="accessories"
+      data-colors="Black"
+      data-sizes="One Size"
+      data-description="Everyday black socks designed for comfort and effortless styling."
     >
 
       <div class="product-image">
 
-        <button
-          class="wishlist"
-          type="button"
-        >
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
-          src="images/logo.png"
-          alt="Béni Carmel Socks"
+          src="images/socks-black.jpg"
+          alt="Black Socks"
         >
 
         <button
           class="quick-add"
           type="button"
-          onclick="addToBag('Béni Carmel Socks',200,'images/logo.png')"
+          onclick="openProductDetail(this.closest('.product'))"
         >
-          QUICK ADD — KES 200
+          QUICK VIEW — KES 200
         </button>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          BÉNI CARMEL SOCKS
-        </h3>
+        <h3>BLACK SOCKS</h3>
 
-        <p>
-          KES 200
-        </p>
+        <p>KES 200</p>
 
       </div>
 
     </article>
 
+
+    <article
+      class="product"
+      data-name="Béni Carmel White Socks"
+      data-price="200"
+      data-category="accessories"
+      data-colors="White"
+      data-sizes="One Size"
+      data-description="Clean everyday white socks designed for comfort and versatility."
+    >
+
+      <div class="product-image">
+
+        <button class="wishlist" type="button">♡</button>
+
+        <img
+          src="images/socks-white.jpg"
+          alt="White Socks"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+          onclick="openProductDetail(this.closest('.product'))"
+        >
+          QUICK VIEW — KES 200
+        </button>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>WHITE SOCKS</h3>
+
+        <p>KES 200</p>
+
+      </div>
+
+    </article>
 
   </div>
 
@@ -1503,17 +2011,11 @@
 
   <div class="footer-links">
 
-    <a href="#shop">
-      SHOP
-    </a>
+    <a href="#shop">SHOP</a>
 
-    <a href="#story">
-      OUR STORY
-    </a>
+    <a href="#story">OUR STORY</a>
 
-    <a href="#newsletter">
-      CONTACT
-    </a>
+    <a href="#newsletter">CONTACT</a>
 
     <a href="#">
       INSTAGRAM
@@ -1522,14 +2024,15 @@
   </div>
 
   <p>
-    © 2026 BÉNI CARMEL COLLECTIVES. ALL RIGHTS RESERVED.
+    © 2026 BÉNI CARMEL COLLECTIVES.
+    ALL RIGHTS RESERVED.
   </p>
 
 </footer>
 
 
 <!-- =====================================================
-     SEARCH OVERLAY
+     SEARCH
 ===================================================== -->
 
 <div
@@ -1566,7 +2069,7 @@
 
 
 <!-- =====================================================
-     BAG OVERLAY
+     BAG
 ===================================================== -->
 
 <div
@@ -1620,36 +2123,26 @@
       <div class="bag-summary">
 
         <div>
-
-          <span>
-            SUBTOTAL
-          </span>
+          <span>SUBTOTAL</span>
 
           <strong id="bagSubtotal">
             KES 0
           </strong>
-
         </div>
 
 
         <div>
-
-          <span>
-            SHIPPING
-          </span>
+          <span>SHIPPING</span>
 
           <strong id="bagShipping">
             KES 0
           </strong>
-
         </div>
 
 
         <div class="bag-total">
 
-          <span>
-            TOTAL
-          </span>
+          <span>TOTAL</span>
 
           <strong id="bagTotal">
             KES 0
@@ -1741,18 +2234,29 @@
       </p>
 
 
+      <!-- COLOR -->
+
+      <p class="size-heading">
+        COLOUR
+      </p>
+
+      <div
+        class="size-options"
+        id="colorOptions"
+      >
+      </div>
+
+
+      <!-- SIZE -->
+
       <p class="size-heading">
         SELECT SIZE
       </p>
 
-      <div class="size-options">
-
-        <button
-          class="size-option"
-          type="button"
-        >
-          S
-        </button>
+      <div
+        class="size-options"
+        id="sizeOptions"
+      >
 
         <button
           class="size-option selected"
@@ -1761,22 +2265,10 @@
           M
         </button>
 
-        <button
-          class="size-option"
-          type="button"
-        >
-          L
-        </button>
-
-        <button
-          class="size-option"
-          type="button"
-        >
-          XL
-        </button>
-
       </div>
 
+
+      <!-- QUANTITY -->
 
       <p class="quantity-heading">
         QUANTITY
