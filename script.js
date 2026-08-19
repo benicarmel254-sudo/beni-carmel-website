@@ -46,203 +46,575 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".wishlist");
 
 
-  /* =========================================
-     SHOPPING BAG
-  ========================================= */
+/* =========================================
+   SHOPPING BAG
+========================================= */
 
-  window.addToBag = function(productName, price) {
+let bag = JSON.parse(
+  localStorage.getItem("beniCarmelBag")
+) || [];
 
-    const existingProduct = bag.find(
-      item => item.name === productName
+
+const bagButton =
+  document.getElementById("bagButton");
+
+const bagOverlay =
+  document.getElementById("bagOverlay");
+
+const closeBag =
+  document.getElementById("closeBag");
+
+const bagCount =
+  document.getElementById("bagCount");
+
+const bagItems =
+  document.getElementById("bagItems");
+
+const bagSubtotal =
+  document.getElementById("bagSubtotal");
+
+const bagShipping =
+  document.getElementById("bagShipping");
+
+const bagTotal =
+  document.getElementById("bagTotal");
+
+const shippingMessage =
+  document.getElementById("shippingMessage");
+
+const checkoutButton =
+  document.getElementById("checkoutButton");
+
+
+
+/* =========================================
+   ADD TO BAG
+========================================= */
+
+window.addToBag = function(
+  productName,
+  price,
+  size = "M"
+) {
+
+  const existingProduct =
+    bag.find(
+      item =>
+        item.name === productName &&
+        item.size === size
     );
 
-    if (existingProduct) {
 
-      existingProduct.quantity++;
+  if (existingProduct) {
 
-    } else {
+    existingProduct.quantity++;
 
-      bag.push({
-        name: productName,
-        price: price,
-        quantity: 1
-      });
+  } else {
 
-    }
+    bag.push({
 
-    updateBag();
+      name: productName,
 
-    openBag();
+      price: Number(price),
 
-  };
+      size: size,
 
-
-  function updateBag() {
-
-    let totalItems = 0;
-    let totalPrice = 0;
-
-    bag.forEach(item => {
-
-      totalItems += item.quantity;
-
-      totalPrice +=
-        item.price * item.quantity;
+      quantity: 1
 
     });
 
-
-    bagCount.textContent = totalItems;
-
-    bagTotal.textContent =
-      `KES ${totalPrice.toLocaleString()}`;
+  }
 
 
-    if (bag.length === 0) {
+  saveBag();
 
-      bagItems.innerHTML = `
-        <p class="empty-bag">
+  updateBag();
+
+  openBag();
+
+};
+
+
+
+/* =========================================
+   SAVE BAG
+========================================= */
+
+function saveBag() {
+
+  localStorage.setItem(
+    "beniCarmelBag",
+    JSON.stringify(bag)
+  );
+
+}
+
+
+
+/* =========================================
+   UPDATE BAG
+========================================= */
+
+function updateBag() {
+
+  let itemCount = 0;
+
+  let subtotal = 0;
+
+
+  bag.forEach(item => {
+
+    itemCount += item.quantity;
+
+    subtotal +=
+      item.price * item.quantity;
+
+  });
+
+
+  /* BAG COUNT */
+
+  bagCount.textContent =
+    itemCount;
+
+
+  /* EMPTY BAG */
+
+  if (bag.length === 0) {
+
+    bagItems.innerHTML = `
+
+      <div class="empty-bag">
+
+        <p>
           YOUR BAG IS EMPTY.
         </p>
-      `;
 
-      return;
+        <a href="#shop" id="emptyBagShop">
+          CONTINUE SHOPPING →
+        </a>
 
-    }
+      </div>
 
+    `;
 
-    bagItems.innerHTML = "";
+  } else {
 
+    renderBagItems();
 
-    bag.forEach((item, index) => {
-
-      const bagItem =
-        document.createElement("div");
-
-      bagItem.className = "bag-item";
+  }
 
 
-      bagItem.innerHTML = `
+  /* SHIPPING */
 
-        <div class="bag-item-info">
+  let shipping = 0;
+
+
+  if (subtotal === 0) {
+
+    shipping = 0;
+
+  } else if (subtotal >= 10000) {
+
+    shipping = 0;
+
+  } else {
+
+    shipping = 500;
+
+  }
+
+
+  /* TOTAL */
+
+  const total =
+    subtotal + shipping;
+
+
+  bagSubtotal.textContent =
+    `KES ${subtotal.toLocaleString()}`;
+
+
+  bagShipping.textContent =
+    shipping === 0 && subtotal >= 10000
+      ? "FREE"
+      : `KES ${shipping.toLocaleString()}`;
+
+
+  bagTotal.textContent =
+    `KES ${total.toLocaleString()}`;
+
+
+  /* SHIPPING MESSAGE */
+
+  if (subtotal === 0) {
+
+    shippingMessage.textContent =
+      "ADD KES 10,000 TO YOUR BAG FOR FREE SHIPPING.";
+
+  } else if (subtotal >= 10000) {
+
+    shippingMessage.textContent =
+      "🎉 YOU QUALIFY FOR FREE SHIPPING!";
+
+  } else {
+
+    const remaining =
+      10000 - subtotal;
+
+    shippingMessage.textContent =
+      `ADD KES ${remaining.toLocaleString()} MORE FOR FREE SHIPPING.`;
+
+  }
+
+
+  /* CHECKOUT BUTTON */
+
+  checkoutButton.disabled =
+    bag.length === 0;
+
+
+  if (bag.length === 0) {
+
+    checkoutButton.textContent =
+      "YOUR BAG IS EMPTY";
+
+  } else {
+
+    checkoutButton.textContent =
+      "PROCEED TO CHECKOUT";
+
+  }
+
+
+  setupEmptyBagLink();
+
+}
+
+
+
+/* =========================================
+   RENDER BAG PRODUCTS
+========================================= */
+
+function renderBagItems() {
+
+  bagItems.innerHTML = "";
+
+
+  bag.forEach((item, index) => {
+
+    const productElement =
+      document.createElement("div");
+
+
+    productElement.className =
+      "bag-product";
+
+
+    productElement.innerHTML = `
+
+      <div class="bag-product-image">
+
+        <img
+          src="${getProductImage(item.name)}"
+          alt="${item.name}"
+        >
+
+      </div>
+
+
+      <div class="bag-product-details">
+
+        <div class="bag-product-top">
+
+          <div>
+
+            <h3>
+              ${item.name}
+            </h3>
+
+            <p>
+              SIZE: ${item.size}
+            </p>
+
+          </div>
+
 
           <strong>
-            ${item.name}
+            KES ${(
+              item.price *
+              item.quantity
+            ).toLocaleString()}
           </strong>
-
-          <span>
-            KES ${item.price.toLocaleString()}
-          </span>
 
         </div>
 
 
-        <div class="bag-item-controls">
+        <div class="bag-product-bottom">
+
+          <div class="bag-quantity">
+
+            <button
+              onclick="changeBagQuantity(${index}, -1)"
+            >
+              −
+            </button>
+
+            <span>
+              ${item.quantity}
+            </span>
+
+            <button
+              onclick="changeBagQuantity(${index}, 1)"
+            >
+              +
+            </button>
+
+          </div>
+
 
           <button
-            onclick="changeQuantity(${index}, -1)"
-          >
-            −
-          </button>
-
-          <span>
-            ${item.quantity}
-          </span>
-
-          <button
-            onclick="changeQuantity(${index}, 1)"
-          >
-            +
-          </button>
-
-          <button
-            class="remove-item"
-            onclick="removeFromBag(${index})"
+            class="bag-remove"
+            onclick="removeBagItem(${index})"
           >
             REMOVE
           </button>
 
         </div>
 
-      `;
+      </div>
+
+    `;
 
 
-      bagItems.appendChild(bagItem);
+    bagItems.appendChild(
+      productElement
+    );
 
-    });
+  });
 
-  }
-
-
-  window.changeQuantity =
-    function(index, change) {
-
-      bag[index].quantity += change;
+}
 
 
-      if (bag[index].quantity <= 0) {
 
-        bag.splice(index, 1);
+/* =========================================
+   FIND PRODUCT IMAGE
+========================================= */
 
-      }
+function getProductImage(name) {
+
+  const imageMap = {
+
+    "Faith Hoodie":
+      "images/hoodie-1.jpg",
+
+    "Covenant Hoodie":
+      "images/hoodie-2.jpg",
+
+    "Glory Hoodie":
+      "images/hoodie-3.jpg",
+
+    "Faith Shirt":
+      "images/shirt-1.jpg",
+
+    "Glory Shirt":
+      "images/shirt-2.jpg",
+
+    "Covenant Shirt":
+      "images/shirt-3.jpg",
+
+    "College Jacket":
+      "images/college-jacket.jpg",
+
+    "Classic Denim Jacket":
+      "images/denim-jacket-1.jpg",
+
+    "Washed Denim Jacket":
+      "images/denim-jacket-2.jpg",
+
+    "Faith Jorts":
+      "images/jorts-1.jpg",
+
+    "Béni Carmel Cap":
+      "images/cap.jpg"
+
+  };
 
 
-      updateBag();
-
-    };
-
-
-  window.removeFromBag =
-    function(index) {
-
-      bag.splice(index, 1);
-
-      updateBag();
-
-    };
-
-
-  function openBag() {
-
-    bagOverlay.classList.add("open");
-
-    document.body.classList.add("no-scroll");
-
-  }
-
-
-  function closeBagMenu() {
-
-    bagOverlay.classList.remove("open");
-
-    document.body.classList.remove("no-scroll");
-
-  }
-
-
-  bagButton.addEventListener(
-    "click",
-    openBag
+  return (
+    imageMap[name] ||
+    "images/logo.png"
   );
 
-  closeBag.addEventListener(
-    "click",
-    closeBagMenu
+}
+
+
+
+/* =========================================
+   CHANGE QUANTITY
+========================================= */
+
+window.changeBagQuantity =
+function(index, change) {
+
+  if (!bag[index]) return;
+
+
+  bag[index].quantity += change;
+
+
+  if (bag[index].quantity <= 0) {
+
+    bag.splice(index, 1);
+
+  }
+
+
+  saveBag();
+
+  updateBag();
+
+};
+
+
+
+/* =========================================
+   REMOVE ITEM
+========================================= */
+
+window.removeBagItem =
+function(index) {
+
+  bag.splice(index, 1);
+
+  saveBag();
+
+  updateBag();
+
+};
+
+
+
+/* =========================================
+   OPEN BAG
+========================================= */
+
+function openBag() {
+
+  bagOverlay.classList.add(
+    "open"
   );
 
+  document.body.classList.add(
+    "no-scroll"
+  );
 
-  bagOverlay.addEventListener(
+}
+
+
+
+/* =========================================
+   CLOSE BAG
+========================================= */
+
+function closeBagMenu() {
+
+  bagOverlay.classList.remove(
+    "open"
+  );
+
+  document.body.classList.remove(
+    "no-scroll"
+  );
+
+}
+
+
+bagButton.addEventListener(
+  "click",
+  openBag
+);
+
+
+closeBag.addEventListener(
+  "click",
+  closeBagMenu
+);
+
+
+bagOverlay.addEventListener(
+  "click",
+  event => {
+
+    if (
+      event.target ===
+      bagOverlay
+    ) {
+
+      closeBagMenu();
+
+    }
+
+  }
+);
+
+
+
+/* =========================================
+   CONTINUE SHOPPING
+========================================= */
+
+function setupEmptyBagLink() {
+
+  const emptyBagShop =
+    document.getElementById(
+      "emptyBagShop"
+    );
+
+
+  if (!emptyBagShop) return;
+
+
+  emptyBagShop.addEventListener(
     "click",
-    event => {
+    () => {
 
-      if (event.target === bagOverlay) {
-
-        closeBagMenu();
-
-      }
+      closeBagMenu();
 
     }
   );
+
+}
+
+
+
+/* =========================================
+   CHECKOUT
+========================================= */
+
+checkoutButton.addEventListener(
+  "click",
+  () => {
+
+    if (bag.length === 0) {
+
+      return;
+
+    }
+
+
+    alert(
+      "Checkout is coming next. Your cart is ready!"
+    );
+
+  }
+);
+
+
+/* INITIALIZE */
+
+updateBag();
 
 
   /* =========================================
