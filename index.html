@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,55 @@
   >
 
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =====================================================
+       BASIC SAFETY STYLES
+    ===================================================== */
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      transition: opacity 0.2s ease;
+    }
+
+    .image-error {
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .product-detail-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
 </head>
 
 <body>
@@ -263,7 +313,7 @@
     </div>
 
     <span class="view-all">
-      <span id="productCount">32</span> PRODUCTS
+      <span id="productCount">31</span> PRODUCTS
     </span>
 
   </div>
@@ -389,10 +439,7 @@
           alt="Faith Hoodie"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,200
         </button>
 
@@ -429,10 +476,7 @@
           alt="Covenant Hoodie"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,200
         </button>
 
@@ -473,10 +517,7 @@
           alt="Faith Tee"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 600
         </button>
 
@@ -513,10 +554,7 @@
           alt="Glory Tee"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 600
         </button>
 
@@ -553,10 +591,7 @@
           alt="Covenant Tee"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 600
         </button>
 
@@ -601,10 +636,7 @@
           alt="College Jacket"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,400
         </button>
 
@@ -641,10 +673,7 @@
           alt="Classic Denim Jacket"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,300
         </button>
 
@@ -681,10 +710,7 @@
           alt="Washed Denim Jacket"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,300
         </button>
 
@@ -699,7 +725,7 @@
 
 
 <!-- =====================================================
-     WIDE LEG JEANS
+     BOTTOMS
 ===================================================== -->
 
     <article
@@ -729,10 +755,7 @@
           alt="Blue Wide Leg Jeans"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,300
         </button>
 
@@ -745,10 +768,6 @@
 
     </article>
 
-
-<!-- =====================================================
-     JORTS
-===================================================== -->
 
     <article
       class="product"
@@ -773,10 +792,7 @@
           alt="Classic Blue Jorts"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
@@ -813,10 +829,7 @@
           alt="Dark Blue Jorts"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
@@ -853,10 +866,7 @@
           alt="Marble Blue Jorts"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
@@ -893,10 +903,7 @@
           alt="Sky Blue Jorts"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
@@ -909,10 +916,6 @@
 
     </article>
 
-
-<!-- =====================================================
-     SWEATPANTS
-===================================================== -->
 
     <article
       class="product"
@@ -937,18 +940,15 @@
           alt="Black Sweatpants"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
-          QUICK ADD — KES 1000
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
         <h3>BLACK SWEATPANTS</h3>
-        <p>KES 1000</p>
+        <p>KES 1,000</p>
       </div>
 
     </article>
@@ -957,7 +957,7 @@
     <article
       class="product"
       data-name="Burgundy Sweatpants"
-      data-price="200"
+      data-price="1000"
       data-category="bottoms"
       data-colors="Burgundy"
     >
@@ -977,18 +977,15 @@
           alt="Burgundy Sweatpants"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
-          QUICK ADD — KES 1000
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
         <h3>BURGUNDY SWEATPANTS</h3>
-        <p>KES 1000</p>
+        <p>KES 1,000</p>
       </div>
 
     </article>
@@ -1017,18 +1014,15 @@
           alt="Cream Sweatpants"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
-          QUICK ADD — KES 1000
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
         <h3>CREAM SWEATPANTS</h3>
-        <p>KES 1000</p>
+        <p>KES 1,000</p>
       </div>
 
     </article>
@@ -1037,7 +1031,7 @@
     <article
       class="product"
       data-name="Grey Sweatpants"
-      data-price="200"
+      data-price="1000"
       data-category="bottoms"
       data-colors="Grey"
     >
@@ -1057,18 +1051,15 @@
           alt="Grey Sweatpants"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
-          QUICK ADD — KES 1000
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
         <h3>GREY SWEATPANTS</h3>
-        <p>KES 1000</p>
+        <p>KES 1,000</p>
       </div>
 
     </article>
@@ -1084,6 +1075,7 @@
       data-price="1000"
       data-category="accessories"
       data-colors="Black"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1101,10 +1093,7 @@
           alt="Black Beanie"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
@@ -1124,6 +1113,7 @@
       data-price="1000"
       data-category="accessories"
       data-colors="Brown"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1141,10 +1131,7 @@
           alt="Brown Beanie"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
@@ -1164,6 +1151,7 @@
       data-price="1000"
       data-category="accessories"
       data-colors="Burgundy"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1181,10 +1169,7 @@
           alt="Burgundy Beanie"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
@@ -1204,6 +1189,7 @@
       data-price="1000"
       data-category="accessories"
       data-colors="Cream"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1221,10 +1207,7 @@
           alt="Cream Beanie"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
@@ -1248,6 +1231,7 @@
       data-price="500"
       data-category="accessories"
       data-colors="Beige"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1265,10 +1249,7 @@
           alt="Beige Bucket Hat"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 500
         </button>
 
@@ -1288,6 +1269,7 @@
       data-price="500"
       data-category="accessories"
       data-colors="Black"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1305,10 +1287,7 @@
           alt="Black Bucket Hat"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 500
         </button>
 
@@ -1328,6 +1307,7 @@
       data-price="500"
       data-category="accessories"
       data-colors="Burgundy"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1345,10 +1325,7 @@
           alt="Burgundy Bucket Hat"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 500
         </button>
 
@@ -1368,6 +1345,7 @@
       data-price="500"
       data-category="accessories"
       data-colors="White"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1385,10 +1363,7 @@
           alt="White Bucket Hat"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 500
         </button>
 
@@ -1412,6 +1387,7 @@
       data-price="700"
       data-category="accessories"
       data-colors="White"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1433,10 +1409,7 @@
           alt="Béni Carmel White Cap"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 700
         </button>
 
@@ -1460,6 +1433,7 @@
       data-price="300"
       data-category="accessories"
       data-colors="Black"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1477,10 +1451,7 @@
           alt="Black Shoulder Bag"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 300
         </button>
 
@@ -1500,6 +1471,7 @@
       data-price="300"
       data-category="accessories"
       data-colors="Black"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1517,10 +1489,7 @@
           alt="Black Cross Shoulder Bag"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 300
         </button>
 
@@ -1540,6 +1509,7 @@
       data-price="300"
       data-category="accessories"
       data-colors="Brown"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1557,10 +1527,7 @@
           alt="Brown Shoulder Bag"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 300
         </button>
 
@@ -1580,6 +1547,7 @@
       data-price="300"
       data-category="accessories"
       data-colors="Orange"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1597,10 +1565,7 @@
           alt="Orange Shoulder Bag"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 300
         </button>
 
@@ -1620,6 +1585,7 @@
       data-price="300"
       data-category="accessories"
       data-colors="Pink"
+      data-one-size="true"
     >
 
       <div class="product-image">
@@ -1637,10 +1603,7 @@
           alt="Pink Shoulder Bag"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 300
         </button>
 
@@ -1686,10 +1649,7 @@
           alt="Silver Cross Necklace"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 700
         </button>
 
@@ -1731,10 +1691,7 @@
           alt="Black Béni Carmel Socks"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 600
         </button>
 
@@ -1772,10 +1729,7 @@
           alt="White Béni Carmel Socks"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 600
         </button>
 
@@ -1898,10 +1852,7 @@
     <a href="#story">OUR STORY</a>
     <a href="#newsletter">CONTACT</a>
 
-    <a
-      href="#"
-      onclick="return false;"
-    >
+    <a href="#" onclick="return false;">
       INSTAGRAM
     </a>
 
@@ -1918,10 +1869,7 @@
      SEARCH OVERLAY
 ===================================================== -->
 
-<div
-  class="search-overlay"
-  id="searchOverlay"
->
+<div class="search-overlay" id="searchOverlay">
 
   <button
     class="close-search"
@@ -1956,10 +1904,7 @@
      BAG OVERLAY
 ===================================================== -->
 
-<div
-  class="bag-overlay"
-  id="bagOverlay"
->
+<div class="bag-overlay" id="bagOverlay">
 
   <aside class="bag">
 
@@ -2100,7 +2045,6 @@
         KES 0
       </p>
 
-
       <p
         class="product-detail-description"
         id="detailProductDescription"
@@ -2109,9 +2053,7 @@
       </p>
 
 
-<!-- =====================================================
-     COLOUR
-===================================================== -->
+      <!-- COLOUR -->
 
       <div id="colorSelectorWrapper">
 
@@ -2127,9 +2069,7 @@
       </div>
 
 
-<!-- =====================================================
-     SIZE
-===================================================== -->
+      <!-- SIZE -->
 
       <div id="sizeSelectorWrapper">
 
@@ -2139,10 +2079,7 @@
 
         <div class="size-options">
 
-          <button
-            class="size-option"
-            type="button"
-          >
+          <button class="size-option" type="button">
             S
           </button>
 
@@ -2153,17 +2090,11 @@
             M
           </button>
 
-          <button
-            class="size-option"
-            type="button"
-          >
+          <button class="size-option" type="button">
             L
           </button>
 
-          <button
-            class="size-option"
-            type="button"
-          >
+          <button class="size-option" type="button">
             XL
           </button>
 
@@ -2172,9 +2103,7 @@
       </div>
 
 
-<!-- =====================================================
-     QUANTITY
-===================================================== -->
+      <!-- QUANTITY -->
 
       <p class="quantity-heading">
         QUANTITY
@@ -2244,6 +2173,10 @@
 
 <script>
 
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
 const productsContainer =
   document.getElementById("products");
 
@@ -2252,6 +2185,55 @@ const products =
     document.querySelectorAll(".product")
   );
 
+const productCount =
+  document.getElementById("productCount");
+
+productCount.textContent =
+  products.length;
+
+
+/* =====================================================
+   IMAGE ERROR HANDLING
+===================================================== */
+
+document
+  .querySelectorAll("img")
+  .forEach(img => {
+
+    img.addEventListener("error", function() {
+
+      if (
+        this.dataset.errorHandled
+      ) {
+        return;
+      }
+
+      this.dataset.errorHandled = "true";
+
+      this.style.display = "none";
+
+      const message =
+        document.createElement("div");
+
+      message.className =
+        "image-error";
+
+      message.textContent =
+        "IMAGE NOT FOUND: " +
+        this.getAttribute("src");
+
+      this.parentElement.appendChild(
+        message
+      );
+
+    });
+
+  });
+
+
+/* =====================================================
+   BAG ELEMENTS
+===================================================== */
 
 const bagOverlay =
   document.getElementById("bagOverlay");
@@ -2278,60 +2260,98 @@ const checkoutButton =
   document.getElementById("checkoutButton");
 
 
+/* =====================================================
+   PRODUCT DETAIL ELEMENTS
+===================================================== */
+
 const productDetailOverlay =
-  document.getElementById("productDetailOverlay");
+  document.getElementById(
+    "productDetailOverlay"
+  );
 
 const detailProductImage =
-  document.getElementById("detailProductImage");
+  document.getElementById(
+    "detailProductImage"
+  );
 
 const detailProductName =
-  document.getElementById("detailProductName");
+  document.getElementById(
+    "detailProductName"
+  );
 
 const detailProductPrice =
-  document.getElementById("detailProductPrice");
+  document.getElementById(
+    "detailProductPrice"
+  );
 
 const detailProductCategory =
-  document.getElementById("detailProductCategory");
+  document.getElementById(
+    "detailProductCategory"
+  );
 
 const detailProductDescription =
-  document.getElementById("detailProductDescription");
+  document.getElementById(
+    "detailProductDescription"
+  );
 
 const colorOptions =
-  document.getElementById("colorOptions");
+  document.getElementById(
+    "colorOptions"
+  );
 
 const colorSelectorWrapper =
-  document.getElementById("colorSelectorWrapper");
+  document.getElementById(
+    "colorSelectorWrapper"
+  );
 
 const sizeSelectorWrapper =
-  document.getElementById("sizeSelectorWrapper");
+  document.getElementById(
+    "sizeSelectorWrapper"
+  );
 
 const detailQuantity =
-  document.getElementById("detailQuantity");
-
-
-let bag =
-  JSON.parse(
-    localStorage.getItem("beniCarmelBag") || "[]"
+  document.getElementById(
+    "detailQuantity"
   );
 
 
+/* =====================================================
+   STATE
+===================================================== */
+
+let bag =
+  JSON.parse(
+    localStorage.getItem(
+      "beniCarmelBag"
+    ) || "[]"
+  );
+
 let currentProduct = null;
+
 let currentQuantity = 1;
+
 let currentColor = "";
+
 let currentSize = "M";
 
 
 /* =====================================================
-   HELPERS
+   MONEY
 ===================================================== */
 
 function money(value) {
 
-  return "KES " +
-    Number(value).toLocaleString("en-KE");
+  return (
+    "KES " +
+    Number(value).toLocaleString("en-KE")
+  );
 
 }
 
+
+/* =====================================================
+   SAVE BAG
+===================================================== */
 
 function saveBag() {
 
@@ -2344,7 +2364,7 @@ function saveBag() {
 
 
 /* =====================================================
-   BAG
+   UPDATE BAG
 ===================================================== */
 
 function updateBag() {
@@ -2356,8 +2376,8 @@ function updateBag() {
       0
     );
 
-
-  bagCount.textContent = count;
+  bagCount.textContent =
+    count;
 
 
   if (bag.length === 0) {
@@ -2381,7 +2401,6 @@ function updateBag() {
 
     `;
 
-
     bagSubtotal.textContent =
       "KES 0";
 
@@ -2391,16 +2410,14 @@ function updateBag() {
     bagTotal.textContent =
       "KES 0";
 
-
     shippingMessage.textContent =
       "ADD KES 10,000 TO YOUR BAG FOR FREE SHIPPING.";
 
-
-    checkoutButton.disabled = true;
+    checkoutButton.disabled =
+      true;
 
     checkoutButton.textContent =
       "YOUR BAG IS EMPTY";
-
 
     saveBag();
 
@@ -2421,13 +2438,11 @@ function updateBag() {
         item.price *
         item.quantity;
 
-
       subtotal += itemTotal;
 
 
       const productElement =
         document.createElement("div");
-
 
       productElement.className =
         "bag-product";
@@ -2455,27 +2470,21 @@ function updateBag() {
                 ${item.name}
               </h3>
 
-              <p>
-                ${
-                  item.color
-                    ? "COLOUR: " +
-                      item.color
-                    : ""
-                }
-              </p>
+              ${
+                item.color
+                  ? `<p>COLOUR: ${item.color}</p>`
+                  : ""
+              }
 
               <p>
                 ${
-                  item.size &&
-                  item.size !== "ONE SIZE"
-                    ? "SIZE: " +
-                      item.size
-                    : "ONE SIZE"
+                  item.size === "ONE SIZE"
+                    ? "ONE SIZE"
+                    : "SIZE: " + item.size
                 }
               </p>
 
             </div>
-
 
             <strong>
               ${money(itemTotal)}
@@ -2537,7 +2546,6 @@ function updateBag() {
       ? 0
       : 300;
 
-
   const total =
     subtotal + shipping;
 
@@ -2545,12 +2553,10 @@ function updateBag() {
   bagSubtotal.textContent =
     money(subtotal);
 
-
   bagShipping.textContent =
     shipping === 0
       ? "FREE"
       : money(shipping);
-
 
   bagTotal.textContent =
     money(total);
@@ -2574,7 +2580,6 @@ function updateBag() {
   checkoutButton.disabled =
     false;
 
-
   checkoutButton.textContent =
     "PROCEED TO CHECKOUT →";
 
@@ -2585,7 +2590,7 @@ function updateBag() {
 
 
 /* =====================================================
-   ADD PRODUCT TO BAG
+   ADD PRODUCT
 ===================================================== */
 
 function addProductToBag(
@@ -2608,18 +2613,24 @@ function addProductToBag(
 
   if (existing) {
 
-    existing.quantity += quantity;
+    existing.quantity +=
+      quantity;
 
   } else {
 
     bag.push({
 
-      name,
-      price,
-      image,
-      size,
-      color,
-      quantity
+      name: name,
+
+      price: price,
+
+      image: image,
+
+      size: size,
+
+      color: color,
+
+      quantity: quantity
 
     });
 
@@ -2628,11 +2639,9 @@ function addProductToBag(
 
   updateBag();
 
-
   bagOverlay.classList.add(
     "open"
   );
-
 
   document.body.classList.add(
     "no-scroll"
@@ -2691,7 +2700,7 @@ function closeBag() {
 
 
 /* =====================================================
-   PRODUCT DETAIL
+   OPEN PRODUCT
 ===================================================== */
 
 function openProduct(product) {
@@ -2716,42 +2725,32 @@ function openProduct(product) {
   const name =
     product.dataset.name;
 
-
   const price =
     Number(
       product.dataset.price
     );
 
-
   const category =
     product.dataset.category;
 
-
   const image =
-    product.querySelector(
-      "img"
-    ).src;
+    product.querySelector("img").src;
 
 
   detailProductImage.src =
     image;
 
-
   detailProductImage.alt =
     name;
-
 
   detailProductName.textContent =
     name.toUpperCase();
 
-
   detailProductPrice.textContent =
     money(price);
 
-
   detailProductCategory.textContent =
     category.toUpperCase();
-
 
   detailProductDescription.textContent =
     `${name} — a faith-inspired piece from Béni Carmel Collectives, designed for everyday wear and bold expression.`;
@@ -2788,10 +2787,8 @@ function openProduct(product) {
             "button"
           );
 
-
         button.type =
           "button";
-
 
         button.className =
           "color-option";
@@ -2828,11 +2825,9 @@ function openProduct(product) {
                   )
               );
 
-
             button.classList.add(
               "selected"
             );
-
 
             currentColor =
               color;
@@ -2900,6 +2895,7 @@ function openProduct(product) {
         }
       );
 
+
     currentSize =
       "M";
 
@@ -2910,13 +2906,16 @@ function openProduct(product) {
     "open"
   );
 
-
   document.body.classList.add(
     "no-scroll"
   );
 
 }
 
+
+/* =====================================================
+   CLOSE PRODUCT
+===================================================== */
 
 function closeProduct() {
 
@@ -2945,7 +2944,9 @@ productsContainer.addEventListener(
       );
 
 
-    if (!product) return;
+    if (!product) {
+      return;
+    }
 
 
     /* WISHLIST */
@@ -2992,7 +2993,6 @@ productsContainer.addEventListener(
     ) {
 
       event.stopPropagation();
-
 
       openProduct(product);
 
@@ -3160,12 +3160,10 @@ const searchOverlay =
     "searchOverlay"
   );
 
-
 const searchInput =
   document.getElementById(
     "searchInput"
   );
-
 
 const searchResults =
   document.getElementById(
@@ -3185,11 +3183,9 @@ document
         "open"
       );
 
-
       document.body.classList.add(
         "no-scroll"
       );
-
 
       setTimeout(
         () =>
@@ -3212,7 +3208,6 @@ document
       searchOverlay.classList.remove(
         "open"
       );
-
 
       document.body.classList.remove(
         "no-scroll"
@@ -3247,15 +3242,12 @@ searchInput.addEventListener(
         product =>
           product.dataset.name
             .toLowerCase()
-            .includes(
-              query
-            )
+            .includes(query)
       );
 
 
     if (
-      matches.length ===
-      0
+      matches.length === 0
     ) {
 
       searchResults.innerHTML =
@@ -3274,18 +3266,14 @@ searchInput.addEventListener(
             <p
               style="cursor:pointer"
               data-search-product="${
-                products.indexOf(
-                  product
-                )
+                products.indexOf(product)
               }"
             >
-
               ${product.dataset.name.toUpperCase()}
               —
               ${money(
                 product.dataset.price
               )}
-
             </p>
 
           `
@@ -3306,7 +3294,9 @@ searchResults.addEventListener(
       );
 
 
-    if (!result) return;
+    if (!result) {
+      return;
+    }
 
 
     const index =
@@ -3342,11 +3332,9 @@ document
 
       updateBag();
 
-
       bagOverlay.classList.add(
         "open"
       );
-
 
       document.body.classList.add(
         "no-scroll"
@@ -3469,8 +3457,7 @@ document
     function() {
 
       if (
-        currentQuantity >
-        1
+        currentQuantity > 1
       ) {
 
         currentQuantity--;
@@ -3521,7 +3508,9 @@ document
 
       if (
         !currentProduct
-      ) return;
+      ) {
+        return;
+      }
 
 
       const selectedColor =
@@ -3572,16 +3561,15 @@ checkoutButton.addEventListener(
   function() {
 
     if (
-      bag.length ===
-      0
-    ) return;
+      bag.length === 0
+    ) {
+      return;
+    }
 
 
     localStorage.setItem(
       "beniCarmelCheckoutBag",
-      JSON.stringify(
-        bag
-      )
+      JSON.stringify(bag)
     );
 
 
@@ -3614,7 +3602,6 @@ document
         "open"
       );
 
-
       document.body.classList.add(
         "no-scroll"
       );
@@ -3634,7 +3621,6 @@ document
       mobileMenu.classList.remove(
         "open"
       );
-
 
       document.body.classList.remove(
         "no-scroll"
@@ -3656,7 +3642,6 @@ mobileMenu
           mobileMenu.classList.remove(
             "open"
           );
-
 
           document.body.classList.remove(
             "no-scroll"
@@ -3694,7 +3679,9 @@ document
         input.value.trim();
 
 
-      if (!email) return;
+      if (!email) {
+        return;
+      }
 
 
       alert(
@@ -3720,28 +3707,26 @@ document.addEventListener(
     if (
       event.key !==
       "Escape"
-    ) return;
+    ) {
+      return;
+    }
 
 
     searchOverlay.classList.remove(
       "open"
     );
 
-
     bagOverlay.classList.remove(
       "open"
     );
-
 
     productDetailOverlay.classList.remove(
       "open"
     );
 
-
     mobileMenu.classList.remove(
       "open"
     );
-
 
     document.body.classList.remove(
       "no-scroll"
@@ -3761,3 +3746,4 @@ updateBag();
 
 </body>
 </html>
+```
