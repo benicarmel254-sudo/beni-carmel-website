@@ -37,6 +37,7 @@
       class="menu-button"
       id="menuButton"
       aria-label="Open menu"
+      type="button"
     >
       ☰
     </button>
@@ -49,12 +50,14 @@
 
   </div>
 
+
   <a href="#" class="logo" aria-label="Béni Carmel Collectives">
     <img
       src="images/logo.png"
       alt="Béni Carmel Collectives"
     >
   </a>
+
 
   <div class="header-actions">
 
@@ -81,6 +84,7 @@
     class="close-menu"
     id="closeMenu"
     aria-label="Close menu"
+    type="button"
   >
     ×
   </button>
@@ -171,6 +175,7 @@
 
   </div>
 
+
   <div class="category-grid">
 
     <a href="#shop" class="category-card">
@@ -207,12 +212,12 @@
 
       <div class="category-image">
         <img
-          src="images/denim-jacket-1.jpg"
+          src="images/wide-leg-jeans-blue.jpg"
           alt="Béni Carmel denim"
         >
       </div>
 
-      <h3>DENIM</h3>
+      <h3>DENIM & BOTTOMS</h3>
       <span>FROM KES 1,000</span>
 
     </a>
@@ -258,13 +263,15 @@
     </div>
 
     <span class="view-all">
-      34 PRODUCTS
+      <span id="productCount">33</span> PRODUCTS
     </span>
 
   </div>
 
 
-  <!-- SHOP CONTROLS -->
+  <!-- =================================================
+       SHOP CONTROLS
+  ================================================= -->
 
   <div class="shop-controls">
 
@@ -360,7 +367,6 @@
       data-name="Faith Hoodie"
       data-price="1200"
       data-category="hoodies"
-      data-description="A faith-inspired everyday hoodie designed to carry your belief boldly."
     >
 
       <div class="product-image">
@@ -369,7 +375,11 @@
           BESTSELLER
         </span>
 
-        <button class="wishlist" type="button">
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Faith Hoodie to wishlist"
+        >
           ♡
         </button>
 
@@ -381,7 +391,6 @@
         <button
           class="quick-add"
           type="button"
-          onclick="openProductDetail(this.closest('.product'))"
         >
           QUICK ADD — KES 1,200
         </button>
@@ -401,12 +410,15 @@
       data-name="Covenant Hoodie"
       data-price="1200"
       data-category="hoodies"
-      data-description="A clean everyday hoodie inspired by covenant, faith and purpose."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Covenant Hoodie to wishlist"
+        >
           ♡
         </button>
 
@@ -418,7 +430,6 @@
         <button
           class="quick-add"
           type="button"
-          onclick="openProductDetail(this.closest('.product'))"
         >
           QUICK ADD — KES 1,200
         </button>
@@ -442,14 +453,11 @@
       data-name="Faith Tee"
       data-price="600"
       data-category="t-shirts"
-      data-description="A faith-inspired everyday tee created for bold expression."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/tee-1.jpg"
@@ -459,7 +467,6 @@
         <button
           class="quick-add"
           type="button"
-          onclick="openProductDetail(this.closest('.product'))"
         >
           QUICK ADD — KES 600
         </button>
@@ -479,14 +486,11 @@
       data-name="Glory Tee"
       data-price="600"
       data-category="t-shirts"
-      data-description="A statement tee inspired by faith, identity and glory."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/tee-2.jpg"
@@ -496,7 +500,6 @@
         <button
           class="quick-add"
           type="button"
-          onclick="openProductDetail(this.closest('.product'))"
         >
           QUICK ADD — KES 600
         </button>
@@ -516,14 +519,11 @@
       data-name="Covenant Tee"
       data-price="600"
       data-category="t-shirts"
-      data-description="A clean faith-inspired tee made for everyday wear."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/tee-3.jpg"
@@ -533,7 +533,6 @@
         <button
           class="quick-add"
           type="button"
-          onclick="openProductDetail(this.closest('.product'))"
         >
           QUICK ADD — KES 600
         </button>
@@ -557,7 +556,6 @@
       data-name="College Jacket"
       data-price="1400"
       data-category="jackets"
-      data-description="A statement college jacket designed for bold everyday styling."
     >
 
       <div class="product-image">
@@ -566,9 +564,7 @@
           NEW
         </span>
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/college-jacket.jpg"
@@ -578,7 +574,6 @@
         <button
           class="quick-add"
           type="button"
-          onclick="openProductDetail(this.closest('.product'))"
         >
           QUICK ADD — KES 1,400
         </button>
@@ -598,14 +593,11 @@
       data-name="Classic Denim Jacket"
       data-price="1300"
       data-category="jackets"
-      data-description="A classic denim layer designed for effortless everyday wear."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/denim-jacket-1.jpg"
@@ -615,7 +607,6 @@
         <button
           class="quick-add"
           type="button"
-          onclick="openProductDetail(this.closest('.product'))"
         >
           QUICK ADD — KES 1,300
         </button>
@@ -635,14 +626,11 @@
       data-name="Washed Denim Jacket"
       data-price="1300"
       data-category="jackets"
-      data-description="A washed denim jacket with an effortless streetwear feel."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/denim-jacket-2.jpg"
@@ -652,7 +640,6 @@
         <button
           class="quick-add"
           type="button"
-          onclick="openProductDetail(this.closest('.product'))"
         >
           QUICK ADD — KES 1,300
         </button>
@@ -668,15 +655,14 @@
 
 
     <!-- =================================================
-         BOTTOMS
+         WIDE LEG JEANS
     ================================================= -->
 
     <article
       class="product"
-      data-name="Wide Leg Jeans — Blue"
+      data-name="Wide Leg Jeans"
       data-price="1300"
       data-category="bottoms"
-      data-description="Relaxed wide-leg denim designed for a contemporary everyday silhouette."
     >
 
       <div class="product-image">
@@ -685,9 +671,7 @@
           NEW
         </span>
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/wide-leg-jeans-blue.jpg"
@@ -697,7 +681,6 @@
         <button
           class="quick-add"
           type="button"
-          onclick="openProductDetail(this.closest('.product'))"
         >
           QUICK ADD — KES 1,300
         </button>
@@ -712,39 +695,34 @@
     </article>
 
 
-    <!-- JORTS -->
+    <!-- =================================================
+         JORTS
+    ================================================= -->
 
     <article
       class="product"
-      data-name="Jorts — Classic Blue"
+      data-name="Classic Blue Jorts"
       data-price="1000"
       data-category="bottoms"
-      data-description="Relaxed denim jorts designed for easy everyday styling."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/jorts-1.jpg"
           alt="Classic Blue Jorts"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>JORTS — CLASSIC BLUE</h3>
+        <h3>CLASSIC BLUE JORTS</h3>
         <p>KES 1,000</p>
       </div>
 
@@ -753,35 +731,28 @@
 
     <article
       class="product"
-      data-name="Jorts — Dark Blue"
+      data-name="Dark Blue Jorts"
       data-price="1000"
       data-category="bottoms"
-      data-description="Dark blue denim jorts with a relaxed streetwear silhouette."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/jorts-dark-blue.jpg"
           alt="Dark Blue Jorts"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>JORTS — DARK BLUE</h3>
+        <h3>DARK BLUE JORTS</h3>
         <p>KES 1,000</p>
       </div>
 
@@ -790,35 +761,28 @@
 
     <article
       class="product"
-      data-name="Jorts — Marble Blue"
+      data-name="Marble Blue Jorts"
       data-price="1000"
       data-category="bottoms"
-      data-description="Marble blue denim jorts designed for effortless styling."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/jorts-marble-blue.jpg"
           alt="Marble Blue Jorts"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>JORTS — MARBLE BLUE</h3>
+        <h3>MARBLE BLUE JORTS</h3>
         <p>KES 1,000</p>
       </div>
 
@@ -827,75 +791,63 @@
 
     <article
       class="product"
-      data-name="Jorts — Sky Blue"
+      data-name="Sky Blue Jorts"
       data-price="1000"
       data-category="bottoms"
-      data-description="Light sky-blue denim jorts for relaxed everyday looks."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/jorts-sky-blue.jpg"
           alt="Sky Blue Jorts"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
+        <button class="quick-add" type="button">
           QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>JORTS — SKY BLUE</h3>
+        <h3>SKY BLUE JORTS</h3>
         <p>KES 1,000</p>
       </div>
 
     </article>
 
 
-    <!-- SWEATPANTS -->
+    <!-- =================================================
+         SWEATPANTS
+    ================================================= -->
 
     <article
       class="product"
-      data-name="Sweatpants — Black"
-      data-price="1000"
+      data-name="Black Sweatpants"
+      data-price="200"
       data-category="bottoms"
-      data-description="Black everyday sweatpants designed for comfort and effortless styling."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/sweatpants-black.jpg"
           alt="Black Sweatpants"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 1,000
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 200
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>SWEATPANTS — BLACK</h3>
-        <p>KES 1,000</p>
+        <h3>BLACK SWEATPANTS</h3>
+        <p>KES 200</p>
       </div>
 
     </article>
@@ -903,36 +855,29 @@
 
     <article
       class="product"
-      data-name="Sweatpants — Burgundy"
-      data-price="1000"
+      data-name="Burgundy Sweatpants"
+      data-price="200"
       data-category="bottoms"
-      data-description="Burgundy everyday sweatpants with a relaxed fit."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/sweatpants-burgundy.jpg"
           alt="Burgundy Sweatpants"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 1,000
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 200
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>SWEATPANTS — BURGUNDY</h3>
-        <p>KES 1,000</p>
+        <h3>BURGUNDY SWEATPANTS</h3>
+        <p>KES 200</p>
       </div>
 
     </article>
@@ -940,36 +885,29 @@
 
     <article
       class="product"
-      data-name="Sweatpants — Cream"
-      data-price="1000"
+      data-name="Cream Sweatpants"
+      data-price="200"
       data-category="bottoms"
-      data-description="Cream sweatpants designed for comfortable everyday wear."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/sweatpants-cream.jpg"
           alt="Cream Sweatpants"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 1,000
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 200
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>SWEATPANTS — CREAM</h3>
-        <p>KES 1,000</p>
+        <h3>CREAM SWEATPANTS</h3>
+        <p>KES 200</p>
       </div>
 
     </article>
@@ -977,36 +915,29 @@
 
     <article
       class="product"
-      data-name="Sweatpants — Grey"
-      data-price="1000"
+      data-name="Grey Sweatpants"
+      data-price="200"
       data-category="bottoms"
-      data-description="Grey sweatpants designed for relaxed everyday styling."
     >
 
       <div class="product-image">
 
-        <button class="wishlist" type="button">
-          ♡
-        </button>
+        <button class="wishlist" type="button">♡</button>
 
         <img
           src="images/sweatpants-grey.jpg"
           alt="Grey Sweatpants"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 1,000
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 200
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>SWEATPANTS — GREY</h3>
-        <p>KES 1,000</p>
+        <h3>GREY SWEATPANTS</h3>
+        <p>KES 200</p>
       </div>
 
     </article>
@@ -1018,10 +949,9 @@
 
     <article
       class="product"
-      data-name="Beanie — Black"
-      data-price="500"
+      data-name="Black Beanie"
+      data-price="1000"
       data-category="accessories"
-      data-description="Classic black Béni Carmel beanie."
     >
 
       <div class="product-image">
@@ -1033,19 +963,15 @@
           alt="Black Beanie"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 500
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>BEANIE — BLACK</h3>
-        <p>KES 500</p>
+        <h3>BLACK BEANIE</h3>
+        <p>KES 1,000</p>
       </div>
 
     </article>
@@ -1053,10 +979,9 @@
 
     <article
       class="product"
-      data-name="Beanie — Brown"
-      data-price="500"
+      data-name="Brown Beanie"
+      data-price="1000"
       data-category="accessories"
-      data-description="Brown Béni Carmel beanie for everyday wear."
     >
 
       <div class="product-image">
@@ -1068,19 +993,15 @@
           alt="Brown Beanie"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 500
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>BEANIE — BROWN</h3>
-        <p>KES 500</p>
+        <h3>BROWN BEANIE</h3>
+        <p>KES 1,000</p>
       </div>
 
     </article>
@@ -1088,10 +1009,9 @@
 
     <article
       class="product"
-      data-name="Beanie — Burgundy"
-      data-price="500"
+      data-name="Burgundy Beanie"
+      data-price="1000"
       data-category="accessories"
-      data-description="Burgundy Béni Carmel beanie."
     >
 
       <div class="product-image">
@@ -1103,19 +1023,15 @@
           alt="Burgundy Beanie"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 500
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>BEANIE — BURGUNDY</h3>
-        <p>KES 500</p>
+        <h3>BURGUNDY BEANIE</h3>
+        <p>KES 1,000</p>
       </div>
 
     </article>
@@ -1123,10 +1039,9 @@
 
     <article
       class="product"
-      data-name="Beanie — Cream"
-      data-price="500"
+      data-name="Cream Beanie"
+      data-price="1000"
       data-category="accessories"
-      data-description="Cream Béni Carmel beanie."
     >
 
       <div class="product-image">
@@ -1138,19 +1053,15 @@
           alt="Cream Beanie"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 500
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 1,000
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>BEANIE — CREAM</h3>
-        <p>KES 500</p>
+        <h3>CREAM BEANIE</h3>
+        <p>KES 1,000</p>
       </div>
 
     </article>
@@ -1162,10 +1073,9 @@
 
     <article
       class="product"
-      data-name="Bucket Hat — Beige"
-      data-price="700"
+      data-name="Beige Bucket Hat"
+      data-price="500"
       data-category="accessories"
-      data-description="Beige Béni Carmel bucket hat."
     >
 
       <div class="product-image">
@@ -1177,19 +1087,15 @@
           alt="Beige Bucket Hat"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 700
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 500
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>BUCKET HAT — BEIGE</h3>
-        <p>KES 700</p>
+        <h3>BEIGE BUCKET HAT</h3>
+        <p>KES 500</p>
       </div>
 
     </article>
@@ -1197,10 +1103,9 @@
 
     <article
       class="product"
-      data-name="Bucket Hat — Black"
-      data-price="700"
+      data-name="Black Bucket Hat"
+      data-price="500"
       data-category="accessories"
-      data-description="Black Béni Carmel bucket hat."
     >
 
       <div class="product-image">
@@ -1212,19 +1117,15 @@
           alt="Black Bucket Hat"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 700
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 500
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>BUCKET HAT — BLACK</h3>
-        <p>KES 700</p>
+        <h3>BLACK BUCKET HAT</h3>
+        <p>KES 500</p>
       </div>
 
     </article>
@@ -1232,10 +1133,9 @@
 
     <article
       class="product"
-      data-name="Bucket Hat — Burgundy"
-      data-price="700"
+      data-name="Burgundy Bucket Hat"
+      data-price="500"
       data-category="accessories"
-      data-description="Burgundy Béni Carmel bucket hat."
     >
 
       <div class="product-image">
@@ -1247,19 +1147,15 @@
           alt="Burgundy Bucket Hat"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 700
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 500
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>BUCKET HAT — BURGUNDY</h3>
-        <p>KES 700</p>
+        <h3>BURGUNDY BUCKET HAT</h3>
+        <p>KES 500</p>
       </div>
 
     </article>
@@ -1267,10 +1163,9 @@
 
     <article
       class="product"
-      data-name="Bucket Hat — White"
-      data-price="700"
+      data-name="White Bucket Hat"
+      data-price="500"
       data-category="accessories"
-      data-description="White Béni Carmel bucket hat."
     >
 
       <div class="product-image">
@@ -1282,19 +1177,15 @@
           alt="White Bucket Hat"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 700
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 500
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>BUCKET HAT — WHITE</h3>
-        <p>KES 700</p>
+        <h3>WHITE BUCKET HAT</h3>
+        <p>KES 500</p>
       </div>
 
     </article>
@@ -1307,9 +1198,8 @@
     <article
       class="product"
       data-name="Béni Carmel White Cap"
-      data-price="300"
+      data-price="700"
       data-category="accessories"
-      data-description="A clean white Béni Carmel cap for everyday wear."
     >
 
       <div class="product-image">
@@ -1325,19 +1215,15 @@
           alt="Béni Carmel White Cap"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 300
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 700
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>BÉNI CARMEL CAP</h3>
-        <p>KES 300</p>
+        <h3>BÉNI CARMEL WHITE CAP</h3>
+        <p>KES 700</p>
       </div>
 
     </article>
@@ -1349,10 +1235,9 @@
 
     <article
       class="product"
-      data-name="Shoulder Bag — Black"
-      data-price="700"
+      data-name="Black Shoulder Bag"
+      data-price="300"
       data-category="accessories"
-      data-description="Black Béni Carmel shoulder bag."
     >
 
       <div class="product-image">
@@ -1364,19 +1249,15 @@
           alt="Black Shoulder Bag"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 700
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 300
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>SHOULDER BAG — BLACK</h3>
-        <p>KES 700</p>
+        <h3>BLACK SHOULDER BAG</h3>
+        <p>KES 300</p>
       </div>
 
     </article>
@@ -1384,10 +1265,9 @@
 
     <article
       class="product"
-      data-name="Cross Shoulder Bag — Black"
-      data-price="700"
+      data-name="Black Cross Shoulder Bag"
+      data-price="300"
       data-category="accessories"
-      data-description="Black crossbody shoulder bag."
     >
 
       <div class="product-image">
@@ -1399,19 +1279,15 @@
           alt="Black Cross Shoulder Bag"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 700
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 300
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>CROSS SHOULDER BAG</h3>
-        <p>KES 700</p>
+        <h3>BLACK CROSS SHOULDER BAG</h3>
+        <p>KES 300</p>
       </div>
 
     </article>
@@ -1419,10 +1295,9 @@
 
     <article
       class="product"
-      data-name="Shoulder Bag — Brown"
-      data-price="700"
+      data-name="Brown Shoulder Bag"
+      data-price="300"
       data-category="accessories"
-      data-description="Brown Béni Carmel shoulder bag."
     >
 
       <div class="product-image">
@@ -1434,19 +1309,15 @@
           alt="Brown Shoulder Bag"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 700
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 300
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>SHOULDER BAG — BROWN</h3>
-        <p>KES 700</p>
+        <h3>BROWN SHOULDER BAG</h3>
+        <p>KES 300</p>
       </div>
 
     </article>
@@ -1454,10 +1325,9 @@
 
     <article
       class="product"
-      data-name="Shoulder Bag — Orange"
-      data-price="700"
+      data-name="Orange Shoulder Bag"
+      data-price="300"
       data-category="accessories"
-      data-description="Orange Béni Carmel shoulder bag."
     >
 
       <div class="product-image">
@@ -1469,19 +1339,15 @@
           alt="Orange Shoulder Bag"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 700
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 300
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>SHOULDER BAG — ORANGE</h3>
-        <p>KES 700</p>
+        <h3>ORANGE SHOULDER BAG</h3>
+        <p>KES 300</p>
       </div>
 
     </article>
@@ -1489,10 +1355,9 @@
 
     <article
       class="product"
-      data-name="Shoulder Bag — Pink"
-      data-price="700"
+      data-name="Pink Shoulder Bag"
+      data-price="300"
       data-category="accessories"
-      data-description="Pink Béni Carmel shoulder bag."
     >
 
       <div class="product-image">
@@ -1504,34 +1369,29 @@
           alt="Pink Shoulder Bag"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 700
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 300
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>SHOULDER BAG — PINK</h3>
-        <p>KES 700</p>
+        <h3>PINK SHOULDER BAG</h3>
+        <p>KES 300</p>
       </div>
 
     </article>
 
 
     <!-- =================================================
-         NECKLACE
+         CROSS NECKLACE
     ================================================= -->
 
     <article
       class="product"
       data-name="Silver Cross Necklace"
-      data-price="600"
+      data-price="700"
       data-category="accessories"
-      data-description="A silver cross necklace representing faith and identity."
     >
 
       <div class="product-image">
@@ -1547,19 +1407,15 @@
           alt="Silver Cross Necklace"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 600
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 700
         </button>
 
       </div>
 
       <div class="product-info">
         <h3>SILVER CROSS NECKLACE</h3>
-        <p>KES 600</p>
+        <p>KES 700</p>
       </div>
 
     </article>
@@ -1571,10 +1427,9 @@
 
     <article
       class="product"
-      data-name="Béni Carmel Socks — Black"
-      data-price="200"
+      data-name="Black Béni Carmel Socks"
+      data-price="600"
       data-category="accessories"
-      data-description="Black Béni Carmel everyday socks."
     >
 
       <div class="product-image">
@@ -1586,19 +1441,15 @@
           alt="Black Béni Carmel Socks"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 200
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 600
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>SOCKS — BLACK</h3>
-        <p>KES 200</p>
+        <h3>BLACK SOCKS</h3>
+        <p>KES 600</p>
       </div>
 
     </article>
@@ -1606,10 +1457,9 @@
 
     <article
       class="product"
-      data-name="Béni Carmel Socks — White"
-      data-price="200"
+      data-name="White Béni Carmel Socks"
+      data-price="600"
       data-category="accessories"
-      data-description="White Béni Carmel everyday socks."
     >
 
       <div class="product-image">
@@ -1621,19 +1471,15 @@
           alt="White Béni Carmel Socks"
         >
 
-        <button
-          class="quick-add"
-          type="button"
-          onclick="openProductDetail(this.closest('.product'))"
-        >
-          QUICK ADD — KES 200
+        <button class="quick-add" type="button">
+          QUICK ADD — KES 600
         </button>
 
       </div>
 
       <div class="product-info">
-        <h3>SOCKS — WHITE</h3>
-        <p>KES 200</p>
+        <h3>WHITE SOCKS</h3>
+        <p>KES 600</p>
       </div>
 
     </article>
@@ -1747,7 +1593,13 @@
     <a href="#shop">SHOP</a>
     <a href="#story">OUR STORY</a>
     <a href="#newsletter">CONTACT</a>
-    <a href="#">INSTAGRAM</a>
+
+    <a
+      href="#"
+      onclick="return false;"
+    >
+      INSTAGRAM
+    </a>
 
   </div>
 
@@ -1759,7 +1611,7 @@
 
 
 <!-- =====================================================
-     SEARCH
+     SEARCH OVERLAY
 ===================================================== -->
 
 <div class="search-overlay" id="searchOverlay">
@@ -1768,6 +1620,7 @@
     class="close-search"
     id="closeSearch"
     aria-label="Close search"
+    type="button"
   >
     ×
   </button>
@@ -1793,7 +1646,7 @@
 
 
 <!-- =====================================================
-     BAG
+     BAG OVERLAY
 ===================================================== -->
 
 <div class="bag-overlay" id="bagOverlay">
@@ -1818,6 +1671,7 @@
         class="bag-close"
         id="closeBag"
         aria-label="Close bag"
+        type="button"
       >
         ×
       </button>
@@ -1865,6 +1719,7 @@
         class="checkout-button"
         id="checkoutButton"
         disabled
+        type="button"
       >
         YOUR BAG IS EMPTY
       </button>
@@ -1895,6 +1750,7 @@
       class="product-detail-close"
       id="closeProductDetail"
       aria-label="Close product details"
+      type="button"
     >
       ×
     </button>
@@ -1938,7 +1794,7 @@
         class="product-detail-description"
         id="detailProductDescription"
       >
-        Product description.
+        Faith-inspired design created for everyday wear.
       </p>
 
 
@@ -1948,7 +1804,10 @@
 
       <div class="size-options">
 
-        <button class="size-option" type="button">
+        <button
+          class="size-option"
+          type="button"
+        >
           S
         </button>
 
@@ -1959,11 +1818,17 @@
           M
         </button>
 
-        <button class="size-option" type="button">
+        <button
+          class="size-option"
+          type="button"
+        >
           L
         </button>
 
-        <button class="size-option" type="button">
+        <button
+          class="size-option"
+          type="button"
+        >
           XL
         </button>
 
@@ -2036,7 +1901,973 @@
      JAVASCRIPT
 ===================================================== -->
 
-<script src="script.js"></script>
+<script>
+
+const productsContainer = document.getElementById("products");
+const products = Array.from(
+  document.querySelectorAll(".product")
+);
+
+const bagOverlay = document.getElementById("bagOverlay");
+const bagItems = document.getElementById("bagItems");
+const bagCount = document.getElementById("bagCount");
+const bagSubtotal = document.getElementById("bagSubtotal");
+const bagShipping = document.getElementById("bagShipping");
+const bagTotal = document.getElementById("bagTotal");
+const shippingMessage = document.getElementById("shippingMessage");
+const checkoutButton = document.getElementById("checkoutButton");
+
+const productDetailOverlay =
+  document.getElementById("productDetailOverlay");
+
+const detailProductImage =
+  document.getElementById("detailProductImage");
+
+const detailProductName =
+  document.getElementById("detailProductName");
+
+const detailProductPrice =
+  document.getElementById("detailProductPrice");
+
+const detailProductCategory =
+  document.getElementById("detailProductCategory");
+
+const detailProductDescription =
+  document.getElementById("detailProductDescription");
+
+const detailQuantity =
+  document.getElementById("detailQuantity");
+
+let bag = JSON.parse(
+  localStorage.getItem("beniCarmelBag") || "[]"
+);
+
+let currentProduct = null;
+let currentQuantity = 1;
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function money(value) {
+  return "KES " + Number(value).toLocaleString("en-KE");
+}
+
+
+function saveBag() {
+  localStorage.setItem(
+    "beniCarmelBag",
+    JSON.stringify(bag)
+  );
+}
+
+
+function updateBag() {
+
+  const count = bag.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
+  bagCount.textContent = count;
+
+
+  if (bag.length === 0) {
+
+    bagItems.innerHTML = `
+      <div class="empty-bag">
+        <p>YOUR BAG IS EMPTY.</p>
+        <a href="#shop" onclick="closeBag()">CONTINUE SHOPPING →</a>
+      </div>
+    `;
+
+    bagSubtotal.textContent = "KES 0";
+    bagShipping.textContent = "KES 0";
+    bagTotal.textContent = "KES 0";
+
+    shippingMessage.textContent =
+      "ADD KES 10,000 TO YOUR BAG FOR FREE SHIPPING.";
+
+    checkoutButton.disabled = true;
+    checkoutButton.textContent = "YOUR BAG IS EMPTY";
+
+    saveBag();
+    return;
+  }
+
+
+  bagItems.innerHTML = "";
+
+
+  let subtotal = 0;
+
+
+  bag.forEach((item, index) => {
+
+    const itemTotal =
+      item.price * item.quantity;
+
+    subtotal += itemTotal;
+
+
+    const productElement =
+      document.createElement("div");
+
+    productElement.className = "bag-product";
+
+    productElement.innerHTML = `
+
+      <div class="bag-product-image">
+        <img
+          src="${item.image}"
+          alt="${item.name}"
+        >
+      </div>
+
+      <div class="bag-product-details">
+
+        <div class="bag-product-top">
+
+          <div>
+
+            <h3>
+              ${item.name}
+            </h3>
+
+            <p>
+              ${item.size ? "SIZE " + item.size : "ONE SIZE"}
+            </p>
+
+          </div>
+
+          <strong>
+            ${money(itemTotal)}
+          </strong>
+
+        </div>
+
+
+        <div class="bag-product-bottom">
+
+          <div class="bag-quantity">
+
+            <button
+              type="button"
+              onclick="changeBagQuantity(${index}, -1)"
+            >
+              −
+            </button>
+
+            <span>
+              ${item.quantity}
+            </span>
+
+            <button
+              type="button"
+              onclick="changeBagQuantity(${index}, 1)"
+            >
+              +
+            </button>
+
+          </div>
+
+
+          <button
+            class="bag-remove"
+            type="button"
+            onclick="removeFromBag(${index})"
+          >
+            REMOVE
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+    bagItems.appendChild(productElement);
+
+  });
+
+
+  const shipping =
+    subtotal >= 10000 ? 0 : 300;
+
+  const total =
+    subtotal + shipping;
+
+
+  bagSubtotal.textContent =
+    money(subtotal);
+
+  bagShipping.textContent =
+    shipping === 0 ? "FREE" : money(shipping);
+
+  bagTotal.textContent =
+    money(total);
+
+
+  if (subtotal >= 10000) {
+
+    shippingMessage.textContent =
+      "YOU QUALIFY FOR FREE SHIPPING.";
+
+  } else {
+
+    shippingMessage.textContent =
+      `ADD ${money(10000 - subtotal)} TO YOUR BAG FOR FREE SHIPPING.`;
+
+  }
+
+
+  checkoutButton.disabled = false;
+  checkoutButton.textContent =
+    "PROCEED TO CHECKOUT →";
+
+
+  saveBag();
+
+}
+
+
+/* =====================================================
+   ADD TO BAG
+===================================================== */
+
+function addProductToBag(
+  name,
+  price,
+  image,
+  size = "M",
+  quantity = 1
+) {
+
+  const existing =
+    bag.find(
+      item =>
+        item.name === name &&
+        item.size === size
+    );
+
+
+  if (existing) {
+
+    existing.quantity += quantity;
+
+  } else {
+
+    bag.push({
+      name,
+      price,
+      image,
+      size,
+      quantity
+    });
+
+  }
+
+
+  updateBag();
+
+  bagOverlay.classList.add("open");
+  document.body.classList.add("no-scroll");
+
+}
+
+
+function changeBagQuantity(index, change) {
+
+  bag[index].quantity += change;
+
+
+  if (bag[index].quantity <= 0) {
+    bag.splice(index, 1);
+  }
+
+
+  updateBag();
+
+}
+
+
+function removeFromBag(index) {
+
+  bag.splice(index, 1);
+
+  updateBag();
+
+}
+
+
+function closeBag() {
+
+  bagOverlay.classList.remove("open");
+  document.body.classList.remove("no-scroll");
+
+}
+
+
+/* =====================================================
+   OPEN PRODUCT DETAIL
+===================================================== */
+
+function openProduct(product) {
+
+  currentProduct = product;
+  currentQuantity = 1;
+
+  detailQuantity.textContent = "1";
+
+
+  const name =
+    product.dataset.name;
+
+  const price =
+    Number(product.dataset.price);
+
+  const category =
+    product.dataset.category;
+
+  const image =
+    product.querySelector("img").src;
+
+
+  detailProductImage.src = image;
+  detailProductImage.alt = name;
+
+  detailProductName.textContent =
+    name.toUpperCase();
+
+  detailProductPrice.textContent =
+    money(price);
+
+  detailProductCategory.textContent =
+    category.toUpperCase();
+
+  detailProductDescription.textContent =
+    `${name} — a faith-inspired piece from Béni Carmel Collectives, designed for everyday wear and bold expression.`;
+
+
+  document
+    .querySelectorAll(".size-option")
+    .forEach(button => {
+      button.classList.remove("selected");
+    });
+
+
+  const defaultSize =
+    document.querySelector(".size-option:nth-child(2)");
+
+  if (defaultSize) {
+    defaultSize.classList.add("selected");
+  }
+
+
+  productDetailOverlay.classList.add("open");
+  document.body.classList.add("no-scroll");
+
+}
+
+
+function closeProduct() {
+
+  productDetailOverlay.classList.remove("open");
+  document.body.classList.remove("no-scroll");
+
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE / QUICK ADD
+===================================================== */
+
+productsContainer.addEventListener(
+  "click",
+  function(event) {
+
+    const product =
+      event.target.closest(".product");
+
+    if (!product) return;
+
+
+    if (
+      event.target.closest(".wishlist")
+    ) {
+
+      event.stopPropagation();
+
+      const wishlist =
+        event.target.closest(".wishlist");
+
+      wishlist.classList.toggle("active");
+
+      wishlist.textContent =
+        wishlist.classList.contains("active")
+          ? "♥"
+          : "♡";
+
+      return;
+
+    }
+
+
+    if (
+      event.target.closest(".quick-add")
+    ) {
+
+      event.stopPropagation();
+
+      const name =
+        product.dataset.name;
+
+      const price =
+        Number(product.dataset.price);
+
+      const image =
+        product.querySelector("img").src;
+
+      addProductToBag(
+        name,
+        price,
+        image,
+        "M",
+        1
+      );
+
+      return;
+
+    }
+
+
+    openProduct(product);
+
+  }
+);
+
+
+/* =====================================================
+   FILTERS
+===================================================== */
+
+document
+  .querySelectorAll(".filter")
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      function() {
+
+        document
+          .querySelectorAll(".filter")
+          .forEach(btn =>
+            btn.classList.remove("active")
+          );
+
+        this.classList.add("active");
+
+
+        const category =
+          this.dataset.category;
+
+
+        products.forEach(product => {
+
+          const matches =
+            category === "all" ||
+            product.dataset.category === category;
+
+          product.style.display =
+            matches ? "" : "none";
+
+        });
+
+      }
+    );
+
+  });
+
+
+/* =====================================================
+   SORT
+===================================================== */
+
+document
+  .getElementById("sortProducts")
+  .addEventListener(
+    "change",
+    function() {
+
+      const value =
+        this.value;
+
+
+      const sorted =
+        [...products].sort(
+          (a, b) => {
+
+            if (value === "price-low") {
+
+              return (
+                Number(a.dataset.price) -
+                Number(b.dataset.price)
+              );
+
+            }
+
+
+            if (value === "price-high") {
+
+              return (
+                Number(b.dataset.price) -
+                Number(a.dataset.price)
+              );
+
+            }
+
+
+            if (value === "name") {
+
+              return a.dataset.name
+                .localeCompare(
+                  b.dataset.name
+                );
+
+            }
+
+
+            return 0;
+
+          }
+        );
+
+
+      sorted.forEach(product =>
+        productsContainer.appendChild(product)
+      );
+
+    }
+  );
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+const searchOverlay =
+  document.getElementById("searchOverlay");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const searchResults =
+  document.getElementById("searchResults");
+
+
+document
+  .getElementById("searchButton")
+  .addEventListener(
+    "click",
+    () => {
+
+      searchOverlay.classList.add("open");
+      document.body.classList.add("no-scroll");
+
+      setTimeout(
+        () => searchInput.focus(),
+        100
+      );
+
+    }
+  );
+
+
+document
+  .getElementById("closeSearch")
+  .addEventListener(
+    "click",
+    () => {
+
+      searchOverlay.classList.remove("open");
+      document.body.classList.remove("no-scroll");
+
+    }
+  );
+
+
+searchInput.addEventListener(
+  "input",
+  function() {
+
+    const query =
+      this.value.trim().toLowerCase();
+
+
+    if (!query) {
+
+      searchResults.innerHTML = "";
+      return;
+
+    }
+
+
+    const matches =
+      products.filter(product =>
+        product.dataset.name
+          .toLowerCase()
+          .includes(query)
+      );
+
+
+    if (matches.length === 0) {
+
+      searchResults.innerHTML =
+        "<p>NO PRODUCTS FOUND.</p>";
+
+      return;
+
+    }
+
+
+    searchResults.innerHTML =
+      matches.map(product => `
+
+        <p
+          style="cursor:pointer"
+          data-search-product="${products.indexOf(product)}"
+        >
+          ${product.dataset.name.toUpperCase()}
+          — ${money(product.dataset.price)}
+        </p>
+
+      `).join("");
+
+  }
+);
+
+
+searchResults.addEventListener(
+  "click",
+  function(event) {
+
+    const result =
+      event.target.closest(
+        "[data-search-product]"
+      );
+
+    if (!result) return;
+
+
+    const index =
+      Number(
+        result.dataset.searchProduct
+      );
+
+
+    searchOverlay.classList.remove("open");
+
+    openProduct(products[index]);
+
+  }
+);
+
+
+/* =====================================================
+   BAG BUTTON
+===================================================== */
+
+document
+  .getElementById("bagButton")
+  .addEventListener(
+    "click",
+    () => {
+
+      updateBag();
+
+      bagOverlay.classList.add("open");
+      document.body.classList.add("no-scroll");
+
+    }
+  );
+
+
+document
+  .getElementById("closeBag")
+  .addEventListener(
+    "click",
+    closeBag
+  );
+
+
+bagOverlay.addEventListener(
+  "click",
+  function(event) {
+
+    if (event.target === bagOverlay) {
+      closeBag();
+    }
+
+  }
+);
+
+
+/* =====================================================
+   PRODUCT DETAIL CONTROLS
+===================================================== */
+
+document
+  .getElementById("closeProductDetail")
+  .addEventListener(
+    "click",
+    closeProduct
+  );
+
+
+productDetailOverlay.addEventListener(
+  "click",
+  function(event) {
+
+    if (
+      event.target === productDetailOverlay
+    ) {
+      closeProduct();
+    }
+
+  }
+);
+
+
+document
+  .querySelectorAll(".size-option")
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      function() {
+
+        document
+          .querySelectorAll(".size-option")
+          .forEach(btn =>
+            btn.classList.remove("selected")
+          );
+
+        this.classList.add("selected");
+
+      }
+    );
+
+  });
+
+
+document
+  .getElementById("quantityMinus")
+  .addEventListener(
+    "click",
+    function() {
+
+      if (currentQuantity > 1) {
+        currentQuantity--;
+      }
+
+      detailQuantity.textContent =
+        currentQuantity;
+
+    }
+  );
+
+
+document
+  .getElementById("quantityPlus")
+  .addEventListener(
+    "click",
+    function() {
+
+      currentQuantity++;
+
+      detailQuantity.textContent =
+        currentQuantity;
+
+    }
+  );
+
+
+document
+  .getElementById("detailAddButton")
+  .addEventListener(
+    "click",
+    function() {
+
+      if (!currentProduct) return;
+
+
+      const selectedSize =
+        document
+          .querySelector(".size-option.selected")
+          ?.textContent.trim() || "M";
+
+
+      addProductToBag(
+
+        currentProduct.dataset.name,
+
+        Number(
+          currentProduct.dataset.price
+        ),
+
+        currentProduct.querySelector("img").src,
+
+        selectedSize,
+
+        currentQuantity
+
+      );
+
+
+      closeProduct();
+
+    }
+  );
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+checkoutButton.addEventListener(
+  "click",
+  function() {
+
+    if (bag.length === 0) return;
+
+
+    localStorage.setItem(
+      "beniCarmelCheckoutBag",
+      JSON.stringify(bag)
+    );
+
+
+    window.location.href =
+      "checkout.html";
+
+  }
+);
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
+
+document
+  .getElementById("menuButton")
+  .addEventListener(
+    "click",
+    () => {
+
+      mobileMenu.classList.add("open");
+      document.body.classList.add("no-scroll");
+
+    }
+  );
+
+
+document
+  .getElementById("closeMenu")
+  .addEventListener(
+    "click",
+    () => {
+
+      mobileMenu.classList.remove("open");
+      document.body.classList.remove("no-scroll");
+
+    }
+  );
+
+
+mobileMenu
+  .querySelectorAll("a")
+  .forEach(link => {
+
+    link.addEventListener(
+      "click",
+      () => {
+
+        mobileMenu.classList.remove("open");
+        document.body.classList.remove("no-scroll");
+
+      }
+    );
+
+  });
+
+
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+
+document
+  .getElementById("newsletterForm")
+  .addEventListener(
+    "submit",
+    function(event) {
+
+      event.preventDefault();
+
+      const input =
+        this.querySelector("input");
+
+      const email =
+        input.value.trim();
+
+
+      if (!email) return;
+
+
+      alert(
+        "Thank you for joining the Béni Carmel Collective."
+      );
+
+
+      input.value = "";
+
+    }
+  );
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key !== "Escape") return;
+
+
+    searchOverlay.classList.remove("open");
+    bagOverlay.classList.remove("open");
+    productDetailOverlay.classList.remove("open");
+    mobileMenu.classList.remove("open");
+
+    document.body.classList.remove("no-scroll");
+
+  }
+);
+
+
+/* =====================================================
+   INITIALISE
+===================================================== */
+
+updateBag();
+
+</script>
 
 </body>
 </html>
