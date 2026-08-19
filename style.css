@@ -6,6 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 :root {
+  --cream: #f4f0e8;
   --beige: #f4f0e8;
   --black: #11110f;
   --white: #ffffff;
@@ -236,12 +237,18 @@ input {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 45px 18px;
+}
+
+.product {
+  min-width: 0;
 }
 
 .product-image {
-  height: 600px;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
   overflow: hidden;
   background: #ded9ce;
 }
@@ -255,7 +262,7 @@ input {
 }
 
 .product-info {
-  padding: 17px 0 35px;
+  padding: 17px 0 5px;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: start;
@@ -283,6 +290,11 @@ input {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.15em;
+  transition: opacity 0.25s ease;
+}
+
+.product-info button:hover {
+  opacity: 0.5;
 }
 
 /* =========================================
@@ -392,6 +404,18 @@ footer > p {
 }
 
 /* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+/* =========================================
    MOBILE
 ========================================= */
 
@@ -412,6 +436,10 @@ footer > p {
 
   .nav-actions a {
     font-size: 8px;
+  }
+
+  .logo img {
+    width: 125px;
   }
 
   .hero {
@@ -441,13 +469,29 @@ footer > p {
   }
 
   .products {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 12px;
   }
 
   .product-image {
-    height: 120vw;
-    max-height: 650px;
+    aspect-ratio: 4 / 5;
+  }
+
+  .product-info {
+    padding-top: 13px;
+  }
+
+  .product-info h3 {
+    font-size: 9px;
+  }
+
+  .product-info p {
+    font-size: 9px;
+  }
+
+  .product-info button {
+    font-size: 8px;
+    margin-top: 12px;
   }
 
   .scripture {
@@ -470,4 +514,5 @@ footer > p {
   .footer-brand {
     font-size: 40px;
   }
+
 }
