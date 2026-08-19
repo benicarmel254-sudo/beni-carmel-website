@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 :root {
-  --cream: #f4f0e8;
+  --beige: #f4f0e8;
   --black: #11110f;
   --white: #ffffff;
   --brown: #6d5542;
@@ -79,9 +79,14 @@ input {
 }
 
 .logo {
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.25em;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
 }
 
 .nav-links,
