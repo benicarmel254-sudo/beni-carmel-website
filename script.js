@@ -598,15 +598,11 @@ checkoutButton.addEventListener(
   () => {
 
     if (bag.length === 0) {
-
       return;
-
     }
 
-
-    alert(
-      "Checkout is coming next. Your cart is ready!"
-    );
+    window.location.href =
+      "checkout.html";
 
   }
 );
