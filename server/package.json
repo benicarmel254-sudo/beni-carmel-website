@@ -1,15 +1,590 @@
-{
-  "name": "beni-carmel-mpesa-server",
-  "version": "1.0.0",
-  "description": "Béni Carmel Collectives M-Pesa payment server",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+require("dotenv").config();
+
+const express = require("express");
+const cors = require("cors");
+const crypto = require("crypto");
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
+
+const IS_SANDBOX =
+  process.env.MPESA_ENV !== "production";
+
+const MPESA_BASE_URL = IS_SANDBOX
+  ? "https://sandbox.safaricom.co.ke"
+  : "https://api.safaricom.co.ke";
+
+
+/* =====================================================
+   HEALTH CHECK
+===================================================== */
+
+app.get("/", (req, res) => {
+
+  res.json({
+    success: true,
+    message: "Béni Carmel M-Pesa server is running."
+  });
+
+});
+
+
+/* =====================================================
+   GET ACCESS TOKEN
+===================================================== */
+
+async function getAccessToken() {
+
+  const credentials = Buffer
+    .from(
+      `${process.env.MPESA_CONSUMER_KEY}:${process.env.MPESA_CONSUMER_SECRET}`
+    )
+    .toString("base64");
+
+
+  const response = await fetch(
+    `${MPESA_BASE_URL}/oauth/v1/generate?grant_type=client_credentials`,
+    {
+      method: "GET",
+
+      headers: {
+        Authorization:
+          `Basic ${credentials}`
+      }
+    }
+  );
+
+
+  const data =
+    await response.json();
+
+
+  if (!response.ok) {
+
+    console.error(
+      "OAuth error:",
+      data
+    );
+
+    throw new Error(
+      "Unable to authenticate with M-Pesa."
+    );
+
   }
+
+
+  return data.access_token;
+
 }
+
+
+/* =====================================================
+   NORMALIZE PHONE NUMBER
+===================================================== */
+
+function normalizePhone(phone) {
+
+  if (!phone) {
+    return null;
+  }
+
+
+  let cleaned =
+    String(phone)
+      .replace(/\s+/g, "")
+      .replace(/-/g, "");
+
+
+  if (
+    cleaned.startsWith("07") ||
+    cleaned.startsWith("01")
+  ) {
+
+    cleaned =
+      "254" +
+      cleaned.substring(1);
+
+  }
+
+
+  if (
+    cleaned.startsWith("+254")
+  ) {
+
+    cleaned =
+      cleaned.substring(1);
+
+  }
+
+
+  if (
+    !/^254(7|1)\d{8}$/.test(cleaned)
+  ) {
+
+    return null;
+
+  }
+
+
+  return cleaned;
+
+}
+
+
+/* =====================================================
+   CREATE STK PASSWORD
+===================================================== */
+
+function createPassword(timestamp) {
+
+  return Buffer
+    .from(
+      `${process.env.MPESA_SHORTCODE}${process.env.MPESA_PASSKEY}${timestamp}`
+    )
+    .toString("base64");
+
+}
+
+
+/* =====================================================
+   STK PUSH
+===================================================== */
+
+app.post(
+  "/api/mpesa/stkpush",
+  async (req, res) => {
+
+    try {
+
+      const {
+        phone,
+        amount,
+        orderNumber,
+        description
+      } = req.body;
+
+
+      /* ---------------------------------------------
+         VALIDATE AMOUNT
+      --------------------------------------------- */
+
+      const numericAmount =
+        Math.round(Number(amount));
+
+
+      if (
+        !Number.isFinite(numericAmount) ||
+        numericAmount <= 0
+      ) {
+
+        return res.status(400).json({
+
+          success: false,
+
+          message:
+            "Invalid payment amount."
+
+        });
+
+      }
+
+
+      /* ---------------------------------------------
+         VALIDATE PHONE
+      --------------------------------------------- */
+
+      const normalizedPhone =
+        normalizePhone(phone);
+
+
+      if (!normalizedPhone) {
+
+        return res.status(400).json({
+
+          success: false,
+
+          message:
+            "Please enter a valid Kenyan M-Pesa number."
+
+        });
+
+      }
+
+
+      /* ---------------------------------------------
+         ACCESS TOKEN
+      --------------------------------------------- */
+
+      const accessToken =
+        await getAccessToken();
+
+
+      /* ---------------------------------------------
+         TIMESTAMP
+      --------------------------------------------- */
+
+      const timestamp =
+        new Date()
+          .toISOString()
+          .replace(
+            /\D/g,
+            ""
+          )
+          .substring(
+            0,
+            14
+          );
+
+
+      /* ---------------------------------------------
+         PASSWORD
+      --------------------------------------------- */
+
+      const password =
+        createPassword(timestamp);
+
+
+      /* ---------------------------------------------
+         REQUEST
+      --------------------------------------------- */
+
+      const stkRequest = {
+
+        BusinessShortCode:
+          process.env.MPESA_SHORTCODE,
+
+        Password:
+          password,
+
+        Timestamp:
+          timestamp,
+
+        TransactionType:
+          "CustomerPayBillOnline",
+
+        Amount:
+          numericAmount,
+
+        PartyA:
+          normalizedPhone,
+
+        PartyB:
+          process.env.MPESA_SHORTCODE,
+
+        PhoneNumber:
+          normalizedPhone,
+
+        CallBackURL:
+          process.env.CALLBACK_URL,
+
+        AccountReference:
+          `BC-${orderNumber || Date.now()}`,
+
+        TransactionDesc:
+          description ||
+          "Beni Carmel Collectives Order"
+
+      };
+
+
+      /* ---------------------------------------------
+         SEND STK PUSH
+      --------------------------------------------- */
+
+      const response =
+        await fetch(
+          `${MPESA_BASE_URL}/mpesa/stkpush/v1/processrequest`,
+          {
+
+            method: "POST",
+
+            headers: {
+
+              Authorization:
+                `Bearer ${accessToken}`,
+
+              "Content-Type":
+                "application/json"
+
+            },
+
+            body:
+              JSON.stringify(
+                stkRequest
+              )
+
+          }
+        );
+
+
+      const data =
+        await response.json();
+
+
+      console.log(
+        "STK response:",
+        data
+      );
+
+
+      /* ---------------------------------------------
+         ERROR
+      --------------------------------------------- */
+
+      if (!response.ok) {
+
+        return res.status(
+          response.status
+        ).json({
+
+          success: false,
+
+          message:
+            data.errorMessage ||
+            data.error_description ||
+            "M-Pesa request failed.",
+
+          data
+
+        });
+
+      }
+
+
+      /* ---------------------------------------------
+         SAFARICOM ACCEPTED REQUEST
+      --------------------------------------------- */
+
+      if (
+        data.ResponseCode ===
+        "0"
+      ) {
+
+        return res.json({
+
+          success: true,
+
+          message:
+            "M-Pesa payment request sent.",
+
+          merchantRequestID:
+            data.MerchantRequestID,
+
+          checkoutRequestID:
+            data.CheckoutRequestID,
+
+          customerMessage:
+            data.CustomerMessage
+
+        });
+
+      }
+
+
+      return res.status(400).json({
+
+        success: false,
+
+        message:
+          data.ResponseDescription ||
+          "M-Pesa could not start the payment.",
+
+        data
+
+      });
+
+
+    } catch (error) {
+
+      console.error(
+        "STK PUSH ERROR:",
+        error
+      );
+
+
+      return res.status(500).json({
+
+        success: false,
+
+        message:
+          "Something went wrong while connecting to M-Pesa."
+
+      });
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   M-PESA CALLBACK
+===================================================== */
+
+app.post(
+  "/api/mpesa/callback",
+  (req, res) => {
+
+    console.log(
+      "\n================================="
+    );
+
+    console.log(
+      "M-PESA CALLBACK RECEIVED"
+    );
+
+    console.log(
+      "================================="
+    );
+
+    console.log(
+      JSON.stringify(
+        req.body,
+        null,
+        2
+      )
+    );
+
+
+    const callback =
+      req.body?.Body?.stkCallback;
+
+
+    if (!callback) {
+
+      return res.json({
+
+        ResultCode: 0,
+
+        ResultDesc:
+          "Callback received."
+
+      });
+
+    }
+
+
+    const resultCode =
+      callback.ResultCode;
+
+
+    const resultDescription =
+      callback.ResultDesc;
+
+
+    const checkoutRequestID =
+      callback.CheckoutRequestID;
+
+
+    /* ---------------------------------------------
+       SUCCESS
+    --------------------------------------------- */
+
+    if (
+      resultCode === 0
+    ) {
+
+      const metadata =
+        callback.CallbackMetadata
+          ?.Item || [];
+
+
+      const paymentData = {};
+
+
+      metadata.forEach(
+        item => {
+
+          if (
+            item.Name &&
+            item.Value !== undefined
+          ) {
+
+            paymentData[
+              item.Name
+            ] = item.Value;
+
+          }
+
+        }
+      );
+
+
+      console.log(
+        "PAYMENT SUCCESSFUL"
+      );
+
+
+      console.log({
+        checkoutRequestID,
+        paymentData
+      });
+
+
+      /*
+       * IMPORTANT:
+       *
+       * This is where you would save
+       * the successful order to a
+       * real database.
+       *
+       */
+
+    } else {
+
+      console.log(
+        "PAYMENT FAILED / CANCELLED"
+      );
+
+      console.log({
+        checkoutRequestID,
+        resultCode,
+        resultDescription
+      });
+
+    }
+
+
+    /* ---------------------------------------------
+       ACKNOWLEDGE CALLBACK
+    --------------------------------------------- */
+
+    return res.json({
+
+      ResultCode: 0,
+
+      ResultDesc:
+        "Accepted"
+
+    });
+
+  }
+);
+
+
+/* =====================================================
+   START SERVER
+===================================================== */
+
+app.listen(
+  PORT,
+  () => {
+
+    console.log(
+      `Béni Carmel server running on port ${PORT}`
+    );
+
+    console.log(
+      `M-Pesa environment: ${
+        IS_SANDBOX
+          ? "SANDBOX"
+          : "PRODUCTION"
+      }`
+    );
+
+  }
+);
