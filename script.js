@@ -589,4 +589,347 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateBag();
 
+  /* =========================================
+     PRODUCT DETAIL
+  ========================================= */
+
+  const productDetailOverlay =
+    document.getElementById(
+      "productDetailOverlay"
+    );
+
+  const closeProductDetail =
+    document.getElementById(
+      "closeProductDetail"
+    );
+
+  const detailProductImage =
+    document.getElementById(
+      "detailProductImage"
+    );
+
+  const detailProductName =
+    document.getElementById(
+      "detailProductName"
+    );
+
+  const detailProductPrice =
+    document.getElementById(
+      "detailProductPrice"
+    );
+
+  const detailProductCategory =
+    document.getElementById(
+      "detailProductCategory"
+    );
+
+  const detailProductDescription =
+    document.getElementById(
+      "detailProductDescription"
+    );
+
+  const detailQuantity =
+    document.getElementById(
+      "detailQuantity"
+    );
+
+  const quantityMinus =
+    document.getElementById(
+      "quantityMinus"
+    );
+
+  const quantityPlus =
+    document.getElementById(
+      "quantityPlus"
+    );
+
+  const detailAddButton =
+    document.getElementById(
+      "detailAddButton"
+    );
+
+
+  let currentProduct = null;
+  let selectedSize = "M";
+  let productQuantity = 1;
+
+
+  const productDescriptions = {
+
+    "Faith Hoodie":
+      "A bold faith-inspired hoodie designed for everyday wear and created to carry your beliefs wherever you go.",
+
+    "Covenant Hoodie":
+      "A statement hoodie inspired by covenant, faith and the promises we choose to live by.",
+
+    "Glory Hoodie":
+      "A premium everyday hoodie created around one simple message: live for the glory of God.",
+
+    "Faith Shirt":
+      "A clean everyday shirt designed to make faith part of your everyday expression.",
+
+    "Glory Shirt":
+      "Minimal design, meaningful message and effortless everyday styling.",
+
+    "Covenant Shirt":
+      "A faith-inspired essential designed for those who carry their beliefs boldly.",
+
+    "College Jacket":
+      "A statement varsity-inspired jacket bringing Béni Carmel identity into an everyday streetwear silhouette.",
+
+    "Classic Denim Jacket":
+      "A timeless denim layer designed to work effortlessly with the Béni Carmel collection.",
+
+    "Washed Denim Jacket":
+      "A relaxed washed-denim essential with a vintage-inspired feel.",
+
+    "Faith Jorts":
+      "Relaxed denim shorts designed for effortless everyday styling.",
+
+    "Béni Carmel Cap":
+      "A clean white cap featuring the Béni Carmel identity. An easy finishing piece for any look."
+
+  };
+
+
+  products.forEach(product => {
+
+    const image =
+      product.querySelector(
+        ".product-image img"
+      );
+
+    if (!image) return;
+
+
+    image.addEventListener(
+      "click",
+      () => {
+
+        openProductDetail(product);
+
+      }
+    );
+
+  });
+
+
+  function openProductDetail(product) {
+
+    currentProduct = product;
+
+    productQuantity = 1;
+
+    selectedSize = "M";
+
+    detailQuantity.textContent = "1";
+
+
+    const name =
+      product.dataset.name;
+
+    const price =
+      Number(product.dataset.price);
+
+    const category =
+      product.dataset.category;
+
+    const image =
+      product.querySelector(
+        ".product-image img"
+      );
+
+
+    detailProductName.textContent =
+      name;
+
+    detailProductPrice.textContent =
+      `KES ${price.toLocaleString()}`;
+
+    detailProductCategory.textContent =
+      category.toUpperCase();
+
+    detailProductImage.src =
+      image.src;
+
+    detailProductImage.alt =
+      name;
+
+    detailProductDescription.textContent =
+      productDescriptions[name] ||
+      "A meaningful piece from Béni Carmel Collectives.";
+
+
+    document
+      .querySelectorAll(".size-option")
+      .forEach(button => {
+
+        button.classList.remove(
+          "selected"
+        );
+
+        if (
+          button.textContent.trim() ===
+          "M"
+        ) {
+
+          button.classList.add(
+            "selected"
+          );
+
+        }
+
+      });
+
+
+    productDetailOverlay.classList.add(
+      "open"
+    );
+
+    document.body.classList.add(
+      "no-scroll"
+    );
+
+  }
+
+
+  closeProductDetail.addEventListener(
+    "click",
+    closeProductPage
+  );
+
+
+  productDetailOverlay.addEventListener(
+    "click",
+    event => {
+
+      if (
+        event.target ===
+        productDetailOverlay
+      ) {
+
+        closeProductPage();
+
+      }
+
+    }
+  );
+
+
+  function closeProductPage() {
+
+    productDetailOverlay.classList.remove(
+      "open"
+    );
+
+    document.body.classList.remove(
+      "no-scroll"
+    );
+
+  }
+
+
+  /* SIZE SELECTION */
+
+  document
+    .querySelectorAll(".size-option")
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          document
+            .querySelectorAll(
+              ".size-option"
+            )
+            .forEach(item =>
+              item.classList.remove(
+                "selected"
+              )
+            );
+
+
+          button.classList.add(
+            "selected"
+          );
+
+
+          selectedSize =
+            button.textContent.trim();
+
+        }
+      );
+
+    });
+
+
+  /* QUANTITY */
+
+  quantityMinus.addEventListener(
+    "click",
+    () => {
+
+      if (productQuantity > 1) {
+
+        productQuantity--;
+
+      }
+
+      detailQuantity.textContent =
+        productQuantity;
+
+    }
+  );
+
+
+  quantityPlus.addEventListener(
+    "click",
+    () => {
+
+      productQuantity++;
+
+      detailQuantity.textContent =
+        productQuantity;
+
+    }
+  );
+
+
+  /* ADD PRODUCT FROM DETAIL PAGE */
+
+  detailAddButton.addEventListener(
+    "click",
+    () => {
+
+      if (!currentProduct) return;
+
+
+      const name =
+        currentProduct.dataset.name;
+
+      const price =
+        Number(
+          currentProduct.dataset.price
+        );
+
+
+      for (
+        let i = 0;
+        i < productQuantity;
+        i++
+      ) {
+
+        addToBag(
+          `${name} — ${selectedSize}`,
+          price
+        );
+
+      }
+
+
+      closeProductPage();
+
+    }
+  );
 });
