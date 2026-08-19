@@ -1,359 +1,252 @@
 /* =====================================================
    BÉNI CARMEL COLLECTIVES
-   PREMIUM FAITH-INSPIRED COLLECTION
+   SHOPPING SYSTEM
 ===================================================== */
+
+let bag = JSON.parse(localStorage.getItem("beniCarmelBag")) || [];
+
+let selectedProduct = null;
+let selectedSize = "M";
+let selectedColor = "";
+let detailQuantity = 1;
 
 
 /* =====================================================
    PRODUCT DATA
 ===================================================== */
 
-const products = [
+const productData = {
 
-  /* ---------------- HOODIES ---------------- */
-
-  {
-    id: "hoodie-1",
-    name: "FAITH HOODIE",
+  "Faith Hoodie": {
     price: 1200,
-    category: "hoodies",
     image: "images/hoodie-1.jpg",
-    colours: [
-      { name: "Black", image: "images/hoodie-1.jpg" }
-    ],
-    sizes: ["S", "M", "L", "XL"],
+    category: "HOODIES",
     description:
-      "A faith-inspired everyday hoodie created to carry your beliefs boldly."
+      "A bold faith-inspired hoodie designed for everyday wear. Comfortable, expressive and made to carry the message wherever you go.",
+    colors: ["Black", "Cream"],
+    sizes: ["S", "M", "L", "XL"]
   },
 
-  {
-    id: "hoodie-2",
-    name: "COVENANT HOODIE",
+  "Covenant Hoodie": {
     price: 1200,
-    category: "hoodies",
     image: "images/hoodie-2.jpg",
-    colours: [
-      { name: "Black", image: "images/hoodie-2.jpg" }
-    ],
-    sizes: ["S", "M", "L", "XL"],
+    category: "HOODIES",
     description:
-      "A statement hoodie designed around faith, identity and purpose."
+      "A relaxed everyday hoodie inspired by covenant, identity and purpose.",
+    colors: ["Black", "Grey"],
+    sizes: ["S", "M", "L", "XL"]
   },
 
+  "Glory Hoodie": {
+    price: 1200,
+    image: "images/hoodie-2.jpg",
+    category: "HOODIES",
+    description:
+      "A statement hoodie created for bold faith and everyday expression.",
+    colors: ["Black", "Cream"],
+    sizes: ["S", "M", "L", "XL"]
+  },
 
-  /* ---------------- T-SHIRTS ---------------- */
-
-  {
-    id: "tee-1",
-    name: "FAITH TEE",
+  "Faith Shirt": {
     price: 600,
-    category: "t-shirts",
     image: "images/tee-1.jpg",
-    colours: [
-      { name: "White", image: "images/tee-1.jpg" }
-    ],
-    sizes: ["S", "M", "L", "XL"],
+    category: "T-SHIRTS",
     description:
-      "A clean everyday tee made for effortless faith-inspired style."
+      "A clean everyday tee carrying the Béni Carmel message of faith worn boldly.",
+    colors: ["White", "Black"],
+    sizes: ["S", "M", "L", "XL"]
   },
 
-  {
-    id: "tee-2",
-    name: "GLORY TEE",
+  "Glory Shirt": {
     price: 600,
-    category: "t-shirts",
     image: "images/tee-2.jpg",
-    colours: [
-      { name: "White", image: "images/tee-2.jpg" }
-    ],
-    sizes: ["S", "M", "L", "XL"],
+    category: "T-SHIRTS",
     description:
-      "A bold everyday essential inspired by the glory of God."
+      "A simple statement tee designed to become part of your everyday wardrobe.",
+    colors: ["White", "Black"],
+    sizes: ["S", "M", "L", "XL"]
   },
 
-  {
-    id: "tee-3",
-    name: "COVENANT TEE",
+  "Covenant Shirt": {
     price: 600,
-    category: "t-shirts",
     image: "images/tee-3.jpg",
-    colours: [
-      { name: "White", image: "images/tee-3.jpg" }
-    ],
-    sizes: ["S", "M", "L", "XL"],
+    category: "T-SHIRTS",
     description:
-      "A minimal faith-inspired piece designed for everyday wear."
+      "Faith-inspired streetwear made for everyday movement and expression.",
+    colors: ["White", "Black"],
+    sizes: ["S", "M", "L", "XL"]
   },
 
-
-  /* ---------------- JACKETS ---------------- */
-
-  {
-    id: "college-jacket",
-    name: "COLLEGE JACKET",
+  "College Jacket": {
     price: 1400,
-    category: "jackets",
     image: "images/college-jacket.jpg",
-    colours: [
-      { name: "Black", image: "images/college-jacket.jpg" }
-    ],
-    sizes: ["S", "M", "L", "XL"],
+    category: "JACKETS",
     description:
-      "A relaxed college-inspired jacket with a bold Béni Carmel identity."
+      "A statement college jacket combining classic streetwear with the Béni Carmel identity.",
+    colors: ["Black", "Cream"],
+    sizes: ["S", "M", "L", "XL"]
   },
 
-  {
-    id: "denim-jacket-1",
-    name: "CLASSIC DENIM JACKET",
+  "Classic Denim Jacket": {
     price: 1300,
-    category: "jackets",
     image: "images/denim-jacket-1.jpg",
-    colours: [
-      { name: "Blue", image: "images/denim-jacket-1.jpg" }
-    ],
-    sizes: ["S", "M", "L", "XL"],
+    category: "JACKETS",
     description:
-      "A classic denim layer made for effortless everyday styling."
+      "A timeless denim layer designed to work with your everyday wardrobe.",
+    colors: ["Blue"],
+    sizes: ["S", "M", "L", "XL"]
   },
 
-  {
-    id: "denim-jacket-2",
-    name: "WASHED DENIM JACKET",
+  "Washed Denim Jacket": {
     price: 1300,
-    category: "jackets",
     image: "images/denim-jacket-2.jpg",
-    colours: [
-      { name: "Washed Blue", image: "images/denim-jacket-2.jpg" }
-    ],
-    sizes: ["S", "M", "L", "XL"],
+    category: "JACKETS",
     description:
-      "A relaxed washed denim jacket designed to become an everyday staple."
+      "A relaxed washed denim jacket with an effortless streetwear feel.",
+    colors: ["Washed Blue"],
+    sizes: ["S", "M", "L", "XL"]
   },
 
-
-  /* ---------------- BOTTOMS ---------------- */
-
-  {
-    id: "wide-leg-jeans",
-    name: "WIDE LEG JEANS",
+  "Wide Leg Jeans": {
     price: 1300,
-    category: "bottoms",
     image: "images/wide-leg-jeans-blue.jpg",
-    colours: [
-      { name: "Blue", image: "images/wide-leg-jeans-blue.jpg" }
-    ],
-    sizes: ["S", "M", "L", "XL"],
+    category: "BOTTOMS",
     description:
-      "Relaxed wide-leg denim designed for a modern everyday silhouette."
+      "Relaxed wide-leg denim designed for a bold, effortless silhouette.",
+    colors: ["Blue"],
+    sizes: ["S", "M", "L", "XL"]
   },
 
-  {
-    id: "jorts",
-    name: "FAITH JORTS",
+  "Faith Jorts": {
     price: 1000,
-    category: "bottoms",
     image: "images/jorts-1.jpg",
-    colours: [
-      { name: "Blue", image: "images/jorts-1.jpg" },
-      { name: "Dark Blue", image: "images/jorts-dark-blue.jpg" },
-      { name: "Marble Blue", image: "images/jorts-marble-blue.jpg" },
-      { name: "Sky Blue", image: "images/jorts-sky-blue.jpg" }
-    ],
-    sizes: ["S", "M", "L", "XL"],
+    category: "BOTTOMS",
     description:
-      "Relaxed denim jorts designed for effortless everyday styling."
+      "Relaxed denim jorts made for everyday styling.",
+    colors: [
+      "Blue",
+      "Dark Blue",
+      "Marble Blue",
+      "Sky Blue"
+    ],
+    sizes: ["S", "M", "L", "XL"]
   },
 
-  {
-    id: "sweatpants",
-    name: "FAITH SWEATPANTS",
+  "Faith Sweatpants": {
     price: 1000,
-    category: "bottoms",
     image: "images/sweatpants-black.jpg",
-    colours: [
-      { name: "Black", image: "images/sweatpants-black.jpg" },
-      { name: "Burgundy", image: "images/sweatpants-burgundy.jpg" },
-      { name: "Cream", image: "images/sweatpants-cream.jpg" },
-      { name: "Grey", image: "images/sweatpants-grey.jpg" }
-    ],
-    sizes: ["S", "M", "L", "XL"],
+    category: "BOTTOMS",
     description:
-      "Comfort-first sweatpants created for everyday movement and relaxed style."
+      "Comfortable everyday sweatpants designed with a relaxed streetwear fit.",
+    colors: [
+      "Black",
+      "Burgundy",
+      "Cream",
+      "Grey"
+    ],
+    sizes: ["S", "M", "L", "XL"]
   },
 
-
-  /* ---------------- BEANIES ---------------- */
-
-  {
-    id: "beanie",
-    name: "BÉNI CARMEL BEANIE",
+  "Béni Carmel Beanie": {
     price: 500,
-    category: "accessories",
     image: "images/beanie-black.jpg",
-    colours: [
-      { name: "Black", image: "images/beanie-black.jpg" },
-      { name: "Brown", image: "images/beanie-brown.jpg" },
-      { name: "Burgundy", image: "images/beanie-burgundy.jpg" },
-      { name: "Cream", image: "images/beanie-cream.jpg" }
-    ],
-    sizes: ["ONE SIZE"],
+    category: "ACCESSORIES",
     description:
-      "A simple everyday beanie designed to complete your Béni Carmel look."
+      "A clean Béni Carmel beanie available in multiple colourways.",
+    colors: [
+      "Black",
+      "Brown",
+      "Burgundy",
+      "Cream"
+    ],
+    sizes: ["One Size"]
   },
 
-
-  /* ---------------- BUCKET HATS ---------------- */
-
-  {
-    id: "bucket-hat",
-    name: "BÉNI CARMEL BUCKET HAT",
+  "Béni Carmel Bucket Hat": {
     price: 800,
-    category: "accessories",
     image: "images/bucket-hat-black.jpg",
-    colours: [
-      { name: "Black", image: "images/bucket-hat-black.jpg" },
-      { name: "Beige", image: "images/bucket-hat-beige.jpg" },
-      { name: "Burgundy", image: "images/bucket-hat-burgundy.jpg" },
-      { name: "White", image: "images/bucket-hat-white.jpg" }
-    ],
-    sizes: ["ONE SIZE"],
+    category: "ACCESSORIES",
     description:
-      "A versatile bucket hat made to finish your everyday streetwear look."
+      "A relaxed bucket hat designed to complete your everyday Béni Carmel look.",
+    colors: [
+      "Black",
+      "Beige",
+      "Burgundy",
+      "White"
+    ],
+    sizes: ["One Size"]
   },
 
-
-  /* ---------------- CAP ---------------- */
-
-  {
-    id: "cap",
-    name: "BÉNI CARMEL CAP",
+  "Béni Carmel Cap": {
     price: 500,
-    category: "accessories",
     image: "images/cap-white.jpg",
-    colours: [
-      { name: "White", image: "images/cap-white.jpg" }
-    ],
-    sizes: ["ONE SIZE"],
+    category: "ACCESSORIES",
     description:
-      "A clean Béni Carmel cap made for everyday wear."
+      "A clean everyday cap featuring the Béni Carmel identity.",
+    colors: ["White"],
+    sizes: ["One Size"]
   },
 
-
-  /* ---------------- BAGS ---------------- */
-
-  {
-    id: "shoulder-bag",
-    name: "SHOULDER BAG",
+  "Béni Carmel Shoulder Bag": {
     price: 800,
-    category: "accessories",
     image: "images/shoulder-bag-black.jpg",
-    colours: [
-      { name: "Black", image: "images/shoulder-bag-black.jpg" },
-      { name: "Brown", image: "images/shoulder-bag-brown.jpg" },
-      { name: "Orange", image: "images/shoulder-bag-orange.jpg" },
-      { name: "Pink", image: "images/shoulder-bag-pink.jpg" }
-    ],
-    sizes: ["ONE SIZE"],
+    category: "ACCESSORIES",
     description:
-      "A compact everyday shoulder bag designed to carry what matters."
+      "A practical everyday shoulder bag available in multiple colourways.",
+    colors: [
+      "Black",
+      "Brown",
+      "Orange",
+      "Pink"
+    ],
+    sizes: ["One Size"]
   },
 
-  {
-    id: "cross-shoulder-bag",
-    name: "CROSS SHOULDER BAG",
+  "Béni Carmel Cross Shoulder Bag": {
     price: 800,
-    category: "accessories",
     image: "images/shoulder-bag-black-cross.jpg",
-    colours: [
-      { name: "Black", image: "images/shoulder-bag-black-cross.jpg" }
-    ],
-    sizes: ["ONE SIZE"],
+    category: "ACCESSORIES",
     description:
-      "A practical cross-body bag designed for everyday movement."
+      "A cross-body everyday bag designed for functionality and style.",
+    colors: ["Black"],
+    sizes: ["One Size"]
   },
 
-
-  /* ---------------- CROSS NECKLACE ---------------- */
-
-  {
-    id: "cross-necklace",
-    name: "SILVER CROSS NECKLACE",
+  "Silver Cross Necklace": {
     price: 500,
-    category: "accessories",
     image: "images/cross-necklace-silver.jpg",
-    colours: [
-      { name: "Silver", image: "images/cross-necklace-silver.jpg" }
-    ],
-    sizes: ["ONE SIZE"],
+    category: "ACCESSORIES",
     description:
-      "A simple silver cross necklace designed as a wearable expression of faith."
+      "A silver cross necklace representing the faith at the heart of Béni Carmel.",
+    colors: ["Silver"],
+    sizes: ["One Size"]
   },
 
-
-  /* ---------------- SOCKS ---------------- */
-
-  {
-    id: "socks",
-    name: "BÉNI CARMEL SOCKS",
+  "Béni Carmel Socks": {
     price: 200,
-    category: "accessories",
     image: "images/socks-black.jpg",
-    colours: [
-      { name: "Black", image: "images/socks-black.jpg" },
-      { name: "White", image: "images/socks-white.jpg" }
-    ],
-    sizes: ["ONE SIZE"],
+    category: "ACCESSORIES",
     description:
-      "Everyday socks finished with the Béni Carmel aesthetic."
+      "Everyday socks available in black and white.",
+    colors: ["Black", "White"],
+    sizes: ["S", "M", "L"]
   }
 
-];
-
-
-/* =====================================================
-   STATE
-===================================================== */
-
-let bag = JSON.parse(localStorage.getItem("beniCarmelBag")) || [];
-
-let currentProduct = null;
-let selectedSize = "M";
-let selectedColour = null;
-let detailQuantity = 1;
-
-let currentCategory = "all";
+};
 
 
 /* =====================================================
    ELEMENTS
 ===================================================== */
 
-const productsContainer =
-  document.getElementById("products");
-
-const bagOverlay =
-  document.getElementById("bagOverlay");
-
-const bagItems =
-  document.getElementById("bagItems");
-
-const bagCount =
-  document.getElementById("bagCount");
-
-const bagSubtotal =
-  document.getElementById("bagSubtotal");
-
-const bagShipping =
-  document.getElementById("bagShipping");
-
-const bagTotal =
-  document.getElementById("bagTotal");
-
-const checkoutButton =
-  document.getElementById("checkoutButton");
-
-const shippingMessage =
-  document.getElementById("shippingMessage");
+const bagOverlay = document.getElementById("bagOverlay");
+const bagItems = document.getElementById("bagItems");
+const bagCount = document.getElementById("bagCount");
+const bagSubtotal = document.getElementById("bagSubtotal");
+const bagShipping = document.getElementById("bagShipping");
+const bagTotal = document.getElementById("bagTotal");
+const checkoutButton = document.getElementById("checkoutButton");
+const shippingMessage = document.getElementById("shippingMessage");
 
 const productDetailOverlay =
   document.getElementById("productDetailOverlay");
@@ -361,14 +254,14 @@ const productDetailOverlay =
 const detailProductImage =
   document.getElementById("detailProductImage");
 
-const detailProductCategory =
-  document.getElementById("detailProductCategory");
-
 const detailProductName =
   document.getElementById("detailProductName");
 
 const detailProductPrice =
   document.getElementById("detailProductPrice");
+
+const detailProductCategory =
+  document.getElementById("detailProductCategory");
 
 const detailProductDescription =
   document.getElementById("detailProductDescription");
@@ -379,24 +272,14 @@ const detailQuantity =
 const detailAddButton =
   document.getElementById("detailAddButton");
 
-const searchOverlay =
-  document.getElementById("searchOverlay");
-
-const searchInput =
-  document.getElementById("searchInput");
-
-const searchResults =
-  document.getElementById("searchResults");
-
 
 /* =====================================================
    HELPERS
 ===================================================== */
 
 function formatPrice(price) {
-  return `KES ${price.toLocaleString()}`;
+  return "KES " + Number(price).toLocaleString();
 }
-
 
 function saveBag() {
   localStorage.setItem(
@@ -404,7 +287,6 @@ function saveBag() {
     JSON.stringify(bag)
   );
 }
-
 
 function getBagCount() {
   return bag.reduce(
@@ -415,156 +297,74 @@ function getBagCount() {
 
 
 /* =====================================================
-   RENDER PRODUCTS
+   OPEN / CLOSE BAG
 ===================================================== */
 
-function renderProducts(list = products) {
+function openBag() {
+  bagOverlay.classList.add("open");
+  document.body.classList.add("no-scroll");
+  renderBag();
+}
 
-  if (!productsContainer) return;
+function closeBag() {
+  bagOverlay.classList.remove("open");
+  document.body.classList.remove("no-scroll");
+}
 
-  productsContainer.innerHTML = "";
+document
+  .getElementById("bagButton")
+  ?.addEventListener("click", openBag);
 
-  if (list.length === 0) {
+document
+  .getElementById("closeBag")
+  ?.addEventListener("click", closeBag);
 
-    productsContainer.innerHTML = `
-      <p style="
-        grid-column:1/-1;
-        padding:60px 0;
-        text-align:center;
-        font-size:12px;
-        font-weight:700;
-        letter-spacing:1px;
-      ">
-        NO PRODUCTS FOUND.
-      </p>
-    `;
+bagOverlay?.addEventListener("click", function(e) {
+  if (e.target === bagOverlay) {
+    closeBag();
+  }
+});
 
-    return;
+
+/* =====================================================
+   ADD TO BAG
+===================================================== */
+
+function addToBag(
+  name,
+  price,
+  image,
+  size = "M",
+  color = ""
+) {
+
+  const existing = bag.find(item =>
+    item.name === name &&
+    item.size === size &&
+    item.color === color
+  );
+
+  if (existing) {
+
+    existing.quantity += 1;
+
+  } else {
+
+    bag.push({
+      name,
+      price,
+      image,
+      size,
+      color,
+      quantity: 1
+    });
+
   }
 
+  saveBag();
+  renderBag();
 
-  list.forEach(product => {
-
-    const article =
-      document.createElement("article");
-
-    article.className = "product";
-
-    article.dataset.name = product.name;
-    article.dataset.price = product.price;
-    article.dataset.category = product.category;
-    article.dataset.id = product.id;
-
-
-    article.innerHTML = `
-
-      <div class="product-image">
-
-        ${
-          product.id === "hoodie-1"
-            ? `<span class="product-badge">BESTSELLER</span>`
-            : ""
-        }
-
-        ${
-          product.id === "college-jacket" ||
-          product.id === "wide-leg-jeans"
-            ? `<span class="product-badge">NEW</span>`
-            : ""
-        }
-
-        <button
-          class="wishlist"
-          type="button"
-          aria-label="Add ${product.name} to wishlist"
-        >
-          ♡
-        </button>
-
-        <img
-          src="${product.image}"
-          alt="${product.name}"
-          loading="lazy"
-        >
-
-        <button
-          class="quick-add"
-          type="button"
-        >
-          QUICK ADD — ${formatPrice(product.price)}
-        </button>
-
-      </div>
-
-      <div class="product-info">
-
-        <h3>
-          ${product.name}
-        </h3>
-
-        <p>
-          ${formatPrice(product.price)}
-        </p>
-
-      </div>
-
-    `;
-
-
-    /* Product image/details click */
-
-    const image =
-      article.querySelector(".product-image img");
-
-    image.addEventListener(
-      "click",
-      () => openProductDetail(product)
-    );
-
-
-    /* Quick add */
-
-    const quickAdd =
-      article.querySelector(".quick-add");
-
-    quickAdd.addEventListener(
-      "click",
-      event => {
-
-        event.stopPropagation();
-
-        quickAddProduct(product);
-
-      }
-    );
-
-
-    /* Wishlist */
-
-    const wishlist =
-      article.querySelector(".wishlist");
-
-    wishlist.addEventListener(
-      "click",
-      event => {
-
-        event.stopPropagation();
-
-        wishlist.classList.toggle("active");
-
-        wishlist.textContent =
-          wishlist.classList.contains("active")
-            ? "♥"
-            : "♡";
-
-      }
-    );
-
-
-    productsContainer.appendChild(article);
-
-  });
-
+  openBag();
 }
 
 
@@ -572,59 +372,247 @@ function renderProducts(list = products) {
    QUICK ADD
 ===================================================== */
 
-function quickAddProduct(product) {
+window.addToBag = addToBag;
 
-  const defaultColour =
-    product.colours[0];
 
-  const defaultSize =
-    product.sizes.includes("M")
-      ? "M"
-      : product.sizes[0];
+/* =====================================================
+   RENDER BAG
+===================================================== */
 
-  addProductToBag(
-    product,
-    defaultSize,
-    defaultColour.name,
-    1
+function renderBag() {
+
+  const count = getBagCount();
+
+  if (bagCount) {
+    bagCount.textContent = count;
+  }
+
+  if (!bagItems) return;
+
+  if (bag.length === 0) {
+
+    bagItems.innerHTML = `
+      <div class="empty-bag">
+        <p>YOUR BAG IS EMPTY.</p>
+        <a href="#shop" onclick="closeBag()">
+          CONTINUE SHOPPING →
+        </a>
+      </div>
+    `;
+
+    bagSubtotal.textContent = "KES 0";
+    bagShipping.textContent = "KES 0";
+    bagTotal.textContent = "KES 0";
+
+    shippingMessage.textContent =
+      "ADD KES 10,000 TO YOUR BAG FOR FREE SHIPPING.";
+
+    checkoutButton.disabled = true;
+    checkoutButton.textContent = "YOUR BAG IS EMPTY";
+
+    return;
+  }
+
+
+  bagItems.innerHTML = bag.map((item, index) => {
+
+    const variation =
+      [
+        item.size && item.size !== "One Size"
+          ? `SIZE: ${item.size}`
+          : "",
+        item.color
+          ? `COLOUR: ${item.color}`
+          : ""
+      ]
+      .filter(Boolean)
+      .join(" • ");
+
+    return `
+      <div class="bag-product">
+
+        <div class="bag-product-image">
+          <img
+            src="${item.image}"
+            alt="${item.name}"
+          >
+        </div>
+
+        <div class="bag-product-details">
+
+          <div class="bag-product-top">
+
+            <div>
+              <h3>${item.name}</h3>
+
+              ${
+                variation
+                  ? `<p>${variation}</p>`
+                  : ""
+              }
+            </div>
+
+            <strong>
+              ${formatPrice(item.price * item.quantity)}
+            </strong>
+
+          </div>
+
+          <div class="bag-product-bottom">
+
+            <div class="bag-quantity">
+
+              <button
+                type="button"
+                onclick="changeBagQuantity(${index}, -1)"
+              >
+                −
+              </button>
+
+              <span>
+                ${item.quantity}
+              </span>
+
+              <button
+                type="button"
+                onclick="changeBagQuantity(${index}, 1)"
+              >
+                +
+              </button>
+
+            </div>
+
+            <button
+              class="bag-remove"
+              type="button"
+              onclick="removeFromBag(${index})"
+            >
+              REMOVE
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+  }).join("");
+
+
+  const subtotal = bag.reduce(
+    (total, item) =>
+      total + item.price * item.quantity,
+    0
   );
 
+
+  const shipping =
+    subtotal >= 10000
+      ? 0
+      : 300;
+
+  const total = subtotal + shipping;
+
+
+  bagSubtotal.textContent =
+    formatPrice(subtotal);
+
+  bagShipping.textContent =
+    shipping === 0
+      ? "FREE"
+      : formatPrice(shipping);
+
+  bagTotal.textContent =
+    formatPrice(total);
+
+
+  if (subtotal >= 10000) {
+
+    shippingMessage.textContent =
+      "YOU QUALIFY FOR FREE SHIPPING.";
+
+  } else {
+
+    shippingMessage.textContent =
+      `ADD ${formatPrice(10000 - subtotal)}
+       TO YOUR BAG FOR FREE SHIPPING.`;
+
+  }
+
+
+  checkoutButton.disabled = false;
+  checkoutButton.textContent =
+    "PROCEED TO CHECKOUT";
 }
 
 
 /* =====================================================
-   OPEN PRODUCT DETAIL
+   CHANGE QUANTITY
 ===================================================== */
 
-function openProductDetail(product) {
+function changeBagQuantity(index, amount) {
 
-  currentProduct = product;
+  if (!bag[index]) return;
 
-  selectedSize =
-    product.sizes.includes("M")
-      ? "M"
-      : product.sizes[0];
+  bag[index].quantity += amount;
 
-  selectedColour =
-    product.colours[0].name;
+  if (bag[index].quantity <= 0) {
+    bag.splice(index, 1);
+  }
 
+  saveBag();
+  renderBag();
+}
+
+window.changeBagQuantity = changeBagQuantity;
+
+
+/* =====================================================
+   REMOVE FROM BAG
+===================================================== */
+
+function removeFromBag(index) {
+
+  bag.splice(index, 1);
+
+  saveBag();
+  renderBag();
+}
+
+window.removeFromBag = removeFromBag;
+
+
+/* =====================================================
+   PRODUCT DETAIL
+===================================================== */
+
+function openProductDetail(name) {
+
+  const product = productData[name];
+
+  if (!product) return;
+
+  selectedProduct = name;
+  selectedSize = product.sizes[0];
+  selectedColor = product.colors[0];
   detailQuantity = 1;
 
 
   detailProductImage.src =
-    product.colours[0].image;
+    product.image;
 
   detailProductImage.alt =
-    product.name;
-
-  detailProductCategory.textContent =
-    product.category.toUpperCase();
+    name;
 
   detailProductName.textContent =
-    product.name;
+    name.toUpperCase();
 
   detailProductPrice.textContent =
     formatPrice(product.price);
+
+  detailProductCategory.textContent =
+    product.category;
 
   detailProductDescription.textContent =
     product.description;
@@ -633,870 +621,365 @@ function openProductDetail(product) {
     detailQuantity;
 
 
-  renderSizeOptions();
+  /* SIZES */
 
-  renderColourOptions();
+  const sizeContainer =
+    document.querySelector(".size-options");
+
+  sizeContainer.innerHTML =
+    product.sizes.map(size => `
+      <button
+        class="size-option ${
+          size === selectedSize
+            ? "selected"
+            : ""
+        }"
+        type="button"
+        data-size="${size}"
+      >
+        ${size}
+      </button>
+    `).join("");
+
+
+  document
+    .querySelectorAll(".size-option")
+    .forEach(button => {
+
+      button.addEventListener("click", function() {
+
+        document
+          .querySelectorAll(".size-option")
+          .forEach(btn =>
+            btn.classList.remove("selected")
+          );
+
+        this.classList.add("selected");
+
+        selectedSize =
+          this.dataset.size;
+
+      });
+
+    });
+
+
+  /* COLOURS */
+
+  let existingColorContainer =
+    document.querySelector(".color-options");
+
+  if (!existingColorContainer) {
+
+    const sizeHeading =
+      document.querySelector(".size-heading");
+
+    existingColorContainer =
+      document.createElement("div");
+
+    existingColorContainer.className =
+      "color-options";
+
+    sizeHeading.parentNode.insertBefore(
+      existingColorContainer,
+      sizeHeading
+    );
+
+  }
+
+
+  if (product.colors.length > 0) {
+
+    existingColorContainer.innerHTML = `
+
+      <p class="size-heading">
+        SELECT COLOUR
+      </p>
+
+      <div class="size-options">
+
+        ${product.colors.map(color => `
+
+          <button
+            class="size-option ${
+              color === selectedColor
+                ? "selected"
+                : ""
+            }"
+            type="button"
+            data-color="${color}"
+          >
+            ${color.toUpperCase()}
+          </button>
+
+        `).join("")}
+
+      </div>
+    `;
+
+
+    existingColorContainer
+      .querySelectorAll("[data-color]")
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          function() {
+
+            existingColorContainer
+              .querySelectorAll("[data-color]")
+              .forEach(btn =>
+                btn.classList.remove(
+                  "selected"
+                )
+              );
+
+            this.classList.add("selected");
+
+            selectedColor =
+              this.dataset.color;
+
+          }
+        );
+
+      });
+
+  }
 
 
   productDetailOverlay.classList.add("open");
-
   document.body.classList.add("no-scroll");
-
 }
 
 
 /* =====================================================
-   SIZE OPTIONS
+   CLOSE PRODUCT DETAIL
 ===================================================== */
 
-function renderSizeOptions() {
+function closeProductDetail() {
 
-  const container =
-    document.querySelector(".size-options");
-
-  if (!container || !currentProduct) return;
-
-  container.innerHTML = "";
-
-
-  currentProduct.sizes.forEach(size => {
-
-    const button =
-      document.createElement("button");
-
-    button.type = "button";
-
-    button.className =
-      "size-option" +
-      (
-        size === selectedSize
-          ? " selected"
-          : ""
-      );
-
-    button.textContent = size;
-
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        selectedSize = size;
-
-        renderSizeOptions();
-
-      }
-    );
-
-
-    container.appendChild(button);
-
-  });
-
+  productDetailOverlay.classList.remove("open");
+  document.body.classList.remove("no-scroll");
 }
 
-
-/* =====================================================
-   COLOUR OPTIONS
-===================================================== */
-
-function renderColourOptions() {
-
-  if (!currentProduct) return;
-
-
-  let colourContainer =
-    document.querySelector(".colour-options");
-
-
-  if (!colourContainer) {
-
-    const sizeOptions =
-      document.querySelector(".size-options");
-
-    colourContainer =
-      document.createElement("div");
-
-    colourContainer.className =
-      "colour-options";
-
-
-    sizeOptions.parentNode.insertBefore(
-      colourContainer,
-      sizeOptions
-    );
-
-  }
-
-
-  colourContainer.innerHTML = `
-
-    <p class="size-heading">
-      SELECT COLOUR
-    </p>
-
-    <div class="colour-buttons"></div>
-
-  `;
-
-
-  const buttons =
-    colourContainer.querySelector(
-      ".colour-buttons"
-    );
-
-
-  currentProduct.colours.forEach(colour => {
-
-    const button =
-      document.createElement("button");
-
-    button.type = "button";
-
-    button.className =
-      "colour-option" +
-      (
-        colour.name === selectedColour
-          ? " selected"
-          : ""
-      );
-
-    button.textContent =
-      colour.name;
-
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        selectedColour =
-          colour.name;
-
-        detailProductImage.src =
-          colour.image;
-
-        renderColourOptions();
-
-      }
-    );
-
-
-    buttons.appendChild(button);
-
-  });
-
-}
-
-
-/* =====================================================
-   ADD PRODUCT TO BAG
-===================================================== */
-
-function addProductToBag(
-  product,
-  size,
-  colour,
-  quantity
-) {
-
-  const existing =
-    bag.find(item =>
-      item.id === product.id &&
-      item.size === size &&
-      item.colour === colour
-    );
-
-
-  if (existing) {
-
-    existing.quantity += quantity;
-
-  } else {
-
-    bag.push({
-
-      id: product.id,
-
-      name: product.name,
-
-      price: product.price,
-
-      image:
-        product.colours.find(
-          c => c.name === colour
-        )?.image || product.image,
-
-      size,
-
-      colour,
-
-      quantity
-
-    });
-
-  }
-
-
-  saveBag();
-
-  updateBag();
-
-  closeProductDetail();
-
-  openBag();
-
-}
-
-
-/* =====================================================
-   GLOBAL addToBag
-===================================================== */
-
-function addToBag(
-  name,
-  price,
-  image,
-  size = "M",
-  colour = "Default",
-  quantity = 1
-) {
-
-  const product =
-    products.find(
-      p => p.name === name
-    );
-
-
-  if (product) {
-
-    addProductToBag(
-      product,
-      size,
-      colour,
-      quantity
-    );
-
-    return;
-
-  }
-
-
-  const existing =
-    bag.find(item =>
-      item.name === name &&
-      item.size === size &&
-      item.colour === colour
-    );
-
-
-  if (existing) {
-
-    existing.quantity += quantity;
-
-  } else {
-
-    bag.push({
-      id: Date.now().toString(),
-      name,
-      price,
-      image,
-      size,
-      colour,
-      quantity
-    });
-
-  }
-
-
-  saveBag();
-
-  updateBag();
-
-}
-
-
-/* =====================================================
-   DETAIL ADD BUTTON
-===================================================== */
-
-if (detailAddButton) {
-
-  detailAddButton.addEventListener(
+document
+  .getElementById("closeProductDetail")
+  ?.addEventListener(
     "click",
-    () => {
-
-      if (!currentProduct) return;
-
-      addProductToBag(
-        currentProduct,
-        selectedSize,
-        selectedColour,
-        detailQuantity
-      );
-
-    }
+    closeProductDetail
   );
 
-}
+productDetailOverlay?.addEventListener(
+  "click",
+  function(e) {
+
+    if (e.target === productDetailOverlay) {
+      closeProductDetail();
+    }
+
+  }
+);
+
+
+/* =====================================================
+   PRODUCT IMAGE CLICK
+===================================================== */
+
+document
+  .querySelectorAll(".product")
+  .forEach(product => {
+
+    const name =
+      product.dataset.name;
+
+    const image =
+      product.querySelector(
+        ".product-image img"
+      );
+
+    image?.addEventListener(
+      "click",
+      () => openProductDetail(name)
+    );
+
+  });
 
 
 /* =====================================================
    DETAIL QUANTITY
 ===================================================== */
 
-const quantityMinus =
-  document.getElementById("quantityMinus");
+document
+  .getElementById("quantityMinus")
+  ?.addEventListener("click", function() {
 
-const quantityPlus =
-  document.getElementById("quantityPlus");
-
-
-if (quantityMinus) {
-
-  quantityMinus.addEventListener(
-    "click",
-    () => {
-
-      if (detailQuantity > 1) {
-
-        detailQuantity--;
-
-        detailQuantityElement();
-
-      }
-
-    }
-  );
-
-}
-
-
-if (quantityPlus) {
-
-  quantityPlus.addEventListener(
-    "click",
-    () => {
-
-      detailQuantity++;
-
+    if (detailQuantity > 1) {
+      detailQuantity--;
       detailQuantityElement();
-
     }
-  );
-
-}
-
-
-function detailQuantityElement() {
-
-  if (detailQuantity) {
-
-    document.getElementById(
-      "detailQuantity"
-    ).textContent =
-      detailQuantity;
-
-  }
-
-}
-
-
-/* =====================================================
-   UPDATE BAG
-===================================================== */
-
-function updateBag() {
-
-  saveBag();
-
-
-  const count =
-    getBagCount();
-
-
-  if (bagCount) {
-
-    bagCount.textContent =
-      count;
-
-  }
-
-
-  renderBagItems();
-
-}
-
-
-/* =====================================================
-   RENDER BAG ITEMS
-===================================================== */
-
-function renderBagItems() {
-
-  if (!bagItems) return;
-
-
-  bagItems.innerHTML = "";
-
-
-  if (bag.length === 0) {
-
-    bagItems.innerHTML = `
-
-      <div class="empty-bag">
-
-        <p>
-          YOUR BAG IS EMPTY.
-        </p>
-
-        <a href="#shop" id="emptyBagShop">
-          CONTINUE SHOPPING →
-        </a>
-
-      </div>
-
-    `;
-
-
-    const emptyShop =
-      document.getElementById(
-        "emptyBagShop"
-      );
-
-
-    if (emptyShop) {
-
-      emptyShop.addEventListener(
-        "click",
-        closeBag
-      );
-
-    }
-
-
-    updateBagSummary();
-
-    return;
-
-  }
-
-
-  bag.forEach((item,index) => {
-
-    const element =
-      document.createElement("div");
-
-    element.className =
-      "bag-product";
-
-
-    element.innerHTML = `
-
-      <div class="bag-product-image">
-
-        <img
-          src="${item.image}"
-          alt="${item.name}"
-        >
-
-      </div>
-
-      <div class="bag-product-details">
-
-        <div class="bag-product-top">
-
-          <div>
-
-            <h3>
-              ${item.name}
-            </h3>
-
-            <p>
-              ${
-                item.colour !== "Default"
-                  ? item.colour + " · "
-                  : ""
-              }
-              ${item.size}
-            </p>
-
-          </div>
-
-          <strong>
-            ${formatPrice(item.price * item.quantity)}
-          </strong>
-
-        </div>
-
-
-        <div class="bag-product-bottom">
-
-          <div class="bag-quantity">
-
-            <button
-              type="button"
-              data-action="decrease"
-              data-index="${index}"
-            >
-              −
-            </button>
-
-            <span>
-              ${item.quantity}
-            </span>
-
-            <button
-              type="button"
-              data-action="increase"
-              data-index="${index}"
-            >
-              +
-            </button>
-
-          </div>
-
-
-          <button
-            class="bag-remove"
-            type="button"
-            data-action="remove"
-            data-index="${index}"
-          >
-            REMOVE
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
-
-    bagItems.appendChild(element);
 
   });
 
 
-  bagItems
-    .querySelectorAll("[data-action]")
-    .forEach(button => {
+document
+  .getElementById("quantityPlus")
+  ?.addEventListener("click", function() {
 
-      button.addEventListener(
-        "click",
-        () => {
+    detailQuantity++;
+    detailQuantityElement();
 
-          const action =
-            button.dataset.action;
-
-          const index =
-            Number(button.dataset.index);
+  });
 
 
-          if (action === "increase") {
+function detailQuantityElement() {
 
-            bag[index].quantity++;
+  detailQuantity =
+    Math.max(1, detailQuantity);
 
-          }
-
-
-          if (action === "decrease") {
-
-            bag[index].quantity--;
-
-            if (
-              bag[index].quantity <= 0
-            ) {
-
-              bag.splice(index,1);
-
-            }
-
-          }
-
-
-          if (action === "remove") {
-
-            bag.splice(index,1);
-
-          }
-
-
-          updateBag();
-
-        }
-      );
-
-    });
-
-
-  updateBagSummary();
-
-}
-
-
-/* =====================================================
-   BAG SUMMARY
-===================================================== */
-
-function updateBagSummary() {
-
-  const subtotal =
-    bag.reduce(
-      (total,item) =>
-        total + item.price * item.quantity,
-      0
+  const element =
+    document.getElementById(
+      "detailQuantity"
     );
 
-
-  const shipping =
-    subtotal === 0
-      ? 0
-      : subtotal >= 10000
-        ? 0
-        : 300;
-
-
-  const total =
-    subtotal + shipping;
-
-
-  if (bagSubtotal) {
-
-    bagSubtotal.textContent =
-      formatPrice(subtotal);
-
+  if (element) {
+    element.textContent =
+      detailQuantity;
   }
-
-
-  if (bagShipping) {
-
-    bagShipping.textContent =
-      shipping === 0
-        ? "FREE"
-        : formatPrice(shipping);
-
-  }
-
-
-  if (bagTotal) {
-
-    bagTotal.textContent =
-      formatPrice(total);
-
-  }
-
-
-  if (shippingMessage) {
-
-    if (subtotal === 0) {
-
-      shippingMessage.textContent =
-        "ADD KES 10,000 TO YOUR BAG FOR FREE SHIPPING.";
-
-    } else if (subtotal >= 10000) {
-
-      shippingMessage.textContent =
-        "YOU QUALIFY FOR FREE SHIPPING.";
-
-    } else {
-
-      shippingMessage.textContent =
-        `ADD ${formatPrice(10000 - subtotal)} TO YOUR BAG FOR FREE SHIPPING.`;
-
-    }
-
-  }
-
-
-  if (checkoutButton) {
-
-    checkoutButton.disabled =
-      bag.length === 0;
-
-    checkoutButton.textContent =
-      bag.length === 0
-        ? "YOUR BAG IS EMPTY"
-        : "PROCEED TO CHECKOUT →";
-
-  }
-
 }
 
 
 /* =====================================================
-   OPEN BAG
+   ADD DETAIL PRODUCT TO BAG
 ===================================================== */
 
-function openBag() {
+detailAddButton?.addEventListener(
+  "click",
+  function() {
 
-  bagOverlay.classList.add("open");
+    if (!selectedProduct) return;
 
-  document.body.classList.add("no-scroll");
+    const product =
+      productData[selectedProduct];
 
-}
-
-
-/* =====================================================
-   CLOSE BAG
-===================================================== */
-
-function closeBag() {
-
-  bagOverlay.classList.remove("open");
-
-  document.body.classList.remove("no-scroll");
-
-}
+    if (!product) return;
 
 
-/* =====================================================
-   BAG BUTTON
-===================================================== */
+    for (let i = 0; i < detailQuantity; i++) {
 
-const bagButton =
-  document.getElementById("bagButton");
-
-if (bagButton) {
-
-  bagButton.addEventListener(
-    "click",
-    openBag
-  );
-
-}
+      const existing = bag.find(item =>
+        item.name === selectedProduct &&
+        item.size === selectedSize &&
+        item.color === selectedColor
+      );
 
 
-const closeBagButton =
-  document.getElementById("closeBag");
+      if (existing) {
 
-if (closeBagButton) {
+        existing.quantity++;
 
-  closeBagButton.addEventListener(
-    "click",
-    closeBag
-  );
+      } else {
 
-}
+        bag.push({
 
+          name: selectedProduct,
 
-if (bagOverlay) {
+          price: product.price,
 
-  bagOverlay.addEventListener(
-    "click",
-    event => {
+          image: product.image,
 
-      if (
-        event.target === bagOverlay
-      ) {
+          size: selectedSize,
 
-        closeBag();
+          color: selectedColor,
+
+          quantity: 1
+
+        });
 
       }
 
     }
-  );
 
-}
+
+    saveBag();
+    renderBag();
+
+    closeProductDetail();
+    openBag();
+
+  }
+);
 
 
 /* =====================================================
-   PRODUCT DETAIL CLOSE
+   WISHLISTS
 ===================================================== */
 
-function closeProductDetail() {
+document
+  .querySelectorAll(".wishlist")
+  .forEach(button => {
 
-  productDetailOverlay.classList.remove(
-    "open"
-  );
+    button.addEventListener(
+      "click",
+      function(e) {
 
-  document.body.classList.remove(
-    "no-scroll"
-  );
+        e.stopPropagation();
 
-}
+        this.classList.toggle("active");
 
-
-const closeProductDetailButton =
-  document.getElementById(
-    "closeProductDetail"
-  );
-
-
-if (closeProductDetailButton) {
-
-  closeProductDetailButton.addEventListener(
-    "click",
-    closeProductDetail
-  );
-
-}
-
-
-if (productDetailOverlay) {
-
-  productDetailOverlay.addEventListener(
-    "click",
-    event => {
-
-      if (
-        event.target ===
-        productDetailOverlay
-      ) {
-
-        closeProductDetail();
+        this.textContent =
+          this.classList.contains("active")
+            ? "♥"
+            : "♡";
 
       }
+    );
 
-    }
-  );
-
-}
+  });
 
 
 /* =====================================================
-   FILTERS
+   FILTER PRODUCTS
 ===================================================== */
 
 const filters =
   document.querySelectorAll(".filter");
+
+const products =
+  document.querySelectorAll(".product");
 
 
 filters.forEach(filter => {
 
   filter.addEventListener(
     "click",
-    () => {
+    function() {
 
-      filters.forEach(
-        f => f.classList.remove("active")
+      filters.forEach(btn =>
+        btn.classList.remove("active")
       );
 
-      filter.classList.add("active");
+      this.classList.add("active");
+
+      const category =
+        this.dataset.category;
 
 
-      currentCategory =
-        filter.dataset.category;
+      products.forEach(product => {
 
+        if (
+          category === "all" ||
+          product.dataset.category === category
+        ) {
 
-      let filtered =
-        products;
+          product.style.display = "";
 
+        } else {
 
-      if (
-        currentCategory !== "all"
-      ) {
+          product.style.display = "none";
 
-        filtered =
-          products.filter(
-            product =>
-              product.category ===
-              currentCategory
-          );
+        }
 
-      }
-
-
-      renderProducts(filtered);
+      });
 
     }
   );
@@ -1509,29 +992,23 @@ filters.forEach(filter => {
 ===================================================== */
 
 document
-  .querySelectorAll(
-    "[data-category-link]"
-  )
+  .querySelectorAll("[data-category-link]")
   .forEach(link => {
 
     link.addEventListener(
       "click",
-      () => {
+      function() {
 
         const category =
-          link.dataset.categoryLink;
+          this.dataset.categoryLink;
 
-
-        const matchingFilter =
+        const filter =
           document.querySelector(
             `.filter[data-category="${category}"]`
           );
 
-
-        if (matchingFilter) {
-
-          matchingFilter.click();
-
+        if (filter) {
+          filter.click();
         }
 
       }
@@ -1541,40 +1018,32 @@ document
 
 
 /* =====================================================
-   SORT
+   SORT PRODUCTS
 ===================================================== */
 
-const sortProducts =
-  document.getElementById(
-    "sortProducts"
-  );
-
-
-if (sortProducts) {
-
-  sortProducts.addEventListener(
+document
+  .getElementById("sortProducts")
+  ?.addEventListener(
     "change",
-    () => {
+    function() {
 
-      let list =
-        currentCategory === "all"
-          ? [...products]
-          : products.filter(
-              p =>
-                p.category ===
-                currentCategory
-            );
+      const value = this.value;
 
+      const container =
+        document.getElementById("products");
 
-      const value =
-        sortProducts.value;
+      const productArray =
+        Array.from(
+          container.querySelectorAll(".product")
+        );
 
 
       if (value === "price-low") {
 
-        list.sort(
-          (a,b) =>
-            a.price - b.price
+        productArray.sort(
+          (a, b) =>
+            Number(a.dataset.price) -
+            Number(b.dataset.price)
         );
 
       }
@@ -1582,9 +1051,10 @@ if (sortProducts) {
 
       if (value === "price-high") {
 
-        list.sort(
-          (a,b) =>
-            b.price - a.price
+        productArray.sort(
+          (a, b) =>
+            Number(b.dataset.price) -
+            Number(a.dataset.price)
         );
 
       }
@@ -1592,22 +1062,22 @@ if (sortProducts) {
 
       if (value === "name") {
 
-        list.sort(
-          (a,b) =>
-            a.name.localeCompare(
-              b.name
+        productArray.sort(
+          (a, b) =>
+            a.dataset.name.localeCompare(
+              b.dataset.name
             )
         );
 
       }
 
 
-      renderProducts(list);
+      productArray.forEach(product =>
+        container.appendChild(product)
+      );
 
     }
   );
-
-}
 
 
 /* =====================================================
@@ -1615,189 +1085,127 @@ if (sortProducts) {
 ===================================================== */
 
 const searchButton =
-  document.getElementById(
-    "searchButton"
-  );
+  document.getElementById("searchButton");
+
+const searchOverlay =
+  document.getElementById("searchOverlay");
 
 const closeSearch =
-  document.getElementById(
-    "closeSearch"
-  );
+  document.getElementById("closeSearch");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const searchResults =
+  document.getElementById("searchResults");
 
 
-function openSearch() {
+searchButton?.addEventListener(
+  "click",
+  function() {
 
-  searchOverlay.classList.add(
-    "open"
-  );
+    searchOverlay.classList.add("open");
+    document.body.classList.add("no-scroll");
 
-  document.body.classList.add(
-    "no-scroll"
-  );
+    setTimeout(
+      () => searchInput.focus(),
+      100
+    );
 
-  setTimeout(
-    () => searchInput.focus(),
-    300
-  );
+  }
+);
 
-}
+
+closeSearch?.addEventListener(
+  "click",
+  closeSearchOverlay
+);
 
 
 function closeSearchOverlay() {
 
-  searchOverlay.classList.remove(
-    "open"
-  );
-
-  document.body.classList.remove(
-    "no-scroll"
-  );
+  searchOverlay.classList.remove("open");
+  document.body.classList.remove("no-scroll");
 
   searchInput.value = "";
-
   searchResults.innerHTML = "";
 
 }
 
 
-if (searchButton) {
+searchOverlay?.addEventListener(
+  "click",
+  function(e) {
 
-  searchButton.addEventListener(
-    "click",
-    openSearch
-  );
+    if (e.target === searchOverlay) {
+      closeSearchOverlay();
+    }
 
-}
-
-
-if (closeSearch) {
-
-  closeSearch.addEventListener(
-    "click",
-    closeSearchOverlay
-  );
-
-}
+  }
+);
 
 
-if (searchOverlay) {
+searchInput?.addEventListener(
+  "input",
+  function() {
 
-  searchOverlay.addEventListener(
-    "click",
-    event => {
+    const query =
+      this.value
+        .trim()
+        .toLowerCase();
 
-      if (
-        event.target ===
-        searchOverlay
-      ) {
 
-        closeSearchOverlay();
+    if (!query) {
 
-      }
+      searchResults.innerHTML = "";
+      return;
 
     }
-  );
-
-}
 
 
-/* =====================================================
-   SEARCH RESULTS
-===================================================== */
-
-if (searchInput) {
-
-  searchInput.addEventListener(
-    "input",
-    () => {
-
-      const query =
-        searchInput.value
-          .trim()
-          .toLowerCase();
-
-
-      if (!query) {
-
-        searchResults.innerHTML = "";
-
-        return;
-
-      }
-
-
-      const results =
-        products.filter(product =>
-          product.name
-            .toLowerCase()
-            .includes(query) ||
-          product.category
-            .toLowerCase()
-            .includes(query)
+    const matches =
+      Object.keys(productData)
+        .filter(name =>
+          name.toLowerCase().includes(query)
         );
 
 
-      if (results.length === 0) {
+    if (matches.length === 0) {
 
-        searchResults.innerHTML = `
-          <p>
-            NO PRODUCTS FOUND.
+      searchResults.innerHTML = `
+        <p>NO PRODUCTS FOUND.</p>
+      `;
+
+      return;
+
+    }
+
+
+    searchResults.innerHTML =
+      matches.map(name => {
+
+        const product =
+          productData[name];
+
+        return `
+          <p
+            style="cursor:pointer"
+            onclick="openProductDetail('${name.replace(/'/g, "\\'")}')"
+          >
+            <strong>
+              ${name}
+            </strong>
+            — ${formatPrice(product.price)}
           </p>
         `;
 
-        return;
+      }).join("");
 
-      }
+  }
+);
 
-
-      searchResults.innerHTML =
-        results.map(product => `
-
-          <p
-            class="search-result"
-            data-id="${product.id}"
-            style="cursor:pointer"
-          >
-            ${product.name}
-            — ${formatPrice(product.price)}
-          </p>
-
-        `).join("");
-
-
-      searchResults
-        .querySelectorAll(
-          ".search-result"
-        )
-        .forEach(result => {
-
-          result.addEventListener(
-            "click",
-            () => {
-
-              const product =
-                products.find(
-                  p =>
-                    p.id ===
-                    result.dataset.id
-                );
-
-
-              closeSearchOverlay();
-
-              openProductDetail(
-                product
-              );
-
-            }
-          );
-
-        });
-
-    }
-  );
-
-}
+window.openProductDetail =
+  openProductDetail;
 
 
 /* =====================================================
@@ -1805,169 +1213,133 @@ if (searchInput) {
 ===================================================== */
 
 const menuButton =
-  document.getElementById(
-    "menuButton"
-  );
+  document.getElementById("menuButton");
 
 const mobileMenu =
-  document.getElementById(
-    "mobileMenu"
-  );
+  document.getElementById("mobileMenu");
 
 const closeMenu =
-  document.getElementById(
-    "closeMenu"
-  );
+  document.getElementById("closeMenu");
 
 
-function openMobileMenu() {
+menuButton?.addEventListener(
+  "click",
+  function() {
 
-  mobileMenu.classList.add(
-    "open"
-  );
+    mobileMenu.classList.add("open");
+    document.body.classList.add("no-scroll");
 
-  document.body.classList.add(
-    "no-scroll"
-  );
-
-}
+  }
+);
 
 
-function closeMobileMenu() {
+closeMenu?.addEventListener(
+  "click",
+  function() {
 
-  mobileMenu.classList.remove(
-    "open"
-  );
+    mobileMenu.classList.remove("open");
+    document.body.classList.remove("no-scroll");
 
-  document.body.classList.remove(
-    "no-scroll"
-  );
-
-}
-
-
-if (menuButton) {
-
-  menuButton.addEventListener(
-    "click",
-    openMobileMenu
-  );
-
-}
-
-
-if (closeMenu) {
-
-  closeMenu.addEventListener(
-    "click",
-    closeMobileMenu
-  );
-
-}
+  }
+);
 
 
 document
-  .querySelectorAll(
-    ".mobile-menu a"
-  )
+  .querySelectorAll(".mobile-menu a")
   .forEach(link => {
 
     link.addEventListener(
       "click",
-      closeMobileMenu
+      function() {
+
+        mobileMenu.classList.remove("open");
+        document.body.classList.remove("no-scroll");
+
+      }
     );
 
   });
 
 
 /* =====================================================
-   CHECKOUT
-===================================================== */
-
-if (checkoutButton) {
-
-  checkoutButton.addEventListener(
-    "click",
-    () => {
-
-      if (bag.length === 0) return;
-
-      window.location.href =
-        "checkout.html";
-
-    }
-  );
-
-}
-
-
-/* =====================================================
    NEWSLETTER
 ===================================================== */
 
-const newsletterForm =
-  document.getElementById(
-    "newsletterForm"
-  );
-
-
-if (newsletterForm) {
-
-  newsletterForm.addEventListener(
+document
+  .getElementById("newsletterForm")
+  ?.addEventListener(
     "submit",
-    event => {
+    function(e) {
 
-      event.preventDefault();
+      e.preventDefault();
 
-      const input =
-        newsletterForm.querySelector(
-          "input"
-        );
+      const email =
+        this.querySelector("input").value;
 
-
-      if (!input.value) return;
-
+      if (!email) return;
 
       alert(
         "Thank you for joining the Béni Carmel Collective."
       );
 
-
-      input.value = "";
+      this.reset();
 
     }
   );
 
-}
-
 
 /* =====================================================
-   KEYBOARD ESCAPE
+   CHECKOUT
 ===================================================== */
 
-document.addEventListener(
-  "keydown",
-  event => {
+checkoutButton?.addEventListener(
+  "click",
+  function() {
 
-    if (event.key !== "Escape") return;
+    if (bag.length === 0) return;
 
+    localStorage.setItem(
+      "beniCarmelCheckout",
+      JSON.stringify(bag)
+    );
 
-    closeBag();
-
-    closeProductDetail();
-
-    closeSearchOverlay();
-
-    closeMobileMenu();
+    window.location.href =
+      "checkout.html";
 
   }
 );
 
 
 /* =====================================================
-   INITIALISE
+   ESCAPE KEY
 ===================================================== */
 
-renderProducts();
+document.addEventListener(
+  "keydown",
+  function(e) {
 
-updateBag();
+    if (e.key !== "Escape") return;
+
+    closeBag();
+    closeProductDetail();
+    closeSearchOverlay();
+
+    mobileMenu?.classList.remove("open");
+
+    document.body.classList.remove(
+      "no-scroll"
+    );
+
+  }
+);
+
+
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
+
+renderBag();
+
+console.log(
+  "Béni Carmel Collectives shop loaded successfully."
+);
