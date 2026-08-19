@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +17,7 @@
 <body>
 
 <!-- =====================================================
-     ANNOUNCEMENT BAR
+     ANNOUNCEMENT
 ===================================================== -->
 
 <div class="announcement-bar">
@@ -38,6 +37,7 @@
       class="menu-button"
       id="menuButton"
       aria-label="Open menu"
+      type="button"
     >
       ☰
     </button>
@@ -61,11 +61,11 @@
 
   <div class="header-actions">
 
-    <button id="searchButton">
+    <button id="searchButton" type="button">
       SEARCH
     </button>
 
-    <button id="bagButton">
+    <button id="bagButton" type="button">
       BAG (<span id="bagCount">0</span>)
     </button>
 
@@ -83,6 +83,7 @@
   <button
     class="close-menu"
     id="closeMenu"
+    type="button"
   >
     ×
   </button>
@@ -188,13 +189,7 @@
 
   <div class="category-grid">
 
-
-    <!-- HOODIES -->
-
-    <a
-      href="#hoodies"
-      class="category-card"
-    >
+    <a href="#hoodies" class="category-card">
 
       <div class="category-image">
         <img
@@ -204,18 +199,12 @@
       </div>
 
       <h3>HOODIES</h3>
-
       <span>SHOP NOW →</span>
 
     </a>
 
 
-    <!-- T-SHIRTS -->
-
-    <a
-      href="#shirts"
-      class="category-card"
-    >
+    <a href="#shirts" class="category-card">
 
       <div class="category-image">
         <img
@@ -225,18 +214,12 @@
       </div>
 
       <h3>T-SHIRTS</h3>
-
       <span>SHOP NOW →</span>
 
     </a>
 
 
-    <!-- JACKETS -->
-
-    <a
-      href="#jackets"
-      class="category-card"
-    >
+    <a href="#jackets" class="category-card">
 
       <div class="category-image">
         <img
@@ -246,18 +229,12 @@
       </div>
 
       <h3>JACKETS</h3>
-
       <span>SHOP NOW →</span>
 
     </a>
 
 
-    <!-- BOTTOMS -->
-
-    <a
-      href="#bottoms"
-      class="category-card"
-    >
+    <a href="#bottoms" class="category-card">
 
       <div class="category-image">
         <img
@@ -267,18 +244,12 @@
       </div>
 
       <h3>BOTTOMS</h3>
-
       <span>SHOP NOW →</span>
 
     </a>
 
 
-    <!-- HEADWEAR -->
-
-    <a
-      href="#headwear"
-      class="category-card"
-    >
+    <a href="#headwear" class="category-card">
 
       <div class="category-image">
         <img
@@ -288,18 +259,12 @@
       </div>
 
       <h3>HEADWEAR</h3>
-
       <span>SHOP NOW →</span>
 
     </a>
 
 
-    <!-- BAGS -->
-
-    <a
-      href="#bags"
-      class="category-card"
-    >
+    <a href="#bags" class="category-card">
 
       <div class="category-image">
         <img
@@ -309,18 +274,12 @@
       </div>
 
       <h3>BAGS</h3>
-
       <span>SHOP NOW →</span>
 
     </a>
 
 
-    <!-- JEWELLERY -->
-
-    <a
-      href="#jewellery"
-      class="category-card"
-    >
+    <a href="#jewellery" class="category-card">
 
       <div class="category-image">
         <img
@@ -330,18 +289,12 @@
       </div>
 
       <h3>JEWELLERY</h3>
-
       <span>SHOP NOW →</span>
 
     </a>
 
 
-    <!-- ACCESSORIES -->
-
-    <a
-      href="#accessories"
-      class="category-card"
-    >
+    <a href="#accessories" class="category-card">
 
       <div class="category-image">
         <img
@@ -351,7 +304,6 @@
       </div>
 
       <h3>ACCESSORIES</h3>
-
       <span>SHOP NOW →</span>
 
     </a>
@@ -394,1473 +346,1431 @@
   </div>
 
 
-<!-- =====================================================
-     FILTERS
-===================================================== -->
+  <!-- FILTERS -->
 
-<div class="shop-controls">
+  <div class="shop-controls">
 
-  <div class="filter-buttons">
+    <div class="filter-buttons">
 
-    <button
-      class="filter active"
-      data-category="all"
-    >
-      ALL
-    </button>
+      <button
+        class="filter active"
+        data-category="all"
+        type="button"
+      >
+        ALL
+      </button>
 
-    <button
-      class="filter"
+      <button
+        class="filter"
+        data-category="hoodies"
+        type="button"
+      >
+        HOODIES
+      </button>
+
+      <button
+        class="filter"
+        data-category="shirts"
+        type="button"
+      >
+        T-SHIRTS
+      </button>
+
+      <button
+        class="filter"
+        data-category="jackets"
+        type="button"
+      >
+        JACKETS
+      </button>
+
+      <button
+        class="filter"
+        data-category="bottoms"
+        type="button"
+      >
+        BOTTOMS
+      </button>
+
+      <button
+        class="filter"
+        data-category="headwear"
+        type="button"
+      >
+        HEADWEAR
+      </button>
+
+      <button
+        class="filter"
+        data-category="bags"
+        type="button"
+      >
+        BAGS
+      </button>
+
+      <button
+        class="filter"
+        data-category="jewellery"
+        type="button"
+      >
+        JEWELLERY
+      </button>
+
+      <button
+        class="filter"
+        data-category="accessories"
+        type="button"
+      >
+        ACCESSORIES
+      </button>
+
+    </div>
+
+
+    <select id="sortProducts">
+
+      <option value="featured">
+        SORT: FEATURED
+      </option>
+
+      <option value="price-low">
+        PRICE: LOW TO HIGH
+      </option>
+
+      <option value="price-high">
+        PRICE: HIGH TO LOW
+      </option>
+
+      <option value="name">
+        NAME
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <!-- ===================================================
+       PRODUCTS
+  ==================================================== -->
+
+  <div
+    class="products"
+    id="products"
+  >
+
+
+    <!-- ================= HOODIES ================= -->
+
+    <article
+      class="product"
+      id="hoodies"
+      data-name="Faith Hoodie"
+      data-price="1200"
       data-category="hoodies"
+      data-colours="BLACK,WHITE,CREAM,BURGUNDY"
+      data-sizes="S,M,L,XL"
     >
-      HOODIES
-    </button>
 
-    <button
-      class="filter"
+      <div class="product-image">
+
+        <span class="product-badge">NEW</span>
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Faith Hoodie to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/hoodie-1.jpg"
+          alt="Faith Hoodie"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>FAITH HOODIE</h3>
+        <p>KES 1,200</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Covenant Hoodie"
+      data-price="1200"
+      data-category="hoodies"
+      data-colours="BLACK,WHITE,CREAM,BURGUNDY"
+      data-sizes="S,M,L,XL"
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Covenant Hoodie to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/hoodie-2.jpg"
+          alt="Covenant Hoodie"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>COVENANT HOODIE</h3>
+        <p>KES 1,200</p>
+      </div>
+
+    </article>
+
+
+    <!-- ================= T-SHIRTS ================= -->
+
+    <article
+      class="product"
+      id="shirts"
+      data-name="Faith T-Shirt"
+      data-price="600"
       data-category="shirts"
+      data-colours="BLACK,WHITE,CREAM"
+      data-sizes="S,M,L,XL"
     >
-      T-SHIRTS
-    </button>
 
-    <button
-      class="filter"
+      <div class="product-image">
+
+        <span class="product-badge">NEW</span>
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Faith T-Shirt to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/tee-1.jpg"
+          alt="Faith T-Shirt"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>FAITH T-SHIRT</h3>
+        <p>KES 600</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Glory T-Shirt"
+      data-price="600"
+      data-category="shirts"
+      data-colours="BLACK,WHITE,CREAM"
+      data-sizes="S,M,L,XL"
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Glory T-Shirt to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/tee-2.jpg"
+          alt="Glory T-Shirt"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>GLORY T-SHIRT</h3>
+        <p>KES 600</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Covenant T-Shirt"
+      data-price="600"
+      data-category="shirts"
+      data-colours="BLACK,WHITE,CREAM"
+      data-sizes="S,M,L,XL"
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Covenant T-Shirt to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/tee-3.jpg"
+          alt="Covenant T-Shirt"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>COVENANT T-SHIRT</h3>
+        <p>KES 600</p>
+      </div>
+
+    </article>
+
+
+    <!-- ================= JACKETS ================= -->
+
+    <article
+      class="product"
+      id="jackets"
+      data-name="College Jacket"
+      data-price="1400"
       data-category="jackets"
+      data-colours="BLACK,WHITE,BURGUNDY"
+      data-sizes="S,M,L,XL"
     >
-      JACKETS
-    </button>
 
-    <button
-      class="filter"
+      <div class="product-image">
+
+        <span class="product-badge">NEW</span>
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add College Jacket to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/college-jacket.jpg"
+          alt="College Jacket"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>COLLEGE JACKET</h3>
+        <p>KES 1,400</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Classic Denim Jacket"
+      data-price="1300"
+      data-category="jackets"
+      data-colours="BLUE"
+      data-sizes="S,M,L,XL"
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Classic Denim Jacket to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/denim-jacket-1.jpg"
+          alt="Classic Denim Jacket"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>CLASSIC DENIM JACKET</h3>
+        <p>KES 1,300</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Washed Denim Jacket"
+      data-price="1300"
+      data-category="jackets"
+      data-colours="BLUE"
+      data-sizes="S,M,L,XL"
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Washed Denim Jacket to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/denim-jacket-2.jpg"
+          alt="Washed Denim Jacket"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>WASHED DENIM JACKET</h3>
+        <p>KES 1,300</p>
+      </div>
+
+    </article>
+
+
+    <!-- ================= BOTTOMS ================= -->
+
+    <article
+      class="product"
+      id="bottoms"
+      data-name="Wide Leg Jeans"
+      data-price="1300"
       data-category="bottoms"
+      data-colours="BLUE"
+      data-sizes="S,M,L,XL"
     >
-      BOTTOMS
-    </button>
 
-    <button
-      class="filter"
+      <div class="product-image">
+
+        <span class="product-badge">NEW</span>
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Wide Leg Jeans to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/wide-leg-jeans-blue.jpg"
+          alt="Wide Leg Jeans"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>WIDE LEG JEANS</h3>
+        <p>KES 1,300</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Sky Blue Jorts"
+      data-price="1000"
+      data-category="bottoms"
+      data-colours="BLUE"
+      data-sizes="S,M,L,XL"
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Sky Blue Jorts to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/jorts-sky-blue.jpg"
+          alt="Sky Blue Jorts"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>SKY BLUE JORTS</h3>
+        <p>KES 1,000</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Dark Blue Jorts"
+      data-price="1000"
+      data-category="bottoms"
+      data-colours="BLUE"
+      data-sizes="S,M,L,XL"
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Dark Blue Jorts to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/jorts-dark-blue.jpg"
+          alt="Dark Blue Jorts"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>DARK BLUE JORTS</h3>
+        <p>KES 1,000</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Grey Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-colours="GREY"
+      data-sizes="S,M,L,XL"
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Grey Sweatpants to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/sweatpants-grey.jpg"
+          alt="Grey Sweatpants"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>GREY SWEATPANTS</h3>
+        <p>KES 1,000</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Black Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-colours="BLACK"
+      data-sizes="S,M,L,XL"
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Sweatpants to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/sweatpants-black.jpg"
+          alt="Black Sweatpants"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>BLACK SWEATPANTS</h3>
+        <p>KES 1,000</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Cream Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-colours="CREAM"
+      data-sizes="S,M,L,XL"
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Cream Sweatpants to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/sweatpants-cream.jpg"
+          alt="Cream Sweatpants"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>CREAM SWEATPANTS</h3>
+        <p>KES 1,000</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Burgundy Sweatpants"
+      data-price="1000"
+      data-category="bottoms"
+      data-colours="BURGUNDY"
+      data-sizes="S,M,L,XL"
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Burgundy Sweatpants to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/sweatpants-burgundy.jpg"
+          alt="Burgundy Sweatpants"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>BURGUNDY SWEATPANTS</h3>
+        <p>KES 1,000</p>
+      </div>
+
+    </article>
+
+
+    <!-- ================= HEADWEAR ================= -->
+
+    <article
+      class="product"
+      id="headwear"
+      data-name="White Cap"
+      data-price="500"
       data-category="headwear"
+      data-colours="WHITE"
+      data-sizes=""
     >
-      HEADWEAR
-    </button>
 
-    <button
-      class="filter"
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add White Cap to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/cap-white.jpg"
+          alt="White Cap"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>WHITE CAP</h3>
+        <p>KES 500</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Black Beanie"
+      data-price="500"
+      data-category="headwear"
+      data-colours="BLACK"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <span class="product-badge">NEW</span>
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Beanie to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/beanie-black.jpg"
+          alt="Black Beanie"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>BLACK BEANIE</h3>
+        <p>KES 500</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Cream Beanie"
+      data-price="500"
+      data-category="headwear"
+      data-colours="CREAM"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Cream Beanie to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/beanie-cream.jpg"
+          alt="Cream Beanie"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>CREAM BEANIE</h3>
+        <p>KES 500</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Burgundy Beanie"
+      data-price="500"
+      data-category="headwear"
+      data-colours="BURGUNDY"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Burgundy Beanie to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/beanie-burgundy.jpg"
+          alt="Burgundy Beanie"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>BURGUNDY BEANIE</h3>
+        <p>KES 500</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Black Bucket Hat"
+      data-price="800"
+      data-category="headwear"
+      data-colours="BLACK"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Bucket Hat to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/bucket-hat-black.jpg"
+          alt="Black Bucket Hat"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>BLACK BUCKET HAT</h3>
+        <p>KES 800</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Burgundy Bucket Hat"
+      data-price="800"
+      data-category="headwear"
+      data-colours="BURGUNDY"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Burgundy Bucket Hat to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/bucket-hat-burgundy.jpg"
+          alt="Burgundy Bucket Hat"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>BURGUNDY BUCKET HAT</h3>
+        <p>KES 800</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="White Bucket Hat"
+      data-price="800"
+      data-category="headwear"
+      data-colours="WHITE"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add White Bucket Hat to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/bucket-hat-white.jpg"
+          alt="White Bucket Hat"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>WHITE BUCKET HAT</h3>
+        <p>KES 800</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Beige Bucket Hat"
+      data-price="800"
+      data-category="headwear"
+      data-colours="BEIGE"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Beige Bucket Hat to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/bucket-hat-beige.jpg"
+          alt="Beige Bucket Hat"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>BEIGE BUCKET HAT</h3>
+        <p>KES 800</p>
+      </div>
+
+    </article>
+
+
+    <!-- ================= BAGS ================= -->
+
+    <article
+      class="product"
+      id="bags"
+      data-name="Black Shoulder Bag"
+      data-price="800"
       data-category="bags"
+      data-colours="BLACK"
+      data-sizes=""
     >
-      BAGS
-    </button>
 
-    <button
-      class="filter"
+      <div class="product-image">
+
+        <span class="product-badge">NEW</span>
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Shoulder Bag to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/shoulder-bag-black.jpg"
+          alt="Black Shoulder Bag"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>BLACK SHOULDER BAG</h3>
+        <p>KES 800</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Brown Shoulder Bag"
+      data-price="800"
+      data-category="bags"
+      data-colours="BROWN"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Brown Shoulder Bag to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/shoulder-bag-brown.jpg"
+          alt="Brown Shoulder Bag"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>BROWN SHOULDER BAG</h3>
+        <p>KES 800</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Pink Shoulder Bag"
+      data-price="800"
+      data-category="bags"
+      data-colours="PINK"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Pink Shoulder Bag to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/shoulder-bag-pink.jpg"
+          alt="Pink Shoulder Bag"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>PINK SHOULDER BAG</h3>
+        <p>KES 800</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Orange Shoulder Bag"
+      data-price="800"
+      data-category="bags"
+      data-colours="ORANGE"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Orange Shoulder Bag to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/shoulder-bag-orange.jpg"
+          alt="Orange Shoulder Bag"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>ORANGE SHOULDER BAG</h3>
+        <p>KES 800</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="Black Cross Shoulder Bag"
+      data-price="800"
+      data-category="bags"
+      data-colours="BLACK"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Cross Shoulder Bag to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/shoulder-bag-black-cross.jpg"
+          alt="Black Cross Shoulder Bag"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>BLACK CROSS SHOULDER BAG</h3>
+        <p>KES 800</p>
+      </div>
+
+    </article>
+
+
+    <!-- ================= JEWELLERY ================= -->
+
+    <article
+      class="product"
+      id="jewellery"
+      data-name="Silver Cross Necklace"
+      data-price="500"
       data-category="jewellery"
+      data-colours="SILVER"
+      data-sizes=""
     >
-      JEWELLERY
-    </button>
 
-    <button
-      class="filter"
+      <div class="product-image">
+
+        <span class="product-badge">NEW</span>
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Silver Cross Necklace to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/cross-necklace-silver.jpg"
+          alt="Silver Cross Necklace"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>SILVER CROSS NECKLACE</h3>
+        <p>KES 500</p>
+      </div>
+
+    </article>
+
+
+    <!-- ================= SOCKS ================= -->
+
+    <article
+      class="product"
+      id="accessories"
+      data-name="Black Socks"
+      data-price="200"
       data-category="accessories"
+      data-colours="BLACK"
+      data-sizes=""
     >
-      ACCESSORIES
-    </button>
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add Black Socks to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/socks-black.jpg"
+          alt="Black Socks"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>BLACK SOCKS</h3>
+        <p>KES 200</p>
+      </div>
+
+    </article>
+
+
+    <article
+      class="product"
+      data-name="White Socks"
+      data-price="200"
+      data-category="accessories"
+      data-colours="WHITE"
+      data-sizes=""
+    >
+
+      <div class="product-image">
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="Add White Socks to wishlist"
+        >
+          ♡
+        </button>
+
+        <img
+          src="images/socks-white.jpg"
+          alt="White Socks"
+        >
+
+        <button
+          class="quick-add"
+          type="button"
+        >
+          ADD TO BAG
+        </button>
+
+      </div>
+
+      <div class="product-info">
+        <h3>WHITE SOCKS</h3>
+        <p>KES 200</p>
+      </div>
+
+    </article>
+
 
   </div>
 
-
-  <select id="sortProducts">
-
-    <option value="featured">
-      SORT: FEATURED
-    </option>
-
-    <option value="price-low">
-      PRICE: LOW TO HIGH
-    </option>
-
-    <option value="price-high">
-      PRICE: HIGH TO LOW
-    </option>
-
-    <option value="name">
-      NAME
-    </option>
-
-  </select>
-
-</div>
-
-
-<!-- =====================================================
-     PRODUCTS
-===================================================== -->
-
-<div
-  class="products"
-  id="products"
->
-
-
-<!-- =====================================================
-     HOODIES
-===================================================== -->
-
-<article
-  class="product"
-  id="hoodies"
-  data-name="Faith Hoodie"
-  data-price="1200"
-  data-category="hoodies"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">
-      NEW
-    </span>
-
-    <button
-      class="wishlist"
-      aria-label="Add Faith Hoodie to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/hoodie-1.jpg"
-      alt="Faith Hoodie"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>FAITH HOODIE</h3>
-
-    <p>KES 1,200</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Covenant Hoodie"
-  data-price="1200"
-  data-category="hoodies"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Covenant Hoodie to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/hoodie-2.jpg"
-      alt="Covenant Hoodie"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>COVENANT HOODIE</h3>
-
-    <p>KES 1,200</p>
-
-  </div>
-
-</article>
-
-
-<!-- =====================================================
-     T-SHIRTS
-===================================================== -->
-
-<article
-  class="product"
-  id="shirts"
-  data-name="Faith T-Shirt"
-  data-price="600"
-  data-category="shirts"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">
-      NEW
-    </span>
-
-    <button
-      class="wishlist"
-      aria-label="Add Faith T-Shirt to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/tee-1.jpg"
-      alt="Faith T-Shirt"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>FAITH T-SHIRT</h3>
-
-    <p>KES 600</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Glory T-Shirt"
-  data-price="600"
-  data-category="shirts"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Glory T-Shirt to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/tee-2.jpg"
-      alt="Glory T-Shirt"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>GLORY T-SHIRT</h3>
-
-    <p>KES 600</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Covenant T-Shirt"
-  data-price="600"
-  data-category="shirts"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Covenant T-Shirt to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/tee-3.jpg"
-      alt="Covenant T-Shirt"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>COVENANT T-SHIRT</h3>
-
-    <p>KES 600</p>
-
-  </div>
-
-</article>
-
-
-<!-- =====================================================
-     JACKETS
-===================================================== -->
-
-<article
-  class="product"
-  id="jackets"
-  data-name="College Jacket"
-  data-price="1400"
-  data-category="jackets"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">
-      NEW
-    </span>
-
-    <button
-      class="wishlist"
-      aria-label="Add College Jacket to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/college-jacket.jpg"
-      alt="College Jacket"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>COLLEGE JACKET</h3>
-
-    <p>KES 1,400</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Classic Denim Jacket"
-  data-price="1300"
-  data-category="jackets"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Classic Denim Jacket to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/denim-jacket-1.jpg"
-      alt="Classic Denim Jacket"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>CLASSIC DENIM JACKET</h3>
-
-    <p>KES 1,300</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Washed Denim Jacket"
-  data-price="1300"
-  data-category="jackets"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Washed Denim Jacket to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/denim-jacket-2.jpg"
-      alt="Washed Denim Jacket"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>WASHED DENIM JACKET</h3>
-
-    <p>KES 1,300</p>
-
-  </div>
-
-</article>
-
-
-<!-- =====================================================
-     BOTTOMS
-===================================================== -->
-
-<article
-  class="product"
-  id="bottoms"
-  data-name="Wide Leg Jeans"
-  data-price="1300"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">
-      NEW
-    </span>
-
-    <button
-      class="wishlist"
-      aria-label="Add Wide Leg Jeans to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/wide-leg-jeans-blue.jpg"
-      alt="Blue Wide Leg Jeans"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>WIDE LEG JEANS</h3>
-
-    <p>KES 1,300</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Sky Blue Jorts"
-  data-price="1000"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Sky Blue Jorts to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/jorts-sky-blue.jpg"
-      alt="Sky Blue Jorts"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>SKY BLUE JORTS</h3>
-
-    <p>KES 1,000</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Dark Blue Jorts"
-  data-price="1000"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Dark Blue Jorts to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/jorts-dark-blue.jpg"
-      alt="Dark Blue Jorts"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>DARK BLUE JORTS</h3>
-
-    <p>KES 1,000</p>
-
-  </div>
-
-</article>
-
-
-<!-- SWEATPANTS -->
-
-<article
-  class="product"
-  data-name="Grey Sweatpants"
-  data-price="1000"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Grey Sweatpants to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/sweatpants-grey.jpg"
-      alt="Grey Sweatpants"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>GREY SWEATPANTS</h3>
-
-    <p>KES 1,000</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Black Sweatpants"
-  data-price="1000"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Black Sweatpants to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/sweatpants-black.jpg"
-      alt="Black Sweatpants"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>BLACK SWEATPANTS</h3>
-
-    <p>KES 1,000</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Cream Sweatpants"
-  data-price="1000"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Cream Sweatpants to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/sweatpants-cream.jpg"
-      alt="Cream Sweatpants"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>CREAM SWEATPANTS</h3>
-
-    <p>KES 1,000</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Burgundy Sweatpants"
-  data-price="1000"
-  data-category="bottoms"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Burgundy Sweatpants to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/sweatpants-burgundy.jpg"
-      alt="Burgundy Sweatpants"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>BURGUNDY SWEATPANTS</h3>
-
-    <p>KES 1,000</p>
-
-  </div>
-
-</article>
-
-
-<!-- =====================================================
-     HEADWEAR
-===================================================== -->
-
-<article
-  class="product"
-  id="headwear"
-  data-name="White Cap"
-  data-price="600"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add White Cap to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/cap-white.jpg"
-      alt="White Cap"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>WHITE CAP</h3>
-
-    <p>KES 600</p>
-
-  </div>
-
-</article>
-
-
-<!-- BEANIE BLACK -->
-
-<article
-  class="product"
-  data-name="Black Beanie"
-  data-price="500"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">
-      NEW
-    </span>
-
-    <button
-      class="wishlist"
-      aria-label="Add Black Beanie to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/beanie-black.jpg"
-      alt="Black Beanie"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>BLACK BEANIE</h3>
-
-    <p>KES 500</p>
-
-  </div>
-
-</article>
-
-
-<!-- BEANIE CREAM -->
-
-<article
-  class="product"
-  data-name="Cream Beanie"
-  data-price="500"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Cream Beanie to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/beanie-cream.jpg"
-      alt="Cream Beanie"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>CREAM BEANIE</h3>
-
-    <p>KES 500</p>
-
-  </div>
-
-</article>
-
-
-<!-- BEANIE WHITE -->
-
-<!--
-  You haven't uploaded beanie-white.jpg yet,
-  so this product is intentionally not displayed.
--->
-
-
-<!-- BEANIE BURGUNDY -->
-
-<article
-  class="product"
-  data-name="Burgundy Beanie"
-  data-price="500"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Burgundy Beanie to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/beanie-burgundy.jpg"
-      alt="Burgundy Beanie"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>BURGUNDY BEANIE</h3>
-
-    <p>KES 500</p>
-
-  </div>
-
-</article>
-
-
-<!-- BUCKET HATS -->
-
-<article
-  class="product"
-  data-name="Black Bucket Hat"
-  data-price="800"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Black Bucket Hat to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/bucket-hat-black.jpg"
-      alt="Black Bucket Hat"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>BLACK BUCKET HAT</h3>
-
-    <p>KES 800</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Burgundy Bucket Hat"
-  data-price="800"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Burgundy Bucket Hat to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/bucket-hat-burgundy.jpg"
-      alt="Burgundy Bucket Hat"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>BURGUNDY BUCKET HAT</h3>
-
-    <p>KES 800</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="White Bucket Hat"
-  data-price="800"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add White Bucket Hat to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/bucket-hat-white.jpg"
-      alt="White Bucket Hat"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>WHITE BUCKET HAT</h3>
-
-    <p>KES 800</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Beige Bucket Hat"
-  data-price="800"
-  data-category="headwear"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Beige Bucket Hat to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/bucket-hat-beige.jpg"
-      alt="Beige Bucket Hat"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>BEIGE BUCKET HAT</h3>
-
-    <p>KES 800</p>
-
-  </div>
-
-</article>
-
-
-<!-- =====================================================
-     BAGS
-===================================================== -->
-
-<article
-  class="product"
-  id="bags"
-  data-name="Black Shoulder Bag"
-  data-price="800"
-  data-category="bags"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">
-      NEW
-    </span>
-
-    <button
-      class="wishlist"
-      aria-label="Add Black Shoulder Bag to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/shoulder-bag-black.jpg"
-      alt="Black Shoulder Bag"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>BLACK SHOULDER BAG</h3>
-
-    <p>KES 800</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Brown Shoulder Bag"
-  data-price="800"
-  data-category="bags"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Brown Shoulder Bag to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/shoulder-bag-brown.jpg"
-      alt="Brown Shoulder Bag"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>BROWN SHOULDER BAG</h3>
-
-    <p>KES 800</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Pink Shoulder Bag"
-  data-price="800"
-  data-category="bags"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Pink Shoulder Bag to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/shoulder-bag-pink.jpg"
-      alt="Pink Shoulder Bag"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>PINK SHOULDER BAG</h3>
-
-    <p>KES 800</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="Orange Shoulder Bag"
-  data-price="800"
-  data-category="bags"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Orange Shoulder Bag to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/shoulder-bag-orange.jpg"
-      alt="Orange Shoulder Bag"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>ORANGE SHOULDER BAG</h3>
-
-    <p>KES 800</p>
-
-  </div>
-
-</article>
-
-
-<!-- CROSS SHOULDER BAG -->
-
-<article
-  class="product"
-  data-name="Black Cross Shoulder Bag"
-  data-price="800"
-  data-category="bags"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Black Cross Shoulder Bag to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/shoulder-bag-black-cross.jpg"
-      alt="Black Cross Shoulder Bag"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>BLACK CROSS SHOULDER BAG</h3>
-
-    <p>KES 800</p>
-
-  </div>
-
-</article>
-
-
-<!-- =====================================================
-     JEWELLERY
-===================================================== -->
-
-<article
-  class="product"
-  id="jewellery"
-  data-name="Silver Cross Necklace"
-  data-price="500"
-  data-category="jewellery"
->
-
-  <div class="product-image">
-
-    <span class="product-badge">
-      NEW
-    </span>
-
-    <button
-      class="wishlist"
-      aria-label="Add Silver Cross Necklace to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/cross-necklace-silver.jpg"
-      alt="Silver Cross Necklace"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>SILVER CROSS NECKLACE</h3>
-
-    <p>KES 500</p>
-
-  </div>
-
-</article>
-
-
-<!-- =====================================================
-     ACCESSORIES
-===================================================== -->
-
-<article
-  class="product"
-  id="accessories"
-  data-name="Black Socks"
-  data-price="150"
-  data-category="accessories"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add Black Socks to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/socks-black.jpg"
-      alt="Black Socks"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>BLACK SOCKS</h3>
-
-    <p>KES 150</p>
-
-  </div>
-
-</article>
-
-
-<article
-  class="product"
-  data-name="White Socks"
-  data-price="150"
-  data-category="accessories"
->
-
-  <div class="product-image">
-
-    <button
-      class="wishlist"
-      aria-label="Add White Socks to wishlist"
-    >
-      ♡
-    </button>
-
-    <img
-      src="images/socks-white.jpg"
-      alt="White Socks"
-    >
-
-    <button
-      class="quick-add"
-      onclick="openProductDetail(this)"
-    >
-      ADD TO BAG
-    </button>
-
-  </div>
-
-  <div class="product-info">
-
-    <h3>WHITE SOCKS</h3>
-
-    <p>KES 150</p>
-
-  </div>
-
-</article>
-
-
-</div>
 </section>
 
 
@@ -1974,9 +1884,7 @@
   <div class="footer-links">
 
     <a href="#shop">SHOP</a>
-
     <a href="#categories">COLLECTIONS</a>
-
     <a href="#story">OUR STORY</a>
 
     <a href="#">
@@ -1994,7 +1902,7 @@
 
 
 <!-- =====================================================
-     SEARCH OVERLAY
+     SEARCH
 ===================================================== -->
 
 <div
@@ -2005,6 +1913,7 @@
   <button
     class="close-search"
     id="closeSearch"
+    type="button"
   >
     ×
   </button>
@@ -2029,7 +1938,7 @@
 
 
 <!-- =====================================================
-     SHOPPING BAG
+     BAG
 ===================================================== -->
 
 <div
@@ -2056,6 +1965,7 @@
       <button
         id="closeBag"
         class="bag-close"
+        type="button"
       >
         ×
       </button>
@@ -2067,8 +1977,7 @@
       class="shipping-message"
       id="shippingMessage"
     >
-      ADD KES 10,000 TO YOUR BAG
-      FOR FREE SHIPPING.
+      ADD KES 10,000 TO YOUR BAG FOR FREE SHIPPING.
     </div>
 
 
@@ -2100,41 +2009,18 @@
       <div class="bag-summary">
 
         <div>
-
-          <span>
-            SUBTOTAL
-          </span>
-
-          <strong id="bagSubtotal">
-            KES 0
-          </strong>
-
+          <span>SUBTOTAL</span>
+          <strong id="bagSubtotal">KES 0</strong>
         </div>
-
 
         <div>
-
-          <span>
-            SHIPPING
-          </span>
-
-          <strong id="bagShipping">
-            KES 0
-          </strong>
-
+          <span>SHIPPING</span>
+          <strong id="bagShipping">KES 0</strong>
         </div>
 
-
         <div class="bag-total">
-
-          <span>
-            TOTAL
-          </span>
-
-          <strong id="bagTotal">
-            KES 0
-          </strong>
-
+          <span>TOTAL</span>
+          <strong id="bagTotal">KES 0</strong>
         </div>
 
       </div>
@@ -2143,14 +2029,14 @@
       <button
         class="checkout-button"
         id="checkoutButton"
+        type="button"
       >
         PROCEED TO CHECKOUT
       </button>
 
 
       <p class="checkout-note">
-        TAXES AND SHIPPING CALCULATED
-        AT CHECKOUT
+        TAXES AND SHIPPING CALCULATED AT CHECKOUT
       </p>
 
     </div>
@@ -2174,6 +2060,7 @@
     <button
       class="product-detail-close"
       id="closeProductDetail"
+      type="button"
     >
       ×
     </button>
@@ -2220,8 +2107,7 @@
         class="product-detail-description"
         id="detailProductDescription"
       >
-        A meaningful piece from the
-        Béni Carmel Collectives.
+        A meaningful piece from the Béni Carmel Collectives.
       </p>
 
 
@@ -2236,72 +2122,10 @@
           SELECT COLOUR
         </p>
 
-        <div class="colour-options">
-
-          <button
-            class="colour-option"
-            data-colour="BLACK"
-          >
-            BLACK
-          </button>
-
-          <button
-            class="colour-option"
-            data-colour="WHITE"
-          >
-            WHITE
-          </button>
-
-          <button
-            class="colour-option"
-            data-colour="CREAM"
-          >
-            CREAM
-          </button>
-
-          <button
-            class="colour-option"
-            data-colour="GREY"
-          >
-            GREY
-          </button>
-
-          <button
-            class="colour-option"
-            data-colour="BROWN"
-          >
-            BROWN
-          </button>
-
-          <button
-            class="colour-option"
-            data-colour="BURGUNDY"
-          >
-            BURGUNDY
-          </button>
-
-          <button
-            class="colour-option"
-            data-colour="PINK"
-          >
-            PINK
-          </button>
-
-          <button
-            class="colour-option"
-            data-colour="ORANGE"
-          >
-            ORANGE
-          </button>
-
-          <button
-            class="colour-option"
-            data-colour="BLUE"
-          >
-            BLUE
-          </button>
-
-        </div>
+        <div
+          class="colour-options"
+          id="colourOptions"
+        ></div>
 
       </div>
 
@@ -2317,37 +2141,10 @@
           SELECT SIZE
         </p>
 
-        <div class="size-options">
-
-          <button
-            class="size-option"
-            data-size="S"
-          >
-            S
-          </button>
-
-          <button
-            class="size-option selected"
-            data-size="M"
-          >
-            M
-          </button>
-
-          <button
-            class="size-option"
-            data-size="L"
-          >
-            L
-          </button>
-
-          <button
-            class="size-option"
-            data-size="XL"
-          >
-            XL
-          </button>
-
-        </div>
+        <div
+          class="size-options"
+          id="sizeOptions"
+        ></div>
 
       </div>
 
@@ -2381,11 +2178,12 @@
       </div>
 
 
-      <!-- ADD TO BAG -->
+      <!-- ADD -->
 
       <button
         class="detail-add-button"
         id="detailAddButton"
+        type="button"
       >
         ADD TO BAG
       </button>
@@ -2396,35 +2194,18 @@
       <div class="product-features">
 
         <div class="product-feature">
-
           <span>✓</span>
-
-          <span>
-            FAITH-INSPIRED DESIGN
-          </span>
-
+          <span>FAITH-INSPIRED DESIGN</span>
         </div>
 
-
         <div class="product-feature">
-
           <span>✓</span>
-
-          <span>
-            PREMIUM EVERYDAY WEAR
-          </span>
-
+          <span>PREMIUM EVERYDAY WEAR</span>
         </div>
 
-
         <div class="product-feature">
-
           <span>✓</span>
-
-          <span>
-            MADE TO BE WORN BOLDLY
-          </span>
-
+          <span>MADE TO BE WORN BOLDLY</span>
         </div>
 
       </div>
@@ -2435,10 +2216,6 @@
 
 </div>
 
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
 
 <script src="script.js"></script>
 
