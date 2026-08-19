@@ -2141,3 +2141,871 @@ footer > p {
   }
 
 }
+
+/* =====================================================
+   CHECKOUT PAGE
+===================================================== */
+
+.checkout-page {
+  background: var(--cream);
+}
+
+
+/* HEADER */
+
+.checkout-header {
+  height: 85px;
+
+  padding: 0 5vw;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--border);
+
+  background: var(--cream);
+}
+
+
+.checkout-logo img {
+  width: 150px;
+
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+.back-to-shop {
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  border-bottom: 1px solid var(--black);
+
+  padding-bottom: 4px;
+}
+
+
+/* CONTAINER */
+
+.checkout-container {
+
+  max-width: 1250px;
+
+  margin: auto;
+
+  padding: 70px 5vw;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.5fr)
+    minmax(350px, 0.8fr);
+
+  gap: 80px;
+
+  align-items: start;
+}
+
+
+/* SECTIONS */
+
+.checkout-section {
+
+  padding-bottom: 55px;
+
+  margin-bottom: 55px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+.checkout-section-heading {
+
+  display: flex;
+
+  gap: 15px;
+
+  align-items: baseline;
+
+  margin-bottom: 30px;
+}
+
+
+.checkout-section-heading span {
+
+  font-size: 9px;
+
+  opacity: 0.5;
+}
+
+
+.checkout-section-heading h2 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 28px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
+}
+
+
+/* FORM */
+
+.form-group {
+
+  margin-bottom: 22px;
+}
+
+
+.form-group label {
+
+  display: block;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+
+  margin-bottom: 9px;
+}
+
+
+.form-group label span {
+
+  opacity: 0.5;
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.mpesa-details input {
+
+  width: 100%;
+
+  border: 1px solid var(--border);
+
+  background: transparent;
+
+  padding: 15px;
+
+  outline: none;
+
+  font-size: 11px;
+
+  border-radius: 0;
+}
+
+
+.form-group textarea {
+
+  resize: vertical;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.mpesa-details input:focus {
+
+  border-color: var(--black);
+}
+
+
+.form-row {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+}
+
+
+.input-error {
+
+  border-color: #a52b2b !important;
+}
+
+
+/* DELIVERY */
+
+.delivery-options {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+.delivery-option {
+
+  display: grid;
+
+  grid-template-columns: 20px 1fr auto;
+
+  align-items: center;
+
+  gap: 12px;
+
+  border: 1px solid var(--border);
+
+  padding: 20px;
+
+  cursor: pointer;
+}
+
+
+.delivery-option:has(input:checked) {
+
+  border-color: var(--black);
+}
+
+
+.delivery-option input {
+
+  accent-color: var(--black);
+}
+
+
+.delivery-option strong {
+
+  font-size: 10px;
+
+  letter-spacing: 0.1em;
+}
+
+
+.delivery-option p {
+
+  font-size: 9px;
+
+  opacity: 0.6;
+
+  margin-top: 5px;
+}
+
+
+.delivery-option > span {
+
+  font-size: 10px;
+
+  font-weight: 600;
+}
+
+
+/* PAYMENT */
+
+.payment-options {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+.payment-option {
+
+  display: grid;
+
+  grid-template-columns: 20px 1fr auto;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 20px;
+
+  border: 1px solid var(--border);
+
+  cursor: pointer;
+}
+
+
+.payment-option:has(input:checked) {
+
+  border-color: var(--black);
+}
+
+
+.payment-option input {
+
+  accent-color: var(--black);
+}
+
+
+.payment-content strong {
+
+  font-size: 10px;
+
+  letter-spacing: 0.1em;
+}
+
+
+.payment-content p {
+
+  font-size: 9px;
+
+  opacity: 0.6;
+
+  margin-top: 5px;
+}
+
+
+.payment-logo {
+
+  width: 28px;
+
+  height: 28px;
+
+  border-radius: 50%;
+
+  background: var(--black);
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-weight: 600;
+}
+
+
+/* MPESA */
+
+.mpesa-details {
+
+  margin-top: 20px;
+
+  padding: 20px;
+
+  background: var(--cream-dark);
+}
+
+
+.mpesa-details label {
+
+  display: block;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  margin-bottom: 8px;
+}
+
+
+.mpesa-details p {
+
+  font-size: 9px;
+
+  opacity: 0.6;
+
+  margin-top: 8px;
+}
+
+
+/* ORDER BUTTON */
+
+.place-order-section {
+
+  margin-top: -20px;
+
+  padding-bottom: 40px;
+}
+
+
+.place-order-button {
+
+  width: 100%;
+
+  background: var(--black);
+
+  color: white;
+
+  border: none;
+
+  padding: 20px;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.17em;
+
+  cursor: pointer;
+}
+
+
+.place-order-button:hover {
+
+  opacity: 0.8;
+}
+
+
+.place-order-button:disabled {
+
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}
+
+
+.secure-checkout {
+
+  text-align: center;
+
+  font-size: 8px;
+
+  opacity: 0.5;
+
+  margin-top: 12px;
+}
+
+
+/* =====================================================
+   ORDER SUMMARY
+===================================================== */
+
+.checkout-summary {
+
+  position: sticky;
+
+  top: 110px;
+
+  background: var(--cream-dark);
+
+  padding: 35px;
+}
+
+
+.summary-heading {
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid var(--border);
+
+  margin-bottom: 10px;
+}
+
+
+.summary-heading .eyebrow {
+
+  margin-bottom: 7px;
+}
+
+
+.summary-heading h2 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 30px;
+
+  font-weight: 500;
+}
+
+
+/* PRODUCTS */
+
+.checkout-product {
+
+  display: grid;
+
+  grid-template-columns: 75px 1fr auto;
+
+  gap: 14px;
+
+  align-items: center;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+.checkout-product-image {
+
+  height: 90px;
+
+  position: relative;
+
+  background: var(--cream);
+}
+
+
+.checkout-product-image img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+.checkout-product-image span {
+
+  position: absolute;
+
+  top: -7px;
+
+  right: -7px;
+
+  width: 20px;
+
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: var(--black);
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 8px;
+}
+
+
+.checkout-product-info strong {
+
+  display: block;
+
+  font-size: 9px;
+
+  letter-spacing: 0.08em;
+
+}
+
+
+.checkout-product-info p {
+
+  font-size: 8px;
+
+  opacity: 0.55;
+
+  margin-top: 5px;
+}
+
+
+.checkout-product-price {
+
+  font-size: 9px;
+
+  white-space: nowrap;
+}
+
+
+/* TOTALS */
+
+.summary-calculations {
+
+  padding-top: 20px;
+}
+
+
+.summary-calculations > div {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+
+  font-size: 9px;
+}
+
+
+.summary-calculations .summary-total {
+
+  border-top: 1px solid var(--border);
+
+  padding-top: 20px;
+
+  margin-top: 18px;
+
+  font-size: 13px;
+}
+
+
+.checkout-note {
+
+  margin-top: 25px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid var(--border);
+
+  font-size: 8px;
+
+  line-height: 1.6;
+
+  opacity: 0.6;
+
+  text-align: center;
+}
+
+
+/* EMPTY CHECKOUT */
+
+.checkout-empty {
+
+  padding: 50px 0;
+
+  text-align: center;
+}
+
+
+.checkout-empty p {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 25px;
+
+  margin-bottom: 15px;
+}
+
+
+.checkout-empty a {
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+
+  border-bottom: 1px solid var(--black);
+
+  padding-bottom: 4px;
+}
+
+
+/* =====================================================
+   SUCCESS
+===================================================== */
+
+.order-success {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(17, 17, 15, 0.55);
+
+  display: none;
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 9000;
+
+  padding: 20px;
+}
+
+
+.order-success.open {
+
+  display: flex;
+}
+
+
+.success-card {
+
+  width: min(500px, 100%);
+
+  background: var(--cream);
+
+  padding: 60px 40px;
+
+  text-align: center;
+}
+
+
+.success-icon {
+
+  width: 55px;
+
+  height: 55px;
+
+  border-radius: 50%;
+
+  background: var(--black);
+
+  color: white;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 22px;
+}
+
+
+.success-card h2 {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 60px;
+
+  font-weight: 500;
+
+  margin-bottom: 15px;
+}
+
+
+.success-card > p:not(.eyebrow) {
+
+  font-size: 12px;
+
+  opacity: 0.7;
+
+  margin-bottom: 25px;
+}
+
+
+.order-number {
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+
+  margin-bottom: 30px;
+}
+
+
+.success-button {
+
+  display: inline-block;
+
+  background: var(--black);
+
+  color: white;
+
+  padding: 16px 25px;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* =====================================================
+   CHECKOUT MOBILE
+===================================================== */
+
+@media (max-width: 850px) {
+
+  .checkout-container {
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    padding: 45px 20px;
+  }
+
+
+  .checkout-summary {
+
+    position: static;
+
+    order: -1;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .checkout-header {
+
+    height: 70px;
+
+    padding: 0 20px;
+  }
+
+
+  .checkout-logo img {
+
+    width: 120px;
+  }
+
+
+  .back-to-shop {
+
+    font-size: 7px;
+  }
+
+
+  .form-row {
+
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+
+  .checkout-section-heading h2 {
+
+    font-size: 23px;
+  }
+
+
+  .checkout-summary {
+
+    padding: 25px 20px;
+  }
+
+
+  .success-card {
+
+    padding: 45px 25px;
+  }
+
+
+  .success-card h2 {
+
+    font-size: 48px;
+  }
+
+}
