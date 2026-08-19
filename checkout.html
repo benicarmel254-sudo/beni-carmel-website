@@ -1,45 +1,724 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>
-    Checkout — Béni Carmel Collectives
-  </title>
+  <title>Checkout — Béni Carmel Collectives</title>
 
   <meta
     name="description"
     content="Complete your Béni Carmel Collectives order."
   >
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <style>
 
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f6f2;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    /* =====================================================
+       ANNOUNCEMENT
+    ===================================================== */
+
+    .announcement-bar {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 11px 15px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .header {
+      height: 100px;
+      background: #f7f6f2;
+      border-bottom: 1px solid #ddd;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 5%;
+      position: relative;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .back-button {
+      border: none;
+      background: none;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      padding: 0;
+    }
+
+    .back-button:hover {
+      opacity: 0.6;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo img {
+      width: 130px;
+      max-height: 65px;
+      object-fit: contain;
+    }
+
+    .header-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .secure-checkout {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: #555;
+    }
+
+
+    /* =====================================================
+       MAIN
+    ===================================================== */
+
+    .checkout-page {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 70px 5%;
+    }
+
+    .checkout-title {
+      margin-bottom: 45px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .checkout-title h1 {
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      font-weight: 700;
+    }
+
+
+    /* =====================================================
+       CHECKOUT GRID
+    ===================================================== */
+
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.8fr);
+      gap: 70px;
+      align-items: start;
+    }
+
+
+    /* =====================================================
+       FORM
+    ===================================================== */
+
+    .checkout-section {
+      margin-bottom: 42px;
+    }
+
+    .checkout-section-title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .checkout-section-number {
+      width: 28px;
+      height: 28px;
+      border: 1px solid #111;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    .checkout-section-title h2 {
+      font-size: 16px;
+      letter-spacing: 1.5px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid #bbb;
+      background: #fff;
+      padding: 15px;
+      outline: none;
+      border-radius: 0;
+      font-size: 13px;
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #111;
+    }
+
+    .form-note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: #666;
+    }
+
+
+    /* =====================================================
+       DELIVERY OPTIONS
+    ===================================================== */
+
+    .delivery-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .delivery-option {
+      border: 1px solid #ccc;
+      background: #fff;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .delivery-option.selected {
+      border-color: #111;
+    }
+
+    .delivery-option-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .delivery-option input {
+      accent-color: #111;
+    }
+
+    .delivery-name {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .delivery-description {
+      font-size: 11px;
+      color: #666;
+      margin-top: 3px;
+    }
+
+    .delivery-price {
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       PAYMENT
+    ===================================================== */
+
+    .payment-notice {
+      border: 1px solid #ccc;
+      background: #fff;
+      padding: 20px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .payment-notice strong {
+      display: block;
+      color: #111;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+
+    /* =====================================================
+       ORDER SUMMARY
+    ===================================================== */
+
+    .order-summary {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 30px;
+      position: sticky;
+      top: 25px;
+    }
+
+    .summary-heading {
+      font-size: 18px;
+      letter-spacing: 1.5px;
+      margin-bottom: 25px;
+    }
+
+    .summary-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .summary-item {
+      display: grid;
+      grid-template-columns: 75px 1fr auto;
+      gap: 13px;
+      align-items: center;
+    }
+
+    .summary-item-image {
+      width: 75px;
+      height: 90px;
+      background: #eee;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .summary-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .summary-item-quantity {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: #111;
+      color: #fff;
+      min-width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+    }
+
+    .summary-item-name {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+
+    .summary-item-size {
+      font-size: 10px;
+      color: #666;
+    }
+
+    .summary-item-price {
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .summary-totals {
+      padding-top: 22px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 12px;
+      margin-bottom: 13px;
+    }
+
+    .summary-row span:first-child {
+      color: #555;
+    }
+
+    .summary-total {
+      border-top: 1px solid #ddd;
+      padding-top: 18px;
+      margin-top: 18px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .free {
+      font-weight: 700;
+    }
+
+
+    /* =====================================================
+       PLACE ORDER
+    ===================================================== */
+
+    .place-order-button {
+      width: 100%;
+      border: none;
+      background: #111;
+      color: #fff;
+      padding: 19px;
+      margin-top: 25px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .place-order-button:hover {
+      background: #333;
+    }
+
+    .place-order-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .checkout-disclaimer {
+      text-align: center;
+      font-size: 9px;
+      color: #777;
+      line-height: 1.6;
+      margin-top: 14px;
+    }
+
+
+    /* =====================================================
+       EMPTY CHECKOUT
+    ===================================================== */
+
+    .empty-checkout {
+      text-align: center;
+      padding: 80px 20px;
+      border: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .empty-checkout h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .empty-checkout p {
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .shop-button {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      padding: 15px 25px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+
+    /* =====================================================
+       SUCCESS
+    ===================================================== */
+
+    .success-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .success-overlay.open {
+      display: flex;
+    }
+
+    .success-box {
+      background: #f7f6f2;
+      width: min(520px, 100%);
+      padding: 50px 35px;
+      text-align: center;
+    }
+
+    .success-icon {
+      width: 55px;
+      height: 55px;
+      border: 1px solid #111;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 22px;
+    }
+
+    .success-box h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .success-box p {
+      color: #555;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .order-number {
+      font-weight: 700;
+      color: #111;
+    }
+
+    .success-button {
+      border: none;
+      background: #111;
+      color: #fff;
+      padding: 16px 25px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 45px 5%;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-size: 20px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    footer p {
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: #aaa;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 850px) {
+
+      .header {
+        height: 80px;
+        padding: 0 20px;
+      }
+
+      .logo img {
+        width: 105px;
+      }
+
+      .secure-checkout {
+        display: none;
+      }
+
+      .checkout-page {
+        padding: 45px 20px;
+      }
+
+      .checkout-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .order-summary {
+        position: static;
+        order: -1;
+      }
+
+      .checkout-title h1 {
+        letter-spacing: -2px;
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      .announcement-bar {
+        font-size: 9px;
+        letter-spacing: 1.2px;
+      }
+
+      .header {
+        grid-template-columns: 1fr auto 1fr;
+      }
+
+      .back-button {
+        font-size: 10px;
+      }
+
+      .checkout-page {
+        padding: 35px 15px;
+      }
+
+      .checkout-title {
+        margin-bottom: 30px;
+      }
+
+      .checkout-title h1 {
+        font-size: 42px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .order-summary {
+        padding: 20px;
+      }
+
+      .summary-item {
+        grid-template-columns: 65px 1fr auto;
+      }
+
+      .summary-item-image {
+        width: 65px;
+        height: 78px;
+      }
+
+      .delivery-option {
+        align-items: flex-start;
+      }
+
+    }
+
+  </style>
 </head>
 
 
-<body class="checkout-page">
+<body>
 
 
 <!-- =====================================================
-     CHECKOUT HEADER
+     ANNOUNCEMENT
 ===================================================== -->
 
-<header class="checkout-header">
+<div class="announcement-bar">
+  FREE SHIPPING ON ORDERS OVER KES 10,000
+</div>
 
-  <a
-    href="index.html"
-    class="checkout-logo"
-  >
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+  <div class="header-left">
+
+    <button
+      class="back-button"
+      type="button"
+      onclick="goBackToShop()"
+    >
+      ← CONTINUE SHOPPING
+    </button>
+
+  </div>
+
+
+  <a href="index.html" class="logo">
 
     <img
       src="images/logo.png"
@@ -49,603 +728,1068 @@
   </a>
 
 
-  <a
-    href="index.html#shop"
-    class="back-to-shop"
-  >
-    ← CONTINUE SHOPPING
-  </a>
+  <div class="header-right">
+
+    <span class="secure-checkout">
+      SECURE CHECKOUT
+    </span>
+
+  </div>
 
 </header>
 
 
-
 <!-- =====================================================
-     CHECKOUT
+     MAIN CHECKOUT
 ===================================================== -->
 
-<main class="checkout-container">
+<main class="checkout-page">
 
+  <div class="checkout-title">
 
-  <div class="checkout-main">
+    <p class="eyebrow">
+      BÉNI CARMEL COLLECTIVES
+    </p>
 
-
-    <!-- =================================================
-         CONTACT
-    ================================================== -->
-
-    <section class="checkout-section">
-
-      <div class="checkout-section-heading">
-
-        <span>01</span>
-
-        <h2>
-          CONTACT INFORMATION
-        </h2>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="email">
-          EMAIL ADDRESS
-        </label>
-
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="YOUR EMAIL ADDRESS"
-          autocomplete="email"
-          required
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="phone">
-          PHONE NUMBER
-        </label>
-
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          placeholder="07XX XXX XXX"
-          autocomplete="tel"
-          required
-        >
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         DELIVERY
-    ================================================== -->
-
-    <section class="checkout-section">
-
-      <div class="checkout-section-heading">
-
-        <span>02</span>
-
-        <h2>
-          DELIVERY INFORMATION
-        </h2>
-
-      </div>
-
-
-      <div class="form-row">
-
-        <div class="form-group">
-
-          <label for="firstName">
-            FIRST NAME
-          </label>
-
-          <input
-            type="text"
-            id="firstName"
-            placeholder="FIRST NAME"
-            autocomplete="given-name"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="lastName">
-            LAST NAME
-          </label>
-
-          <input
-            type="text"
-            id="lastName"
-            placeholder="LAST NAME"
-            autocomplete="family-name"
-            required
-          >
-
-        </div>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="county">
-          COUNTY
-        </label>
-
-        <select
-          id="county"
-          required
-        >
-
-          <option value="">
-            SELECT COUNTY
-          </option>
-
-          <option>
-            Nairobi
-          </option>
-
-          <option>
-            Mombasa
-          </option>
-
-          <option>
-            Kiambu
-          </option>
-
-          <option>
-            Nakuru
-          </option>
-
-          <option>
-            Machakos
-          </option>
-
-          <option>
-            Kajiado
-          </option>
-
-          <option>
-            Kisumu
-          </option>
-
-          <option>
-            Uasin Gishu
-          </option>
-
-          <option>
-            Nyeri
-          </option>
-
-          <option>
-            Meru
-          </option>
-
-          <option>
-            Other
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="town">
-          TOWN / CITY
-        </label>
-
-        <input
-          type="text"
-          id="town"
-          placeholder="TOWN OR CITY"
-          required
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="address">
-          DELIVERY ADDRESS
-        </label>
-
-        <input
-          type="text"
-          id="address"
-          placeholder="BUILDING, STREET, ESTATE ETC."
-          autocomplete="street-address"
-          required
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="deliveryNotes">
-          DELIVERY NOTES
-          <span>(OPTIONAL)</span>
-        </label>
-
-        <textarea
-          id="deliveryNotes"
-          placeholder="ANY INFORMATION THE COURIER SHOULD KNOW?"
-          rows="4"
-        ></textarea>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         DELIVERY METHOD
-    ================================================== -->
-
-    <section class="checkout-section">
-
-      <div class="checkout-section-heading">
-
-        <span>03</span>
-
-        <h2>
-          DELIVERY METHOD
-        </h2>
-
-      </div>
-
-
-      <div class="delivery-options">
-
-
-        <label class="delivery-option">
-
-          <input
-            type="radio"
-            name="delivery"
-            value="500"
-            checked
-          >
-
-          <div>
-
-            <strong>
-              STANDARD DELIVERY
-            </strong>
-
-            <p>
-              Delivered within 2–5 business days
-            </p>
-
-          </div>
-
-          <span>
-            KES 500
-          </span>
-
-        </label>
-
-
-        <label class="delivery-option">
-
-          <input
-            type="radio"
-            name="delivery"
-            value="0"
-            id="freeDelivery"
-          >
-
-          <div>
-
-            <strong>
-              FREE DELIVERY
-            </strong>
-
-            <p>
-              Available for orders over KES 10,000
-            </p>
-
-          </div>
-
-          <span>
-            FREE
-          </span>
-
-        </label>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         PAYMENT
-    ================================================== -->
-
-    <section class="checkout-section">
-
-      <div class="checkout-section-heading">
-
-        <span>04</span>
-
-        <h2>
-          PAYMENT
-        </h2>
-
-      </div>
-
-
-      <div class="payment-options">
-
-
-        <label class="payment-option">
-
-          <input
-            type="radio"
-            name="payment"
-            value="mpesa"
-            checked
-          >
-
-          <div class="payment-content">
-
-            <strong>
-              M-PESA
-            </strong>
-
-            <p>
-              Pay securely using M-Pesa.
-            </p>
-
-          </div>
-
-          <span class="payment-logo">
-            M
-          </span>
-
-        </label>
-
-
-        <label class="payment-option">
-
-          <input
-            type="radio"
-            name="payment"
-            value="cod"
-          >
-
-          <div class="payment-content">
-
-            <strong>
-              CASH ON DELIVERY
-            </strong>
-
-            <p>
-              Pay when your order arrives.
-            </p>
-
-          </div>
-
-        </label>
-
-      </div>
-
-
-      <!-- MPESA PHONE -->
-
-      <div
-        class="mpesa-details"
-        id="mpesaDetails"
-      >
-
-        <label for="mpesaPhone">
-          M-PESA PHONE NUMBER
-        </label>
-
-        <input
-          type="tel"
-          id="mpesaPhone"
-          placeholder="07XX XXX XXX"
-        >
-
-        <p>
-          You will receive an M-Pesa payment request
-          on this number.
-        </p>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         PLACE ORDER
-    ================================================== -->
-
-    <section class="place-order-section">
-
-      <button
-        class="place-order-button"
-        id="placeOrderButton"
-      >
-
-        PLACE ORDER
-
-      </button>
-
-
-      <p class="secure-checkout">
-
-        🔒 YOUR INFORMATION IS SECURE
-
-      </p>
-
-    </section>
-
+    <h1>
+      CHECKOUT.
+    </h1>
 
   </div>
 
 
+  <!-- ===================================================
+       EMPTY STATE
+  =================================================== -->
+
+  <div
+    class="empty-checkout"
+    id="emptyCheckout"
+    style="display:none;"
+  >
+
+    <h2>
+      YOUR BAG IS EMPTY.
+    </h2>
+
+    <p>
+      There are no items waiting for checkout.
+    </p>
+
+    <a
+      href="index.html#shop"
+      class="shop-button"
+    >
+      RETURN TO SHOP →
+    </a>
+
+  </div>
+
 
   <!-- ===================================================
-       ORDER SUMMARY
-  ==================================================== -->
+       CHECKOUT CONTENT
+  =================================================== -->
 
-  <aside class="checkout-summary">
+  <div
+    class="checkout-grid"
+    id="checkoutContent"
+  >
 
 
-    <div class="summary-heading">
+    <!-- =================================================
+         LEFT SIDE
+    ================================================= -->
 
-      <p class="eyebrow">
+    <div>
+
+
+      <!-- ===============================================
+           CONTACT
+      =============================================== -->
+
+      <section class="checkout-section">
+
+        <div class="checkout-section-title">
+
+          <span class="checkout-section-number">
+            01
+          </span>
+
+          <h2>
+            CONTACT INFORMATION
+          </h2>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <div class="form-group full">
+
+            <label for="email">
+              EMAIL ADDRESS
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="your@email.com"
+              required
+            >
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===============================================
+           DELIVERY
+      =============================================== -->
+
+      <section class="checkout-section">
+
+        <div class="checkout-section-title">
+
+          <span class="checkout-section-number">
+            02
+          </span>
+
+          <h2>
+            DELIVERY DETAILS
+          </h2>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <div class="form-group">
+
+            <label for="firstName">
+              FIRST NAME
+            </label>
+
+            <input
+              type="text"
+              id="firstName"
+              placeholder="First name"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="lastName">
+              LAST NAME
+            </label>
+
+            <input
+              type="text"
+              id="lastName"
+              placeholder="Last name"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label for="phone">
+              PHONE NUMBER
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              placeholder="07XX XXX XXX"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="county">
+              COUNTY
+            </label>
+
+            <select id="county" required>
+
+              <option value="">
+                SELECT COUNTY
+              </option>
+
+              <option>Nairobi</option>
+              <option>Mombasa</option>
+              <option>Kiambu</option>
+              <option>Nakuru</option>
+              <option>Kisumu</option>
+              <option>Machakos</option>
+              <option>Kajiado</option>
+              <option>Nyeri</option>
+              <option>Murang'a</option>
+              <option>Meru</option>
+              <option>Uasin Gishu</option>
+              <option>Laikipia</option>
+              <option>Kirinyaga</option>
+              <option>Embu</option>
+              <option>Other</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="town">
+              TOWN / CITY
+            </label>
+
+            <input
+              type="text"
+              id="town"
+              placeholder="Town / City"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label for="address">
+              DELIVERY ADDRESS
+            </label>
+
+            <textarea
+              id="address"
+              placeholder="Building, estate, street, landmark, etc."
+              required
+            ></textarea>
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label for="instructions">
+              DELIVERY INSTRUCTIONS — OPTIONAL
+            </label>
+
+            <textarea
+              id="instructions"
+              placeholder="Any additional instructions for delivery..."
+            ></textarea>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===============================================
+           DELIVERY METHOD
+      =============================================== -->
+
+      <section class="checkout-section">
+
+        <div class="checkout-section-title">
+
+          <span class="checkout-section-number">
+            03
+          </span>
+
+          <h2>
+            DELIVERY METHOD
+          </h2>
+
+        </div>
+
+
+        <div class="delivery-options">
+
+          <label class="delivery-option selected">
+
+            <div class="delivery-option-left">
+
+              <input
+                type="radio"
+                name="delivery"
+                value="300"
+                checked
+              >
+
+              <div>
+
+                <div class="delivery-name">
+                  STANDARD DELIVERY
+                </div>
+
+                <div class="delivery-description">
+                  Delivery within Kenya
+                </div>
+
+              </div>
+
+            </div>
+
+            <span
+              class="delivery-price"
+              id="standardDeliveryPrice"
+            >
+              KES 300
+            </span>
+
+          </label>
+
+
+          <label class="delivery-option">
+
+            <div class="delivery-option-left">
+
+              <input
+                type="radio"
+                name="delivery"
+                value="0"
+              >
+
+              <div>
+
+                <div class="delivery-name">
+                  FREE DELIVERY
+                </div>
+
+                <div class="delivery-description">
+                  Available on orders of KES 10,000+
+                </div>
+
+              </div>
+
+            </div>
+
+            <span class="delivery-price">
+              FREE
+            </span>
+
+          </label>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===============================================
+           PAYMENT
+      =============================================== -->
+
+      <section class="checkout-section">
+
+        <div class="checkout-section-title">
+
+          <span class="checkout-section-number">
+            04
+          </span>
+
+          <h2>
+            PAYMENT
+          </h2>
+
+        </div>
+
+
+        <div class="payment-notice">
+
+          <strong>
+            PAYMENT AT CHECKOUT
+          </strong>
+
+          <p>
+            Your order details will be submitted first.
+            Payment instructions can then be provided
+            by Béni Carmel Collectives.
+          </p>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- =================================================
+         RIGHT SIDE — ORDER SUMMARY
+    ================================================= -->
+
+    <aside class="order-summary">
+
+      <h2 class="summary-heading">
         YOUR ORDER
-      </p>
-
-      <h2>
-        ORDER SUMMARY
       </h2>
 
-    </div>
+
+      <div
+        class="summary-items"
+        id="summaryItems"
+      ></div>
 
 
-    <div
-      class="checkout-items"
-      id="checkoutItems"
-    >
-    </div>
+      <div class="summary-totals">
+
+        <div class="summary-row">
+
+          <span>
+            SUBTOTAL
+          </span>
+
+          <strong id="summarySubtotal">
+            KES 0
+          </strong>
+
+        </div>
 
 
-    <div class="summary-calculations">
+        <div class="summary-row">
+
+          <span>
+            SHIPPING
+          </span>
+
+          <strong id="summaryShipping">
+            KES 300
+          </strong>
+
+        </div>
 
 
-      <div>
+        <div class="summary-row summary-total">
 
-        <span>
-          SUBTOTAL
-        </span>
+          <span>
+            TOTAL
+          </span>
 
-        <strong id="checkoutSubtotal">
-          KES 0
-        </strong>
+          <strong id="summaryTotal">
+            KES 0
+          </strong>
 
-      </div>
-
-
-      <div>
-
-        <span>
-          SHIPPING
-        </span>
-
-        <strong id="checkoutShipping">
-          KES 0
-        </strong>
-
-      </div>
-
-
-      <div class="summary-total">
-
-        <span>
-          TOTAL
-        </span>
-
-        <strong id="checkoutTotal">
-          KES 0
-        </strong>
+        </div>
 
       </div>
 
 
-    </div>
+      <button
+        class="place-order-button"
+        id="placeOrderButton"
+        type="button"
+      >
+        PLACE ORDER →
+      </button>
 
 
-    <div class="checkout-note">
-
-      <p>
-        FREE SHIPPING ON ORDERS OVER
-        KES 10,000
+      <p class="checkout-disclaimer">
+        By placing your order, you confirm that the
+        information provided is accurate and agree
+        to the Béni Carmel Collectives order terms.
       </p>
 
-    </div>
+    </aside>
 
-  </aside>
+  </div>
 
 </main>
 
 
-
 <!-- =====================================================
-     ORDER SUCCESS
+     SUCCESS MESSAGE
 ===================================================== -->
 
 <div
-  class="order-success"
-  id="orderSuccess"
+  class="success-overlay"
+  id="successOverlay"
 >
 
-  <div class="success-card">
+  <div class="success-box">
 
     <div class="success-icon">
       ✓
     </div>
 
-
-    <p class="eyebrow">
-      ORDER CONFIRMED
-    </p>
-
-
     <h2>
-      THANK YOU.
+      ORDER RECEIVED.
     </h2>
 
-
     <p>
-      Your Béni Carmel order has been received.
+      Thank you for shopping with Béni Carmel Collectives.
+      Your order has been received.
     </p>
 
+    <p>
+      ORDER NUMBER:
+      <span
+        class="order-number"
+        id="orderNumber"
+      >
+      </span>
+    </p>
 
-    <div class="order-number">
-      ORDER #<span id="orderNumber"></span>
-    </div>
-
-
-    <a
-      href="index.html"
+    <button
       class="success-button"
+      type="button"
+      onclick="returnToShop()"
     >
-      BACK TO SHOP
-    </a>
+      RETURN TO SHOP
+    </button>
 
   </div>
 
 </div>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-<script src="checkout.js"></script>
+<footer>
+
+  <div class="footer-brand">
+    BÉNI CARMEL.
+  </div>
+
+  <p>
+    © 2026 BÉNI CARMEL COLLECTIVES. ALL RIGHTS RESERVED.
+  </p>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+  /* =====================================================
+     LOAD BAG
+  ===================================================== */
+
+  let bag = JSON.parse(
+    localStorage.getItem("beniCarmelCheckoutBag") || "[]"
+  );
+
+
+  const summaryItems =
+    document.getElementById("summaryItems");
+
+  const summarySubtotal =
+    document.getElementById("summarySubtotal");
+
+  const summaryShipping =
+    document.getElementById("summaryShipping");
+
+  const summaryTotal =
+    document.getElementById("summaryTotal");
+
+  const checkoutContent =
+    document.getElementById("checkoutContent");
+
+  const emptyCheckout =
+    document.getElementById("emptyCheckout");
+
+  const placeOrderButton =
+    document.getElementById("placeOrderButton");
+
+  const successOverlay =
+    document.getElementById("successOverlay");
+
+  const orderNumber =
+    document.getElementById("orderNumber");
+
+
+  /* =====================================================
+     MONEY
+  ===================================================== */
+
+  function money(value) {
+
+    return "KES " +
+      Number(value).toLocaleString("en-KE");
+
+  }
+
+
+  /* =====================================================
+     DISPLAY ORDER
+  ===================================================== */
+
+  function renderOrder() {
+
+    if (!bag.length) {
+
+      checkoutContent.style.display = "none";
+      emptyCheckout.style.display = "block";
+
+      return;
+
+    }
+
+
+    checkoutContent.style.display = "grid";
+    emptyCheckout.style.display = "none";
+
+
+    summaryItems.innerHTML = "";
+
+
+    let subtotal = 0;
+
+
+    bag.forEach(item => {
+
+      const itemTotal =
+        Number(item.price) *
+        Number(item.quantity);
+
+
+      subtotal += itemTotal;
+
+
+      const itemElement =
+        document.createElement("div");
+
+      itemElement.className =
+        "summary-item";
+
+
+      itemElement.innerHTML = `
+
+        <div class="summary-item-image">
+
+          <img
+            src="${item.image}"
+            alt="${item.name}"
+          >
+
+          <span class="summary-item-quantity">
+            ${item.quantity}
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <div class="summary-item-name">
+            ${item.name}
+          </div>
+
+          <div class="summary-item-size">
+            ${item.size
+              ? "SIZE " + item.size
+              : "ONE SIZE"
+            }
+          </div>
+
+        </div>
+
+
+        <div class="summary-item-price">
+          ${money(itemTotal)}
+        </div>
+
+      `;
+
+
+      summaryItems.appendChild(itemElement);
+
+    });
+
+
+    updateTotals(subtotal);
+
+  }
+
+
+  /* =====================================================
+     UPDATE TOTALS
+  ===================================================== */
+
+  function updateTotals(subtotalOverride = null) {
+
+    let subtotal = subtotalOverride;
+
+
+    if (subtotal === null) {
+
+      subtotal = bag.reduce(
+        (total, item) =>
+          total +
+          Number(item.price) *
+          Number(item.quantity),
+        0
+      );
+
+    }
+
+
+    const selectedDelivery =
+      document.querySelector(
+        'input[name="delivery"]:checked'
+      );
+
+
+    let shipping =
+      selectedDelivery
+        ? Number(selectedDelivery.value)
+        : 300;
+
+
+    /*
+      Orders of KES 10,000 or more
+      automatically receive free shipping.
+    */
+
+    if (subtotal >= 10000) {
+
+      shipping = 0;
+
+    }
+
+
+    const total =
+      subtotal + shipping;
+
+
+    summarySubtotal.textContent =
+      money(subtotal);
+
+
+    summaryShipping.textContent =
+      shipping === 0
+        ? "FREE"
+        : money(shipping);
+
+
+    summaryTotal.textContent =
+      money(total);
+
+  }
+
+
+  /* =====================================================
+     DELIVERY OPTION UI
+  ===================================================== */
+
+  document
+    .querySelectorAll(".delivery-option")
+    .forEach(option => {
+
+      option.addEventListener(
+        "click",
+        function() {
+
+          document
+            .querySelectorAll(".delivery-option")
+            .forEach(item =>
+              item.classList.remove("selected")
+            );
+
+          this.classList.add("selected");
+
+          updateTotals();
+
+        }
+      );
+
+    });
+
+
+  /* =====================================================
+     GO BACK
+  ===================================================== */
+
+  function goBackToShop() {
+
+    window.location.href =
+      "index.html#shop";
+
+  }
+
+
+  /* =====================================================
+     VALIDATE FORM
+  ===================================================== */
+
+  function validateCheckout() {
+
+    const requiredFields = [
+
+      document.getElementById("email"),
+
+      document.getElementById("firstName"),
+
+      document.getElementById("lastName"),
+
+      document.getElementById("phone"),
+
+      document.getElementById("county"),
+
+      document.getElementById("town"),
+
+      document.getElementById("address")
+
+    ];
+
+
+    for (const field of requiredFields) {
+
+      if (!field.value.trim()) {
+
+        field.focus();
+
+        alert(
+          "Please complete all required fields before placing your order."
+        );
+
+        return false;
+
+      }
+
+    }
+
+
+    const email =
+      document.getElementById("email").value.trim();
+
+
+    const emailPattern =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    if (!emailPattern.test(email)) {
+
+      document
+        .getElementById("email")
+        .focus();
+
+      alert(
+        "Please enter a valid email address."
+      );
+
+      return false;
+
+    }
+
+
+    return true;
+
+  }
+
+
+  /* =====================================================
+     PLACE ORDER
+  ===================================================== */
+
+  placeOrderButton.addEventListener(
+    "click",
+    function() {
+
+      if (!bag.length) {
+
+        alert(
+          "Your bag is empty."
+        );
+
+        return;
+
+      }
+
+
+      if (!validateCheckout()) {
+        return;
+      }
+
+
+      /*
+        Create a simple order number.
+      */
+
+      const randomNumber =
+        Math.floor(
+          10000 +
+          Math.random() * 90000
+        );
+
+
+      const generatedOrderNumber =
+        "BC-" + randomNumber;
+
+
+      orderNumber.textContent =
+        generatedOrderNumber;
+
+
+      /*
+        Save customer/order information locally.
+        This allows you to connect a real payment/order
+        system later.
+      */
+
+      const order = {
+
+        orderNumber:
+          generatedOrderNumber,
+
+        customer: {
+
+          email:
+            document
+              .getElementById("email")
+              .value
+              .trim(),
+
+          firstName:
+            document
+              .getElementById("firstName")
+              .value
+              .trim(),
+
+          lastName:
+            document
+              .getElementById("lastName")
+              .value
+              .trim(),
+
+          phone:
+            document
+              .getElementById("phone")
+              .value
+              .trim(),
+
+          county:
+            document
+              .getElementById("county")
+              .value,
+
+          town:
+            document
+              .getElementById("town")
+              .value
+              .trim(),
+
+          address:
+            document
+              .getElementById("address")
+              .value
+              .trim(),
+
+          instructions:
+            document
+              .getElementById("instructions")
+              .value
+              .trim()
+
+        },
+
+        items: bag,
+
+        subtotal:
+          bag.reduce(
+            (total, item) =>
+              total +
+              Number(item.price) *
+              Number(item.quantity),
+            0
+          ),
+
+        createdAt:
+          new Date().toISOString()
+
+      };
+
+
+      localStorage.setItem(
+        "beniCarmelLastOrder",
+        JSON.stringify(order)
+      );
+
+
+      /*
+        Clear checkout bag.
+      */
+
+      localStorage.removeItem(
+        "beniCarmelCheckoutBag"
+      );
+
+
+      /*
+        Also clear the main shopping bag
+        so the customer's old items don't
+        remain when they return.
+      */
+
+      localStorage.removeItem(
+        "beniCarmelBag"
+      );
+
+
+      successOverlay.classList.add(
+        "open"
+      );
+
+    }
+  );
+
+
+  /* =====================================================
+     RETURN TO SHOP
+  ===================================================== */
+
+  function returnToShop() {
+
+    window.location.href =
+      "index.html";
+
+  }
+
+
+  /* =====================================================
+     INITIALISE
+  ===================================================== */
+
+  renderOrder();
+
+
+  /* =====================================================
+     ESCAPE KEY
+  ===================================================== */
+
+  document.addEventListener(
+    "keydown",
+    function(event) {
+
+      if (
+        event.key === "Escape" &&
+        successOverlay.classList.contains("open")
+      ) {
+
+        successOverlay.classList.remove(
+          "open"
+        );
+
+      }
+
+    }
+  );
+
+</script>
 
 </body>
-
 </html>
