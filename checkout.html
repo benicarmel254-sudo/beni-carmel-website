@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Checkout — Béni Carmel Collectives
+  </title>
+
+  <meta
+    name="description"
+    content="Complete your Béni Carmel Collectives order."
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+
+<body class="checkout-page">
+
+
+<!-- =====================================================
+     CHECKOUT HEADER
+===================================================== -->
+
+<header class="checkout-header">
+
+  <a
+    href="index.html"
+    class="checkout-logo"
+  >
+
+    <img
+      src="images/logo.png"
+      alt="Béni Carmel Collectives"
+    >
+
+  </a>
+
+
+  <a
+    href="index.html#shop"
+    class="back-to-shop"
+  >
+    ← CONTINUE SHOPPING
+  </a>
+
+</header>
+
+
+
+<!-- =====================================================
+     CHECKOUT
+===================================================== -->
+
+<main class="checkout-container">
+
+
+  <div class="checkout-main">
+
+
+    <!-- =================================================
+         CONTACT
+    ================================================== -->
+
+    <section class="checkout-section">
+
+      <div class="checkout-section-heading">
+
+        <span>01</span>
+
+        <h2>
+          CONTACT INFORMATION
+        </h2>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="email">
+          EMAIL ADDRESS
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="YOUR EMAIL ADDRESS"
+          autocomplete="email"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="phone">
+          PHONE NUMBER
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="07XX XXX XXX"
+          autocomplete="tel"
+          required
+        >
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         DELIVERY
+    ================================================== -->
+
+    <section class="checkout-section">
+
+      <div class="checkout-section-heading">
+
+        <span>02</span>
+
+        <h2>
+          DELIVERY INFORMATION
+        </h2>
+
+      </div>
+
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label for="firstName">
+            FIRST NAME
+          </label>
+
+          <input
+            type="text"
+            id="firstName"
+            placeholder="FIRST NAME"
+            autocomplete="given-name"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="lastName">
+            LAST NAME
+          </label>
+
+          <input
+            type="text"
+            id="lastName"
+            placeholder="LAST NAME"
+            autocomplete="family-name"
+            required
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="county">
+          COUNTY
+        </label>
+
+        <select
+          id="county"
+          required
+        >
+
+          <option value="">
+            SELECT COUNTY
+          </option>
+
+          <option>
+            Nairobi
+          </option>
+
+          <option>
+            Mombasa
+          </option>
+
+          <option>
+            Kiambu
+          </option>
+
+          <option>
+            Nakuru
+          </option>
+
+          <option>
+            Machakos
+          </option>
+
+          <option>
+            Kajiado
+          </option>
+
+          <option>
+            Kisumu
+          </option>
+
+          <option>
+            Uasin Gishu
+          </option>
+
+          <option>
+            Nyeri
+          </option>
+
+          <option>
+            Meru
+          </option>
+
+          <option>
+            Other
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="town">
+          TOWN / CITY
+        </label>
+
+        <input
+          type="text"
+          id="town"
+          placeholder="TOWN OR CITY"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="address">
+          DELIVERY ADDRESS
+        </label>
+
+        <input
+          type="text"
+          id="address"
+          placeholder="BUILDING, STREET, ESTATE ETC."
+          autocomplete="street-address"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="deliveryNotes">
+          DELIVERY NOTES
+          <span>(OPTIONAL)</span>
+        </label>
+
+        <textarea
+          id="deliveryNotes"
+          placeholder="ANY INFORMATION THE COURIER SHOULD KNOW?"
+          rows="4"
+        ></textarea>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         DELIVERY METHOD
+    ================================================== -->
+
+    <section class="checkout-section">
+
+      <div class="checkout-section-heading">
+
+        <span>03</span>
+
+        <h2>
+          DELIVERY METHOD
+        </h2>
+
+      </div>
+
+
+      <div class="delivery-options">
+
+
+        <label class="delivery-option">
+
+          <input
+            type="radio"
+            name="delivery"
+            value="500"
+            checked
+          >
+
+          <div>
+
+            <strong>
+              STANDARD DELIVERY
+            </strong>
+
+            <p>
+              Delivered within 2–5 business days
+            </p>
+
+          </div>
+
+          <span>
+            KES 500
+          </span>
+
+        </label>
+
+
+        <label class="delivery-option">
+
+          <input
+            type="radio"
+            name="delivery"
+            value="0"
+            id="freeDelivery"
+          >
+
+          <div>
+
+            <strong>
+              FREE DELIVERY
+            </strong>
+
+            <p>
+              Available for orders over KES 10,000
+            </p>
+
+          </div>
+
+          <span>
+            FREE
+          </span>
+
+        </label>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAYMENT
+    ================================================== -->
+
+    <section class="checkout-section">
+
+      <div class="checkout-section-heading">
+
+        <span>04</span>
+
+        <h2>
+          PAYMENT
+        </h2>
+
+      </div>
+
+
+      <div class="payment-options">
+
+
+        <label class="payment-option">
+
+          <input
+            type="radio"
+            name="payment"
+            value="mpesa"
+            checked
+          >
+
+          <div class="payment-content">
+
+            <strong>
+              M-PESA
+            </strong>
+
+            <p>
+              Pay securely using M-Pesa.
+            </p>
+
+          </div>
+
+          <span class="payment-logo">
+            M
+          </span>
+
+        </label>
+
+
+        <label class="payment-option">
+
+          <input
+            type="radio"
+            name="payment"
+            value="cod"
+          >
+
+          <div class="payment-content">
+
+            <strong>
+              CASH ON DELIVERY
+            </strong>
+
+            <p>
+              Pay when your order arrives.
+            </p>
+
+          </div>
+
+        </label>
+
+      </div>
+
+
+      <!-- MPESA PHONE -->
+
+      <div
+        class="mpesa-details"
+        id="mpesaDetails"
+      >
+
+        <label for="mpesaPhone">
+          M-PESA PHONE NUMBER
+        </label>
+
+        <input
+          type="tel"
+          id="mpesaPhone"
+          placeholder="07XX XXX XXX"
+        >
+
+        <p>
+          You will receive an M-Pesa payment request
+          on this number.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PLACE ORDER
+    ================================================== -->
+
+    <section class="place-order-section">
+
+      <button
+        class="place-order-button"
+        id="placeOrderButton"
+      >
+
+        PLACE ORDER
+
+      </button>
+
+
+      <p class="secure-checkout">
+
+        🔒 YOUR INFORMATION IS SECURE
+
+      </p>
+
+    </section>
+
+
+  </div>
+
+
+
+  <!-- ===================================================
+       ORDER SUMMARY
+  ==================================================== -->
+
+  <aside class="checkout-summary">
+
+
+    <div class="summary-heading">
+
+      <p class="eyebrow">
+        YOUR ORDER
+      </p>
+
+      <h2>
+        ORDER SUMMARY
+      </h2>
+
+    </div>
+
+
+    <div
+      class="checkout-items"
+      id="checkoutItems"
+    >
+    </div>
+
+
+    <div class="summary-calculations">
+
+
+      <div>
+
+        <span>
+          SUBTOTAL
+        </span>
+
+        <strong id="checkoutSubtotal">
+          KES 0
+        </strong>
+
+      </div>
+
+
+      <div>
+
+        <span>
+          SHIPPING
+        </span>
+
+        <strong id="checkoutShipping">
+          KES 0
+        </strong>
+
+      </div>
+
+
+      <div class="summary-total">
+
+        <span>
+          TOTAL
+        </span>
+
+        <strong id="checkoutTotal">
+          KES 0
+        </strong>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="checkout-note">
+
+      <p>
+        FREE SHIPPING ON ORDERS OVER
+        KES 10,000
+      </p>
+
+    </div>
+
+  </aside>
+
+</main>
+
+
+
+<!-- =====================================================
+     ORDER SUCCESS
+===================================================== -->
+
+<div
+  class="order-success"
+  id="orderSuccess"
+>
+
+  <div class="success-card">
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+
+    <p class="eyebrow">
+      ORDER CONFIRMED
+    </p>
+
+
+    <h2>
+      THANK YOU.
+    </h2>
+
+
+    <p>
+      Your Béni Carmel order has been received.
+    </p>
+
+
+    <div class="order-number">
+      ORDER #<span id="orderNumber"></span>
+    </div>
+
+
+    <a
+      href="index.html"
+      class="success-button"
+    >
+      BACK TO SHOP
+    </a>
+
+  </div>
+
+</div>
+
+
+
+<script src="checkout.js"></script>
+
+</body>
+
+</html>
