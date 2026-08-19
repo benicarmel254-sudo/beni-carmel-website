@@ -1,0 +1,15 @@
+{
+  "name": "beni-carmel-mpesa-server",
+  "version": "1.0.0",
+  "description": "Béni Carmel Collectives M-Pesa payment server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
