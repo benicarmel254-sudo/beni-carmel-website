@@ -2,23 +2,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* =====================================================
      BÉNI CARMEL COLLECTIVES
-     MAIN STORE JAVASCRIPT
+     PREMIUM FAITH-INSPIRED COLLECTION
   ===================================================== */
 
 
   /* =====================================================
-     BAG
+     STATE
   ===================================================== */
 
-  let bag = JSON.parse(
-    localStorage.getItem("beniCarmelBag")
-  ) || [];
+  let bag =
+    JSON.parse(
+      localStorage.getItem("beniCarmelBag")
+    ) || [];
 
-  let wishlist = [];
+  let wishlist =
+    JSON.parse(
+      localStorage.getItem("beniCarmelWishlist")
+    ) || [];
 
   let currentProduct = null;
 
-  let selectedSize = "M";
+  let selectedColour = "";
+
+  let selectedSize = "";
 
   let productQuantity = 1;
 
@@ -58,9 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("checkoutButton");
 
 
-  /* =====================================================
-     SEARCH ELEMENTS
-  ===================================================== */
+  /* SEARCH */
 
   const searchButton =
     document.getElementById("searchButton");
@@ -78,9 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("searchResults");
 
 
-  /* =====================================================
-     MOBILE MENU
-  ===================================================== */
+  /* MOBILE */
 
   const menuButton =
     document.getElementById("menuButton");
@@ -92,9 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("closeMenu");
 
 
-  /* =====================================================
-     SHOP
-  ===================================================== */
+  /* SHOP */
 
   const filters =
     document.querySelectorAll(".filter");
@@ -106,54 +106,92 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("sortProducts");
 
 
-  /* =====================================================
-     NEWSLETTER
-  ===================================================== */
+  /* NEWSLETTER */
 
   const newsletterForm =
     document.getElementById("newsletterForm");
 
 
-  /* =====================================================
-     PRODUCT DETAIL
-  ===================================================== */
+  /* PRODUCT DETAIL */
 
   const productDetailOverlay =
-    document.getElementById("productDetailOverlay");
+    document.getElementById(
+      "productDetailOverlay"
+    );
 
   const closeProductDetail =
-    document.getElementById("closeProductDetail");
+    document.getElementById(
+      "closeProductDetail"
+    );
 
   const detailProductImage =
-    document.getElementById("detailProductImage");
+    document.getElementById(
+      "detailProductImage"
+    );
 
   const detailProductName =
-    document.getElementById("detailProductName");
+    document.getElementById(
+      "detailProductName"
+    );
 
   const detailProductPrice =
-    document.getElementById("detailProductPrice");
+    document.getElementById(
+      "detailProductPrice"
+    );
 
   const detailProductCategory =
-    document.getElementById("detailProductCategory");
+    document.getElementById(
+      "detailProductCategory"
+    );
 
   const detailProductDescription =
-    document.getElementById("detailProductDescription");
+    document.getElementById(
+      "detailProductDescription"
+    );
+
+  const colourOptions =
+    document.getElementById(
+      "colourOptions"
+    );
+
+  const colourSection =
+    document.getElementById(
+      "productColourSection"
+    );
+
+  const sizeOptions =
+    document.getElementById(
+      "sizeOptions"
+    );
+
+  const sizeSection =
+    document.getElementById(
+      "productSizeSection"
+    );
 
   const detailQuantity =
-    document.getElementById("detailQuantity");
+    document.getElementById(
+      "detailQuantity"
+    );
 
   const quantityMinus =
-    document.getElementById("quantityMinus");
+    document.getElementById(
+      "quantityMinus"
+    );
 
   const quantityPlus =
-    document.getElementById("quantityPlus");
+    document.getElementById(
+      "quantityPlus"
+    );
 
   const detailAddButton =
-    document.getElementById("detailAddButton");
+    document.getElementById(
+      "detailAddButton"
+    );
 
 
   /* =====================================================
-     PRODUCT DESCRIPTIONS
+     DESCRIPTIONS
   ===================================================== */
 
   const productDescriptions = {
@@ -164,16 +202,13 @@ document.addEventListener("DOMContentLoaded", () => {
     "Covenant Hoodie":
       "A statement hoodie inspired by covenant, faith and the promises we choose to live by.",
 
-    "Glory Hoodie":
-      "A premium everyday hoodie created around one simple message: live for the glory of God.",
+    "Faith T-Shirt":
+      "A clean everyday T-shirt designed to make faith part of your everyday expression.",
 
-    "Faith Shirt":
-      "A clean everyday shirt designed to make faith part of your everyday expression.",
-
-    "Glory Shirt":
+    "Glory T-Shirt":
       "Minimal design, meaningful message and effortless everyday styling.",
 
-    "Covenant Shirt":
+    "Covenant T-Shirt":
       "A faith-inspired essential designed for those who carry their beliefs boldly.",
 
     "College Jacket":
@@ -185,59 +220,80 @@ document.addEventListener("DOMContentLoaded", () => {
     "Washed Denim Jacket":
       "A relaxed washed-denim essential with a vintage-inspired feel.",
 
-    "Faith Jorts":
+    "Wide Leg Jeans":
+      "Relaxed wide-leg denim designed for effortless everyday styling.",
+
+    "Sky Blue Jorts":
       "Relaxed denim shorts designed for effortless everyday styling.",
 
-    "Béni Carmel Cap":
-      "A clean white cap featuring the Béni Carmel identity. An easy finishing piece for any look."
+    "Dark Blue Jorts":
+      "A classic dark denim jort designed for comfortable everyday wear.",
+
+    "Grey Sweatpants":
+      "Relaxed everyday sweatpants designed for comfort and effortless styling.",
+
+    "Black Sweatpants":
+      "A versatile black sweatpant essential made for everyday movement.",
+
+    "Cream Sweatpants":
+      "A clean cream-toned sweatpant designed for relaxed everyday looks.",
+
+    "Burgundy Sweatpants":
+      "A statement burgundy sweatpant combining comfort with bold everyday style.",
+
+    "White Cap":
+      "A clean white cap featuring the Béni Carmel identity.",
+
+    "Black Beanie":
+      "A simple black beanie designed to finish everyday looks with a subtle Béni Carmel touch.",
+
+    "Cream Beanie":
+      "A soft cream-toned beanie designed for effortless everyday styling.",
+
+    "Burgundy Beanie":
+      "A bold burgundy beanie designed to add colour and character to everyday looks.",
+
+    "Black Bucket Hat":
+      "A classic black bucket hat designed for relaxed everyday styling.",
+
+    "Burgundy Bucket Hat":
+      "A statement burgundy bucket hat made for bold everyday looks.",
+
+    "White Bucket Hat":
+      "A clean white bucket hat designed to complement everyday outfits.",
+
+    "Beige Bucket Hat":
+      "A neutral beige bucket hat designed for effortless everyday wear.",
+
+    "Black Shoulder Bag":
+      "A practical black shoulder bag designed to carry your everyday essentials.",
+
+    "Brown Shoulder Bag":
+      "A warm brown shoulder bag designed for everyday styling.",
+
+    "Pink Shoulder Bag":
+      "A playful pink shoulder bag designed to add personality to everyday outfits.",
+
+    "Orange Shoulder Bag":
+      "A bold orange shoulder bag created for confident everyday styling.",
+
+    "Black Cross Shoulder Bag":
+      "A practical cross-shoulder bag designed for everyday movement and convenience.",
+
+    "Silver Cross Necklace":
+      "A meaningful silver cross necklace inspired by faith and designed as an everyday statement.",
+
+    "Black Socks":
+      "Everyday black socks designed to complement the Béni Carmel collection.",
+
+    "White Socks":
+      "Clean everyday white socks designed for comfort and easy styling."
 
   };
 
 
   /* =====================================================
-     PRODUCT IMAGES
-  ===================================================== */
-
-  const productImages = {
-
-    "Faith Hoodie":
-      "images/hoodie-1.jpg",
-
-    "Covenant Hoodie":
-      "images/hoodie-2.jpg",
-
-    "Glory Hoodie":
-      "images/hoodie-3.jpg",
-
-    "Faith Shirt":
-      "images/shirt-1.jpg",
-
-    "Glory Shirt":
-      "images/shirt-2.jpg",
-
-    "Covenant Shirt":
-      "images/shirt-3.jpg",
-
-    "College Jacket":
-      "images/college-jacket.jpg",
-
-    "Classic Denim Jacket":
-      "images/denim-jacket-1.jpg",
-
-    "Washed Denim Jacket":
-      "images/denim-jacket-2.jpg",
-
-    "Faith Jorts":
-      "images/jorts-1.jpg",
-
-    "Béni Carmel Cap":
-      "images/cap.jpg"
-
-  };
-
-
-  /* =====================================================
-     SAVE BAG
+     SAVE
   ===================================================== */
 
   function saveBag() {
@@ -250,113 +306,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* =====================================================
-     ADD TO BAG
-  ===================================================== */
+  function saveWishlist() {
 
-  window.addToBag = function(
-    productName,
-    price,
-    image = null
-  ) {
-
-    const size = "M";
-
-    const existingProduct =
-      bag.find(item =>
-        item.name === productName &&
-        item.size === size
-      );
-
-
-    if (existingProduct) {
-
-      existingProduct.quantity++;
-
-    } else {
-
-      bag.push({
-
-        name: productName,
-
-        price: Number(price),
-
-        size: size,
-
-        quantity: 1,
-
-        image:
-          image ||
-          productImages[productName]
-
-      });
-
-    }
-
-
-    saveBag();
-
-    updateBag();
-
-    openBag();
-
-  };
-
-
-  /* =====================================================
-     ADD MULTIPLE ITEMS
-  ===================================================== */
-
-  function addProductWithQuantity(
-    name,
-    price,
-    size,
-    quantity,
-    image
-  ) {
-
-    const existingProduct =
-      bag.find(item =>
-        item.name === name &&
-        item.size === size
-      );
-
-
-    if (existingProduct) {
-
-      existingProduct.quantity +=
-        quantity;
-
-    } else {
-
-      bag.push({
-
-        name: name,
-
-        price: Number(price),
-
-        size: size,
-
-        quantity: quantity,
-
-        image:
-          image ||
-          productImages[name]
-
-      });
-
-    }
-
-
-    saveBag();
-
-    updateBag();
+    localStorage.setItem(
+      "beniCarmelWishlist",
+      JSON.stringify(wishlist)
+    );
 
   }
 
 
   /* =====================================================
-     UPDATE BAG
+     BAG
   ===================================================== */
 
   function updateBag() {
@@ -377,13 +338,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* BAG COUNT */
-
     bagCount.textContent =
       itemCount;
 
-
-    /* BAG PRODUCTS */
 
     if (bag.length === 0) {
 
@@ -413,8 +370,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* SHIPPING */
-
     let shipping = 0;
 
 
@@ -428,52 +383,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* TOTAL */
-
     const total =
       subtotal + shipping;
 
-
-    /* SUMMARY */
 
     bagSubtotal.textContent =
       `KES ${subtotal.toLocaleString()}`;
 
 
-    if (
+    bagShipping.textContent =
       subtotal >= 10000
-    ) {
-
-      bagShipping.textContent =
-        "FREE";
-
-    } else {
-
-      bagShipping.textContent =
-        `KES ${shipping.toLocaleString()}`;
-
-    }
+        ? "FREE"
+        : `KES ${shipping.toLocaleString()}`;
 
 
     bagTotal.textContent =
       `KES ${total.toLocaleString()}`;
 
 
-    /* =================================================
-       SHIPPING MESSAGE
-    ================================================= */
-
     if (subtotal === 0) {
 
       shippingMessage.textContent =
         "ADD KES 10,000 TO YOUR BAG FOR FREE SHIPPING.";
 
-    } else if (subtotal >= 10000) {
+    }
+
+    else if (subtotal >= 10000) {
 
       shippingMessage.textContent =
         "🎉 YOU QUALIFY FOR FREE SHIPPING!";
 
-    } else {
+    }
+
+    else {
 
       const remaining =
         10000 - subtotal;
@@ -484,25 +426,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =================================================
-       CHECKOUT
-    ================================================= */
-
     checkoutButton.disabled =
       bag.length === 0;
 
 
-    if (bag.length === 0) {
-
-      checkoutButton.textContent =
-        "YOUR BAG IS EMPTY";
-
-    } else {
-
-      checkoutButton.textContent =
-        "PROCEED TO CHECKOUT";
-
-    }
+    checkoutButton.textContent =
+      bag.length === 0
+        ? "YOUR BAG IS EMPTY"
+        : "PROCEED TO CHECKOUT";
 
 
     setupEmptyBagLink();
@@ -519,112 +450,133 @@ document.addEventListener("DOMContentLoaded", () => {
     bagItems.innerHTML = "";
 
 
-    bag.forEach((item, index) => {
+    bag.forEach(
+      (item, index) => {
 
-      const productElement =
-        document.createElement("div");
-
-
-      productElement.className =
-        "bag-product";
+        const productElement =
+          document.createElement("div");
 
 
-      const image =
-        item.image ||
-        productImages[item.name] ||
-        "images/logo.png";
+        productElement.className =
+          "bag-product";
 
 
-      productElement.innerHTML = `
-
-        <div class="bag-product-image">
-
-          <img
-            src="${image}"
-            alt="${item.name}"
-          >
-
-        </div>
+        const image =
+          item.image ||
+          "images/logo.png";
 
 
-        <div class="bag-product-details">
-
-          <div class="bag-product-top">
-
-            <div>
-
-              <h3>
-                ${item.name}
-              </h3>
-
-              <p>
-                SIZE: ${item.size}
-              </p>
-
-            </div>
+        const colourText =
+          item.colour
+            ? `COLOUR: ${item.colour}`
+            : "";
 
 
-            <strong>
-              KES ${(
-                item.price *
-                item.quantity
-              ).toLocaleString()}
-            </strong>
-
-          </div>
+        const sizeText =
+          item.size
+            ? `SIZE: ${item.size}`
+            : "";
 
 
-          <div class="bag-product-bottom">
+        productElement.innerHTML = `
 
-            <div class="bag-quantity">
+          <div class="bag-product-image">
 
-              <button
-                type="button"
-                onclick="changeBagQuantity(${index}, -1)"
-              >
-                −
-              </button>
-
-              <span>
-                ${item.quantity}
-              </span>
-
-              <button
-                type="button"
-                onclick="changeBagQuantity(${index}, 1)"
-              >
-                +
-              </button>
-
-            </div>
-
-
-            <button
-              type="button"
-              class="bag-remove"
-              onclick="removeBagItem(${index})"
+            <img
+              src="${image}"
+              alt="${item.name}"
             >
-              REMOVE
-            </button>
 
           </div>
 
-        </div>
 
-      `;
+          <div class="bag-product-details">
+
+            <div class="bag-product-top">
+
+              <div>
+
+                <h3>
+                  ${item.name}
+                </h3>
+
+                ${
+                  colourText
+                    ? `<p>${colourText}</p>`
+                    : ""
+                }
+
+                ${
+                  sizeText
+                    ? `<p>${sizeText}</p>`
+                    : ""
+                }
+
+              </div>
 
 
-      bagItems.appendChild(
-        productElement
-      );
+              <strong>
+                KES ${(
+                  item.price *
+                  item.quantity
+                ).toLocaleString()}
+              </strong>
 
-    });
+            </div>
+
+
+            <div class="bag-product-bottom">
+
+              <div class="bag-quantity">
+
+                <button
+                  type="button"
+                  onclick="changeBagQuantity(${index}, -1)"
+                >
+                  −
+                </button>
+
+                <span>
+                  ${item.quantity}
+                </span>
+
+                <button
+                  type="button"
+                  onclick="changeBagQuantity(${index}, 1)"
+                >
+                  +
+                </button>
+
+              </div>
+
+
+              <button
+                type="button"
+                class="bag-remove"
+                onclick="removeBagItem(${index})"
+              >
+                REMOVE
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+
+        bagItems.appendChild(
+          productElement
+        );
+
+      }
+    );
 
   }
 
 
   /* =====================================================
-     CHANGE BAG QUANTITY
+     CHANGE QUANTITY
   ===================================================== */
 
   window.changeBagQuantity =
@@ -654,7 +606,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =====================================================
-     REMOVE BAG ITEM
+     REMOVE
   ===================================================== */
 
   window.removeBagItem =
@@ -673,7 +625,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =====================================================
-     OPEN BAG
+     OPEN / CLOSE BAG
   ===================================================== */
 
   function openBag() {
@@ -688,10 +640,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-
-  /* =====================================================
-     CLOSE BAG
-  ===================================================== */
 
   function closeBagMenu() {
 
@@ -736,7 +684,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =====================================================
-     CONTINUE SHOPPING
+     EMPTY BAG LINK
   ===================================================== */
 
   function setupEmptyBagLink() {
@@ -750,14 +698,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!link) return;
 
 
-    link.addEventListener(
-      "click",
-      () => {
+    link.onclick = () => {
 
-        closeBagMenu();
+      closeBagMenu();
 
-      }
-    );
+    };
 
   }
 
@@ -790,14 +735,31 @@ document.addEventListener("DOMContentLoaded", () => {
      WISHLIST
   ===================================================== */
 
-  const wishlistButtons =
-    document.querySelectorAll(
-      ".wishlist"
-    );
+  document
+    .querySelectorAll(".wishlist")
+    .forEach(button => {
+
+      const product =
+        button.closest(".product");
 
 
-  wishlistButtons.forEach(
-    button => {
+      if (!product) return;
+
+
+      const name =
+        product.dataset.name;
+
+
+      if (
+        wishlist.includes(name)
+      ) {
+
+        button.classList.add(
+          "active"
+        );
+
+      }
+
 
       button.addEventListener(
         "click",
@@ -808,47 +770,34 @@ document.addEventListener("DOMContentLoaded", () => {
           event.stopPropagation();
 
 
-          const product =
-            button.closest(".product");
-
-
-          if (!product) return;
-
-
-          const productName =
-            product.dataset.name;
-
-
           button.classList.toggle(
             "active"
           );
 
 
           if (
-            wishlist.includes(
-              productName
-            )
+            wishlist.includes(name)
           ) {
 
             wishlist =
               wishlist.filter(
                 item =>
-                  item !== productName
+                  item !== name
               );
 
           } else {
 
-            wishlist.push(
-              productName
-            );
+            wishlist.push(name);
 
           }
+
+
+          saveWishlist();
 
         }
       );
 
-    }
-  );
+    });
 
 
   /* =====================================================
@@ -882,21 +831,12 @@ document.addEventListener("DOMContentLoaded", () => {
           products.forEach(
             product => {
 
-              if (
+              product.style.display =
                 category === "all" ||
                 product.dataset.category ===
                   category
-              ) {
-
-                product.style.display =
-                  "";
-
-              } else {
-
-                product.style.display =
-                  "none";
-
-              }
+                  ? ""
+                  : "none";
 
             }
           );
@@ -909,7 +849,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =====================================================
-     SORT PRODUCTS
+     SORT
   ===================================================== */
 
   sortProducts.addEventListener(
@@ -926,69 +866,56 @@ document.addEventListener("DOMContentLoaded", () => {
         Array.from(products);
 
 
-      const sortType =
-        sortProducts.value;
-
-
-      if (
-        sortType ===
-        "price-low"
+      switch (
+        sortProducts.value
       ) {
 
-        productArray.sort(
-          (a, b) =>
-            Number(
-              a.dataset.price
-            ) -
-            Number(
-              b.dataset.price
-            )
-        );
+        case "price-low":
 
-      }
+          productArray.sort(
+            (a, b) =>
+              Number(a.dataset.price) -
+              Number(b.dataset.price)
+          );
+
+          break;
 
 
-      if (
-        sortType ===
-        "price-high"
-      ) {
+        case "price-high":
 
-        productArray.sort(
-          (a, b) =>
-            Number(
-              b.dataset.price
-            ) -
-            Number(
-              a.dataset.price
-            )
-        );
+          productArray.sort(
+            (a, b) =>
+              Number(b.dataset.price) -
+              Number(a.dataset.price)
+          );
 
-      }
+          break;
 
 
-      if (
-        sortType ===
-        "name"
-      ) {
+        case "name":
 
-        productArray.sort(
-          (a, b) =>
-            a.dataset.name.localeCompare(
-              b.dataset.name
-            )
-        );
+          productArray.sort(
+            (a, b) =>
+              a.dataset.name.localeCompare(
+                b.dataset.name
+              )
+          );
+
+          break;
+
+
+        default:
+
+          break;
 
       }
 
 
       productArray.forEach(
-        product => {
-
+        product =>
           container.appendChild(
             product
-          );
-
-        }
+          )
       );
 
     }
@@ -1067,11 +994,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ) {
 
         searchResults.innerHTML = `
-
-          <p>
-            NO PRODUCTS FOUND.
-          </p>
-
+          <p>NO PRODUCTS FOUND.</p>
         `;
 
         return;
@@ -1080,25 +1003,82 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       searchResults.innerHTML =
-        matches.map(
-          product => {
+        matches
+          .map(product => {
 
             return `
 
-              <p>
+              <button
+                type="button"
+                class="search-result"
+                data-product-name="${product.dataset.name}"
+              >
+
                 ${product.dataset.name}
-                — KES ${Number(
+
+                —
+
+                KES ${Number(
                   product.dataset.price
                 ).toLocaleString()}
-              </p>
+
+              </button>
 
             `;
 
-          }
-        ).join("");
+          })
+          .join("");
+
+
+      document
+        .querySelectorAll(
+          ".search-result"
+        )
+        .forEach(result => {
+
+          result.addEventListener(
+            "click",
+            () => {
+
+              const product =
+                Array.from(products)
+                  .find(
+                    item =>
+                      item.dataset.name ===
+                      result.dataset.productName
+                  );
+
+
+              if (product) {
+
+                closeSearchOverlay();
+
+                openProductDetail(
+                  product
+                );
+
+              }
+
+            }
+          );
+
+        });
 
     }
   );
+
+
+  function closeSearchOverlay() {
+
+    searchOverlay.classList.remove(
+      "open"
+    );
+
+    document.body.classList.remove(
+      "no-scroll"
+    );
+
+  }
 
 
   /* =====================================================
@@ -1139,26 +1119,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mobileMenu
     .querySelectorAll("a")
-    .forEach(
-      link => {
+    .forEach(link => {
 
-        link.addEventListener(
-          "click",
-          () => {
+      link.addEventListener(
+        "click",
+        () => {
 
-            mobileMenu.classList.remove(
-              "open"
-            );
+          mobileMenu.classList.remove(
+            "open"
+          );
 
-            document.body.classList.remove(
-              "no-scroll"
-            );
+          document.body.classList.remove(
+            "no-scroll"
+          );
 
-          }
-        );
+        }
+      );
 
-      }
-    );
+    });
 
 
   /* =====================================================
@@ -1170,15 +1148,6 @@ document.addEventListener("DOMContentLoaded", () => {
     event => {
 
       event.preventDefault();
-
-
-      const email =
-        newsletterForm
-          .querySelector("input")
-          .value;
-
-
-      if (!email) return;
 
 
       alert(
@@ -1205,19 +1174,47 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-      if (!image) return;
+      const quickAdd =
+        product.querySelector(
+          ".quick-add"
+        );
 
 
-      image.addEventListener(
-        "click",
-        () => {
+      if (image) {
 
-          openProductDetail(
-            product
-          );
+        image.addEventListener(
+          "click",
+          () => {
 
-        }
-      );
+            openProductDetail(
+              product
+            );
+
+          }
+        );
+
+      }
+
+
+      if (quickAdd) {
+
+        quickAdd.addEventListener(
+          "click",
+          event => {
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+
+            openProductDetail(
+              product
+            );
+
+          }
+        );
+
+      }
 
     }
   );
@@ -1234,9 +1231,12 @@ document.addEventListener("DOMContentLoaded", () => {
     currentProduct =
       product;
 
+
     productQuantity = 1;
 
-    selectedSize = "M";
+    selectedColour = "";
+
+    selectedSize = "";
 
 
     detailQuantity.textContent =
@@ -1275,12 +1275,15 @@ document.addEventListener("DOMContentLoaded", () => {
       category.toUpperCase();
 
 
-    detailProductImage.src =
-      image.src;
+    if (image) {
 
+      detailProductImage.src =
+        image.getAttribute("src");
 
-    detailProductImage.alt =
-      name;
+      detailProductImage.alt =
+        name;
+
+    }
 
 
     detailProductDescription.textContent =
@@ -1288,31 +1291,230 @@ document.addEventListener("DOMContentLoaded", () => {
       "A meaningful piece from Béni Carmel Collectives.";
 
 
-    document
-      .querySelectorAll(
-        ".size-option"
-      )
-      .forEach(
-        button => {
+    /* COLOURS */
 
-          button.classList.remove(
-            "selected"
+    const colours =
+      product.dataset.colours
+        ? product.dataset.colours
+            .split(",")
+            .map(item =>
+              item.trim()
+            )
+            .filter(Boolean)
+        : [];
+
+
+    colourOptions.innerHTML =
+      "";
+
+
+    if (colours.length > 0) {
+
+      colourSection.style.display =
+        "";
+
+
+      colours.forEach(
+        (colour, index) => {
+
+          const button =
+            document.createElement(
+              "button"
+            );
+
+
+          button.type =
+            "button";
+
+
+          button.className =
+            "colour-option";
+
+
+          button.dataset.colour =
+            colour;
+
+
+          button.textContent =
+            colour;
+
+
+          if (index === 0) {
+
+            button.classList.add(
+              "selected"
+            );
+
+            selectedColour =
+              colour;
+
+          }
+
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              document
+                .querySelectorAll(
+                  ".colour-option"
+                )
+                .forEach(
+                  item =>
+                    item.classList.remove(
+                      "selected"
+                    )
+                );
+
+
+              button.classList.add(
+                "selected"
+              );
+
+
+              selectedColour =
+                colour;
+
+            }
           );
 
 
+          colourOptions.appendChild(
+            button
+          );
+
+        }
+      );
+
+    } else {
+
+      colourSection.style.display =
+        "none";
+
+    }
+
+
+    /* SIZES */
+
+    const sizes =
+      product.dataset.sizes
+        ? product.dataset.sizes
+            .split(",")
+            .map(item =>
+              item.trim()
+            )
+            .filter(Boolean)
+        : [];
+
+
+    sizeOptions.innerHTML =
+      "";
+
+
+    if (sizes.length > 0) {
+
+      sizeSection.style.display =
+        "";
+
+
+      sizes.forEach(
+        (size, index) => {
+
+          const button =
+            document.createElement(
+              "button"
+            );
+
+
+          button.type =
+            "button";
+
+
+          button.className =
+            "size-option";
+
+
+          button.dataset.size =
+            size;
+
+
+          button.textContent =
+            size;
+
+
           if (
-            button.textContent.trim() ===
-            "M"
+            size === "M"
           ) {
 
             button.classList.add(
               "selected"
             );
 
+            selectedSize =
+              "M";
+
           }
+
+
+          else if (
+            index === 0 &&
+            !selectedSize
+          ) {
+
+            button.classList.add(
+              "selected"
+            );
+
+            selectedSize =
+              size;
+
+          }
+
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              document
+                .querySelectorAll(
+                  ".size-option"
+                )
+                .forEach(
+                  item =>
+                    item.classList.remove(
+                      "selected"
+                    )
+                );
+
+
+              button.classList.add(
+                "selected"
+              );
+
+
+              selectedSize =
+                size;
+
+            }
+          );
+
+
+          sizeOptions.appendChild(
+            button
+          );
 
         }
       );
+
+    } else {
+
+      sizeSection.style.display =
+        "none";
+
+
+      selectedSize = "";
+
+    }
 
 
     productDetailOverlay.classList.add(
@@ -1328,7 +1530,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =====================================================
-     CLOSE PRODUCT DETAIL
+     CLOSE DETAIL
   ===================================================== */
 
   function closeProductPage() {
@@ -1368,49 +1570,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =====================================================
-     SIZE SELECTION
-  ===================================================== */
-
-  document
-    .querySelectorAll(
-      ".size-option"
-    )
-    .forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            document
-              .querySelectorAll(
-                ".size-option"
-              )
-              .forEach(
-                item =>
-                  item.classList.remove(
-                    "selected"
-                  )
-              );
-
-
-            button.classList.add(
-              "selected"
-            );
-
-
-            selectedSize =
-              button.textContent.trim();
-
-          }
-        );
-
-      }
-    );
-
-
-  /* =====================================================
-     PRODUCT QUANTITY -
+     QUANTITY
   ===================================================== */
 
   quantityMinus.addEventListener(
@@ -1448,19 +1608,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =====================================================
-     ADD FROM PRODUCT DETAIL
+     ADD PRODUCT TO BAG
   ===================================================== */
 
   detailAddButton.addEventListener(
     "click",
     () => {
 
-      if (
-        !currentProduct
-      ) {
-
+      if (!currentProduct) {
         return;
-
       }
 
 
@@ -1475,21 +1631,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       const image =
-        currentProduct.querySelector(
-          ".product-image img"
+        currentProduct
+          .querySelector(
+            ".product-image img"
+          );
+
+
+      /*
+        Each combination of:
+        PRODUCT + COLOUR + SIZE
+
+        becomes its own bag item.
+      */
+
+      const existingProduct =
+        bag.find(item =>
+
+          item.name === name &&
+
+          item.colour ===
+            selectedColour &&
+
+          item.size ===
+            selectedSize
+
         );
 
 
-      addProductWithQuantity(
-        name,
-        price,
-        selectedSize,
-        productQuantity,
-        image
-          ? image.getAttribute("src")
-          : null
-      );
+      if (existingProduct) {
 
+        existingProduct.quantity +=
+          productQuantity;
+
+      } else {
+
+        bag.push({
+
+          name: name,
+
+          price: price,
+
+          colour:
+            selectedColour,
+
+          size:
+            selectedSize,
+
+          quantity:
+            productQuantity,
+
+          image:
+            image
+              ? image.getAttribute(
+                  "src"
+                )
+              : "images/logo.png"
+
+        });
+
+      }
+
+
+      saveBag();
+
+      updateBag();
 
       closeProductPage();
 
@@ -1500,7 +1705,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =====================================================
-     ESCAPE KEY
+     ESCAPE
   ===================================================== */
 
   document.addEventListener(
@@ -1521,21 +1726,17 @@ document.addEventListener("DOMContentLoaded", () => {
         "open"
       );
 
-
       searchOverlay.classList.remove(
         "open"
       );
-
 
       mobileMenu.classList.remove(
         "open"
       );
 
-
       productDetailOverlay.classList.remove(
         "open"
       );
-
 
       document.body.classList.remove(
         "no-scroll"
@@ -1546,7 +1747,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =====================================================
-     INITIALIZE STORE
+     LOGO → TOP
+  ===================================================== */
+
+  const logo =
+    document.querySelector(
+      ".logo"
+    );
+
+
+  if (logo) {
+
+    logo.addEventListener(
+      "click",
+      event => {
+
+        event.preventDefault();
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+  }
+
+
+  /* =====================================================
+     INITIALIZE
   ===================================================== */
 
   updateBag();
