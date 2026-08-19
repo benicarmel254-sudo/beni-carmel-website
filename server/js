@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
+const paymentStatuses = new Map();
 
 const IS_SANDBOX =
   process.env.MPESA_ENV !== "production";
