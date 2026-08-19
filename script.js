@@ -1286,18 +1286,57 @@ updateBag();
         );
 
 
-      for (
-        let i = 0;
-        i < productQuantity;
-        i++
-      ) {
+      addProductWithQuantity(
+  name,
+  price,
+  selectedSize,
+  productQuantity
+);
 
-        addToBag(
-          `${name} — ${selectedSize}`,
-          price
-        );
+      function addProductWithQuantity(
+  name,
+  price,
+  size,
+  quantity
+) {
 
-      }
+  const existingProduct =
+    bag.find(
+      item =>
+        item.name === name &&
+        item.size === size
+    );
+
+
+  if (existingProduct) {
+
+    existingProduct.quantity +=
+      quantity;
+
+  } else {
+
+    bag.push({
+
+      name: name,
+
+      price: Number(price),
+
+      size: size,
+
+      quantity: quantity
+
+    });
+
+  }
+
+
+  saveBag();
+
+  updateBag();
+
+  openBag();
+
+}
 
 
       closeProductPage();
