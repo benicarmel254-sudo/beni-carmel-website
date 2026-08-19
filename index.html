@@ -1219,64 +1219,101 @@
 
 
 <!-- =====================================================
-     BAG
+     SHOPPING BAG
 ===================================================== -->
 
-<div
-  class="bag-overlay"
-  id="bagOverlay"
->
+<div class="bag-overlay" id="bagOverlay">
 
-  <div class="bag">
-
+  <aside class="bag">
 
     <div class="bag-header">
 
-      <h2>
-        YOUR BAG
-      </h2>
+      <div>
+        <p class="eyebrow">BÉNI CARMEL</p>
+        <h2>YOUR BAG</h2>
+      </div>
 
-
-      <button id="closeBag">
+      <button id="closeBag" class="bag-close">
         ×
       </button>
 
     </div>
 
 
-    <div id="bagItems">
+    <!-- FREE SHIPPING MESSAGE -->
 
-      <p class="empty-bag">
-        YOUR BAG IS EMPTY.
-      </p>
+    <div class="shipping-message" id="shippingMessage">
+      ADD KES 10,000 TO YOUR BAG FOR FREE SHIPPING.
+    </div>
+
+
+    <!-- BAG PRODUCTS -->
+
+    <div class="bag-items" id="bagItems">
+
+      <div class="empty-bag">
+
+        <p>
+          YOUR BAG IS EMPTY.
+        </p>
+
+        <a href="#shop" id="emptyBagShop">
+          CONTINUE SHOPPING →
+        </a>
+
+      </div>
 
     </div>
 
 
+    <!-- BAG FOOTER -->
+
     <div class="bag-footer">
 
-      <div class="bag-total">
+      <div class="bag-summary">
 
-        <span>
-          TOTAL
-        </span>
+        <div>
+          <span>SUBTOTAL</span>
+          <strong id="bagSubtotal">
+            KES 0
+          </strong>
+        </div>
 
-        <strong id="bagTotal">
-          KES 0
-        </strong>
+        <div>
+          <span>SHIPPING</span>
+          <strong id="bagShipping">
+            KES 0
+          </strong>
+        </div>
+
+        <div class="bag-total">
+
+          <span>TOTAL</span>
+
+          <strong id="bagTotal">
+            KES 0
+          </strong>
+
+        </div>
 
       </div>
 
 
-      <button class="checkout-button">
-
-        CHECKOUT
-
+      <button
+        class="checkout-button"
+        id="checkoutButton"
+      >
+        PROCEED TO CHECKOUT
       </button>
+
+
+      <p class="checkout-note">
+        TAXES AND SHIPPING CALCULATED AT CHECKOUT
+      </p>
 
     </div>
 
-  </div>
+  </aside>
 
 </div>
 
