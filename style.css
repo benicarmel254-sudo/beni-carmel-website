@@ -1537,3 +1537,34 @@ textarea:focus-visible {
   }
 
 }
+
+/* =====================================================
+   COLOUR OPTIONS
+===================================================== */
+
+.colour-options {
+  margin-bottom: 30px;
+}
+
+.colour-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.colour-option {
+  padding: 11px 16px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+
+.colour-option:hover,
+.colour-option.selected {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
