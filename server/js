@@ -430,55 +430,158 @@ app.post(
   "/api/mpesa/callback",
   (req, res) => {
 
-    console.log(
-      "\n================================="
-    );
+    console.log("\n=================================");
+    console.log("M-PESA CALLBACK RECEIVED");
+    console.log("=================================");
 
     console.log(
-      "M-PESA CALLBACK RECEIVED"
+      JSON.stringify(req.body, null, 2)
     );
-
-    console.log(
-      "================================="
-    );
-
-    console.log(
-      JSON.stringify(
-        req.body,
-        null,
-        2
-      )
-    );
-
 
     const callback =
       req.body?.Body?.stkCallback;
 
+    /* ALWAYS ACKNOWLEDGE THE CALLBACK */
 
     if (!callback) {
 
       return res.json({
-
         ResultCode: 0,
-
-        ResultDesc:
-          "Callback received."
-
+        ResultDesc: "Callback received."
       });
 
     }
 
-
     const resultCode =
       callback.ResultCode;
-
 
     const resultDescription =
       callback.ResultDesc;
 
-
     const checkoutRequestID =
       callback.CheckoutRequestID;
+
+    const merchantRequestID =
+      callback.MerchantRequestID;
+
+    console.log(
+      "Merchant Request ID:",
+      merchantRequestID
+    );
+
+    console.log(
+      "Checkout Request ID:",
+      checkoutRequestID
+    );
+
+    console.log(
+      "Result Code:",
+      resultCode
+    );
+
+    console.log(
+      "Result Description:",
+      resultDescription
+    );
+
+
+    /* =================================================
+       SUCCESSFUL PAYMENT
+    ================================================= */
+
+    if (resultCode === 0) {
+
+      const metadata =
+        callback.CallbackMetadata?.Item || [];
+
+      let amount = null;
+      let mpesaReceiptNumber = null;
+      let phoneNumber = null;
+
+      metadata.forEach(item => {
+
+        if (item.Name === "Amount") {
+          amount = item.Value;
+        }
+
+        if (
+          item.Name ===
+          "MpesaReceiptNumber"
+        ) {
+          mpesaReceiptNumber =
+            item.Value;
+        }
+
+        if (
+          item.Name ===
+          "PhoneNumber"
+        ) {
+          phoneNumber =
+            item.Value;
+        }
+
+      });
+
+
+      console.log(
+        "PAYMENT SUCCESSFUL"
+      );
+
+      console.log(
+        "Amount:",
+        amount
+      );
+
+      console.log(
+        "M-Pesa Receipt:",
+        mpesaReceiptNumber
+      );
+
+      console.log(
+        "Phone:",
+        phoneNumber
+      );
+
+      /*
+        SAVE THE PAYMENT/ORDER
+        TO YOUR DATABASE HERE
+      */
+
+    }
+
+
+    /* =================================================
+       FAILED / CANCELLED PAYMENT
+    ================================================= */
+
+    else {
+
+      console.log(
+        "PAYMENT FAILED OR CANCELLED"
+      );
+
+      console.log(
+        resultDescription
+      );
+
+    }
+
+
+    /* =================================================
+       RESPOND TO M-PESA
+    ================================================= */
+
+    return res.json({
+
+      ResultCode: 0,
+
+      ResultDesc:
+        "Callback received successfully."
+
+    });
+
+  }
+);
 
 
     /* ---------------------------------------------
